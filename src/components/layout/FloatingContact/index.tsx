@@ -19,8 +19,13 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20, scale: 0.9 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 300, damping: 20 } }
+  hidden: { opacity: 0, y: 30, scale: 0.8 },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    transition: { type: "spring", stiffness: 100, damping: 15, mass: 1 } 
+  }
 };
 
 export function FloatingContact() {
@@ -35,40 +40,42 @@ export function FloatingContact() {
         initial="hidden"
         animate="show"
       >
-        {/* WhatsApp Button with Premium Live Animation */}
+        {/* WhatsApp Button — Senior Designer Edition */}
         <motion.div 
           variants={itemVariants} 
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center w-14 h-14"
         >
-          {/* Cascading Ripple Rings */}
-          {[0, 1, 2].map((i) => (
-            <motion.div
-              key={i}
-              className="absolute inset-0 bg-[#25D366] rounded-full z-0"
-              initial={{ scale: 1, opacity: 0 }}
-              animate={{ 
-                scale: [1, 2], 
-                opacity: [0.5, 0] 
-              }}
-              transition={{ 
-                duration: 2.5, 
-                repeat: Infinity, 
-                ease: [0.25, 0.1, 0.25, 1], 
-                delay: i * 0.8 
-              }}
-            />
-          ))}
-          
-          {/* Subtle Floating Button */}
+          {/* Flawless Single Ripple — No snapping, fades in and out smoothly */}
+          <motion.div
+            className="absolute inset-0 rounded-full border-2 border-[#25D366]"
+            animate={{ 
+              scale: [0.9, 1.5, 2.2], 
+              opacity: [0, 0.6, 0] 
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* Breathing ambient glow — perfectly synced with ripple */}
+          <motion.div 
+            className="absolute inset-[-6px] rounded-full bg-[#25D366]/20 blur-md"
+            animate={{ scale: [0.95, 1.1, 0.95], opacity: [0.2, 0.6, 0.2] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Button - Elevated, smooth, and grounded */}
           <motion.a 
             href="#" 
-            animate={{ y: [0, -6, 0] }}
+            animate={{ y: [0, -4, 0] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            whileHover={{ scale: 1.15, transition: { duration: 0.2 } }}
-            whileTap={{ scale: 0.95 }}
-            className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.6)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.8)] transition-shadow relative z-10"
+            whileHover={{ scale: 1.12, boxShadow: "0 8px 30px rgba(37,211,102,0.6)", transition: { type: "spring", stiffness: 400, damping: 12 } }}
+            whileTap={{ scale: 0.92 }}
+            className="absolute inset-0 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_4px_16px_rgba(37,211,102,0.4)] z-10"
           >
-            <WhatsAppIcon className="w-8 h-8 text-white" />
+            <WhatsAppIcon className="w-7 h-7 text-white" />
           </motion.a>
         </motion.div>
 
@@ -111,8 +118,6 @@ export function FloatingContact() {
           
 
 
-          {/* Playful Yellow Speech Tail */}
-          <div className="absolute -bottom-4 right-8 w-6 h-6 bg-[#FDE047] border-b-2 border-r-2 border-black rounded-br-md transform rotate-45 group-hover:translate-y-1 transition-transform"></div>
         </motion.button>
       </motion.div>
 

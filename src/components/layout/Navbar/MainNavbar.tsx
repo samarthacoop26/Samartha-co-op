@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Search, Menu, ChevronDown } from 'lucide-react';
+import { Menu, ChevronDown, ArrowRight } from 'lucide-react';
 
 export function MainNavbar() {
   return (
@@ -36,15 +36,15 @@ export function MainNavbar() {
       </nav>
 
       {/* Actions */}
-      <div className="flex items-center gap-6">
-        <div className="hidden sm:flex items-center gap-2 text-sm font-semibold text-white">
-          <button className="hover:text-amber-500 transition-colors">EN</button>
-          <span className="text-gray-500">AR</span>
-        </div>
-        <button className="text-white hover:text-amber-500 transition-colors">
-          <Search className="w-5 h-5" />
-        </button>
-        <button className="text-white hover:text-amber-500 transition-colors">
+      <div className="flex items-center gap-4 md:gap-6">
+        <Link 
+          href="/quote"
+          className="hidden md:flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-[#111] px-7 py-3 font-bold text-sm uppercase tracking-widest transition-all duration-300 ease-out transform hover:-translate-y-0.5 hover:shadow-[0_4px_20px_-4px_rgba(245,158,11,0.5)] group"
+        >
+          <span>Get a Quote</span>
+          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </Link>
+        <button className="text-white hover:text-amber-500 transition-colors lg:hidden" aria-label="Menu">
           <Menu className="w-6 h-6" />
         </button>
       </div>
