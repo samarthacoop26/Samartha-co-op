@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Phone, FileText, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -10,7 +10,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -18,7 +18,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.8 },
   show: { 
     opacity: 1, 
@@ -30,7 +30,6 @@ const itemVariants = {
 
 export function FloatingContact() {
   const [isPhoneHovered, setIsPhoneHovered] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -43,7 +42,7 @@ export function FloatingContact() {
         {/* WhatsApp Button — Senior Designer Edition */}
         <motion.div 
           variants={itemVariants} 
-          className="relative flex items-center justify-center w-14 h-14"
+          className="relative flex items-center justify-center w-12 h-12"
         >
           {/* Flawless Single Ripple — No snapping, fades in and out smoothly */}
           <motion.div
@@ -75,14 +74,14 @@ export function FloatingContact() {
             whileTap={{ scale: 0.92 }}
             className="absolute inset-0 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_4px_16px_rgba(37,211,102,0.4)] z-10"
           >
-            <WhatsAppIcon className="w-7 h-7 text-white" />
+            <WhatsAppIcon className="w-6 h-6 text-white" />
           </motion.a>
         </motion.div>
 
         {/* Phone Pill - Expanding Animation */}
         <motion.div 
           variants={itemVariants}
-          className="relative flex items-center justify-end cursor-pointer group h-14"
+          className="relative flex items-center justify-end cursor-pointer group h-12"
           onMouseEnter={() => setIsPhoneHovered(true)}
           onMouseLeave={() => setIsPhoneHovered(false)}
         >
@@ -90,110 +89,21 @@ export function FloatingContact() {
             href="tel:+917700093966" 
             initial={{ width: 0, opacity: 0 }}
             animate={{ 
-              width: isPhoneHovered ? 210 : 0,
+              width: isPhoneHovered ? 180 : 0,
               opacity: isPhoneHovered ? 1 : 0
             }}
             transition={{ type: "spring", stiffness: 350, damping: 25 }}
-            className="bg-[#FDE047] h-full flex items-center justify-start pl-6 rounded-l-full text-black font-semibold text-lg tracking-wide shadow-lg overflow-hidden whitespace-nowrap z-0 -mr-4"
+            className="bg-[#FDE047] h-full flex items-center justify-start pl-5 rounded-l-full text-black font-semibold text-base tracking-wide shadow-lg overflow-hidden whitespace-nowrap z-0 -mr-4"
           >
             +91 77000 93966
           </motion.a>
           
-          <div className="relative z-10 w-14 h-14 bg-[#818CF8] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
-            <Phone className="w-6 h-6 text-white fill-white" />
+          <div className="relative z-10 w-12 h-12 bg-[#818CF8] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 transition-transform duration-300">
+            <Phone className="w-5 h-5 text-white fill-white" />
           </div>
         </motion.div>
 
-        {/* Contact Us Box */}
-        <motion.button 
-          onClick={() => setIsModalOpen(true)}
-          variants={itemVariants}
-          whileHover={{ y: -4 }}
-          whileTap={{ scale: 0.98 }}
-          className="relative bg-[#FDE047] border-2 border-black rounded-xl py-3 px-16 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-all flex items-center justify-center mt-2 group z-10"
-        >
-
-
-          <span className="font-extrabold text-black text-xl tracking-tight whitespace-nowrap">Enquiry Now</span>
-          
-
-
-        </motion.button>
       </motion.div>
-
-      {/* Contact Modal */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
-            {/* Backdrop */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsModalOpen(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            />
-            
-            {/* Modal Content */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-black"
-            >
-              {/* Modal Header */}
-              <div className="bg-[#FDE047] p-6 border-b-2 border-black relative">
-                <button 
-                  onClick={() => setIsModalOpen(false)}
-                  className="absolute top-4 right-4 p-2 bg-white rounded-full border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none transition-all"
-                >
-                  <X className="w-4 h-4 text-black font-bold" />
-                </button>
-                <h2 className="text-2xl font-black text-black">Get In Touch</h2>
-                <p className="text-black/80 font-medium mt-1">We'll get back to you as soon as possible.</p>
-              </div>
-
-              {/* Modal Body / Form */}
-              <div className="p-6">
-                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setIsModalOpen(false); }}>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-1">Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-black focus:outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-1">Email</label>
-                    <input 
-                      type="email" 
-                      placeholder="john@example.com"
-                      className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-black focus:outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-gray-700 mb-1">Message</label>
-                    <textarea 
-                      rows={4}
-                      placeholder="How can we help you?"
-                      className="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-black focus:outline-none transition-colors resize-none"
-                    ></textarea>
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full bg-black text-white font-bold text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transition-shadow mt-2"
-                  >
-                    Send Message
-                  </motion.button>
-                </form>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
     </>
   );
 }

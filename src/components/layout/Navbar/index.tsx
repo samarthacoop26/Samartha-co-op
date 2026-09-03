@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import { motion, useScroll, useMotionValueEvent, type Transition } from 'framer-motion';
 import { Topbar } from './Topbar';
 import { MainNavbar } from './MainNavbar';
 
@@ -24,7 +24,7 @@ export function Navbar() {
   });
 
   // Buttery smooth ease transition for all animations
-  const smoothTransition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] };
+  const smoothTransition: Transition = { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const };
 
   return (
     <motion.header 
@@ -40,7 +40,7 @@ export function Navbar() {
     >
       {/* Wrapper to add the slanted bottom-left edge and handle layout transitions */}
       <motion.div 
-        className="w-full mx-auto shadow-2xl bg-[#222222] overflow-hidden"
+        className="w-full mx-auto shadow-2xl bg-[#0A1628] overflow-hidden"
         initial={false}
         animate={{
           maxWidth: isScrolled ? '100%' : '1280px', // 1280px is max-w-7xl

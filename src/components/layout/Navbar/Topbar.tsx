@@ -32,7 +32,7 @@ const YoutubeIcon = ({ className }: { className?: string }) => (
 export function Topbar() {
   return (
     <div className="flex items-center justify-between py-3 px-6 md:px-12 border-b border-gray-700/50 bg-[#222]">
-      <div className="flex items-center gap-6 text-sm text-gray-300">
+      <div className="flex items-center gap-6 text-xs text-gray-400">
         <div className="flex items-center gap-2 transition-colors hover:text-white cursor-pointer">
           <Mail className="w-4 h-4 text-amber-500" />
           <span>info@example.com</span>
