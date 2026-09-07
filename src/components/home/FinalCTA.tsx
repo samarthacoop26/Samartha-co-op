@@ -32,11 +32,11 @@ export function FinalCTA() {
           {/* Right Action Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0">
             <Link
-              href="/quote"
-              className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg transition-colors"
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg transition-colors group"
             >
               <span>REQUEST A QUOTE</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 

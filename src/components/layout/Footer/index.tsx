@@ -91,6 +91,7 @@ export function Footer() {
             </h4>
             <div className="space-y-2">
               <NavLink text="Home" href="/" />
+              <NavLink text="About Us" href="/about" />
               <NavLink text="FRP Products" href="/#products" />
               <NavLink text="Industries" href="/#industries" />
               <NavLink text="Why Us" href="/#why-us" />

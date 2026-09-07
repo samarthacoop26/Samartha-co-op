@@ -100,45 +100,29 @@ export function MainNavbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 6, scale: 0.98 }}
                   transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="absolute left-0 top-full pt-3 z-50 w-64"
+                  className="absolute left-0 top-full pt-2.5 z-50 min-w-[210px]"
                 >
-                  <div className="bg-[#0A1628] border border-slate-700/80 rounded-lg shadow-2xl overflow-hidden py-1.5 backdrop-blur-md">
+                  <div className="bg-[#0A1628]/95 border border-slate-700/80 rounded-lg shadow-2xl overflow-hidden p-1.5 backdrop-blur-md">
                     <Link
-                      href="/#why-us"
+                      href="/about"
                       onClick={() => setAboutDropdownOpen(false)}
-                      className="group flex items-start gap-3 px-4 py-3 hover:bg-slate-800/60 transition-colors"
+                      className="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-md hover:bg-slate-800/80 text-slate-200 hover:text-white transition-all duration-150"
                     >
-                      <div className="p-2 rounded bg-slate-800/80 border border-slate-700 text-[#FF6B00] group-hover:bg-[#FF6B00] group-hover:text-white transition-colors shrink-0 mt-0.5">
-                        <Building2 className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-slate-100 group-hover:text-[#FF6B00] transition-colors">
-                          Company Profile
-                        </div>
-                        <p className="text-[11px] text-slate-400 leading-tight mt-0.5">
-                          Engineering legacy & manufacturing expertise
-                        </p>
-                      </div>
+                      <Building2 className="w-4 h-4 text-[#FF6B00] group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-medium tracking-wide">
+                        Company Profile
+                      </span>
                     </Link>
-
-                    <div className="h-px bg-slate-700/50 mx-3 my-1" />
 
                     <Link
                       href="/certificates"
                       onClick={() => setAboutDropdownOpen(false)}
-                      className="group flex items-start gap-3 px-4 py-3 hover:bg-slate-800/60 transition-colors"
+                      className="group flex items-center gap-2.5 px-3.5 py-2.5 rounded-md hover:bg-slate-800/80 text-slate-200 hover:text-white transition-all duration-150"
                     >
-                      <div className="p-2 rounded bg-slate-800/80 border border-slate-700 text-[#FF6B00] group-hover:bg-[#FF6B00] group-hover:text-white transition-colors shrink-0 mt-0.5">
-                        <Award className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-sm font-semibold text-slate-100 group-hover:text-[#FF6B00] transition-colors">
-                          Certificates
-                        </div>
-                        <p className="text-[11px] text-slate-400 leading-tight mt-0.5">
-                          ISO 9001:2015 & industrial compliance
-                        </p>
-                      </div>
+                      <Award className="w-4 h-4 text-[#FF6B00] group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-medium tracking-wide">
+                        Certificates
+                      </span>
                     </Link>
                   </div>
                 </motion.div>
@@ -223,7 +207,7 @@ export function MainNavbar() {
             {mobileAboutOpen && (
               <div className="pl-4 mt-2 space-y-2.5 border-l-2 border-slate-700/80 my-1">
                 <Link
-                  href="/#why-us"
+                  href="/about"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-2.5 text-slate-300 hover:text-[#FF6B00] text-sm font-medium py-1 transition-colors"
                 >

@@ -6,6 +6,8 @@ import { CertificateHero } from "@/components/certificates/CertificateHero";
 import { CertificateCard } from "@/components/certificates/CertificateCard";
 import { CertificateModal } from "@/components/certificates/CertificateModal";
 
+import { FinalCTA } from "@/components/home/FinalCTA";
+
 export default function CertificatesPage() {
   const [activeModalCert, setActiveModalCert] = useState<CertificateItem | null>(null);
 
@@ -44,7 +46,10 @@ export default function CertificatesPage() {
         </div>
       </main>
 
-      {/* ═══ 3. MINIMAL LIGHTBOX MODAL ═══ */}
+      {/* ═══ 3. GLOBAL UNIFIED FINAL CTA ═══ */}
+      <FinalCTA />
+
+      {/* ═══ 4. MINIMAL LIGHTBOX MODAL ═══ */}
       <CertificateModal
         item={activeModalCert}
         onClose={() => setActiveModalCert(null)}
