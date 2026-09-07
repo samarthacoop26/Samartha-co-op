@@ -48,13 +48,13 @@ const certificationsData: Certification[] = [
     name: "MSME / Udyam Registered",
     shortCode: "UDYAM",
     description: "Government-Recognized Manufacturing Unit",
-    regNumber: "UDYAM-MH-12-0048291",
+    regNumber: "UDYAM-MH-33-0265642",
     issuingAuthority: "Ministry of Micro, Small and Medium Enterprises, Government of India",
     standard: "Micro, Small and Medium Enterprises Development Act",
     validThrough: "Permanent Registration",
     status: "Government Registered",
     scope:
-      "Manufacturing of other non-metallic mineral products and advanced composite polymer goods for heavy infrastructure and civic projects.",
+      "Manufacturing of PP & FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and advanced composite polymer goods.",
     sealType: "msme",
   },
   {
@@ -76,10 +76,10 @@ const certificationsData: Certification[] = [
     name: "GST Registered",
     shortCode: "GSTIN",
     description: "Fully Compliant Business Entity",
-    regNumber: "27AAAAA1234A1Z5",
+    regNumber: "27AEVFS9451A1ZK",
     issuingAuthority: "Goods and Services Tax Network (GSTN), Ministry of Finance, Govt of India",
     standard: "Central Goods and Services Tax Act",
-    validThrough: "Active Taxpayer Status",
+    validThrough: "Active Taxpayer Status (Reg: 18-Nov-2022)",
     status: "Active & Verified",
     scope:
       "Registered tax-compliant commercial entity authorized for inter-state and intra-state commercial supply to PSUs, defence organizations, and private contractors.",

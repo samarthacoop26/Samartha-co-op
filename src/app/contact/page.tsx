@@ -14,6 +14,7 @@ import {
   Loader2,
   Clock,
   ArrowRight,
+  ShieldCheck,
 } from "lucide-react";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
@@ -81,7 +82,7 @@ export default function ContactPage() {
             backgroundImage: "url('/images/contact-hero.jpg')",
           }}
         />
-        {/* Subtle Dark Industrial Overlay with High Image Visibility */}
+        {/* Subtle Dark Industrial Overlay */}
         <div className="absolute inset-0 bg-black/45" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A1628]/60 via-transparent to-[#0A1628]/70" />
 
@@ -94,14 +95,14 @@ export default function ContactPage() {
             </span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
-            Contact Us
+            Contact {CONTACT_CONFIG.companyName}
           </h1>
           <p className="mt-3 text-sm sm:text-base text-gray-100 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-            Connect with our engineering specialists for custom FRP fabrications, technical specifications, and formal project quotations.
+            Connect directly with our team for PP/FRP tanks, blowers, scrubbers, M.S. lining, piping projects, and turnkey execution.
           </p>
         </div>
 
-        {/* Slanted Breadcrumb Bar Pinned to Bottom-Right */}
+        {/* Slanted Breadcrumb Bar */}
         <div className="absolute bottom-0 right-0 z-20">
           <div
             className="bg-[#FF6B00] text-[#0A1628] font-bold text-xs sm:text-sm py-2.5 px-8 sm:px-12 flex items-center gap-2 shadow-lg"
@@ -129,11 +130,10 @@ export default function ContactPage() {
             <div className="lg:col-span-3 order-1">
               <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-8 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.06)]">
                 <h2 className="text-2xl font-bold text-[#0A1628] tracking-tight">
-                  Send an Inquiry
+                  Send an Inquiry / Request Quote
                 </h2>
                 <p className="text-sm text-gray-500 mt-1.5 mb-7">
-                  Fill out the form below and our team will respond with pricing
-                  and technical details within 24 hours.
+                  Fill out the form below and our leadership team will respond with competitive rates and engineering details within 24 hours.
                 </p>
 
                 {isSubmitted ? (
@@ -150,7 +150,7 @@ export default function ContactPage() {
                         {formData.fullName}
                       </span>
                       . We have received your message and our team will get in
-                      touch within 24 hours.
+                      touch promptly.
                     </p>
                     <button
                       type="button"
@@ -192,7 +192,7 @@ export default function ContactPage() {
                         label="Company / Organization"
                         required
                         type="text"
-                        placeholder="e.g. L&T Infrastructure"
+                        placeholder="e.g. Chemical Process Ltd."
                         value={formData.companyName}
                         error={errors.companyName}
                         onChange={handleInputChange}
@@ -206,7 +206,7 @@ export default function ContactPage() {
                         label="Phone Number"
                         required
                         type="tel"
-                        placeholder="+91 98765 43210"
+                        placeholder="+91 99308 62729"
                         value={formData.phone}
                         error={errors.phone}
                         onChange={handleInputChange}
@@ -229,7 +229,7 @@ export default function ContactPage() {
                         htmlFor="message"
                         className="block text-[13px] font-semibold text-gray-700 mb-1.5"
                       >
-                        Message / Requirement{" "}
+                        Message / Requirement / Project Scope{" "}
                         <span className="text-red-500">*</span>
                       </label>
                       <textarea
@@ -238,7 +238,7 @@ export default function ContactPage() {
                         rows={5}
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Describe your product requirements (e.g. FRP Gratings, Manhole Covers, Tanks), dimensions, quantities, or required schedule..."
+                        placeholder="Describe your requirements (e.g. PP FRP Tank, Scrubber Blower Erection, M.S. FRP Lining, HDPE Pipeline, Sintex Tank Welding, or Stockist Materials)..."
                         className={`w-full p-3.5 rounded-lg border ${
                           errors.message
                             ? "border-red-400 focus:ring-red-400"
@@ -272,7 +272,7 @@ export default function ContactPage() {
                         )}
                       </button>
                       <p className="text-xs text-gray-400 italic">
-                        We typically respond within 24 hours.
+                        Direct response from our leadership team.
                       </p>
                     </div>
                   </form>
@@ -281,94 +281,88 @@ export default function ContactPage() {
 
               {/* Trust Strip */}
               <div className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 text-[11px] text-gray-400 font-medium tracking-wide uppercase">
-                <span>ISO 9001:2015</span>
+                <span>GST: 27AEVFS9451A1ZK</span>
                 <span className="text-gray-200">•</span>
-                <span>MSME Registered</span>
+                <span>UDYAM-MH-33-0265642</span>
                 <span className="text-gray-200">•</span>
-                <span>GST Compliant</span>
+                <span>ESIC & PF Registered</span>
               </div>
             </div>
 
             {/* ── RIGHT: Contact Information (2/5) ── */}
-            <div className="lg:col-span-2 order-2 space-y-8">
-              {/* Sales & Technical */}
+            <div className="lg:col-span-2 order-2 space-y-7">
+              {/* Key Person 1: Vishal Gadade */}
               <div>
-                <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-4">
-                  Sales & Technical Inquiries
+                <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-3">
+                  Key Contact — Sales & Technical
                 </h3>
-                <div className="space-y-4">
+                <div className="bg-slate-50 border border-gray-200 rounded-lg p-4 space-y-3">
+                  <div className="font-bold text-base text-[#0A1628]">
+                    Vishal Gadade
+                  </div>
                   <ContactRow
-                    icon={<Phone size={17} className="text-[#FF6B00]" />}
-                    label="Phone"
+                    icon={<Phone size={16} className="text-[#FF6B00]" />}
+                    label="Mobile"
                     value={sales.phoneDisplay}
                     href={`tel:${sales.phone}`}
                   />
                   <ContactRow
                     icon={
-                      <MessageSquare size={17} className="text-green-600" />
+                      <MessageSquare size={16} className="text-green-600" />
                     }
-                    label="WhatsApp"
+                    label="WhatsApp Chat"
                     value={sales.whatsappDisplay}
-                    href={`https://wa.me/${sales.whatsapp}?text=${encodeURIComponent("Hi Samarth Team, I would like to inquire about FRP products.")}`}
+                    href={`https://wa.me/${sales.whatsapp}?text=${encodeURIComponent("Hi Vishal Sir, I would like to inquire about PP/FRP products.")}`}
                     external
                   />
+                </div>
+              </div>
+
+              {/* Key Person 2: Ramesh Gadade */}
+              <div>
+                <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-3">
+                  Key Contact — Commercial & Erection
+                </h3>
+                <div className="bg-slate-50 border border-gray-200 rounded-lg p-4 space-y-3">
+                  <div className="font-bold text-base text-[#0A1628]">
+                    Ramesh Gadade
+                  </div>
                   <ContactRow
-                    icon={<Mail size={17} className="text-[#FF6B00]" />}
-                    label="Email"
-                    value={sales.email}
-                    href={`mailto:${sales.email}`}
+                    icon={<Phone size={16} className="text-[#FF6B00]" />}
+                    label="Mobile"
+                    value={quotations.phoneDisplay}
+                    href={`tel:${quotations.phone}`}
+                  />
+                  <ContactRow
+                    icon={<Mail size={16} className="text-[#FF6B00]" />}
+                    label="Official Email"
+                    value={quotations.email}
+                    href={`mailto:${quotations.email}`}
                   />
                 </div>
               </div>
 
-              <div className="border-t border-gray-100" />
-
-              {/* Quotations */}
-              <div>
-                <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-4">
-                  Formal Quotations & Documentation
-                </h3>
-                <ContactRow
-                  icon={<Mail size={17} className="text-[#FF6B00]" />}
-                  label="Quotation Desk"
-                  value={quotations.email}
-                  href={`mailto:${quotations.email}`}
-                />
-              </div>
-
-              <div className="border-t border-gray-100" />
-
-              {/* GST & Hours */}
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
-                    <Building2 size={15} className="text-gray-500" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-0.5">
-                      GST Number
-                    </p>
-                    <p className="text-sm font-mono font-semibold text-[#0A1628]">
-                      {CONTACT_CONFIG.gstin}
-                    </p>
-                  </div>
+              {/* Statutory Registrations */}
+              <div className="bg-[#0A1628] text-white p-4 rounded-xl border border-gray-800 space-y-2 text-xs font-mono">
+                <div className="flex items-center gap-2 text-[#FF6B00] mb-2 font-sans font-bold">
+                  <ShieldCheck size={16} />
+                  <span>Statutory Registrations</span>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center shrink-0">
-                    <Clock size={15} className="text-gray-500" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 mb-0.5">
-                      Working Hours
-                    </p>
-                    <p className="text-sm font-semibold text-[#0A1628]">
-                      {CONTACT_CONFIG.workingHours.days}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {CONTACT_CONFIG.workingHours.timing}
-                    </p>
-                  </div>
+                <div className="flex justify-between border-b border-gray-800 pb-1">
+                  <span className="text-gray-400">GSTIN:</span>
+                  <span className="font-bold">{CONTACT_CONFIG.gstin}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-800 pb-1">
+                  <span className="text-gray-400">PAN:</span>
+                  <span className="font-bold">{CONTACT_CONFIG.pan}</span>
+                </div>
+                <div className="flex justify-between border-b border-gray-800 pb-1">
+                  <span className="text-gray-400">UDYAM:</span>
+                  <span className="font-bold">{CONTACT_CONFIG.msmeRegNo}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-400">ESIC / PF:</span>
+                  <span>{CONTACT_CONFIG.esicRegNo}</span>
                 </div>
               </div>
             </div>
@@ -377,14 +371,14 @@ export default function ContactPage() {
       </section>
 
       {/* ═══ 3. LOCATIONS — Full-Width 2-Card Row ═══ */}
-      <section className="pb-16 sm:pb-20">
+      <section className="pb-16 sm:pb-20 border-t border-gray-100 pt-12">
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-[#0A1628] tracking-tight">
-              Our Locations
+              Our Registered Office & Workshop Locations
             </h2>
             <p className="text-sm text-gray-500 mt-1">
-              Registered office & advanced manufacturing plant.
+              Registered corporate presence in Dombivli (W) & heavy engineering workshop in MIDC Taloja, Raigad.
             </p>
           </div>
 
@@ -516,11 +510,11 @@ function ContactRow({
 }) {
   return (
     <div className="flex items-center gap-3.5">
-      <div className="w-9 h-9 rounded-lg bg-gray-50 border border-gray-100 flex items-center justify-center shrink-0">
+      <div className="w-8 h-8 rounded-lg bg-white border border-gray-200 flex items-center justify-center shrink-0">
         {icon}
       </div>
       <div className="min-w-0">
-        <p className="text-[11px] font-bold uppercase tracking-wider text-gray-400 leading-none mb-1">
+        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 leading-none mb-1">
           {label}
         </p>
         <a
@@ -528,7 +522,7 @@ function ContactRow({
           {...(external
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
-          className="text-sm font-semibold text-[#0A1628] hover:text-[#FF6B00] transition-colors truncate block"
+          className="text-xs sm:text-sm font-semibold text-[#0A1628] hover:text-[#FF6B00] transition-colors truncate block"
         >
           {value}
         </a>

@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { CertificateItem } from "@/data/certificatesData";
+import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { X, Printer, Download, ShieldCheck } from "lucide-react";
 
 interface CertificateModalProps {
@@ -141,7 +142,7 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
         {/* ── Modal Footer ── */}
         <div className="bg-white border-t border-gray-200 px-6 py-3 flex items-center justify-between">
           <span className="text-xs text-gray-500 font-medium">
-            Samarth FRP Solutions
+            {CONTACT_CONFIG.companyName}
           </span>
           <button
             onClick={() => window.print()}

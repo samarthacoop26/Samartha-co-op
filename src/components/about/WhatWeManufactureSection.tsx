@@ -4,13 +4,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Grid,
-  Disc,
   Boxes,
-  DoorClosed,
-  Workflow,
-  ShieldAlert,
+  Wind,
+  Shield,
+  Pipette,
+  Layers,
   Wrench,
+  Workflow,
+  PackageCheck,
   ArrowRight,
   ShieldCheck,
   CheckCircle2,
@@ -28,67 +29,76 @@ interface ProductItem {
 
 const PRODUCTS: ProductItem[] = [
   {
-    id: "gratings",
+    id: "pp-frp-tanks-ducting",
     number: "01",
-    title: "FRP Gratings, Walkways & Industrial Platforms",
-    subtitle: "Moulded and pultruded anti-skid gratings for chemical, marine, and industrial platforms.",
-    icon: Grid,
-    image: "/images/about/gratings-walkway.jpg",
-    caption: "Heavy-duty moulded & pultruded walkway gratings with permanent quartz-grit anti-skid surface.",
-  },
-  {
-    id: "manhole-covers",
-    number: "02",
-    title: "FRP Manhole, Drain & Cable Trench Covers",
-    subtitle: "Heavy-duty load-rated covers conforming to BS EN 124 (A15 to F900) with zero scrap theft value.",
-    icon: Disc,
-    image: "/images/about/manhole-covers.jpg",
-    caption: "Proof-load tested manhole covers from 1.5T to 90T with zero scrap theft value.",
-  },
-  {
-    id: "chemical-tanks",
-    number: "03",
-    title: "FRP Tanks, Pipelines & Chemical Storage Systems",
-    subtitle: "Corrosion-proof chemical vessels, scrubbers, chimneys, and underground storage tanks.",
+    title: "PP FRP Tanks & PP FRP Ducting",
+    subtitle: "Custom-built chemical storage tanks, process vessels & acid-resistant ducting systems.",
     icon: Boxes,
     image: "/images/about/chemical-tanks.jpg",
-    caption: "Custom filament-wound & contact-moulded tanks for severe acids, alkalis, and effluent.",
+    caption: "Heavy-duty PP/FRP dual-laminate tanks engineered for aggressive acids, alkalis & effluent storage.",
   },
   {
-    id: "doors-enclosures",
-    number: "04",
-    title: "FRP Doors, Windows & Electrical Enclosures",
-    subtitle: "Weatherproof industrial doors and IP65/IP67 rated fire-retardant electrical junction boxes.",
-    icon: DoorClosed,
+    id: "blowers-scrubbers",
+    number: "02",
+    title: "PP/FRP Blowers, Scrubbers & Ducting Erection",
+    subtitle: "Turnkey fabrication & site erection of wet scrubbers, centrifugal blowers & exhaust chimneys.",
+    icon: Wind,
     image: "/images/about/plant-facility.jpg",
-    caption: "IP65/IP67 weatherproof electrical enclosures & chemical-resistant cleanroom doors.",
+    caption: "Industrial air pollution control systems including packed bed scrubbers and centrifugal blowers.",
   },
   {
-    id: "handrails-ladders",
-    number: "05",
-    title: "FRP Handrails, Ladders & Safety Structures",
-    subtitle: "Electrically insulated safety cage ladders, staircase treads, and OSHA-compliant guardrails.",
-    icon: Workflow,
+    id: "ms-frp-lining",
+    number: "03",
+    title: "M.S. FRP Lining & Protective Coating",
+    subtitle: "High-integrity chemical-resistant lining on mild steel tanks, concrete pits & floorings.",
+    icon: Shield,
     image: "/images/about/gratings-walkway.jpg",
-    caption: "OSHA-compliant safety cage ladders, guardrails, and staircase modules.",
+    caption: "Isophthalic & Vinyl Ester FRP lining providing permanent barrier protection against corrosion.",
   },
   {
-    id: "defence-railway",
-    number: "06",
-    title: "FRP Components for Defence & Railway Applications",
-    subtitle: "Specialized radar enclosures, modular shelters, train coach doors, and cable conduit channels.",
-    icon: ShieldAlert,
-    image: "/images/about/defence-railway.jpg",
-    caption: "Specialized composite fairings, radar-transparent structures, and railway coach interiors.",
-  },
-  {
-    id: "custom-fabrication",
-    number: "07",
-    title: "Custom FRP Fabrication to Client Specification",
-    subtitle: "Tailored composite manufacturing executed strictly from client CAD drawings and resin formulas.",
-    icon: Wrench,
+    id: "piping-projects-maintenance",
+    number: "04",
+    title: "PPRC, PPH, HDPE & PVDF Piping & Maintenance",
+    subtitle: "Industrial project work, pipeline fabrication, joint welding & preventive maintenance.",
+    icon: Pipette,
     image: "/images/about/utm-testing.jpg",
-    caption: "Precision manufacturing executed strictly from client 2D/3D CAD drawings.",
+    caption: "Corrosion-free thermoplastic piping installations for chemical transport and acid transfer lines.",
+  },
+  {
+    id: "etp-hdpe-pipelines",
+    number: "05",
+    title: "ETP HDPE Pipeline Project Work & Maintenance",
+    subtitle: "Effluent treatment plant piping, butt-fusion welding & industrial wastewater distribution.",
+    icon: Workflow,
+    image: "/images/about/chemical-tanks.jpg",
+    caption: "Turnkey HDPE piping for ETP/STP plants, industrial drainage & underground waste transfer.",
+  },
+  {
+    id: "sintex-tank-welding",
+    number: "06",
+    title: "HDPE Sintex Tank Welding & Nozzle Welding",
+    subtitle: "On-site extrusion welding, custom nozzle fitting, manhole modifications & leak repair.",
+    icon: Wrench,
+    image: "/images/about/plant-facility.jpg",
+    caption: "Specialized thermoplastic extrusion and hot-gas welding for industrial tanks & storage units.",
+  },
+  {
+    id: "tray-custom-fabrication",
+    number: "07",
+    title: "PP/FRP Tray Fabrication & Custom Drawings",
+    subtitle: "Bespoke composite & thermoplastic components executed strictly to client CAD drawings.",
+    icon: Layers,
+    image: "/images/about/defence-railway.jpg",
+    caption: "Custom PP/FRP trays, drip pans, hoods, covers & enclosures tailored to industrial requirements.",
+  },
+  {
+    id: "stockist-materials",
+    number: "08",
+    title: "Stockist: Thermoplastic Pipes, Valves, Sheets & FRP Raw Materials",
+    subtitle: "HDPE, PP, PVC, PPRC, PPH, PVDF fittings, sheets, ball valves (F/E & S/E) & raw resins.",
+    icon: PackageCheck,
+    image: "/images/about/manhole-covers.jpg",
+    caption: "Comprehensive stockist inventory ensuring immediate dispatch for project and maintenance requirements.",
   },
 ];
 
@@ -104,14 +114,14 @@ export function WhatWeManufactureSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/80 rounded mb-3">
             <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
             <span className="text-xs font-bold tracking-wider text-[#FF6B00] uppercase">
-              Our Expertise
+              Manufacturing & Stockist Scope
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A1628] tracking-tight">
-            What We Manufacture
+            What We Manufacture & Supply
           </h2>
           <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-            We specialize in the design, engineering, and manufacturing of high-performance composite products engineered to outlast traditional steel, concrete, and cast iron.
+            Leading manufacturer and stockist of high-performance PP & FRP equipment, piping systems, protective linings, and turnkey maintenance services.
           </p>
         </div>
 
@@ -142,7 +152,7 @@ export function WhatWeManufactureSection() {
                 {/* Bottom Overlay Info on Image */}
                 <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 text-white">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#FF8C33] block mb-1">
-                    Featured Capability
+                    Engineering Capability
                   </span>
                   <p className="text-xs sm:text-sm font-medium text-gray-200 leading-snug line-clamp-2">
                     {activeProduct.caption}
@@ -154,22 +164,22 @@ export function WhatWeManufactureSection() {
               <div className="p-4 sm:p-5 bg-slate-50/80 border-t border-gray-100 flex flex-col gap-3.5">
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#0A1628]">
                   <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>In-House UTM Load & Batch Tested Quality</span>
+                  <span>MIDC Taloja Workshop & On-Site Turnkey Erection</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-semibold text-[#0A1628]">
                   <CheckCircle2 className="w-4 h-4 text-[#FF6B00] shrink-0" />
-                  <span>Custom Tooling, Resins & CAD/CAM Specifications</span>
+                  <span>Custom Tooling, Resins & Client CAD Specifications</span>
                 </div>
 
                 <div className="pt-2 border-t border-gray-200/80 flex items-center justify-between">
                   <span className="text-[11px] text-gray-500 font-medium">
-                    Need technical engineering data?
+                    Send inquiry or drawing for quote:
                   </span>
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:text-[#0A1628] transition-colors"
                   >
-                    <span>Request Specs</span>
+                    <span>Request Rates</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

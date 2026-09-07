@@ -286,19 +286,19 @@ export const CERTIFICATES_DATA: CertificateItem[] = [
     issueDate: "12-Aug-2020",
     validity: "Permanent Government Registration",
     issuingBodyOrClient: "Ministry of Micro, Small and Medium Enterprises, Government of India",
-    registrationOrRefNo: "UDYAM-MH-12-0048291",
+    registrationOrRefNo: "UDYAM-MH-33-0265642",
     standardOrScope: "NIC Code 2220: Manufacture of Plastics & Fiber Reinforced Polymer Products",
     description:
-      "Official enterprise recognition by the Government of India for advanced manufacturing of composite polymer products for municipal, defence, and industrial infrastructure.",
+      "Official enterprise recognition by the Government of India for advanced manufacturing of PP & FRP composite polymer products, linings, tanks, and chemical equipment.",
     documentType: "Statutory Registration",
     documentContent: {
       header: "UDYAM REGISTRATION CERTIFICATE",
       subHeader: "MINISTRY OF MICRO, SMALL AND MEDIUM ENTERPRISES • GOVERNMENT OF INDIA",
       toWhom: "OFFICIAL GOVERNMENT REGISTRATION RECORD",
       bodyParagraphs: [
-        "This is to certify that SAMARTH FRP SOLUTIONS has been officially verified and registered under Udyam Registration No. UDYAM-MH-12-0048291.",
-        "Enterprise Type: Manufacturing Entity in High-Strength Fiber Reinforced Polymer Gratings, Enclosures, Manhole Assemblies, and Industrial Chemical Containment Systems.",
-        "The manufacturing facility conforms to National Industrial Classification (NIC 22209) and qualifies for preferential procurement across Central & State Government tenders.",
+        "This is to certify that SAMARTH CORPORATION has been officially verified and registered under Udyam Registration No. UDYAM-MH-33-0265642.",
+        "Enterprise Type: Manufacturing Entity in PP & FRP Tanks, Blowers, Scrubbers, M.S. FRP Lining, Thermoplastic Pipelines, and Custom Chemical Process Equipment.",
+        "The manufacturing workshop at MIDC Taloja, Raigad conforms to National Industrial Classification (NIC 22209) and qualifies for preferential procurement across Government and private industrial tenders.",
       ],
       signatory: {
         name: "National Portal Directorate",

@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Samarth FRP Solutions | Industrial & Municipal Composite Engineering",
-  description: "Manufacturer of high-grade Fiberglass Reinforced Plastic (FRP) manhole covers, gratings, and custom composite structures across India.",
+  title: "Samarth Corporation | PP & FRP Engineering Solutions, Lining & Turnkey Projects",
+  description: "Manufacturer & stockist of PP & FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution across India.",
 };
 
 export default function RootLayout({

@@ -6,9 +6,9 @@ import { AlertCircle, FileCheck, Layers, HelpCircle, ArrowRight } from "lucide-r
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Website & Product Disclaimer | Samarth FRP Solutions",
+  title: `Website & Product Disclaimer | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Official product, engineering, and website disclaimer for Samarth FRP Solutions and Samarth Composites Private Limited.",
+    `Official product, engineering, and website disclaimer for ${CONTACT_CONFIG.companyName} (${CONTACT_CONFIG.registeredName}).`,
 };
 
 export default function DisclaimerPage() {

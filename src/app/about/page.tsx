@@ -9,13 +9,13 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
 export const metadata: Metadata = {
-  title: `About Us | ${CONTACT_CONFIG.companyName} | ${CONTACT_CONFIG.registeredName}`,
+  title: `About Us | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Learn about Samarth FRP Solutions (Samarth Composites Private Limited) — India's trusted manufacturer of industrial FRP gratings, manhole covers, tanks, and custom composite solutions for infrastructure, defence, and railways.",
+    "Learn about Samarth Corporation — India's trusted manufacturer of PP & FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution for defence, chemical, and industrial sectors.",
   openGraph: {
     title: `About Us | ${CONTACT_CONFIG.companyName}`,
     description:
-      "Engineering high-performance FRP & composite solutions for India's municipal, defence, railway, and heavy industrial sectors.",
+      "Engineering high-performance PP & FRP solutions, industrial lining, and turnkey erection across India.",
     type: "website",
   },
 };

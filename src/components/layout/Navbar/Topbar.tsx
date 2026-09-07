@@ -26,26 +26,30 @@ export function Topbar() {
   return (
     <div className="flex items-center justify-between py-2.5 px-6 md:px-12 border-b border-gray-700/50 bg-[#222] text-xs text-gray-300">
       <div className="flex items-center gap-6">
-        <a href="mailto:info@samarthcomposites.com" className="flex items-center gap-2 transition-colors hover:text-[#FF6B00]">
+        <a href="mailto:samarthcorporation.mumbai@gmail.com" className="flex items-center gap-2 transition-colors hover:text-[#FF6B00]">
           <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span>info@samarthcomposites.com</span>
+          <span>samarthcorporation.mumbai@gmail.com</span>
         </a>
-        <a href="tel:+917700093966" className="flex items-center gap-2 transition-colors hover:text-[#FF6B00]">
+        <a href="tel:+919930862729" className="flex items-center gap-2 transition-colors hover:text-[#FF6B00]">
           <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span>+91 77000 93966</span>
+          <span>+91 99308 62729</span>
         </a>
         <div className="flex items-center gap-2 border-l border-gray-700 pl-6 hidden xl:flex text-gray-400">
           <Globe className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span><strong className="font-semibold text-gray-200">PLANT:</strong> Chakan MIDC Heavy Engineering Zone, Pune</span>
+          <span><strong className="font-semibold text-gray-200">WORKSHOP:</strong> MIDC Taloja, Dist. Raigad | <strong className="font-semibold text-gray-200">REGD:</strong> Dombivli (W), Thane</span>
         </div>
       </div>
       
       <div className="flex items-center gap-4 text-gray-400">
+        <span className="text-[11px] font-semibold tracking-wider text-gray-400 hidden sm:inline">
+          GST: 27AEVFS9451A1ZK
+        </span>
+        <span className="text-gray-600 hidden sm:inline">|</span>
         <Link
           href="/certificates"
           className="text-[11px] font-semibold tracking-wider text-gray-400 hover:text-[#FF6B00] transition-colors uppercase hidden sm:inline"
         >
-          ISO 9001:2015 Certified
+          UDYAM: MH-33-0265642
         </Link>
         <span className="text-gray-600 hidden sm:inline">|</span>
         <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors" aria-label="LinkedIn">

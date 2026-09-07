@@ -5,9 +5,9 @@ import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { ShieldCheck, Lock, FileCheck, Mail, Database, Cookie, CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Samarth FRP Solutions",
+  title: `Privacy Policy | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Privacy Policy for Samarth FRP Solutions and Samarth Composites Private Limited, detailing how we collect, store, and protect your data under Indian DPDP Act 2023.",
+    `Privacy Policy for ${CONTACT_CONFIG.companyName} (${CONTACT_CONFIG.registeredName}), detailing how we collect, store, and protect your data under Indian DPDP Act 2023.`,
 };
 
 export default function PrivacyPolicyPage() {

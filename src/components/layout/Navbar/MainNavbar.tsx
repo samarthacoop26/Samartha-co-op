@@ -54,8 +54,8 @@ export function MainNavbar() {
               Samarth
             </span>
           </div>
-          <span className="text-slate-400 text-[10px] uppercase tracking-[0.2em] ml-[36px] font-semibold mt-0.5">
-            FRP Solutions
+          <span className="text-slate-400 text-[10px] uppercase tracking-[0.18em] ml-[36px] font-semibold mt-0.5">
+            Corporation • PP &amp; FRP
           </span>
         </Link>
 

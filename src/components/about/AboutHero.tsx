@@ -29,7 +29,7 @@ export function AboutHero() {
           About {CONTACT_CONFIG.companyName}
         </h1>
         <p className="mt-3 text-sm sm:text-base text-gray-200 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-          Engineering high-performance composite solutions for India&apos;s infrastructure, defence, railway, and heavy industrial sectors.
+          Engineering high-performance PP &amp; FRP solutions, linings, chemical tanks, and turnkey projects for India&apos;s industrial and infrastructure sectors.
         </p>
       </div>
 

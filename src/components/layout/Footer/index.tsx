@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Phone, Mail, ChevronRight, MapPin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, ChevronRight, MapPin, ArrowUp, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_CONFIG } from '@/data/contactConfig';
 
@@ -51,7 +51,7 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const { sales, quotations } = CONTACT_CONFIG.departments;
+  const { sales } = CONTACT_CONFIG.departments;
 
   return (
     <footer className="relative bg-[#0A1628] text-white border-t border-gray-800">
@@ -66,15 +66,15 @@ export function Footer() {
                   <path d="M12 0L0 28H6L12 14L18 28H24L12 0Z" fill="#FF6B00" />
                   <path d="M6 28H10L14 18H10L6 28Z" fill="white" />
                 </svg>
-                <span className="text-white text-xl font-bold tracking-tight">Samarth FRP Solutions</span>
+                <span className="text-white text-xl font-bold tracking-tight">Samarth Corporation</span>
               </div>
               <span className="text-gray-400 text-[10px] uppercase tracking-[0.18em] font-semibold mt-1">
-                Industrial & Municipal Composites
+                PP & FRP Engineering Solutions
               </span>
             </Link>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Specialized engineering, manufacturing, and pan-India supply of high-performance FRP products for infrastructure, defence, railway, and industrial sectors.
+              Specialized engineering, manufacturing, site erection, and turnkey maintenance of high-performance PP & FRP systems, tanks, scrubbers, blowers, and chemical pipelines.
             </p>
 
             <div className="flex gap-3 pt-1">
@@ -92,7 +92,7 @@ export function Footer() {
             <div className="space-y-2">
               <NavLink text="Home" href="/" />
               <NavLink text="About Us" href="/about" />
-              <NavLink text="FRP Products" href="/#products" />
+              <NavLink text="Products & MFG" href="/#products" />
               <NavLink text="Industries" href="/#industries" />
               <NavLink text="Why Us" href="/#why-us" />
               <NavLink text="Certificates" href="/certificates" />
@@ -100,55 +100,80 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 3: Legal & Compliance */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Legal & Policy
+          {/* Column 3: Legal & Statutory Registrations */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
+              <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
+              <span>Statutory Compliance</span>
             </h4>
-            <div className="space-y-2">
-              <NavLink text="Privacy Policy" href="/privacy-policy" />
-              <NavLink text="Terms of Use" href="/terms-and-conditions" />
-              <NavLink text="Disclaimer" href="/disclaimer" />
-            </div>
-            <div className="pt-2 text-[11px] text-gray-400 space-y-1">
-              <p className="font-semibold text-gray-300">GST: {CONTACT_CONFIG.gstin}</p>
-              <p className="text-gray-400">MSME: {CONTACT_CONFIG.msmeRegNo}</p>
+            <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3 space-y-2 text-xs text-gray-300 font-mono">
+              <div className="flex justify-between border-b border-slate-800 pb-1">
+                <span className="text-gray-400">GSTIN:</span>
+                <span className="font-bold text-white">{CONTACT_CONFIG.gstin}</span>
+              </div>
+              <div className="flex justify-between border-b border-slate-800 pb-1">
+                <span className="text-gray-400">PAN:</span>
+                <span className="font-bold text-white">{CONTACT_CONFIG.pan}</span>
+              </div>
+              <div className="flex justify-between border-b border-slate-800 pb-1">
+                <span className="text-gray-400">UDYAM:</span>
+                <span className="font-bold text-white">{CONTACT_CONFIG.msmeRegNo}</span>
+              </div>
+              <div className="flex justify-between border-b border-slate-800 pb-1">
+                <span className="text-gray-400">ESIC Reg:</span>
+                <span className="text-gray-300">{CONTACT_CONFIG.esicRegNo}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">PF Reg:</span>
+                <span className="text-gray-300">{CONTACT_CONFIG.pfRegNo}</span>
+              </div>
             </div>
           </div>
 
-          {/* Column 4: Contact & Sales */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Column 4: Contact & Key Persons */}
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Contact & Inquiries
+              Contact & Locations
             </h4>
             
             <div className="space-y-3.5 text-sm text-gray-300">
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-[#FF6B00] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-semibold text-white block">Works & Head Office:</span>
-                  <span className="text-gray-400 text-xs">
-                    {CONTACT_CONFIG.locations[0].addressLine1}, {CONTACT_CONFIG.locations[0].cityStateZip}
+                  <span className="font-semibold text-white block text-xs">Workshop:</span>
+                  <span className="text-gray-400 text-xs leading-relaxed block">
+                    {CONTACT_CONFIG.locations[1].addressLine1}, {CONTACT_CONFIG.locations[1].addressLine2}, {CONTACT_CONFIG.locations[1].cityStateZip}
+                  </span>
+                  <span className="font-semibold text-white block text-xs mt-2">Regd. Office:</span>
+                  <span className="text-gray-400 text-xs leading-relaxed block">
+                    {CONTACT_CONFIG.locations[0].addressLine1}, {CONTACT_CONFIG.locations[0].addressLine2}, {CONTACT_CONFIG.locations[0].cityStateZip}
                   </span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 pt-1 border-t border-slate-800">
                 <Phone size={18} className="text-[#FF6B00] shrink-0" />
                 <div>
-                  <span className="text-xs text-gray-400 block">Sales & Tech:</span>
-                  <a href={`tel:${sales.phone}`} className="font-medium text-white hover:text-[#FF6B00] transition-colors">
-                    {sales.phoneDisplay}
-                  </a>
+                  <span className="text-xs text-gray-400 block">Key Contacts:</span>
+                  <div className="text-xs text-white">
+                    <a href="tel:+919930862729" className="hover:text-[#FF6B00] transition-colors font-medium">
+                      Vishal Gadade: +91 99308 62729
+                    </a>
+                  </div>
+                  <div className="text-xs text-white mt-0.5">
+                    <a href="tel:+919930240239" className="hover:text-[#FF6B00] transition-colors font-medium">
+                      Ramesh Gadade: +91 99302 40239
+                    </a>
+                  </div>
                 </div>
               </div>
 
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-[#FF6B00] shrink-0" />
                 <div>
-                  <span className="text-xs text-gray-400 block">Formal Quotes:</span>
-                  <a href={`mailto:${quotations.email}`} className="font-medium text-white hover:text-[#FF6B00] transition-colors">
-                    {quotations.email}
+                  <span className="text-xs text-gray-400 block">Email:</span>
+                  <a href={`mailto:${sales.email}`} className="font-medium text-white hover:text-[#FF6B00] transition-colors text-xs">
+                    {sales.email}
                   </a>
                 </div>
               </div>

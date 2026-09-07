@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Compass } from "lucide-react";
+import { Compass, Eye } from "lucide-react";
 
 export function MissionSection() {
   return (
@@ -13,14 +13,14 @@ export function MissionSection() {
 
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 border border-white/15 rounded-full mb-5 backdrop-blur-sm">
-              <Compass className="w-3.5 h-3.5 text-[#FF6B00]" />
+              <Eye className="w-3.5 h-3.5 text-[#FF6B00]" />
               <span className="text-[11px] font-bold tracking-widest text-white uppercase">
-                Our Mission
+                Our Vision
               </span>
             </div>
 
             <blockquote className="text-lg sm:text-xl lg:text-2xl font-semibold text-white leading-relaxed tracking-tight">
-              &ldquo;To build long-term partnerships by delivering reliable products, technical excellence, on-time execution, and cost-effective solutions that contribute to safer, stronger, and more sustainable infrastructure.&rdquo;
+              &ldquo;To redefine industrial excellence by becoming the preferred choice for PP & FRP Engineering Solutions, driven by innovation, uncompromising quality, advanced engineering, and a commitment to delivering world-class products, maintenance services, and turnkey projects.&rdquo;
             </blockquote>
           </div>
         </div>

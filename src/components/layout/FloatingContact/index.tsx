@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { X, Send, Check, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
-const WHATSAPP_PHONE = "917700093966";
+const WHATSAPP_PHONE = "919930862729";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -138,7 +138,7 @@ export function FloatingContact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sm leading-tight text-white">
-                      Samarth Composites
+                      Samarth Corporation
                     </h4>
                     <p className="text-[12px] text-emerald-100 flex items-center gap-1.5 mt-0.5 font-normal">
                       <span>Direct WhatsApp Support</span>

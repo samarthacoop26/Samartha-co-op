@@ -7,27 +7,27 @@ import { Award, Building2, CheckCircle2, ShieldCheck } from "lucide-react";
 export function CompanyIntroSection() {
   const stats = [
     {
-      value: "25+",
-      label: "Years of Experience",
-      subtext: "Engineering composite innovation",
+      value: "PP & FRP",
+      label: "Engineering Specialists",
+      subtext: "Tanks, blowers, scrubbers & lining",
       icon: Award,
     },
     {
-      value: "500+",
-      label: "Projects Completed",
-      subtext: "Supplied across India",
+      value: "Turnkey",
+      label: "Erection & Projects",
+      subtext: "ETP pipelines & maintenance",
       icon: CheckCircle2,
     },
     {
-      value: "45k+",
-      label: "Sq. Ft. Plant",
-      subtext: "Chakan manufacturing works",
+      value: "MIDC",
+      label: "Taloja Works",
+      subtext: "Dedicated fabrication facility",
       icon: Building2,
     },
     {
-      value: "60-Ton",
-      label: "Peak Load Tested",
-      subtext: "BS EN 124 UTM verified",
+      value: "100%",
+      label: "Compliance & Safety",
+      subtext: "GST, UDYAM, ESIC & PF registered",
       icon: ShieldCheck,
     },
   ];
@@ -40,11 +40,11 @@ export function CompanyIntroSection() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/80 rounded mb-3">
             <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
             <span className="text-xs font-bold tracking-wider text-[#FF6B00] uppercase">
-              Company Introduction
+              About Us
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A1628] tracking-tight leading-tight">
-            Engineering Composite Solutions for India&apos;s Most Demanding Sectors
+            Trusted PP & FRP Engineering Solutions, Manufacturing & Turnkey Projects
           </h2>
         </div>
 
@@ -56,17 +56,21 @@ export function CompanyIntroSection() {
               <strong className="text-[#0A1628] font-bold">
                 {CONTACT_CONFIG.companyName}
               </strong>{" "}
-              ({CONTACT_CONFIG.registeredName}) is a trusted engineering and industrial
-              solutions provider specializing in the manufacturing, supply, installation, and
-              maintenance of high-performance FRP (Fiberglass Reinforced Plastic) products for
-              industrial, infrastructure, government, defence, railway, municipal, and commercial sectors.
+              is a trusted PP & FRP Engineering Solutions company specializing in the manufacturing,
+              supply, installation, industrial maintenance, and turnkey project execution of
+              high-performance PP and FRP systems.
             </p>
 
             <p>
-              We deliver durable, corrosion-resistant, and maintenance-free composite solutions
-              engineered to perform in the most demanding environments — backed by a team that
-              combines engineering expertise with advanced manufacturing capability to meet
-              national and international quality standards.
+              Our expertise extends across the{" "}
+              <strong className="text-[#0A1628] font-semibold">
+                Defence, Railways, Chemical, Pharmaceutical, Power, Water Treatment, Infrastructure, and Government sectors
+              </strong>
+              , delivering innovative, corrosion-resistant, and reliable solutions with uncompromising quality, safety, and on-time execution.
+            </p>
+
+            <p className="text-sm text-gray-600">
+              As both a leading manufacturer and stockist of thermoplastic and composite systems, we provide comprehensive end-to-end support ranging from custom drawing fabrication to site erection and plant maintenance.
             </p>
           </div>
 
@@ -80,7 +84,7 @@ export function CompanyIntroSection() {
                   className="bg-[#FAFAFC] border border-gray-200 rounded-lg p-4 flex flex-col justify-between hover:border-[#FF6B00]/60 transition-colors duration-200"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl sm:text-3xl font-extrabold text-[#0A1628] tracking-tight">
+                    <span className="text-xl sm:text-2xl font-extrabold text-[#0A1628] tracking-tight">
                       {stat.value}
                     </span>
                     <Icon className="w-4 h-4 text-[#FF6B00]" />

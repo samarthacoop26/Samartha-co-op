@@ -5,9 +5,9 @@ import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { CheckCircle2, AlertTriangle, Scale, ShieldAlert } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Samarth FRP Solutions",
+  title: `Terms & Conditions | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Terms and Conditions governing the use of Samarth FRP Solutions website, quotations, BOQ submissions, and composite engineering product inquiries.",
+    `Terms and Conditions governing the use of ${CONTACT_CONFIG.companyName} website, quotations, BOQ submissions, and composite engineering product inquiries.`,
 };
 
 export default function TermsAndConditionsPage() {
