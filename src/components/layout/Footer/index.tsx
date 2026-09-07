@@ -23,7 +23,8 @@ const FacebookIcon = () => (
 
 const TwitterIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
   </svg>
 );
 
@@ -53,7 +54,7 @@ export function Footer() {
   const { sales, quotations } = CONTACT_CONFIG.departments;
 
   return (
-    <footer className="relative bg-[#0A1628] text-white border-t border-gray-800 mt-20">
+    <footer className="relative bg-[#0A1628] text-white border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-gray-800">
           
@@ -84,22 +85,38 @@ export function Footer() {
           </div>
           
           {/* Column 2: Quick Links */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Navigation
             </h4>
             <div className="space-y-2">
               <NavLink text="Home" href="/" />
               <NavLink text="FRP Products" href="/#products" />
-              <NavLink text="Industries Served" href="/#industries" />
-              <NavLink text="Why Choose Us" href="/#why-us" />
-              <NavLink text="Certifications & Testing" href="/#certifications" />
+              <NavLink text="Industries" href="/#industries" />
+              <NavLink text="Why Us" href="/#why-us" />
+              <NavLink text="Certificates" href="/#certifications" />
               <NavLink text="Contact Us" href="/contact" />
             </div>
           </div>
 
-          {/* Column 3: Contact & Sales */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Column 3: Legal & Compliance */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
+              Legal & Policy
+            </h4>
+            <div className="space-y-2">
+              <NavLink text="Privacy Policy" href="/privacy-policy" />
+              <NavLink text="Terms of Use" href="/terms-and-conditions" />
+              <NavLink text="Disclaimer" href="/disclaimer" />
+            </div>
+            <div className="pt-2 text-[11px] text-gray-400 space-y-1">
+              <p className="font-semibold text-gray-300">GST: {CONTACT_CONFIG.gstin}</p>
+              <p className="text-gray-400">MSME: {CONTACT_CONFIG.msmeRegNo}</p>
+            </div>
+          </div>
+
+          {/* Column 4: Contact & Sales */}
+          <div className="lg:col-span-4 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Contact & Inquiries
             </h4>
@@ -140,10 +157,27 @@ export function Footer() {
         </div>
         
         {/* Footer Bottom */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>
-            © {new Date().getFullYear()} {CONTACT_CONFIG.companyName}. All rights reserved. GST: {CONTACT_CONFIG.gstin}
-          </p>
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p>
+              © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
+            </p>
+          </div>
+
+          {/* Legal Quick Links */}
+          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">
+              Terms & Conditions
+            </Link>
+            <span className="text-gray-700">•</span>
+            <Link href="/disclaimer" className="hover:text-white transition-colors">
+              Disclaimer
+            </Link>
+          </div>
           
           <button 
             onClick={scrollToTop}

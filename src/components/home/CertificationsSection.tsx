@@ -415,7 +415,7 @@ export function CertificationsSection() {
   }, []);
 
   return (
-    <section className="relative w-full bg-[#FAFAFC] py-16 sm:py-20 lg:py-24 border-b border-gray-200">
+    <section id="certifications" className="relative w-full bg-[#FAFAFC] py-16 sm:py-20 lg:py-24 border-b border-gray-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Formal Header: Eyebrow, H2, Subheading */}
