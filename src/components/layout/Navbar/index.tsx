@@ -11,8 +11,6 @@ export function Navbar() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
-    
     // Update scrolled state based on distance from top
     if (latest > 40) {
       setIsScrolled(true);

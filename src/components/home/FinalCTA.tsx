@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export function FinalCTA() {
   return (
@@ -22,7 +22,7 @@ export function FinalCTA() {
           {/* Left Content */}
           <div className="max-w-2xl">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
-              Looking for a Reliable FRP / GRP Solution for Your Project?
+              Looking for a Reliable FRP Solution for Your Project?
             </h2>
             <p className="mt-4 text-base sm:text-lg text-gray-300 leading-relaxed">
               Get in touch with our technical team today for custom quotes, material specifications, and expert manufacturing support across India.
@@ -38,14 +38,6 @@ export function FinalCTA() {
               <span>REQUEST A QUOTE</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
-
-            <a
-              href="tel:+917700093966"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm sm:text-base px-6 py-4 rounded transition-colors"
-            >
-              <Phone className="w-4 h-4 text-[#FF6B00]" />
-              <span>+91 77000 93966</span>
-            </a>
           </div>
 
         </div>

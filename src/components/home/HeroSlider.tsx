@@ -15,15 +15,15 @@ const slides = [
   },
   {
     id: 2,
-    title: "Engineering Composite Solutions for the World's Most Demanding Environments.",
-    description: "Manufacturing, installing, and maintaining high-performance FRP products for Industry, Defence, Infrastructure & Railways.",
+    title: "Corrosion-Free Infrastructure. Engineered to Last 30+ Years.",
+    description: "From municipal drainage systems to defence-grade enclosures — our FRP products eliminate rust, reduce maintenance costs, and outlast conventional materials.",
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     cta1: { text: "GET A CUSTOM QUOTE \u2192", link: "/quote" },
   },
   {
     id: 3,
-    title: "Engineering Composite Solutions for the World's Most Demanding Environments.",
-    description: "Manufacturing, installing, and maintaining high-performance FRP products for Industry, Defence, Infrastructure & Railways.",
+    title: "Trusted by Government, Defence & Railways Across India.",
+    description: "ISO-certified, BIS-compliant manufacturing with pan-India delivery — serving Smart City projects, Indian Railways, and heavy industrial plants.",
     image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     cta1: { text: "GET A CUSTOM QUOTE \u2192", link: "/quote" },
   }
@@ -174,8 +174,8 @@ export function HeroSlider() {
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <CheckCircle className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl">ISO 9001:2015</h3>
-              <p className="text-gray-400 text-sm mt-1">Certified</p>
+              <h3 className="text-white font-bold text-lg md:text-xl">Govt. Approved</h3>
+              <p className="text-gray-400 text-sm mt-1">Vendor Listed</p>
             </div>
             
             {/* Trust Item 3 */}

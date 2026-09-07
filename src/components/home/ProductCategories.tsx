@@ -82,7 +82,7 @@ const cardVariants: Variants = {
 
 export function ProductCategories() {
   return (
-    <section className="relative w-full bg-[#FAFAFC] py-20 md:py-24 lg:py-32 border-b border-gray-200/80">
+    <section className="relative w-full bg-white pt-20 md:pt-24 lg:pt-28 pb-12 md:pb-14">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading & Subheading — Senior UI Typography & Spacing */}
         <div className="max-w-3xl mb-12 sm:mb-16 lg:mb-20">
@@ -106,7 +106,7 @@ export function ProductCategories() {
             <motion.div
               key={product.id}
               variants={cardVariants}
-              className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-200/90 hover:border-gray-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(10,22,40,0.12)] transition-all duration-500 hover:-translate-y-1.5"
+              className="group flex flex-col bg-white rounded overflow-hidden border border-gray-200/90 hover:border-gray-300 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(10,22,40,0.12)] transition-all duration-500 hover:-translate-y-1.5"
             >
               <Link href={product.link} className="flex flex-col h-full">
                 {/* Photo Container */}
