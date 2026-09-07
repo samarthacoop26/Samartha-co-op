@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -8,14 +8,8 @@ import {
   FileText,
   AlertCircle,
   Clock,
-  Printer,
-  Share2,
-  Check,
-  ChevronRight,
   ArrowRight,
   Building2,
-  Phone,
-  Mail,
   HelpCircle,
 } from "lucide-react";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
@@ -45,22 +39,62 @@ export function LegalPageShell({
   sections,
 }: LegalPageShellProps) {
   const pathname = usePathname();
-  const [copied, setCopied] = useState(false);
   const [activeSection, setActiveSection] = useState<string>(
     sections[0]?.id || ""
   );
 
-  const handleCopyLink = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
+  // Synchronize active section with scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      // Check if at the bottom of the page
+      const isAtBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80;
 
-  const handlePrint = () => {
-    if (typeof window !== "undefined") {
-      window.print();
+      if (isAtBottom && sections.length > 0) {
+        setActiveSection(sections[sections.length - 1].id);
+        return;
+      }
+
+      // Find current active section based on scroll offset
+      const scrollOffset = window.scrollY + 130;
+      let currentId = sections[0]?.id || "";
+
+      for (let i = 0; i < sections.length; i++) {
+        const el = document.getElementById(sections[i].id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY;
+          if (scrollOffset >= top) {
+            currentId = sections[i].id;
+          }
+        }
+      }
+
+      setActiveSection(currentId);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections]);
+
+  // Smooth scroll handler for TOC clicks
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 110;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setActiveSection(id);
+      window.history.replaceState(null, "", `#${id}`);
     }
   };
 
@@ -68,20 +102,20 @@ export function LegalPageShell({
     {
       label: "Privacy Policy",
       href: "/privacy-policy",
-      icon: <ShieldCheck size={16} />,
+      icon: <ShieldCheck size={15} />,
       isActive: pathname === "/privacy-policy",
     },
     {
       label: "Terms & Conditions",
       href: "/terms-and-conditions",
-      icon: <FileText size={16} />,
+      icon: <FileText size={15} />,
       isActive:
         pathname === "/terms-and-conditions" || pathname === "/terms",
     },
     {
       label: "Disclaimer",
       href: "/disclaimer",
-      icon: <AlertCircle size={16} />,
+      icon: <AlertCircle size={15} />,
       isActive: pathname === "/disclaimer",
     },
   ];
@@ -92,7 +126,7 @@ export function LegalPageShell({
       <section className="relative w-full bg-[#0A1628] overflow-hidden pt-36 pb-16 sm:pt-40 sm:pb-20 border-b border-gray-800 print:hidden">
         {/* Subtle grid pattern background */}
         <div
-          className="absolute inset-0 opacity-[0.07]"
+          className="absolute inset-0 opacity-[0.06]"
           style={{
             backgroundImage: `radial-gradient(#FF6B00 1px, transparent 1px)`,
             backgroundSize: "24px 24px",
@@ -151,18 +185,18 @@ export function LegalPageShell({
         </div>
       </section>
 
-      {/* ═══ 2. QUICK POLICY SWITCHER TABS ═══ */}
-      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm print:hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-between overflow-x-auto py-2.5">
-          <nav className="flex items-center gap-2 sm:gap-3 shrink-0">
+      {/* ═══ 2. MINIMALIST POLICY SWITCHER TABS ═══ */}
+      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-gray-200/90 shadow-sm print:hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-center overflow-x-auto py-2.5">
+          <nav className="flex items-center justify-center gap-2 sm:gap-3 shrink-0">
             {legalNavTabs.map((tab) => (
               <Link
                 key={tab.href}
                 href={tab.href}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-200 ${
                   tab.isActive
                     ? "bg-[#0A1628] text-white shadow-sm"
-                    : "text-gray-600 hover:text-[#0A1628] hover:bg-gray-100"
+                    : "text-gray-600 hover:text-[#0A1628] hover:bg-gray-100/80"
                 }`}
               >
                 <span className={tab.isActive ? "text-[#FF6B00]" : "text-gray-400"}>
@@ -172,38 +206,6 @@ export function LegalPageShell({
               </Link>
             ))}
           </nav>
-
-          {/* Share & Print Buttons */}
-          <div className="hidden md:flex items-center gap-2 shrink-0 pl-4 border-l border-gray-200">
-            <button
-              onClick={handleCopyLink}
-              type="button"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-gray-600 hover:text-[#0A1628] hover:bg-gray-100 border border-gray-200 transition-colors cursor-pointer"
-              title="Copy page link"
-            >
-              {copied ? (
-                <>
-                  <Check size={14} className="text-green-600" />
-                  <span className="text-green-600 font-bold">Copied!</span>
-                </>
-              ) : (
-                <>
-                  <Share2 size={13} className="text-gray-500" />
-                  <span>Share</span>
-                </>
-              )}
-            </button>
-
-            <button
-              onClick={handlePrint}
-              type="button"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold text-gray-600 hover:text-[#0A1628] hover:bg-gray-100 border border-gray-200 transition-colors cursor-pointer"
-              title="Print document"
-            >
-              <Printer size={13} className="text-gray-500" />
-              <span>Print</span>
-            </button>
-          </div>
         </div>
       </div>
 
@@ -211,42 +213,49 @@ export function LegalPageShell({
       <main className="max-w-5xl mx-auto px-4 sm:px-8 py-10 sm:py-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* ── LEFT: Sticky Table of Contents (Desktop) ── */}
+          {/* ── LEFT: Sticky Synchronized Table of Contents (Desktop) ── */}
           <aside className="hidden lg:block lg:col-span-4 sticky top-20 print:hidden space-y-6">
-            <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.05)]">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4 flex items-center gap-2">
+            <div className="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.04)]">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3.5 flex items-center gap-2 px-1">
                 <FileText size={14} className="text-[#FF6B00]" />
                 <span>Document Contents</span>
               </h3>
-              <nav className="space-y-1 text-xs">
-                {sections.map((sec) => (
-                  <a
-                    key={sec.id}
-                    href={`#${sec.id}`}
-                    onClick={() => setActiveSection(sec.id)}
-                    className={`flex items-start gap-2.5 py-2 px-2.5 rounded-lg transition-colors font-medium ${
-                      activeSection === sec.id
-                        ? "bg-orange-50/80 text-[#FF6B00] font-bold"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                    }`}
-                  >
-                    <span className="font-mono text-[11px] text-gray-400 font-bold shrink-0 mt-0.5">
-                      {sec.number}
-                    </span>
-                    <span className="line-clamp-2 leading-snug">{sec.title}</span>
-                  </a>
-                ))}
+              <nav className="space-y-0.5 text-xs">
+                {sections.map((sec) => {
+                  const isActive = activeSection === sec.id;
+                  return (
+                    <a
+                      key={sec.id}
+                      href={`#${sec.id}`}
+                      onClick={(e) => scrollToSection(e, sec.id)}
+                      className={`flex items-start gap-2.5 py-2 px-3 rounded-lg transition-all duration-150 border-l-2 ${
+                        isActive
+                          ? "bg-orange-50/70 border-[#FF6B00] text-[#FF6B00] font-bold shadow-xs"
+                          : "border-transparent text-gray-600 hover:bg-gray-50 hover:text-gray-900 font-medium"
+                      }`}
+                    >
+                      <span
+                        className={`font-mono text-[11px] font-bold shrink-0 mt-0.5 ${
+                          isActive ? "text-[#FF6B00]" : "text-gray-400"
+                        }`}
+                      >
+                        {sec.number}
+                      </span>
+                      <span className="line-clamp-2 leading-snug">{sec.title}</span>
+                    </a>
+                  );
+                })}
               </nav>
             </div>
 
             {/* Need assistance box */}
-            <div className="bg-[#0A1628] text-white rounded-xl p-5 shadow-sm border border-gray-800">
-              <div className="flex items-center gap-2.5 text-[#FF6B00] mb-2">
-                <HelpCircle size={18} />
+            <div className="bg-[#0A1628] text-white rounded-2xl p-5 shadow-sm border border-gray-800">
+              <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
+                <HelpCircle size={17} />
                 <h4 className="text-sm font-bold text-white">Have Questions?</h4>
               </div>
               <p className="text-xs text-gray-300 leading-relaxed mb-4">
-                Our legal and customer support team is available to clarify any terms, data rights, or quotation inquiries.
+                Our compliance and customer support team is available to clarify any terms or data inquiries.
               </p>
               <Link
                 href="/contact"
@@ -261,7 +270,7 @@ export function LegalPageShell({
           {/* ── RIGHT: Policy Content Body ── */}
           <article className="lg:col-span-8 space-y-8 sm:space-y-10">
             {/* Document Header Summary Card */}
-            <div className="bg-white border border-gray-200 rounded-xl p-6 sm:p-7 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.04)]">
+            <div className="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-7 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)]">
               <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
@@ -290,7 +299,7 @@ export function LegalPageShell({
               <section
                 key={section.id}
                 id={section.id}
-                className="scroll-mt-24 bg-white border border-gray-200/90 rounded-xl p-6 sm:p-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)]"
+                className="scroll-mt-28 bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)] transition-all"
               >
                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
                   <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-50 border border-orange-100 text-[#FF6B00] font-mono text-xs font-bold shrink-0">
@@ -307,7 +316,7 @@ export function LegalPageShell({
             ))}
 
             {/* Compliance & Contact Footer Banner */}
-            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-xl p-6 sm:p-7">
+            <div className="bg-gradient-to-br from-gray-50 to-white border border-gray-200/90 rounded-2xl p-6 sm:p-7 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)]">
               <div className="flex items-start gap-3.5 mb-4">
                 <div className="w-9 h-9 rounded-lg bg-[#0A1628] text-[#FF6B00] flex items-center justify-center shrink-0">
                   <Building2 size={18} />
@@ -360,3 +369,4 @@ export function LegalPageShell({
     </div>
   );
 }
+
