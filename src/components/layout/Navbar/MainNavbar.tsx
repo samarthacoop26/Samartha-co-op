@@ -124,7 +124,7 @@ export function MainNavbar() {
                     <div className="h-px bg-slate-700/50 mx-3 my-1" />
 
                     <Link
-                      href="/#certifications"
+                      href="/certificates"
                       onClick={() => setAboutDropdownOpen(false)}
                       className="group flex items-start gap-3 px-4 py-3 hover:bg-slate-800/60 transition-colors"
                     >
@@ -151,6 +151,13 @@ export function MainNavbar() {
             className="text-slate-200 font-medium hover:text-[#FF6B00] transition-colors text-sm tracking-wide"
           >
             Products
+          </Link>
+
+          <Link
+            href="/certificates"
+            className="text-slate-200 font-medium hover:text-[#FF6B00] transition-colors text-sm tracking-wide"
+          >
+            Certifications
           </Link>
 
           <Link
@@ -224,7 +231,7 @@ export function MainNavbar() {
                   <span>Company Profile</span>
                 </Link>
                 <Link
-                  href="/#certifications"
+                  href="/certificates"
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-2.5 text-slate-300 hover:text-[#FF6B00] text-sm font-medium py-1 transition-colors"
                 >
@@ -241,6 +248,14 @@ export function MainNavbar() {
             className="block text-slate-200 font-medium text-base hover:text-[#FF6B00] transition-colors"
           >
             Products
+          </Link>
+
+          <Link
+            href="/certificates"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-slate-200 font-medium text-base hover:text-[#FF6B00] transition-colors"
+          >
+            Certifications
           </Link>
 
           <Link

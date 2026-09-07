@@ -41,7 +41,12 @@ export function Topbar() {
       </div>
       
       <div className="flex items-center gap-4 text-gray-400">
-        <span className="text-[11px] font-semibold tracking-wider text-gray-400 uppercase hidden sm:inline">ISO 9001:2015 Certified</span>
+        <Link
+          href="/certificates"
+          className="text-[11px] font-semibold tracking-wider text-gray-400 hover:text-[#FF6B00] transition-colors uppercase hidden sm:inline"
+        >
+          ISO 9001:2015 Certified
+        </Link>
         <span className="text-gray-600 hidden sm:inline">|</span>
         <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors" aria-label="LinkedIn">
           <LinkedinIcon className="w-3.5 h-3.5" />

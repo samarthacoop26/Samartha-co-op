@@ -94,7 +94,7 @@ export function Footer() {
               <NavLink text="FRP Products" href="/#products" />
               <NavLink text="Industries" href="/#industries" />
               <NavLink text="Why Us" href="/#why-us" />
-              <NavLink text="Certificates" href="/#certifications" />
+              <NavLink text="Certificates" href="/certificates" />
               <NavLink text="Contact Us" href="/contact" />
             </div>
           </div>

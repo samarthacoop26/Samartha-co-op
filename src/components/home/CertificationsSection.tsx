@@ -10,7 +10,9 @@ import {
   Eye,
   ShieldCheck,
   Printer,
+  ArrowRight,
 } from "lucide-react";
+import Link from "next/link";
 
 interface Certification {
   id: string;
@@ -484,7 +486,7 @@ export function CertificationsSection() {
           ))}
         </motion.div>
 
-        {/* Audit Note for Procurement Officers */}
+        {/* Audit Note & Link for Procurement Officers */}
         <div className="mt-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 bg-slate-50 border border-slate-200 text-slate-600 text-xs">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#0A1628] shrink-0" />
@@ -492,9 +494,13 @@ export function CertificationsSection() {
               <strong>Procurement Verification Note:</strong> All test certificates, IS compliance reports, and raw resin batch test sheets are provided with dispatch documentation.
             </span>
           </div>
-          <span className="text-[11px] text-slate-500 font-mono shrink-0">
-            Audit Ready • Form 10/IS-Compliant
-          </span>
+          <Link
+            href="/certificates"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:text-[#e66000] shrink-0 transition-colors"
+          >
+            <span>View All Certificates & Client Letters</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
 
