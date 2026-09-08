@@ -1,5 +1,6 @@
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
+import { CONTACT_CONFIG } from '@/data/contactConfig';
 
 // Simple, minimal inline SVGs for social brands
 const FacebookIcon = ({ className }: { className?: string }) => (
@@ -23,44 +24,115 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 );
 
 export function Topbar() {
+  const workshop = CONTACT_CONFIG.locations[1];
+  const regdOffice = CONTACT_CONFIG.locations[0];
+
   return (
-    <div className="flex items-center justify-between py-2.5 px-6 md:px-12 border-b border-gray-700/50 bg-[#222] text-xs text-gray-300">
-      <div className="flex items-center gap-6">
-        <a href="mailto:samarthcorporation.mumbai@gmail.com" className="flex items-center gap-2 transition-colors hover:text-[#FF6B00]">
-          <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span>samarthcorporation.mumbai@gmail.com</span>
+    <div className="flex items-center justify-between py-2 px-4 sm:px-6 md:px-10 border-b border-gray-700/50 bg-[#1E2229] text-xs text-gray-300">
+      {/* Left side: Contact + Clickable Addresses */}
+      <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
+        <a 
+          href={`mailto:${CONTACT_CONFIG.email}`} 
+          className="flex items-center gap-1.5 transition-colors hover:text-[#FF6B00]"
+          title={`Email us at ${CONTACT_CONFIG.email}`}
+        >
+          <Mail className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+          <span className="hidden xs:inline">{CONTACT_CONFIG.email}</span>
         </a>
-        <a href="tel:+919930862729" className="flex items-center gap-2 transition-colors hover:text-[#FF6B00]">
-          <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span>+91 99308 62729</span>
+        
+        <a 
+          href={`tel:${CONTACT_CONFIG.contacts.vishal.phone}`} 
+          className="flex items-center gap-1.5 transition-colors hover:text-[#FF6B00]"
+          title={`Call ${CONTACT_CONFIG.contacts.vishal.name} (${CONTACT_CONFIG.contacts.vishal.phoneDisplay})`}
+        >
+          <Phone className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+          <span>{CONTACT_CONFIG.contacts.vishal.phoneDisplay}</span>
         </a>
-        <div className="flex items-center gap-2 border-l border-gray-700 pl-6 hidden xl:flex text-gray-400">
-          <Globe className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span><strong className="font-semibold text-gray-200">WORKSHOP:</strong> MIDC Taloja, Dist. Raigad | <strong className="font-semibold text-gray-200">REGD:</strong> Dombivli (W), Thane</span>
+
+        {/* Clickable Addresses Section */}
+        <div className="flex items-center gap-2 border-l border-gray-700 pl-4 sm:pl-6 hidden lg:flex text-gray-400">
+          <MapPin className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 animate-pulse" />
+          <div className="flex items-center gap-2 text-[11px]">
+            {/* Workshop Link */}
+            <a
+              href={workshop.googleMapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1 hover:text-[#FF6B00] transition-colors py-0.5"
+              title="Open MIDC Taloja Workshop on Google Maps (Directions & Location)"
+            >
+              <strong className="font-semibold text-gray-200 group-hover:text-[#FF6B00] transition-colors">
+                WORKSHOP:
+              </strong>
+              <span className="underline decoration-dotted decoration-gray-600 group-hover:decoration-[#FF6B00] underline-offset-2">
+                MIDC Taloja, Raigad
+              </span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-50 group-hover:opacity-100 group-hover:text-[#FF6B00] transition-opacity" />
+            </a>
+
+            <span className="text-gray-600">|</span>
+
+            {/* Regd Office Link */}
+            <a
+              href={regdOffice.googleMapsDirectionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1 hover:text-[#FF6B00] transition-colors py-0.5"
+              title="Open Dombivli Registered Office on Google Maps (Directions & Location)"
+            >
+              <strong className="font-semibold text-gray-200 group-hover:text-[#FF6B00] transition-colors">
+                REGD:
+              </strong>
+              <span className="underline decoration-dotted decoration-gray-600 group-hover:decoration-[#FF6B00] underline-offset-2">
+                Dombivli (W), Thane
+              </span>
+              <ExternalLink className="w-2.5 h-2.5 opacity-50 group-hover:opacity-100 group-hover:text-[#FF6B00] transition-opacity" />
+            </a>
+          </div>
         </div>
       </div>
       
+      {/* Right side: Operating Hours & Socials (GST & UDYAM removed) */}
       <div className="flex items-center gap-4 text-gray-400">
-        <span className="text-[11px] font-semibold tracking-wider text-gray-400 hidden sm:inline">
-          GST: 27AEVFS9451A1ZK
-        </span>
-        <span className="text-gray-600 hidden sm:inline">|</span>
-        <Link
-          href="/certificates"
-          className="text-[11px] font-semibold tracking-wider text-gray-400 hover:text-[#FF6B00] transition-colors uppercase hidden sm:inline"
-        >
-          UDYAM: MH-33-0265642
-        </Link>
-        <span className="text-gray-600 hidden sm:inline">|</span>
-        <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors" aria-label="LinkedIn">
-          <LinkedinIcon className="w-3.5 h-3.5" />
-        </Link>
-        <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors" aria-label="Twitter">
-          <TwitterIcon className="w-3.5 h-3.5" />
-        </Link>
-        <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors" aria-label="Facebook">
-          <FacebookIcon className="w-3.5 h-3.5" />
-        </Link>
+        <div className="hidden md:flex items-center gap-1.5 text-[11px] text-gray-400 font-medium">
+          <Clock className="w-3.5 h-3.5 text-[#FF6B00]" />
+          <span>{CONTACT_CONFIG.workingHours.days}: 9:00 AM – 6:30 PM</span>
+        </div>
+
+        <span className="text-gray-700 hidden md:inline">|</span>
+
+        <div className="flex items-center gap-3">
+          <Link 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-gray-400 hover:text-[#FF6B00] transition-colors" 
+            aria-label="LinkedIn"
+            title="LinkedIn Profile"
+          >
+            <LinkedinIcon className="w-3.5 h-3.5" />
+          </Link>
+          <Link 
+            href="https://twitter.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-gray-400 hover:text-[#FF6B00] transition-colors" 
+            aria-label="Twitter"
+            title="Twitter / X Profile"
+          >
+            <TwitterIcon className="w-3.5 h-3.5" />
+          </Link>
+          <Link 
+            href="https://facebook.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-gray-400 hover:text-[#FF6B00] transition-colors" 
+            aria-label="Facebook"
+            title="Facebook Page"
+          >
+            <FacebookIcon className="w-3.5 h-3.5" />
+          </Link>
+        </div>
       </div>
     </div>
   );

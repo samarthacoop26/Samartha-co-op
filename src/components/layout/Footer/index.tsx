@@ -139,15 +139,41 @@ export function Footer() {
             <div className="space-y-3.5 text-sm text-gray-300">
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-[#FF6B00] shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-semibold text-white block text-xs">Workshop:</span>
-                  <span className="text-gray-400 text-xs leading-relaxed block">
-                    {CONTACT_CONFIG.locations[1].addressLine1}, {CONTACT_CONFIG.locations[1].addressLine2}, {CONTACT_CONFIG.locations[1].cityStateZip}
-                  </span>
-                  <span className="font-semibold text-white block text-xs mt-2">Regd. Office:</span>
-                  <span className="text-gray-400 text-xs leading-relaxed block">
-                    {CONTACT_CONFIG.locations[0].addressLine1}, {CONTACT_CONFIG.locations[0].addressLine2}, {CONTACT_CONFIG.locations[0].cityStateZip}
-                  </span>
+                <div className="space-y-2">
+                  <div>
+                    <span className="font-semibold text-white block text-xs">Workshop:</span>
+                    <a
+                      href={CONTACT_CONFIG.locations[1].googleMapsDirectionsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 text-xs leading-relaxed block hover:text-[#FF6B00] transition-colors group"
+                      title="Open MIDC Taloja Workshop on Google Maps"
+                    >
+                      <span>
+                        {CONTACT_CONFIG.locations[1].addressLine1}, {CONTACT_CONFIG.locations[1].addressLine2}, {CONTACT_CONFIG.locations[1].cityStateZip}
+                      </span>
+                      <span className="text-[#FF6B00] text-[11px] font-medium ml-1.5 opacity-75 group-hover:opacity-100 group-hover:underline inline-flex items-center gap-0.5">
+                        Maps ↗
+                      </span>
+                    </a>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-white block text-xs">Regd. Office:</span>
+                    <a
+                      href={CONTACT_CONFIG.locations[0].googleMapsDirectionsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 text-xs leading-relaxed block hover:text-[#FF6B00] transition-colors group"
+                      title="Open Dombivli Registered Office on Google Maps"
+                    >
+                      <span>
+                        {CONTACT_CONFIG.locations[0].addressLine1}, {CONTACT_CONFIG.locations[0].addressLine2}, {CONTACT_CONFIG.locations[0].cityStateZip}
+                      </span>
+                      <span className="text-[#FF6B00] text-[11px] font-medium ml-1.5 opacity-75 group-hover:opacity-100 group-hover:underline inline-flex items-center gap-0.5">
+                        Maps ↗
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
 

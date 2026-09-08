@@ -107,7 +107,7 @@ export function WhatWeManufactureSection() {
   const activeProduct = PRODUCTS[activeIndex];
 
   return (
-    <section className="relative w-full bg-[#FAFAFC] py-16 sm:py-20 lg:py-24 border-b border-gray-200">
+    <section id="what-we-manufacture" className="relative w-full bg-[#FAFAFC] py-16 sm:py-20 lg:py-24 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 lg:mb-16">
