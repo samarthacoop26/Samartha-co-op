@@ -167,31 +167,36 @@ export function Footer() {
               <span>Facilities &amp; Contacts</span>
             </div>
 
-            <div className="space-y-3.5 text-xs text-slate-300">
-              {/* Workshop */}
-              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700/80 transition-colors">
-                <div className="flex items-start gap-2.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 mt-0.5" />
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-semibold text-slate-200 text-[11.5px]">
-                        Workshop (MIDC Taloja)
-                      </span>
-                      <a
-                        href={CONTACT_CONFIG.locations[1].googleMapsDirectionsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[10px] font-bold text-[#FF6B00] hover:underline inline-flex items-center gap-0.5"
-                      >
-                        Directions <ExternalLink className="w-2.5 h-2.5" />
-                      </a>
+            <div className="space-y-3 text-xs text-slate-300">
+              {CONTACT_CONFIG.locations.map((loc) => (
+                <div
+                  key={loc.id}
+                  className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700/80 transition-colors"
+                >
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 mt-0.5" />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-semibold text-slate-200 text-[11.5px]">
+                          {loc.shortLabel || loc.name}
+                        </span>
+                        <a
+                          href={loc.googleMapsDirectionsUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[10px] font-bold text-[#FF6B00] hover:underline inline-flex items-center gap-0.5"
+                          title={`Directions to ${loc.name} on Google Maps`}
+                        >
+                          Directions <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      </div>
+                      <p className="text-slate-400 text-[11px] leading-snug mt-1">
+                        {loc.addressLine1}, {loc.addressLine2}, {loc.cityStateZip}
+                      </p>
                     </div>
-                    <p className="text-slate-400 text-[11px] leading-snug mt-1 line-clamp-2">
-                      {CONTACT_CONFIG.locations[1].addressLine1}, {CONTACT_CONFIG.locations[1].cityStateZip}
-                    </p>
                   </div>
                 </div>
-              </div>
+              ))}
 
               {/* Direct Communications */}
               <div className="pt-1 space-y-2">

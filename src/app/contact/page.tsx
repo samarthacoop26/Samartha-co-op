@@ -343,26 +343,35 @@ export default function ContactPage() {
               </div>
 
               {/* Statutory Registrations */}
-              <div className="bg-[#0A1628] text-white p-4 rounded-xl border border-gray-800 space-y-2 text-xs font-mono">
-                <div className="flex items-center gap-2 text-[#FF6B00] mb-2 font-sans font-bold">
-                  <ShieldCheck size={16} />
-                  <span>Statutory Registrations</span>
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] flex items-center gap-1.5">
+                    <ShieldCheck size={14} />
+                    <span>Statutory Registrations</span>
+                  </h3>
+                  <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2 py-0.5 rounded-full flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Verified
+                  </span>
                 </div>
-                <div className="flex justify-between border-b border-gray-800 pb-1">
-                  <span className="text-gray-400">GSTIN:</span>
-                  <span className="font-bold">{CONTACT_CONFIG.gstin}</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-800 pb-1">
-                  <span className="text-gray-400">PAN:</span>
-                  <span className="font-bold">{CONTACT_CONFIG.pan}</span>
-                </div>
-                <div className="flex justify-between border-b border-gray-800 pb-1">
-                  <span className="text-gray-400">UDYAM:</span>
-                  <span className="font-bold">{CONTACT_CONFIG.msmeRegNo}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-400">ESIC / PF:</span>
-                  <span>{CONTACT_CONFIG.esicRegNo}</span>
+
+                <div className="bg-slate-50 border border-gray-200 rounded-lg p-4 divide-y divide-gray-200/80 text-xs">
+                  <div className="flex items-center justify-between py-2 first:pt-0">
+                    <span className="text-gray-500 font-medium">GSTIN</span>
+                    <span className="font-mono font-bold text-[#0A1628]">{CONTACT_CONFIG.gstin}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-gray-500 font-medium">PAN</span>
+                    <span className="font-mono font-bold text-[#0A1628]">{CONTACT_CONFIG.pan}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-gray-500 font-medium">MSME Udyam</span>
+                    <span className="font-mono font-bold text-[#0A1628]">{CONTACT_CONFIG.msmeRegNo}</span>
+                  </div>
+                  <div className="flex items-center justify-between py-2 last:pb-0">
+                    <span className="text-gray-500 font-medium">Labor Compliance</span>
+                    <span className="font-medium text-gray-700">ESIC &amp; PF Registered</span>
+                  </div>
                 </div>
               </div>
             </div>

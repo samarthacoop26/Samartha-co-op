@@ -11,12 +11,11 @@ import {
   Award,
   Sparkles,
   ShieldCheck,
-  ArrowUpRight,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ProductsMegaMenu } from "./ProductsMegaMenu";
 import {
-  INDUSTRIAL_PRODUCT_COLUMNS,
+  ALL_PRODUCT_CATEGORIES,
   PRODUCT_CATEGORIES_DATA,
 } from "@/data/productsNavData";
 
@@ -151,50 +150,65 @@ export function MainNavbar() {
             <AnimatePresence>
               {aboutDropdownOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                  initial={{ opacity: 0, y: 6, scale: 0.995 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 6, scale: 0.98 }}
-                  transition={{ duration: 0.18, ease: "easeOut" }}
-                  className="absolute left-0 top-full pt-2 z-50 min-w-[260px]"
+                  exit={{ opacity: 0, y: 4, scale: 0.995 }}
+                  transition={{ duration: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute left-0 top-full pt-3 z-50 min-w-[340px]"
                 >
-                  <div className="relative bg-[#0A1628]/98 border border-slate-700/80 rounded-xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.7),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden p-2 backdrop-blur-xl">
-                    <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent opacity-80" />
-                    
-                    <Link
-                      href="/about"
-                      onClick={() => setAboutDropdownOpen(false)}
-                      className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/80 text-slate-200 hover:text-white transition-all duration-150"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/70 group-hover:border-[#FF6B00]/40 group-hover:bg-[#FF6B00]/10 flex items-center justify-center text-slate-300 group-hover:text-[#FF6B00] transition-all duration-200 shrink-0 mt-0.5 shadow-sm">
-                        <Building2 className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-[13px] font-semibold text-slate-100 group-hover:text-[#FF6B00] transition-colors leading-tight">
-                          Company Profile
-                        </div>
-                        <div className="text-[11.5px] text-slate-400 leading-snug mt-0.5">
-                          Mission, infrastructure &amp; 20+ years of FRP legacy
-                        </div>
-                      </div>
-                    </Link>
+                  <div className="relative bg-white border border-gray-200/90 rounded-2xl shadow-[0_20px_50px_-12px_rgba(16,24,40,0.12),0_1px_3px_0_rgba(16,24,40,0.05)] overflow-hidden p-3 flex flex-col">
+                    {/* Top Micro-Accent Line */}
+                    <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent opacity-90 z-10" />
 
-                    <Link
-                      href="/certificates"
-                      onClick={() => setAboutDropdownOpen(false)}
-                      className="group flex items-start gap-3 p-2.5 rounded-lg hover:bg-slate-800/80 text-slate-200 hover:text-white transition-all duration-150"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-slate-800/90 border border-slate-700/70 group-hover:border-[#FF6B00]/40 group-hover:bg-[#FF6B00]/10 flex items-center justify-center text-slate-300 group-hover:text-[#FF6B00] transition-all duration-200 shrink-0 mt-0.5 shadow-sm">
-                        <Award className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <div className="text-[13px] font-semibold text-slate-100 group-hover:text-[#FF6B00] transition-colors leading-tight">
-                          Certificates &amp; Quality
+                    {/* Section Header */}
+                    <div className="px-3 pt-2 pb-1.5 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      Company
+                    </div>
+
+                    <div className="space-y-1">
+                      {/* Item 1: Company Profile */}
+                      <Link
+                        href="/about"
+                        onClick={() => setAboutDropdownOpen(false)}
+                        className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-gray-50 transition-all duration-150"
+                      >
+                        <div className="shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                          <Building2 className="w-5 h-5 text-[#FF6B00]" />
                         </div>
-                        <div className="text-[11.5px] text-slate-400 leading-snug mt-0.5">
-                          ISO 9001:2015 &amp; government compliance documents
+                        <div className="min-w-0 flex-1">
+                          <div className="text-sm font-semibold text-gray-900 group-hover:text-[#FF6B00] transition-colors leading-snug">
+                            Company Profile
+                          </div>
+                          <div className="text-xs text-gray-500 font-normal leading-relaxed mt-0.5">
+                            Mission, infrastructure &amp; 20+ years of FRP legacy.
+                          </div>
                         </div>
-                      </div>
-                    </Link>
+                      </Link>
+
+                      {/* Item 2: Certificates & Quality */}
+                      <Link
+                        href="/certificates"
+                        onClick={() => setAboutDropdownOpen(false)}
+                        className="group flex items-start gap-3.5 p-3 rounded-xl hover:bg-gray-50 transition-all duration-150"
+                      >
+                        <div className="shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
+                          <Award className="w-5 h-5 text-[#FF6B00]" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-semibold text-gray-900 group-hover:text-[#FF6B00] transition-colors leading-snug">
+                              Certificates &amp; Quality
+                            </span>
+                            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold leading-none border bg-emerald-50 text-emerald-700 border-emerald-200/70">
+                              ISO 9001
+                            </span>
+                          </div>
+                          <div className="text-xs text-gray-500 font-normal leading-relaxed mt-0.5">
+                            Government compliance &amp; third-party lab test reports.
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -354,21 +368,22 @@ export function MainNavbar() {
             </button>
 
             {mobileProductsOpen && (
-              <div className="pl-3 mt-3 space-y-4 border-l border-slate-700/80 my-1">
-                {INDUSTRIAL_PRODUCT_COLUMNS.map((col, colIdx) => (
-                  <div key={colIdx} className="space-y-1.5">
-                    <div className="text-[10px] uppercase tracking-wider font-bold text-[#FF6B00]">
-                      {col.categoryTitle}
+              <div className="pl-3 mt-3 space-y-4 border-l border-slate-700/80 my-1 max-h-[50vh] overflow-y-auto">
+                {ALL_PRODUCT_CATEGORIES.map((cat) => (
+                  <div key={cat.id} className="space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-[#FF6B00]">
+                      <span className="font-mono">{cat.categoryNumber}.</span>
+                      <span>{cat.categoryTitle}</span>
                     </div>
                     <div className="space-y-1 pl-2">
-                      {col.items.map((item) => (
+                      {cat.items.map((item, itemIdx) => (
                         <Link
-                          key={item.id}
-                          href={item.href}
+                          key={itemIdx}
+                          href="/about#what-we-manufacture"
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block py-1 text-sm text-slate-300 hover:text-[#FF6B00] transition-colors"
+                          className="block py-0.5 text-xs text-slate-300 hover:text-[#FF6B00] transition-colors"
                         >
-                          {item.title}
+                          {item}
                         </Link>
                       ))}
                     </div>

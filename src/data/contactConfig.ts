@@ -2,6 +2,7 @@ export interface LocationInfo {
   id: string;
   type: "office" | "factory";
   name: string;
+  shortLabel?: string;
   badge: string;
   addressLine1: string;
   addressLine2: string;
@@ -142,6 +143,7 @@ export const CONTACT_CONFIG: ContactData = {
       id: "registered-office",
       type: "office",
       name: "Registered Office",
+      shortLabel: "Registered Office (Dombivli)",
       badge: "Regd. Office",
       addressLine1: "Room No. 7, Satya Kasoti Co. Op. Soc., Retibunder Cross Road",
       addressLine2: "Devicha Pada, Balajiwadi, Dombivli (W)",
@@ -158,6 +160,7 @@ export const CONTACT_CONFIG: ContactData = {
       id: "workshop-unit",
       type: "factory",
       name: "Workshop & Manufacturing Works",
+      shortLabel: "Workshop (MIDC Taloja)",
       badge: "Workshop Unit",
       addressLine1: "4, Buva Sheth Bldg, Near Powerika Co.",
       addressLine2: "Pendhargaon, MIDC Taloja",

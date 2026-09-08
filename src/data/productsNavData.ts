@@ -1,146 +1,251 @@
-export interface ProductMenuItem {
+export interface ProductSubItem {
   id: string;
-  title: string;
-  description: string;
+  name: string;
   href: string;
-  iconName: string;
-  badge?: string;
+  isPopular?: boolean;
 }
 
-export interface ProductCategoryColumn {
+export interface ProductCategory {
+  id: string;
+  categoryNumber: string;
   categoryTitle: string;
-  categoryNumber?: string;
-  items: ProductMenuItem[];
-}
-
-export interface QuickResourceLink {
-  id: string;
-  title: string;
+  shortDescription: string;
+  iconName: string;
+  statusBadge?: string; // e.g. "Hold - Pending Confirmation", "Defence Grade", "Core Manufacturing"
+  items: string[];
   href: string;
-  badge?: string;
-  isExternal?: boolean;
 }
 
-export const INDUSTRIAL_PRODUCT_COLUMNS: ProductCategoryColumn[] = [
+export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   {
-    categoryTitle: "Tanks & Vessels",
+    id: "gratings-walkways-platforms",
     categoryNumber: "01",
+    categoryTitle: "Gratings, Walkways & Platforms",
+    shortDescription: "High load-bearing, corrosion-resistant FRP molded and pultruded walkway systems.",
+    iconName: "Grid",
+    statusBadge: "Core Scope",
     items: [
-      {
-        id: "pp-frp-tanks",
-        title: "PP FRP Tanks & Vessels",
-        description: "Chemical storage, dual-laminate & process tanks.",
-        href: "/about#what-we-manufacture",
-        iconName: "Boxes",
-      },
-      {
-        id: "blowers-scrubbers",
-        title: "Scrubbers & Blowers",
-        description: "Wet scrubbers, exhaust blowers & chimneys.",
-        href: "/about#what-we-manufacture",
-        iconName: "Wind",
-      },
-      {
-        id: "frp-ducting-hoods",
-        title: "PP/FRP Ducting & Hoods",
-        description: "Acid fume exhaust systems & pickup hoods.",
-        href: "/about#what-we-manufacture",
-        iconName: "Layers",
-      },
+      "FRP Gratings",
+      "Walkways",
+      "Footbridge Deck Panels",
+      "Platforms",
+      "Stair Treads",
+      "Platform Gratings",
+      "Maintenance Walkways",
+      "Maintenance Platforms",
+      "Anti-slip Panels",
+      "Decking",
     ],
+    href: "/about#what-we-manufacture",
   },
   {
-    categoryTitle: "Piping & ETP",
+    id: "manhole-drain-cable-covers",
     categoryNumber: "02",
+    categoryTitle: "Manhole, Drain & Cable Trench Covers",
+    shortDescription: "Heavy duty composite access solutions tested up to 40T/60T load ratings.",
+    iconName: "CircleDot",
+    statusBadge: "Core Scope",
     items: [
-      {
-        id: "thermoplastic-piping",
-        title: "Thermoplastic Piping",
-        description: "PPRC, PPH, HDPE & PVDF line fabrication.",
-        href: "/about#what-we-manufacture",
-        iconName: "Pipette",
-      },
-      {
-        id: "etp-hdpe-pipelines",
-        title: "ETP & STP Pipelines",
-        description: "Effluent treatment piping & butt-fusion.",
-        href: "/about#what-we-manufacture",
-        iconName: "Workflow",
-      },
-      {
-        id: "piping-maintenance",
-        title: "Pipeline Maintenance",
-        description: "Turnkey site erection & maintenance work.",
-        href: "/about#what-we-manufacture",
-        iconName: "Wrench",
-      },
+      "Manhole Covers",
+      "Drain Covers",
+      "Cable Trench Covers",
+      "Cable Duct Covers",
+      "Utility Covers",
     ],
+    href: "/about#what-we-manufacture",
   },
   {
-    categoryTitle: "Linings & Custom",
+    id: "tanks-piping-chemical-storage",
     categoryNumber: "03",
+    categoryTitle: "Tanks, Piping & Chemical Storage",
+    shortDescription: "Chemical storage vessels, dual-laminate tanks and high-pressure thermoplastic piping.",
+    iconName: "Boxes",
+    statusBadge: "Core Scope",
     items: [
-      {
-        id: "ms-frp-lining",
-        title: "M.S. Tank FRP Lining",
-        description: "Isophthalic & Vinyl Ester tank linings.",
-        href: "/about#what-we-manufacture",
-        iconName: "Shield",
-      },
-      {
-        id: "concrete-pit-lining",
-        title: "Concrete Pit & Floor Lining",
-        description: "Acid-proof flooring & neutralization pits.",
-        href: "/about#what-we-manufacture",
-        iconName: "ShieldCheck",
-      },
-      {
-        id: "custom-fabrication-drawings",
-        title: "Custom CAD Fabrication",
-        description: "Specialized trays, hoods & parts to drawings.",
-        href: "/contact",
-        iconName: "Sparkles",
-        badge: "Custom",
-      },
+      "Water Storage Tanks",
+      "Chemical Tanks",
+      "Septic Tanks",
+      "Grease Traps",
+      "Chemical Resistant Containers",
+      "High Pressure Tubes",
+      "Cylinders",
     ],
-  },
-];
-
-export const QUICK_RESOURCE_LINKS: QuickResourceLink[] = [
-  {
-    id: "tech-specs",
-    title: "Technical datasheets",
     href: "/about#what-we-manufacture",
   },
   {
-    id: "chemical-compat",
-    title: "Chemical compatibility",
+    id: "doors-windows-panels",
+    categoryNumber: "04",
+    categoryTitle: "Doors, Windows & Panels",
+    shortDescription: "Fire-retardant, moisture-proof composite architectural doors and transport body panels.",
+    iconName: "DoorOpen",
+    statusBadge: "Fabrication",
+    items: [
+      "Doors",
+      "Windows",
+      "Toilet Doors",
+      "Bathroom Doors",
+      "Coach Doors",
+      "Driver Cabin Doors",
+      "Body Panels",
+      "Roof Panels",
+      "Ceiling Panels",
+      "Side Panels",
+      "Nose Cone",
+      "Flooring",
+    ],
     href: "/about#what-we-manufacture",
   },
   {
-    id: "iso-certs",
-    title: "ISO 9001:2015 certificates",
-    href: "/certificates",
+    id: "electrical-enclosures-control-boxes",
+    categoryNumber: "05",
+    categoryTitle: "Electrical Enclosures & Control Boxes",
+    shortDescription: "Dielectric, non-conductive weather-proof kiosks and junction enclosures.",
+    iconName: "Cpu",
+    statusBadge: "Industrial",
+    items: [
+      "Electrical Kiosks",
+      "Transformer Covers",
+      "Meter Boxes",
+      "Junction Boxes",
+      "Control Panels",
+      "Street Light Pole Boxes",
+      "Terminal Boards",
+      "Electrical Insulation Parts",
+      "Equipment Cabinets",
+      "Locomotive Covers",
+      "Battery Boxes",
+      "Communication Equipment Boxes",
+    ],
+    href: "/about#what-we-manufacture",
   },
   {
-    id: "taloja-plant",
-    title: "MIDC Taloja plant",
-    href: "/about",
+    id: "handrails-ladders-safety",
+    categoryNumber: "06",
+    categoryTitle: "Handrails, Ladders & Safety Structures",
+    shortDescription: "OSHA-compliant safety guard rails, cage ladders and non-conductive fencing.",
+    iconName: "Shield",
+    statusBadge: "Safety",
+    items: [
+      "Handrails",
+      "Safety Railings",
+      "Ladders",
+      "Railings",
+      "Fencing",
+      "Transformer Fencing",
+    ],
+    href: "/about#what-we-manufacture",
   },
   {
-    id: "custom-rfq",
-    title: "CAD drawing upload",
-    href: "/contact",
+    id: "cable-management-systems",
+    categoryNumber: "07",
+    categoryTitle: "Cable Management Systems",
+    shortDescription: "Corrosion-proof FRP perforated and ladder type cable trays and routing supports.",
+    iconName: "Workflow",
+    statusBadge: "Industrial",
+    items: [
+      "Cable Trays",
+      "Cable Covers",
+      "Cable Routing Supports",
+    ],
+    href: "/about#what-we-manufacture",
   },
   {
-    id: "contact-support",
-    title: "Engineering hotline",
-    href: "/contact",
+    id: "civic-furniture-public-infra",
+    categoryNumber: "08",
+    categoryTitle: "Civic Furniture & Public Infrastructure",
+    shortDescription: "Bespoke composite urban structures, cabins, modular toilets and canopies.",
+    iconName: "Building",
+    statusBadge: "Hold — Pending Client Confirmation",
+    items: [
+      "Dustbins",
+      "Benches",
+      "Bus Stop Shelters",
+      "Tree Guards",
+      "Garden Furniture",
+      "Public Toilets",
+      "Toilet Modules",
+      "Wash Basin Units",
+      "Security Cabins",
+      "Portable Cabins",
+      "Compound Wall Panels",
+      "Roof Sheets",
+      "Domes",
+      "Skylights",
+      "Canopies",
+      "Decorative Structures",
+    ],
+    href: "/about#what-we-manufacture",
+  },
+  {
+    id: "signage",
+    categoryNumber: "09",
+    categoryTitle: "Signage",
+    shortDescription: "UV-resistant and weatherproof industrial and highway composite sign boards.",
+    iconName: "Signpost",
+    statusBadge: "Hold — Pending Client Confirmation",
+    items: [
+      "Sign Boards",
+      "Name Boards",
+      "Direction Boards",
+      "Traffic Sign Boards",
+      "Advertisement Boards",
+    ],
+    href: "/about#what-we-manufacture",
+  },
+  {
+    id: "defence-equipment-protective-gear",
+    categoryNumber: "10",
+    categoryTitle: "Defence Equipment & Protective Gear",
+    shortDescription: "Military-spec containers, ammunition cases, radomes and lightweight UAV components.",
+    iconName: "ShieldAlert",
+    statusBadge: "Defence Grade",
+    items: [
+      "Missile Transport Boxes",
+      "Missile Storage Containers",
+      "Grenade Boxes",
+      "Ammunition Boxes",
+      "Weapon Cases",
+      "Radar Covers",
+      "Radome",
+      "Antenna Covers",
+      "Portable Shelters",
+      "Field Cabins",
+      "Vehicle Body Panels",
+      "Drone Body",
+      "UAV Parts",
+      "Helmet Components",
+      "Protective Covers",
+    ],
+    href: "/about#what-we-manufacture",
   },
 ];
 
-// Flat export for mobile menu and compatibility
-export const PRODUCT_CATEGORIES_DATA = INDUSTRIAL_PRODUCT_COLUMNS.flatMap(
-  (col) => col.items
+// Legacy backward compatibility export
+export const INDUSTRIAL_PRODUCT_COLUMNS = ALL_PRODUCT_CATEGORIES.slice(0, 3).map((cat) => ({
+  categoryTitle: cat.categoryTitle,
+  categoryNumber: cat.categoryNumber,
+  items: cat.items.slice(0, 3).map((item, idx) => ({
+    id: `${cat.id}-${idx}`,
+    title: item,
+    description: cat.shortDescription,
+    href: cat.href,
+    iconName: cat.iconName,
+  })),
+}));
+
+export const QUICK_RESOURCE_LINKS = [
+  { id: "all-products", title: "View All 10 Categories", href: "/about#what-we-manufacture" },
+  { id: "cad-rfq", title: "Request Custom CAD Fabrication", href: "/contact" },
+  { id: "certificates", title: "ISO 9001:2015 Certifications", href: "/certificates" },
+];
+
+export const PRODUCT_CATEGORIES_DATA = ALL_PRODUCT_CATEGORIES.flatMap((c) =>
+  c.items.map((item, idx) => ({
+    id: `${c.id}-${idx}`,
+    title: item,
+    description: c.shortDescription,
+    href: c.href,
+    iconName: c.iconName,
+  }))
 );
 
