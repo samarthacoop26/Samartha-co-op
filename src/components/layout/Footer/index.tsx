@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Phone, Mail, ChevronRight, MapPin, ArrowUp, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, ChevronRight, MapPin, ArrowUp } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_CONFIG } from '@/data/contactConfig';
 
@@ -56,10 +56,10 @@ export function Footer() {
   return (
     <footer className="relative bg-[#0A1628] text-white border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-gray-800">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-gray-800">
           
           {/* Column 1: Company Info */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-5 space-y-6">
             <Link href="/" className="flex flex-col">
               <div className="flex items-center gap-2.5">
                 <svg width="22" height="26" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,12 +69,12 @@ export function Footer() {
                 <span className="text-white text-xl font-bold tracking-tight">Samarth Corporation</span>
               </div>
               <span className="text-gray-400 text-[10px] uppercase tracking-[0.18em] font-semibold mt-1">
-                PP & FRP Engineering Solutions
+                PP &amp; FRP Engineering Solutions
               </span>
             </Link>
 
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Specialized engineering, manufacturing, site erection, and turnkey maintenance of high-performance PP & FRP systems, tanks, scrubbers, blowers, and chemical pipelines.
+            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+              Specialized engineering, manufacturing, site erection, and turnkey maintenance of high-performance PP &amp; FRP systems, tanks, scrubbers, blowers, and chemical pipelines.
             </p>
 
             <div className="flex gap-3 pt-1">
@@ -84,54 +84,22 @@ export function Footer() {
             </div>
           </div>
           
-          {/* Column 2: Quick Links */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* Column 2: Quick Links (Matches Navbar) */}
+          <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Navigation
             </h4>
             <div className="space-y-2">
               <NavLink text="Home" href="/" />
               <NavLink text="About Us" href="/about" />
-              <NavLink text="Products & MFG" href="/#products" />
-              <NavLink text="Industries" href="/#industries" />
-              <NavLink text="Why Us" href="/#why-us" />
-              <NavLink text="Certificates" href="/certificates" />
+              <NavLink text="Products" href="/about#what-we-manufacture" />
+              <NavLink text="Certifications" href="/certificates" />
               <NavLink text="Contact Us" href="/contact" />
             </div>
           </div>
 
-          {/* Column 3: Legal & Statutory Registrations */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
-              <span>Statutory Compliance</span>
-            </h4>
-            <div className="bg-slate-900/80 border border-slate-800 rounded-lg p-3 space-y-2 text-xs text-gray-300 font-mono">
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-gray-400">GSTIN:</span>
-                <span className="font-bold text-white">{CONTACT_CONFIG.gstin}</span>
-              </div>
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-gray-400">PAN:</span>
-                <span className="font-bold text-white">{CONTACT_CONFIG.pan}</span>
-              </div>
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-gray-400">UDYAM:</span>
-                <span className="font-bold text-white">{CONTACT_CONFIG.msmeRegNo}</span>
-              </div>
-              <div className="flex justify-between border-b border-slate-800 pb-1">
-                <span className="text-gray-400">ESIC Reg:</span>
-                <span className="text-gray-300">{CONTACT_CONFIG.esicRegNo}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">PF Reg:</span>
-                <span className="text-gray-300">{CONTACT_CONFIG.pfRegNo}</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Column 4: Contact & Key Persons */}
-          <div className="lg:col-span-3 space-y-4">
+          {/* Column 3: Contact & Locations */}
+          <div className="lg:col-span-4 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Contact & Locations
             </h4>
