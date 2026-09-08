@@ -34,7 +34,7 @@ const PRODUCTS: ProductItem[] = [
     title: "PP FRP Tanks & PP FRP Ducting",
     subtitle: "Custom-built chemical storage tanks, process vessels & acid-resistant ducting systems.",
     icon: Boxes,
-    image: "/images/about/chemical-tanks.jpg",
+    image: "/images/about/pp-frp-tanks.jpg",
     caption: "Heavy-duty PP/FRP dual-laminate tanks engineered for aggressive acids, alkalis & effluent storage.",
   },
   {
@@ -43,7 +43,7 @@ const PRODUCTS: ProductItem[] = [
     title: "PP/FRP Blowers, Scrubbers & Ducting Erection",
     subtitle: "Turnkey fabrication & site erection of wet scrubbers, centrifugal blowers & exhaust chimneys.",
     icon: Wind,
-    image: "/images/about/plant-facility.jpg",
+    image: "/images/about/blowers-scrubbers.jpg",
     caption: "Industrial air pollution control systems including packed bed scrubbers and centrifugal blowers.",
   },
   {
@@ -52,7 +52,7 @@ const PRODUCTS: ProductItem[] = [
     title: "M.S. FRP Lining & Protective Coating",
     subtitle: "High-integrity chemical-resistant lining on mild steel tanks, concrete pits & floorings.",
     icon: Shield,
-    image: "/images/about/gratings-walkway.jpg",
+    image: "/images/about/ms-frp-lining.jpg",
     caption: "Isophthalic & Vinyl Ester FRP lining providing permanent barrier protection against corrosion.",
   },
   {
@@ -61,7 +61,7 @@ const PRODUCTS: ProductItem[] = [
     title: "PPRC, PPH, HDPE & PVDF Piping & Maintenance",
     subtitle: "Industrial project work, pipeline fabrication, joint welding & preventive maintenance.",
     icon: Pipette,
-    image: "/images/about/utm-testing.jpg",
+    image: "/images/about/thermoplastic-piping.jpg",
     caption: "Corrosion-free thermoplastic piping installations for chemical transport and acid transfer lines.",
   },
   {
@@ -70,7 +70,7 @@ const PRODUCTS: ProductItem[] = [
     title: "ETP HDPE Pipeline Project Work & Maintenance",
     subtitle: "Effluent treatment plant piping, butt-fusion welding & industrial wastewater distribution.",
     icon: Workflow,
-    image: "/images/about/chemical-tanks.jpg",
+    image: "/images/about/etp-hdpe-pipelines.jpg",
     caption: "Turnkey HDPE piping for ETP/STP plants, industrial drainage & underground waste transfer.",
   },
   {
@@ -79,7 +79,7 @@ const PRODUCTS: ProductItem[] = [
     title: "HDPE Sintex Tank Welding & Nozzle Welding",
     subtitle: "On-site extrusion welding, custom nozzle fitting, manhole modifications & leak repair.",
     icon: Wrench,
-    image: "/images/about/plant-facility.jpg",
+    image: "/images/about/sintex-tank-welding.jpg",
     caption: "Specialized thermoplastic extrusion and hot-gas welding for industrial tanks & storage units.",
   },
   {
@@ -88,7 +88,7 @@ const PRODUCTS: ProductItem[] = [
     title: "PP/FRP Tray Fabrication & Custom Drawings",
     subtitle: "Bespoke composite & thermoplastic components executed strictly to client CAD drawings.",
     icon: Layers,
-    image: "/images/about/defence-railway.jpg",
+    image: "/images/about/tray-custom-fabrication.jpg",
     caption: "Custom PP/FRP trays, drip pans, hoods, covers & enclosures tailored to industrial requirements.",
   },
   {
@@ -97,7 +97,7 @@ const PRODUCTS: ProductItem[] = [
     title: "Stockist: Thermoplastic Pipes, Valves, Sheets & FRP Raw Materials",
     subtitle: "HDPE, PP, PVC, PPRC, PPH, PVDF fittings, sheets, ball valves (F/E & S/E) & raw resins.",
     icon: PackageCheck,
-    image: "/images/about/manhole-covers.jpg",
+    image: "/images/about/stockist-materials.jpg",
     caption: "Comprehensive stockist inventory ensuring immediate dispatch for project and maintenance requirements.",
   },
 ];
@@ -108,6 +108,20 @@ export function WhatWeManufactureSection() {
 
   return (
     <section id="what-we-manufacture" className="relative w-full bg-[#FAFAFC] py-16 sm:py-20 lg:py-24 border-b border-gray-200">
+      {/* Hidden image preloader to ensure zero flicker when switching items */}
+      <div className="hidden" aria-hidden="true">
+        {PRODUCTS.map((prod) => (
+          <Image
+            key={`preload-${prod.id}`}
+            src={prod.image}
+            alt=""
+            width={800}
+            height={600}
+            priority
+          />
+        ))}
+      </div>
+
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 lg:mb-16">
@@ -132,25 +146,33 @@ export function WhatWeManufactureSection() {
             <div className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden flex flex-col">
               {/* Main Image Frame */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] bg-[#0A1628] overflow-hidden group">
-                <Image
-                  key={activeProduct.id}
-                  src={activeProduct.image}
-                  alt={activeProduct.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+                {PRODUCTS.map((item, idx) => (
+                  <div
+                    key={item.id}
+                    className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${
+                      idx === activeIndex ? "opacity-100 z-1" : "opacity-0 pointer-events-none z-0"
+                    }`}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      priority={idx === 0 || idx === activeIndex}
+                    />
+                  </div>
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent z-10 pointer-events-none" />
 
                 {/* Top Badge */}
-                <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-2 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/20 rounded-full text-white text-[11px] font-semibold">
+                <div className="absolute top-3.5 left-3.5 z-20 flex items-center gap-2 px-3 py-1 bg-black/60 backdrop-blur-md border border-white/20 rounded-full text-white text-[11px] font-semibold">
                   <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
                   <span>Item {activeProduct.number} of {String(PRODUCTS.length).padStart(2, "0")}</span>
                 </div>
 
                 {/* Bottom Overlay Info on Image */}
-                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-10 text-white">
+                <div className="absolute bottom-0 inset-x-0 p-4 sm:p-5 z-20 text-white pointer-events-none">
                   <span className="text-[10px] uppercase font-bold tracking-widest text-[#FF8C33] block mb-1">
                     Engineering Capability
                   </span>
