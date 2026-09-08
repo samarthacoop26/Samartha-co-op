@@ -1,172 +1,225 @@
 "use client";
 
-import React from 'react';
-import { Phone, Mail, ChevronRight, MapPin, ArrowUp } from 'lucide-react';
-import Link from 'next/link';
-import { CONTACT_CONFIG } from '@/data/contactConfig';
+import React from "react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ArrowUp,
+  ExternalLink,
+} from "lucide-react";
+import Link from "next/link";
+import { CONTACT_CONFIG } from "@/data/contactConfig";
 
-const SocialIcon = ({ icon, href, label }: { icon: React.ReactNode, href: string, label: string }) => (
-  <Link 
-    href={href} 
+const SocialLink = ({
+  icon,
+  href,
+  label,
+}: {
+  icon: React.ReactNode;
+  href: string;
+  label: string;
+}) => (
+  <Link
+    href={href}
     aria-label={label}
-    className="w-9 h-9 rounded-full border border-gray-700 hover:border-[#FF6B00] flex items-center justify-center text-gray-400 hover:bg-[#FF6B00] hover:text-white transition-all duration-300"
+    className="w-8 h-8 rounded-lg bg-slate-800/50 border border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#FF6B00] hover:bg-[#FF6B00]/10 transition-all duration-200"
   >
     {icon}
   </Link>
 );
 
 const FacebookIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
 
 const TwitterIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
     <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
   </svg>
 );
 
 const LinkedinIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="14"
+    height="14"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
     <rect x="2" y="9" width="4" height="12"></rect>
     <circle cx="4" cy="4" r="2"></circle>
   </svg>
 );
 
-const NavLink = ({ text, href }: { text: string, href: string }) => (
-  <Link 
-    href={href} 
-    className="flex items-center gap-2 text-gray-300 hover:text-[#FF6B00] transition-colors duration-200 text-sm font-medium py-1"
-  >
-    <ChevronRight size={14} className="text-[#FF6B00]" />
-    {text}
-  </Link>
-);
-
 export function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const { sales } = CONTACT_CONFIG.departments;
 
   return (
-    <footer className="relative bg-[#0A1628] text-white border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-gray-800">
+    <footer className="relative bg-[#060D17] text-white border-t border-slate-800/80 overflow-hidden">
+      {/* Subtle Ambient Top Glow */}
+      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF6B00]/40 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[120px] bg-[#FF6B00]/5 blur-[100px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-14 sm:pt-16 pb-12">
+        {/* Main Footer Content Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-slate-800/70">
           
-          {/* Column 1: Company Info */}
-          <div className="lg:col-span-5 space-y-6">
-            <Link href="/" className="flex flex-col">
+          {/* Column 1: Brand & Heritage (5 cols) */}
+          <div className="lg:col-span-5 space-y-5">
+            <Link href="/" className="inline-flex flex-col group">
               <div className="flex items-center gap-2.5">
-                <svg width="22" height="26" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  width="22"
+                  height="26"
+                  viewBox="0 0 24 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="transition-transform duration-300 group-hover:scale-105"
+                >
                   <path d="M12 0L0 28H6L12 14L18 28H24L12 0Z" fill="#FF6B00" />
                   <path d="M6 28H10L14 18H10L6 28Z" fill="white" />
                 </svg>
-                <span className="text-white text-xl font-bold tracking-tight">Samarth Corporation</span>
+                <span className="text-white text-xl font-extrabold tracking-tight">
+                  Samarth Corporation
+                </span>
               </div>
-              <span className="text-gray-400 text-[10px] uppercase tracking-[0.18em] font-semibold mt-1">
+              <span className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold mt-1 ml-[32px]">
                 PP &amp; FRP Engineering Solutions
               </span>
             </Link>
 
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-              Specialized engineering, manufacturing, site erection, and turnkey maintenance of high-performance PP &amp; FRP systems, tanks, scrubbers, blowers, and chemical pipelines.
+            <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed max-w-sm font-normal">
+              Specialized engineering, custom fabrication, site erection, and turnkey maintenance of high-performance thermoplastic &amp; composite equipment across India.
             </p>
 
-            <div className="flex gap-3 pt-1">
-              <SocialIcon icon={<LinkedinIcon />} href="#" label="LinkedIn" />
-              <SocialIcon icon={<TwitterIcon />} href="#" label="Twitter" />
-              <SocialIcon icon={<FacebookIcon />} href="#" label="Facebook" />
+            <div className="flex items-center gap-2.5 pt-1">
+              <SocialLink icon={<LinkedinIcon />} href="#" label="LinkedIn" />
+              <SocialLink icon={<TwitterIcon />} href="#" label="Twitter" />
+              <SocialLink icon={<FacebookIcon />} href="#" label="Facebook" />
             </div>
           </div>
-          
-          {/* Column 2: Quick Links (Matches Navbar) */}
+
+          {/* Column 2: Minimal Navigation (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Navigation
-            </h4>
-            <div className="space-y-2">
-              <NavLink text="Home" href="/" />
-              <NavLink text="About Us" href="/about" />
-              <NavLink text="Products" href="/about#what-we-manufacture" />
-              <NavLink text="Certifications" href="/certificates" />
-              <NavLink text="Contact Us" href="/contact" />
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+              <span>Navigation</span>
             </div>
+
+            <ul className="space-y-2.5">
+              {[
+                { label: "Home", href: "/" },
+                { label: "About Us", href: "/about" },
+                { label: "Products", href: "/about#what-we-manufacture" },
+                { label: "Certifications", href: "/certificates" },
+                { label: "Contact Us", href: "/contact" },
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link
+                    href={item.href}
+                    className="group inline-flex items-center gap-2 text-xs sm:text-[13px] text-slate-300 hover:text-white transition-colors duration-150"
+                  >
+                    <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-[#FF6B00] group-hover:w-2 transition-all duration-200" />
+                    <span>{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Column 3: Contact & Locations */}
+          {/* Column 3: Locations & Direct Contacts (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Contact & Locations
-            </h4>
-            
-            <div className="space-y-3.5 text-sm text-gray-300">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-[#FF6B00] shrink-0 mt-0.5" />
-                <div className="space-y-2">
-                  <div>
-                    <span className="font-semibold text-white block text-xs">Workshop:</span>
-                    <a
-                      href={CONTACT_CONFIG.locations[1].googleMapsDirectionsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 text-xs leading-relaxed block hover:text-[#FF6B00] transition-colors group"
-                      title="Open MIDC Taloja Workshop on Google Maps"
-                    >
-                      <span>
-                        {CONTACT_CONFIG.locations[1].addressLine1}, {CONTACT_CONFIG.locations[1].addressLine2}, {CONTACT_CONFIG.locations[1].cityStateZip}
+            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+              <span>Facilities &amp; Contacts</span>
+            </div>
+
+            <div className="space-y-3.5 text-xs text-slate-300">
+              {/* Workshop */}
+              <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 hover:border-slate-700/80 transition-colors">
+                <div className="flex items-start gap-2.5">
+                  <MapPin className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 mt-0.5" />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-semibold text-slate-200 text-[11.5px]">
+                        Workshop (MIDC Taloja)
                       </span>
-                      <span className="text-[#FF6B00] text-[11px] font-medium ml-1.5 opacity-75 group-hover:opacity-100 group-hover:underline inline-flex items-center gap-0.5">
-                        Maps ↗
-                      </span>
-                    </a>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-white block text-xs">Regd. Office:</span>
-                    <a
-                      href={CONTACT_CONFIG.locations[0].googleMapsDirectionsUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 text-xs leading-relaxed block hover:text-[#FF6B00] transition-colors group"
-                      title="Open Dombivli Registered Office on Google Maps"
-                    >
-                      <span>
-                        {CONTACT_CONFIG.locations[0].addressLine1}, {CONTACT_CONFIG.locations[0].addressLine2}, {CONTACT_CONFIG.locations[0].cityStateZip}
-                      </span>
-                      <span className="text-[#FF6B00] text-[11px] font-medium ml-1.5 opacity-75 group-hover:opacity-100 group-hover:underline inline-flex items-center gap-0.5">
-                        Maps ↗
-                      </span>
-                    </a>
+                      <a
+                        href={CONTACT_CONFIG.locations[1].googleMapsDirectionsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] font-bold text-[#FF6B00] hover:underline inline-flex items-center gap-0.5"
+                      >
+                        Directions <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    </div>
+                    <p className="text-slate-400 text-[11px] leading-snug mt-1 line-clamp-2">
+                      {CONTACT_CONFIG.locations[1].addressLine1}, {CONTACT_CONFIG.locations[1].cityStateZip}
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 pt-1 border-t border-slate-800">
-                <Phone size={18} className="text-[#FF6B00] shrink-0" />
-                <div>
-                  <span className="text-xs text-gray-400 block">Key Contacts:</span>
-                  <div className="text-xs text-white">
-                    <a href="tel:+919930862729" className="hover:text-[#FF6B00] transition-colors font-medium">
-                      Vishal Gadade: +91 99308 62729
+              {/* Direct Communications */}
+              <div className="pt-1 space-y-2">
+                <div className="flex items-center gap-2.5 text-xs">
+                  <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <a
+                      href="tel:+919930862729"
+                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                    >
+                      +91 99308 62729
                     </a>
-                  </div>
-                  <div className="text-xs text-white mt-0.5">
-                    <a href="tel:+919930240239" className="hover:text-[#FF6B00] transition-colors font-medium">
-                      Ramesh Gadade: +91 99302 40239
+                    <span className="text-slate-600">•</span>
+                    <a
+                      href="tel:+919930240239"
+                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                    >
+                      +91 99302 40239
                     </a>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex items-center gap-3">
-                <Mail size={18} className="text-[#FF6B00] shrink-0" />
-                <div>
-                  <span className="text-xs text-gray-400 block">Email:</span>
-                  <a href={`mailto:${sales.email}`} className="font-medium text-white hover:text-[#FF6B00] transition-colors text-xs">
+                <div className="flex items-center gap-2.5 text-xs">
+                  <Mail className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                  <a
+                    href={`mailto:${sales.email}`}
+                    className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                  >
                     {sales.email}
                   </a>
                 </div>
@@ -175,37 +228,46 @@ export function Footer() {
           </div>
 
         </div>
-        
-        {/* Footer Bottom */}
-        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
-            <p>
-              © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
-            </p>
-          </div>
+
+        {/* Footer Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+          <p className="text-center sm:text-left">
+            © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
+          </p>
 
           {/* Legal Quick Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-gray-400">
-            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+          <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5 text-xs text-slate-400 font-medium">
+            <Link
+              href="/privacy-policy"
+              className="hover:text-white transition-colors"
+            >
               Privacy Policy
             </Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/terms-and-conditions" className="hover:text-white transition-colors">
-              Terms & Conditions
+            <span className="text-slate-700">•</span>
+            <Link
+              href="/terms-and-conditions"
+              className="hover:text-white transition-colors"
+            >
+              Terms &amp; Conditions
             </Link>
-            <span className="text-gray-700">•</span>
-            <Link href="/disclaimer" className="hover:text-white transition-colors">
+            <span className="text-slate-700">•</span>
+            <Link
+              href="/disclaimer"
+              className="hover:text-white transition-colors"
+            >
               Disclaimer
             </Link>
           </div>
-          
-          <button 
+
+          {/* Back to Top */}
+          <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
-            aria-label="Scroll to top"
+            type="button"
+            className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 text-slate-400 hover:text-white transition-all cursor-pointer"
+            aria-label="Scroll to top of page"
           >
-            <span>Back to top</span>
-            <ArrowUp size={14} className="text-[#FF6B00]" />
+            <span className="text-[11px] font-semibold">Top</span>
+            <ArrowUp className="w-3 h-3 text-[#FF6B00] group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
       </div>
