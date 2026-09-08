@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, CheckCircle, Users, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 const slides = [
   {
@@ -30,6 +31,7 @@ const slides = [
 ];
 
 export function HeroSlider() {
+  const { openQuoteModal } = useQuoteModal();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -127,12 +129,13 @@ export function HeroSlider() {
                 transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
               >
-                <Link 
-                  href={slides[currentSlide].cta1.link}
-                  className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#e66000] text-white font-semibold text-base px-8 py-4 rounded shadow-[0_8px_20px_rgba(255,107,0,0.3)] transition-all hover:-translate-y-1 flex items-center justify-center"
+                <button 
+                  type="button"
+                  onClick={() => openQuoteModal({ title: "Request a Custom Quote" })}
+                  className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#e66000] text-white font-semibold text-base px-8 py-4 rounded shadow-[0_8px_20px_rgba(255,107,0,0.3)] transition-all hover:-translate-y-1 flex items-center justify-center cursor-pointer"
                 >
                   {slides[currentSlide].cta1.text}
-                </Link>
+                </button>
               </motion.div>
             </motion.div>
           </AnimatePresence>

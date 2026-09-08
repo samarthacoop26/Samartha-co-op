@@ -143,7 +143,7 @@ export function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
-                { label: "Products", href: "/about#what-we-manufacture" },
+                { label: "Products", href: "/products" },
                 { label: "Certifications", href: "/certificates" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (

@@ -3,8 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight, Download, FileText } from "lucide-react";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function FinalCTA() {
+  const { openQuoteModal } = useQuoteModal();
   const handleDownloadBrochure = () => {
     // Open printable / downloadable brochure or trigger download
     window.open("/contact", "_self");
@@ -40,13 +42,14 @@ export function FinalCTA() {
 
           {/* Right Action Buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg hover:shadow-orange-500/25 transition-all duration-200 group text-center"
+            <button
+              type="button"
+              onClick={() => openQuoteModal({ title: "Request a Project Quote" })}
+              className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg hover:shadow-orange-500/25 transition-all duration-200 group text-center cursor-pointer"
             >
               <span>REQUEST A QUOTE</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
 
             <Link
               href="/certificates"

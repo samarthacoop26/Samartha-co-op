@@ -14,46 +14,46 @@ interface ProductCategory {
 
 const productCategories: ProductCategory[] = [
   {
-    id: "gratings-walkways",
+    id: "gratings-walkways-platforms",
     title: "Gratings & Walkway Systems",
     subheading: "Slip-resistant, load-rated FRP gratings, walkways and platforms built for industrial and infrastructure use.",
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
-    link: "/products/gratings-walkways",
+    link: "/products/gratings-walkways-platforms",
   },
   {
-    id: "manhole-trench-covers",
+    id: "manhole-drain-cable-covers",
     title: "Manhole & Trench Covers",
     subheading: "Corrosion-free, tamper-resistant covers engineered for municipal, Smart City and civic infrastructure projects.",
     image: "https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=1200&q=80",
-    link: "/products/manhole-trench-covers",
+    link: "/products/manhole-drain-cable-covers",
   },
   {
-    id: "tanks-chemical-piping",
+    id: "tanks-piping-chemical-storage",
     title: "Tanks & Chemical Piping",
     subheading: "Chemical-resistant storage tanks and pipeline systems for process plants, power stations and industrial facilities.",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
-    link: "/products/tanks-piping",
+    link: "/products/tanks-piping-chemical-storage",
   },
   {
-    id: "doors-windows-enclosures",
+    id: "doors-windows-panels",
     title: "Doors, Windows & Enclosures",
     subheading: "Weatherproof doors, windows and electrical enclosures engineered for demanding industrial and public infrastructure.",
     image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80",
-    link: "/products/doors-enclosures",
+    link: "/products/doors-windows-panels",
   },
   {
-    id: "safety-access-structures",
+    id: "handrails-ladders-safety",
     title: "Safety & Access Structures",
     subheading: "Handrails, ladders and safety railings designed to meet industrial safety and compliance standards.",
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80",
-    link: "/products/safety-access",
+    link: "/products/handrails-ladders-safety",
   },
   {
-    id: "defence-railway-components",
+    id: "defence-equipment-protective-gear",
     title: "Defence & Railway Components",
     subheading: "Precision-engineered FRP components built to specification for defence, railway and metro applications.",
     image: "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80",
-    link: "/products/defence-railway",
+    link: "/products/defence-equipment-protective-gear",
   },
 ];
 
@@ -175,6 +175,17 @@ export function ProductCategories() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* View All 10 Categories CTA Strip */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2.5 bg-[#0A1628] hover:bg-[#FF6B00] text-white font-bold text-xs sm:text-sm uppercase tracking-widest px-8 py-4 rounded-none transition-all duration-300 shadow-md group"
+          >
+            <span>Explore All 10 Product Categories &amp; 90+ Products</span>
+            <ArrowUpRight className="w-4 h-4 text-[#FF6B00] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
+        </div>
       </div>
     </section>
   );

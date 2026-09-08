@@ -18,8 +18,10 @@ import {
   ALL_PRODUCT_CATEGORIES,
   PRODUCT_CATEGORIES_DATA,
 } from "@/data/productsNavData";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function MainNavbar() {
+  const { openQuoteModal } = useQuoteModal();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
@@ -267,13 +269,14 @@ export function MainNavbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-4 md:gap-6">
-          <Link
-            href="/contact"
-            className="hidden sm:inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-6 py-2.5 font-bold text-xs uppercase tracking-widest rounded transition-all duration-300 ease-out transform hover:-translate-y-0.5 hover:shadow-[0_4px_20px_-4px_rgba(255,107,0,0.5)] group"
+          <button
+            type="button"
+            onClick={() => openQuoteModal()}
+            className="hidden sm:inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-6 py-2.5 font-bold text-xs uppercase tracking-widest rounded transition-all duration-300 ease-out transform hover:-translate-y-0.5 hover:shadow-[0_4px_20px_-4px_rgba(255,107,0,0.5)] group cursor-pointer"
           >
             <span>GET A QUOTE</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -369,17 +372,30 @@ export function MainNavbar() {
 
             {mobileProductsOpen && (
               <div className="pl-3 mt-3 space-y-4 border-l border-slate-700/80 my-1 max-h-[50vh] overflow-y-auto">
+                <Link
+                  href="/products"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between p-2 bg-[#FF6B00]/15 border border-[#FF6B00]/40 text-white text-xs font-bold uppercase tracking-wider rounded transition-colors"
+                >
+                  <span>Explore All 10 Categories</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FF6B00]" />
+                </Link>
+
                 {ALL_PRODUCT_CATEGORIES.map((cat) => (
                   <div key={cat.id} className="space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-[#FF6B00]">
+                    <Link
+                      href={cat.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex items-center gap-1.5 text-[11px] uppercase tracking-wider font-bold text-[#FF6B00] hover:underline"
+                    >
                       <span className="font-mono">{cat.categoryNumber}.</span>
                       <span>{cat.categoryTitle}</span>
-                    </div>
+                    </Link>
                     <div className="space-y-1 pl-2">
                       {cat.items.map((item, itemIdx) => (
                         <Link
                           key={itemIdx}
-                          href="/about#what-we-manufacture"
+                          href={cat.href}
                           onClick={() => setMobileMenuOpen(false)}
                           className="block py-0.5 text-xs text-slate-300 hover:text-[#FF6B00] transition-colors"
                         >
@@ -410,14 +426,17 @@ export function MainNavbar() {
           </Link>
 
           <div className="pt-3 border-t border-slate-700/60">
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white py-3 font-bold text-xs uppercase tracking-widest rounded transition-colors"
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                openQuoteModal();
+              }}
+              className="w-full flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white py-3 font-bold text-xs uppercase tracking-widest rounded transition-colors cursor-pointer"
             >
               <span>GET A QUOTE</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </div>
       )}

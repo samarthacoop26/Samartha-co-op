@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { CONTACT_CONFIG } from '@/data/contactConfig';
 
@@ -92,15 +92,8 @@ export function Topbar() {
         </div>
       </div>
       
-      {/* Right side: Operating Hours & Socials (GST & UDYAM removed) */}
+      {/* Right side: Socials (GST, UDYAM, and Operating Hours removed) */}
       <div className="flex items-center gap-4 text-gray-400">
-        <div className="hidden md:flex items-center gap-1.5 text-[11px] text-gray-400 font-medium">
-          <Clock className="w-3.5 h-3.5 text-[#FF6B00]" />
-          <span>{CONTACT_CONFIG.workingHours.days}: 9:00 AM – 6:30 PM</span>
-        </div>
-
-        <span className="text-gray-700 hidden md:inline">|</span>
-
         <div className="flex items-center gap-3">
           <Link 
             href="https://linkedin.com" 

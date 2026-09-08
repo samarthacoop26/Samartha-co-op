@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   CheckCircle2,
 } from "lucide-react";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 interface ProductItem {
   id: string;
@@ -103,6 +104,7 @@ const PRODUCTS: ProductItem[] = [
 ];
 
 export function WhatWeManufactureSection() {
+  const { openQuoteModal } = useQuoteModal();
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const activeProduct = PRODUCTS[activeIndex];
 
@@ -197,13 +199,19 @@ export function WhatWeManufactureSection() {
                   <span className="text-[11px] text-gray-500 font-medium">
                     Send inquiry or drawing for quote:
                   </span>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:text-[#0A1628] transition-colors"
+                  <button
+                    type="button"
+                    onClick={() =>
+                      openQuoteModal({
+                        title: `Inquiry: ${activeProduct.title}`,
+                        productName: activeProduct.title,
+                      })
+                    }
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:text-[#0A1628] transition-colors cursor-pointer"
                   >
                     <span>Request Rates</span>
                     <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

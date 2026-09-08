@@ -12,8 +12,10 @@ import {
   ArrowRight,
   DownloadCloud,
 } from "lucide-react";
+import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function QualityAssuranceProtocol() {
+  const { openQuoteModal } = useQuoteModal();
   const steps = [
     {
       step: "01",
@@ -119,13 +121,19 @@ export function QualityAssuranceProtocol() {
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-orange-500/20"
+            <button
+              type="button"
+              onClick={() =>
+                openQuoteModal({
+                  title: "Quality Desk & Tender Compliance Inquiry",
+                  message: "Requesting batch test certificates / NABL load test reports / vendor registration pack.",
+                })
+              }
+              className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-6 py-3 rounded-lg font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-orange-500/20 cursor-pointer"
             >
               <span>Contact Quality Desk</span>
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </button>
           </div>
         </div>
       </div>

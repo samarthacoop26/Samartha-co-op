@@ -11,7 +11,7 @@ export interface ProductCategory {
   categoryTitle: string;
   shortDescription: string;
   iconName: string;
-  statusBadge?: string; // e.g. "Hold - Pending Confirmation", "Defence Grade", "Core Manufacturing"
+  statusBadge?: string;
   items: string[];
   href: string;
 }
@@ -23,7 +23,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Gratings, Walkways & Platforms",
     shortDescription: "High load-bearing, corrosion-resistant FRP molded and pultruded walkway systems.",
     iconName: "Grid",
-    statusBadge: "Core Scope",
+    statusBadge: "Structural Access",
     items: [
       "FRP Gratings",
       "Walkways",
@@ -36,7 +36,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Anti-slip Panels",
       "Decking",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/gratings-walkways-platforms",
   },
   {
     id: "manhole-drain-cable-covers",
@@ -44,7 +44,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Manhole, Drain & Cable Trench Covers",
     shortDescription: "Heavy duty composite access solutions tested up to 40T/60T load ratings.",
     iconName: "CircleDot",
-    statusBadge: "Core Scope",
+    statusBadge: "Heavy Duty Infra",
     items: [
       "Manhole Covers",
       "Drain Covers",
@@ -52,7 +52,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Cable Duct Covers",
       "Utility Covers",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/manhole-drain-cable-covers",
   },
   {
     id: "tanks-piping-chemical-storage",
@@ -60,7 +60,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Tanks, Piping & Chemical Storage",
     shortDescription: "Chemical storage vessels, dual-laminate tanks and high-pressure thermoplastic piping.",
     iconName: "Boxes",
-    statusBadge: "Core Scope",
+    statusBadge: "Process Equipment",
     items: [
       "Water Storage Tanks",
       "Chemical Tanks",
@@ -70,7 +70,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "High Pressure Tubes",
       "Cylinders",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/tanks-piping-chemical-storage",
   },
   {
     id: "doors-windows-panels",
@@ -78,7 +78,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Doors, Windows & Panels",
     shortDescription: "Fire-retardant, moisture-proof composite architectural doors and transport body panels.",
     iconName: "DoorOpen",
-    statusBadge: "Fabrication",
+    statusBadge: "Architectural & Transit",
     items: [
       "Doors",
       "Windows",
@@ -93,7 +93,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Nose Cone",
       "Flooring",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/doors-windows-panels",
   },
   {
     id: "electrical-enclosures-control-boxes",
@@ -101,7 +101,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Electrical Enclosures & Control Boxes",
     shortDescription: "Dielectric, non-conductive weather-proof kiosks and junction enclosures.",
     iconName: "Cpu",
-    statusBadge: "Industrial",
+    statusBadge: "Electrical & Power",
     items: [
       "Electrical Kiosks",
       "Transformer Covers",
@@ -116,7 +116,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Battery Boxes",
       "Communication Equipment Boxes",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/electrical-enclosures-control-boxes",
   },
   {
     id: "handrails-ladders-safety",
@@ -124,7 +124,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Handrails, Ladders & Safety Structures",
     shortDescription: "OSHA-compliant safety guard rails, cage ladders and non-conductive fencing.",
     iconName: "Shield",
-    statusBadge: "Safety",
+    statusBadge: "Safety & Compliance",
     items: [
       "Handrails",
       "Safety Railings",
@@ -133,7 +133,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Fencing",
       "Transformer Fencing",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/handrails-ladders-safety",
   },
   {
     id: "cable-management-systems",
@@ -141,13 +141,13 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Cable Management Systems",
     shortDescription: "Corrosion-proof FRP perforated and ladder type cable trays and routing supports.",
     iconName: "Workflow",
-    statusBadge: "Industrial",
+    statusBadge: "Cable Support",
     items: [
       "Cable Trays",
       "Cable Covers",
       "Cable Routing Supports",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/cable-management-systems",
   },
   {
     id: "civic-furniture-public-infra",
@@ -155,7 +155,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Civic Furniture & Public Infrastructure",
     shortDescription: "Bespoke composite urban structures, cabins, modular toilets and canopies.",
     iconName: "Building",
-    statusBadge: "Hold — Pending Client Confirmation",
+    statusBadge: "Smart City & Civic",
     items: [
       "Dustbins",
       "Benches",
@@ -174,7 +174,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Canopies",
       "Decorative Structures",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/civic-furniture-public-infra",
   },
   {
     id: "signage",
@@ -182,7 +182,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Signage",
     shortDescription: "UV-resistant and weatherproof industrial and highway composite sign boards.",
     iconName: "Signpost",
-    statusBadge: "Hold — Pending Client Confirmation",
+    statusBadge: "Traffic & Industrial",
     items: [
       "Sign Boards",
       "Name Boards",
@@ -190,7 +190,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Traffic Sign Boards",
       "Advertisement Boards",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/signage",
   },
   {
     id: "defence-equipment-protective-gear",
@@ -198,7 +198,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     categoryTitle: "Defence Equipment & Protective Gear",
     shortDescription: "Military-spec containers, ammunition cases, radomes and lightweight UAV components.",
     iconName: "ShieldAlert",
-    statusBadge: "Defence Grade",
+    statusBadge: "Defence Grade (MIL-SPEC)",
     items: [
       "Missile Transport Boxes",
       "Missile Storage Containers",
@@ -216,7 +216,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Helmet Components",
       "Protective Covers",
     ],
-    href: "/about#what-we-manufacture",
+    href: "/products/defence-equipment-protective-gear",
   },
 ];
 
@@ -234,7 +234,7 @@ export const INDUSTRIAL_PRODUCT_COLUMNS = ALL_PRODUCT_CATEGORIES.slice(0, 3).map
 }));
 
 export const QUICK_RESOURCE_LINKS = [
-  { id: "all-products", title: "View All 10 Categories", href: "/about#what-we-manufacture" },
+  { id: "all-products", title: "View All 10 Categories", href: "/products" },
   { id: "cad-rfq", title: "Request Custom CAD Fabrication", href: "/contact" },
   { id: "certificates", title: "ISO 9001:2015 Certifications", href: "/certificates" },
 ];
@@ -248,4 +248,3 @@ export const PRODUCT_CATEGORIES_DATA = ALL_PRODUCT_CATEGORIES.flatMap((c) =>
     iconName: c.iconName,
   }))
 );
-
