@@ -66,7 +66,7 @@ export default function DisclaimerPage() {
       content: (
         <>
           <p>
-            References to industrial standards and certifications (including <strong>ISO 9001:2015</strong>, <strong>MSME registration</strong>, <strong>IS 1726</strong>, <strong>EN 124</strong> load classes A15 through F900, and ASTM flammability/dielectric ratings) reflect registrations and standard testing protocols active at the time of publication.
+            References to enterprise credentials and standards (including <strong>MSME / Udyam registration</strong>, <strong>GST compliance</strong>, <strong>IS 1726</strong>, <strong>EN 124</strong> load classes A15 through F900, and ASTM standard testing protocols) reflect registrations and standard testing protocols active at the time of publication.
           </p>
           <p>
             Certified copies of third-party laboratory test reports (e.g., NABL-accredited load testing certificates, raw material test certificates, or batch test reports) can be furnished upon request during tender submission or project dispatch.

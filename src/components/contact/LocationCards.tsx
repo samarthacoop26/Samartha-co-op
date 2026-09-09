@@ -17,10 +17,10 @@ export function LocationCards() {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-[#0A1628] tracking-tight">
-          Our Facilities & Locations
+        <h2 className="type-h2 text-[#0A1628]">
+          Our Facilities &amp; Locations
         </h2>
-        <p className="text-sm text-gray-600 mt-1">
+        <p className="type-subheading text-sm text-gray-600 mt-1">
           Registered office and manufacturing plant locations with interactive map directions.
         </p>
       </div>
@@ -31,20 +31,20 @@ export function LocationCards() {
           return (
             <div
               key={loc.id}
-              className="bg-white rounded border border-gray-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-between"
+              className="bg-white rounded-2xl border border-gray-200/90 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col justify-between"
             >
               {/* Card Details */}
               <div className="p-6 sm:p-7 space-y-4">
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded bg-orange-50 text-[#FF6B00] flex items-center justify-center">
+                    <div className="w-11 h-11 rounded-xl bg-orange-50 text-[#FF6B00] flex items-center justify-center shadow-2xs">
                       {loc.type === "office" ? <Building className="w-5 h-5" /> : <Factory className="w-5 h-5" />}
                     </div>
                     <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-[#FF6B00]">
+                      <span className="type-eyebrow text-[#FF6B00]">
                         {loc.badge}
                       </span>
-                      <h3 className="text-lg font-bold text-[#0A1628]">
+                      <h3 className="type-h3 text-lg text-[#0A1628]">
                         {loc.name}
                       </h3>
                     </div>
@@ -52,22 +52,22 @@ export function LocationCards() {
                 </div>
 
                 {/* Address block */}
-                <div className="text-sm text-gray-600 space-y-0.5 pl-0.5">
+                <div className="type-body text-sm text-gray-600 space-y-0.5 pl-0.5">
                   <p className="font-semibold text-gray-900">{loc.addressLine1}</p>
                   <p>{loc.addressLine2}</p>
                   <p>{loc.cityStateZip}, {loc.country}</p>
                 </div>
 
                 {/* Operating hours & Action buttons */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-2 text-xs border-t border-gray-100">
-                  <span className="text-gray-500">
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-3 text-xs border-t border-gray-100">
+                  <span className="type-footer text-gray-500">
                     Hours: <strong className="text-gray-700 font-semibold">{loc.operatingHours}</strong>
                   </span>
 
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => handleCopyAddress(loc)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-gray-200 hover:bg-gray-50 text-gray-700 font-medium transition-colors cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-gray-200 hover:bg-gray-50 text-gray-700 type-btn text-xs transition-colors cursor-pointer"
                     >
                       {copiedId === loc.id ? (
                         <>
@@ -86,7 +86,7 @@ export function LocationCards() {
                       href={loc.googleMapsDirectionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-[#FF6B00] hover:bg-[#e66000] text-white font-semibold transition-colors"
+                      className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn text-xs transition-colors shadow-2xs"
                     >
                       <MapPin className="w-3.5 h-3.5" />
                       <span>Open in Maps</span>

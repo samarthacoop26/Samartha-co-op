@@ -127,17 +127,17 @@ export function WhatWeManufactureSection() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/80 rounded mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/80 rounded-full mb-3">
             <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-            <span className="text-xs font-bold tracking-wider text-[#FF6B00] uppercase">
-              Manufacturing & Stockist Scope
+            <span className="type-eyebrow text-[#FF6B00]">
+              Manufacturing &amp; Stockist Scope
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A1628] tracking-tight">
-            What We Manufacture & Supply
+          <h2 className="type-h2 text-[#0A1628]">
+            What We Manufacture &amp; Supply
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
-            Leading manufacturer and stockist of high-performance PP & FRP equipment, piping systems, protective linings, and turnkey maintenance services.
+          <p className="mt-3 type-subheading text-gray-600">
+            Leading manufacturer and stockist of high-performance PP &amp; FRP equipment, piping systems, protective linings, and turnkey maintenance services.
           </p>
         </div>
 

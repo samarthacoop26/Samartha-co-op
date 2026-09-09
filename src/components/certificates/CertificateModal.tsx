@@ -39,15 +39,15 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-2xl bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col my-auto border border-gray-200"
+        className="relative w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto border border-gray-200"
       >
         {/* ── Modal Header ── */}
         <div className="bg-[#0A1628] text-white px-6 py-4 flex items-center justify-between border-b border-gray-800">
           <div>
-            <h3 className="text-base font-bold text-white leading-tight">
+            <h3 className="type-h3 text-base text-white leading-tight">
               {item.title}
             </h3>
-            <p className="text-xs text-gray-400 mt-0.5 font-mono">
+            <p className="type-spec text-xs text-gray-400 mt-0.5 font-mono-accent">
               Ref: {item.registrationOrRefNo}
             </p>
           </div>
@@ -55,14 +55,14 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => window.print()}
-              className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+              className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
               title="Print Certificate"
             >
               <Printer className="w-4 h-4" />
             </button>
             <button
               onClick={onClose}
-              className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+              className="p-2 text-gray-400 hover:text-white hover:bg-slate-800 rounded-xl transition-colors cursor-pointer"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -72,19 +72,19 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
 
         {/* ── Realistic Certificate Sheet Content ── */}
         <div className="p-6 sm:p-10 bg-[#fafafa] overflow-y-auto max-h-[75vh]">
-          <div className="bg-white border border-gray-300 shadow-sm p-6 sm:p-8 rounded relative text-slate-900">
+          <div className="bg-white border border-gray-300 shadow-sm p-6 sm:p-8 rounded-2xl relative text-slate-900">
             {/* Guilloche inner border */}
-            <div className="absolute inset-3 border border-slate-300 rounded pointer-events-none" />
+            <div className="absolute inset-3 border border-slate-300 rounded-xl pointer-events-none" />
 
             {/* Header */}
             <div className="relative z-10 text-center border-b border-gray-200 pb-4 mb-6">
-              <h2 className="text-lg sm:text-xl font-extrabold uppercase text-slate-900 tracking-tight">
+              <h2 className="type-h2 text-lg sm:text-xl uppercase text-slate-900 tracking-tight">
                 {item.documentContent.header}
               </h2>
-              <p className="text-xs font-semibold text-[#FF6B00] uppercase tracking-wider mt-1">
+              <p className="type-eyebrow text-xs text-[#FF6B00] mt-1">
                 {item.documentContent.subHeader}
               </p>
-              <div className="mt-2 text-[11px] font-mono text-slate-500 flex items-center justify-center gap-4">
+              <div className="mt-2 type-spec text-[11px] text-slate-500 flex items-center justify-center gap-4 font-mono-accent">
                 <span>Date: {item.issueDate}</span>
                 <span>•</span>
                 <span>Ref: {item.registrationOrRefNo}</span>
@@ -92,7 +92,7 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
             </div>
 
             {/* Body */}
-            <div className="relative z-10 space-y-4 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <div className="relative z-10 space-y-4 type-body text-xs sm:text-sm text-slate-700 leading-relaxed">
               {item.documentContent.toWhom && (
                 <div className="text-center font-bold text-xs uppercase tracking-widest text-slate-500 mb-2">
                   {item.documentContent.toWhom}
@@ -105,7 +105,7 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
                 </p>
               ))}
 
-              <div className="mt-4 p-3 bg-slate-50 rounded border border-slate-200 text-xs space-y-1">
+              <div className="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs space-y-1">
                 <p>
                   <strong className="text-slate-900">Standard / Scope:</strong>{" "}
                   {item.standardOrScope}
@@ -119,7 +119,7 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
 
             {/* Footer / Signature */}
             <div className="relative z-10 mt-8 pt-4 border-t border-gray-200 flex items-end justify-between">
-              <div className="flex items-center gap-1 text-emerald-700 text-xs font-semibold">
+              <div className="flex items-center gap-1.5 text-emerald-700 text-xs font-semibold bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
                 <ShieldCheck className="w-4 h-4" />
                 <span>Verified Copy</span>
               </div>
@@ -128,10 +128,10 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
                 <p className="font-serif italic font-bold text-sm text-slate-900 underline decoration-slate-300">
                   {item.documentContent.signatory.name}
                 </p>
-                <p className="text-[10px] font-semibold text-slate-700 uppercase">
+                <p className="type-eyebrow text-[10px] text-slate-700">
                   {item.documentContent.signatory.designation}
                 </p>
-                <p className="text-[9px] text-slate-500">
+                <p className="type-footer text-[9px] text-slate-500">
                   {item.documentContent.signatory.organization}
                 </p>
               </div>
@@ -141,12 +141,12 @@ export function CertificateModal({ item, onClose }: CertificateModalProps) {
 
         {/* ── Modal Footer ── */}
         <div className="bg-white border-t border-gray-200 px-6 py-3 flex items-center justify-between">
-          <span className="text-xs text-gray-500 font-medium">
+          <span className="type-footer text-xs text-gray-500">
             {CONTACT_CONFIG.companyName}
           </span>
           <button
             onClick={() => window.print()}
-            className="inline-flex items-center gap-1.5 bg-[#FF6B00] hover:bg-[#e66000] text-white text-xs font-semibold px-4 py-2 rounded transition-colors"
+            className="inline-flex items-center gap-1.5 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn text-xs px-5 py-2.5 rounded-xl transition-colors cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Print / Save Copy</span>

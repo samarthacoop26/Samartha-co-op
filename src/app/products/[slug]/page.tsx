@@ -160,7 +160,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               href="/certificates"
               className="font-bold text-[#FF6B00] hover:underline shrink-0 inline-flex items-center gap-1"
             >
-              <span>View ISO &amp; BIS Credentials</span>
+              <span>View Accreditations &amp; Registrations</span>
               <FileText className="w-3.5 h-3.5" />
             </Link>
           </div>

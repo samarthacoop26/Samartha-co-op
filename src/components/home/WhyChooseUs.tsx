@@ -70,7 +70,7 @@ const features: FeatureItem[] = [
       "In-house CAD/CAM tooling and precision compression moulding for custom dimensions",
       "Traceable Material Test Certificates (MTC) supplied with every dispatched consignment",
     ],
-    tags: ["ISO 9001:2015 / MSME ZED", "500+ Sites Supplied", "100% Batch Certified"],
+    tags: ["MSME & GST Registered", "500+ Sites Supplied", "100% Batch Certified"],
   },
 ];
 
@@ -92,16 +92,16 @@ export function WhyChooseUs() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-14">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/60 rounded-sm mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/60 rounded-full mb-4">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-              <span className="text-xs font-bold tracking-wider text-[#FF6B00] uppercase">
+              <span className="type-eyebrow text-[#FF6B00]">
                 WHY CHOOSE SAMARTH
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0A1628] tracking-tight leading-[1.2]">
+            <h2 className="type-h2 text-[#0A1628]">
               Why Leading Enterprises Rely on Our FRP Solutions
             </h2>
-            <p className="mt-4 text-base sm:text-lg text-gray-600 font-normal leading-relaxed">
+            <p className="mt-4 type-subheading text-gray-600">
               From heavy civic infrastructure to corrosive industrial corridors, we manufacture composite products engineered to outperform and outlast conventional steel and concrete.
             </p>
           </div>
@@ -149,14 +149,14 @@ export function WhyChooseUs() {
                   aria-selected={isActive}
                   aria-controls={`panel-${feature.id}`}
                   onClick={() => setActiveIndex(index)}
-                  className={`relative w-full px-6 py-5 sm:py-6 text-center cursor-pointer select-none outline-none border transition-all duration-300 ${
+                  className={`relative w-full px-6 py-5 sm:py-6 text-center cursor-pointer select-none outline-none border rounded-xl transition-all duration-300 ${
                     isActive
                       ? "bg-[#FF6B00] border-[#FF6B00] text-white shadow-[0_8px_24px_-4px_rgba(255,107,0,0.35)]"
                       : "bg-[#F1F4F8] hover:bg-[#E8EDF3] border-gray-200/80 hover:border-gray-300 text-[#0A1628]"
                   }`}
                 >
                   <span
-                    className={`block font-extrabold text-xs sm:text-[13px] lg:text-[14px] uppercase tracking-wider leading-snug transition-colors ${
+                    className={`block font-bold text-xs sm:text-[13px] lg:text-[14px] uppercase tracking-wider leading-snug transition-colors ${
                       isActive ? "text-white" : "text-[#0A1628]"
                     }`}
                   >
@@ -182,26 +182,26 @@ export function WhyChooseUs() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-[#FAFAFC] hover:bg-white rounded p-7 sm:p-9 md:p-10 border border-gray-200/90 shadow-[0_8px_30px_-6px_rgba(10,22,40,0.05)] transition-colors duration-300"
+              className="bg-[#FAFAFC] hover:bg-white rounded-2xl p-7 sm:p-9 md:p-10 border border-gray-200/90 shadow-[0_8px_30px_-6px_rgba(10,22,40,0.05)] transition-colors duration-300"
             >
               <div>
                 {/* Icon & Badge Header */}
                 <div className="flex items-center justify-between gap-3 mb-6">
-                  <div className="w-12 h-12 rounded bg-orange-50 border border-orange-100 flex items-center justify-center text-[#FF6B00]">
+                  <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-100 flex items-center justify-center text-[#FF6B00]">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <span className="text-[11px] font-bold text-gray-600 bg-gray-100/90 px-3 py-1.5 rounded-sm border border-gray-200/60">
+                  <span className="type-spec text-gray-600 bg-gray-100/90 px-3 py-1.5 rounded-lg border border-gray-200/60">
                     {activeFeature.badge}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628] tracking-tight mb-3">
+                <h3 className="type-h3 text-[#0A1628] mb-3">
                   {activeFeature.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-base text-gray-600 leading-relaxed font-normal">
+                <p className="type-body text-gray-600">
                   {activeFeature.description}
                 </p>
 
@@ -216,7 +216,7 @@ export function WhyChooseUs() {
                         <span className="w-4 h-4 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
                           <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </span>
-                        <span className="leading-snug">{point}</span>
+                        <span className="leading-snug type-body">{point}</span>
                       </li>
                     ))}
                   </ul>
@@ -227,7 +227,7 @@ export function WhyChooseUs() {
                   {activeFeature.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="text-[11px] font-semibold bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-xs shadow-2xs"
+                      className="type-spec bg-white border border-gray-200 text-gray-600 px-2.5 py-1 rounded-lg shadow-2xs"
                     >
                       {tag}
                     </span>

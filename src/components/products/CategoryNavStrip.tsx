@@ -23,14 +23,14 @@ const ROW_1_CATEGORIES: NavItem[] = [
     href: "/products",
   },
   {
-    id: "gratings-walkways-platforms",
-    name: "Gratings & Walkways",
-    href: "/products/gratings-walkways-platforms",
-  },
-  {
     id: "manhole-drain-cable-covers",
     name: "Manhole & Drain Covers",
     href: "/products/manhole-drain-cable-covers",
+  },
+  {
+    id: "gratings-walkways-platforms",
+    name: "Gratings & Walkways",
+    href: "/products/gratings-walkways-platforms",
   },
   {
     id: "tanks-piping-chemical-storage",

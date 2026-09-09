@@ -41,36 +41,36 @@ export default function ProductsOverviewPage() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black/40 backdrop-blur-md border border-white/20 rounded-full mb-3.5 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-              <span className="text-[11px] font-bold tracking-wider text-white uppercase">
+              <span className="type-eyebrow text-white">
                 Complete Manufacturing Scope &bull; 10 Divisions
               </span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-md leading-tight">
+            <h1 className="type-h1 text-white drop-shadow-md">
               FRP &amp; Composite Products Catalog
             </h1>
 
-            <p className="mt-4 text-base sm:text-lg text-gray-200 font-normal leading-relaxed">
+            <p className="mt-4 type-subheading text-gray-200">
               Explore our complete range of Fiberglass Reinforced Plastic (FRP) and Polypropylene (PP) solutions engineered for defence, municipal infrastructure, chemical processing, and industrial applications across India.
             </p>
 
             {/* Quick Metrics Bar */}
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-white/20">
-              <div className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
-                <span className="text-xs text-gray-300 block uppercase font-medium">Divisions</span>
-                <span className="text-xl font-bold text-[#FF6B00]">{TOTAL_CATEGORIES_COUNT} Categories</span>
+              <div className="p-3 bg-black/40 backdrop-blur-md rounded-xl border border-white/10">
+                <span className="type-footer text-gray-300 block uppercase font-medium">Divisions</span>
+                <span className="text-xl font-bold text-[#FF6B00] type-h3">{TOTAL_CATEGORIES_COUNT} Categories</span>
               </div>
-              <div className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
-                <span className="text-xs text-gray-300 block uppercase font-medium">Product Range</span>
-                <span className="text-xl font-bold text-white">{TOTAL_PRODUCTS_COUNT}+ Items</span>
+              <div className="p-3 bg-black/40 backdrop-blur-md rounded-xl border border-white/10">
+                <span className="type-footer text-gray-300 block uppercase font-medium">Product Range</span>
+                <span className="text-xl font-bold text-white type-h3">{TOTAL_PRODUCTS_COUNT}+ Items</span>
               </div>
-              <div className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
-                <span className="text-xs text-gray-300 block uppercase font-medium">Quality</span>
-                <span className="text-xl font-bold text-emerald-400">ISO 9001:2015</span>
+              <div className="p-3 bg-black/40 backdrop-blur-md rounded-xl border border-white/10">
+                <span className="type-footer text-gray-300 block uppercase font-medium">Registration</span>
+                <span className="text-xl font-bold text-emerald-400 type-spec">MSME &amp; GST</span>
               </div>
-              <div className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
-                <span className="text-xs text-gray-300 block uppercase font-medium">Supply Scope</span>
-                <span className="text-xl font-bold text-gray-100">Pan-India &amp; Export</span>
+              <div className="p-3 bg-black/40 backdrop-blur-md rounded-xl border border-white/10">
+                <span className="type-footer text-gray-300 block uppercase font-medium">Supply Scope</span>
+                <span className="text-xl font-bold text-gray-100 type-h3">Pan-India &amp; Export</span>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ export default function ProductsOverviewPage() {
         {/* Slanted Breadcrumb Bar Pinned to Bottom-Right */}
         <div className="absolute bottom-0 right-0 z-20">
           <div
-            className="bg-[#FF6B00] text-[#0A1628] font-bold text-xs sm:text-sm py-2 px-6 sm:px-10 flex items-center gap-2 shadow-md"
+            className="bg-[#FF6B00] text-[#0A1628] font-bold text-xs sm:text-sm py-2 px-6 sm:px-10 flex items-center gap-2 shadow-md rounded-tl-lg"
             style={{
               clipPath: "polygon(20px 0, 100% 0, 100% 100%, 0 100%)",
             }}

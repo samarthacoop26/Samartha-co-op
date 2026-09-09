@@ -144,7 +144,6 @@ export function Footer() {
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
                 { label: "Products", href: "/products" },
-                { label: "Certifications", href: "/certificates" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
@@ -211,22 +210,30 @@ export function Footer() {
                     </a>
                     <span className="text-slate-600">•</span>
                     <a
-                      href="tel:+919930240239"
+                      href="tel:+919867339763"
                       className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
                     >
-                      +91 99302 40239
+                      +91 98673 39763
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 text-xs">
-                  <Mail className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                  <a
-                    href={`mailto:${sales.email}`}
-                    className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
-                  >
-                    {sales.email}
-                  </a>
+                <div className="flex items-start gap-2.5 text-xs">
+                  <Mail className="w-3.5 h-3.5 text-slate-400 shrink-0 mt-0.5" />
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href={`mailto:${CONTACT_CONFIG.email}`}
+                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                    >
+                      {CONTACT_CONFIG.email}
+                    </a>
+                    <a
+                      href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
+                      className="text-slate-300 hover:text-[#FF6B00] font-medium transition-colors"
+                    >
+                      {CONTACT_CONFIG.secondaryEmail}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

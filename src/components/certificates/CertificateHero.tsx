@@ -20,15 +20,15 @@ export function CertificateHero() {
       <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black/40 backdrop-blur-md border border-white/20 rounded-full mb-3 shadow-md">
           <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-          <span className="text-[11px] font-bold tracking-widest text-white uppercase drop-shadow-sm">
-            Quality & Accreditations
+          <span className="type-eyebrow text-white drop-shadow-xs">
+            Quality &amp; Accreditations
           </span>
         </div>
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
+        <h1 className="type-h1 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
           Certificates
         </h1>
-        <p className="mt-3 text-sm sm:text-base text-gray-100 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-          ISO certified quality management systems and performance appreciation certificates from our valued industrial clients.
+        <p className="mt-3 type-subheading text-gray-100 max-w-2xl mx-auto font-medium drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+          Official MSME &amp; GST statutory registrations and performance appreciation certificates from our valued industrial clients.
         </p>
       </div>
 

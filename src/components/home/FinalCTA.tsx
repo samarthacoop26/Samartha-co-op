@@ -18,7 +18,7 @@ export function FinalCTA() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('/images/about/plant-facility.jpg')`,
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-[#0A1628]/95 via-[#0A1628]/90 to-[#0A1628]/80" />
@@ -28,14 +28,14 @@ export function FinalCTA() {
           
           {/* Left Content */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/20 border border-orange-500/30 rounded-full text-xs font-bold text-[#FF8C33] uppercase tracking-wider mb-3 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-orange-500/20 border border-orange-500/30 rounded-full text-[#FF8C33] mb-3 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-              <span>Direct Factory Supply &amp; Turnkey Erection</span>
+              <span className="type-eyebrow">Direct Factory Supply &amp; Turnkey Erection</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="type-h2 text-white">
               Looking for a Reliable PP &amp; FRP Solution for Your Project?
             </h2>
-            <p className="mt-3 text-base sm:text-lg text-gray-300 leading-relaxed">
+            <p className="mt-3 type-subheading text-gray-300">
               Connect with our senior technical engineers today for custom tank sizing, M.S. lining estimates, thermoplastic piping BOQs, and expert manufacturing support across India.
             </p>
           </div>
@@ -45,7 +45,7 @@ export function FinalCTA() {
             <button
               type="button"
               onClick={() => openQuoteModal({ title: "Request a Project Quote" })}
-              className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-sm sm:text-base px-8 py-4 rounded shadow-lg hover:shadow-orange-500/25 transition-all duration-200 group text-center cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-8 py-4 rounded-xl shadow-lg hover:shadow-orange-500/25 transition-all duration-200 group text-center cursor-pointer"
             >
               <span>REQUEST A QUOTE</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -53,7 +53,7 @@ export function FinalCTA() {
 
             <Link
               href="/certificates"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-sm sm:text-base px-7 py-4 rounded backdrop-blur-md transition-all duration-200 group text-center cursor-pointer"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 type-btn px-7 py-4 rounded-xl backdrop-blur-md transition-all duration-200 group text-center cursor-pointer"
             >
               <Download className="w-4 h-4 text-[#FF6B00] group-hover:translate-y-0.5 transition-transform" />
               <span>DOWNLOAD BROCHURE</span>

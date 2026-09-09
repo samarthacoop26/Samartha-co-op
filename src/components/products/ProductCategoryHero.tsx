@@ -46,26 +46,26 @@ export function ProductCategoryHero({
         <div className="max-w-3xl">
           {/* Eyebrow Pill Badges */}
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-black/50 backdrop-blur-md border border-white/20 rounded-full shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black/50 backdrop-blur-md border border-white/20 rounded-full shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-              <span className="text-[11px] font-bold tracking-wider text-white uppercase">
+              <span className="type-eyebrow text-white">
                 Category {categoryNumber} &bull; {badge || "Industrial Composites"}
               </span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/15 backdrop-blur-md border border-white/20 rounded-full text-white text-[11px] font-semibold">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/15 backdrop-blur-md border border-white/20 rounded-full text-white">
               <Layers className="w-3.5 h-3.5 text-[#FF8C33]" />
-              <span>{productCount} Products</span>
+              <span className="type-spec text-[11px] text-white">{productCount} Products</span>
             </div>
           </div>
 
           {/* H1 Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
+          <h1 className="type-h1 text-white drop-shadow-md">
             {categoryTitle}
           </h1>
 
           {/* In-depth Category Description */}
-          <p className="mt-4 text-base sm:text-lg text-gray-200 font-normal leading-relaxed drop-shadow-sm">
+          <p className="mt-4 type-subheading text-gray-200 drop-shadow-sm">
             {heroDescription || shortDescription}
           </p>
 
@@ -79,7 +79,7 @@ export function ProductCategoryHero({
                   message: `I need technical sizing, specifications, and pricing for ${categoryTitle} products.`,
                 })
               }
-              className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-lg shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer group"
+              className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-6 py-3.5 rounded-xl shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer group"
             >
               <span>Request Category Pricing</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -87,10 +87,10 @@ export function ProductCategoryHero({
 
             <Link
               href="/certificates"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 font-semibold text-xs sm:text-sm px-5 py-3.5 rounded-lg backdrop-blur-md transition-all"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 type-btn px-5 py-3.5 rounded-xl backdrop-blur-md transition-all"
             >
               <ShieldCheck className="w-4 h-4 text-[#FF8C33]" />
-              <span>ISO Quality Certifications</span>
+              <span>Accreditations &amp; Certificates</span>
             </Link>
           </div>
         </div>

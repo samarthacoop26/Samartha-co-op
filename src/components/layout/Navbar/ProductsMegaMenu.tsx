@@ -53,17 +53,17 @@ export function ProductsMegaMenu({
       header: "Structural & Access",
       items: [
         {
-          title: "Gratings & Walkways",
-          description: "High load-bearing FRP molded & pultruded systems.",
-          href: "/products/gratings-walkways-platforms",
-          icon: <Grid className="w-4 h-4 text-[#FF6B00]" />,
-          badge: { text: "Heavy Duty", variant: "orange" },
-        },
-        {
           title: "Manhole & Trench Covers",
           description: "Composite covers tested up to 40T/60T load.",
           href: "/products/manhole-drain-cable-covers",
           icon: <CircleDot className="w-4 h-4 text-[#FF6B00]" />,
+          badge: { text: "Heavy Duty", variant: "orange" },
+        },
+        {
+          title: "Gratings & Walkways",
+          description: "High load-bearing FRP molded & pultruded systems.",
+          href: "/products/gratings-walkways-platforms",
+          icon: <Grid className="w-4 h-4 text-[#FF6B00]" />,
         },
         {
           title: "Tanks & Chemical Storage",
@@ -141,7 +141,7 @@ export function ProductsMegaMenu({
           className="absolute left-1/2 -translate-x-1/2 top-full pt-2 w-[94vw] max-w-[780px] z-50 cursor-default"
         >
           {/* Main White Minimalist Card Container */}
-          <div className="relative bg-white border border-gray-200/90 rounded-xl shadow-[0_16px_40px_-12px_rgba(16,24,40,0.14),0_1px_3px_0_rgba(16,24,40,0.06)] overflow-hidden">
+          <div className="relative bg-white border border-gray-200/90 rounded-2xl shadow-[0_16px_40px_-12px_rgba(16,24,40,0.14),0_1px_3px_0_rgba(16,24,40,0.06)] overflow-hidden">
             
             {/* Top Micro-Accent Line */}
             <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent opacity-90 z-10" />
@@ -151,7 +151,7 @@ export function ProductsMegaMenu({
               {productSections.map((section, sIdx) => (
                 <div key={sIdx} className="space-y-1">
                   {/* Column Header */}
-                  <div className="px-1.5 pb-1 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                  <div className="px-1.5 pb-1 type-eyebrow text-gray-400 text-[10.5px]">
                     {section.header}
                   </div>
 
@@ -162,10 +162,10 @@ export function ProductsMegaMenu({
                         key={itemIdx}
                         href={item.href}
                         onClick={onClose}
-                        className="group flex items-start gap-2.5 p-2 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="group flex items-start gap-2.5 p-2 rounded-xl hover:bg-gray-50 transition-colors"
                       >
                         {/* Left Line Icon */}
-                        <div className="shrink-0 mt-0.5 p-1 rounded-md bg-orange-50/80 group-hover:bg-orange-100/90 transition-colors">
+                        <div className="shrink-0 mt-0.5 p-1.5 rounded-lg bg-orange-50/80 group-hover:bg-orange-100/90 transition-colors">
                           {item.icon}
                         </div>
 
@@ -179,7 +179,7 @@ export function ProductsMegaMenu({
                             {/* Pill Badge */}
                             {item.badge && (
                               <span
-                                className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-semibold leading-none border ${
+                                className={`inline-flex items-center px-2 py-0.5 rounded-full text-[9px] font-semibold leading-none border ${
                                   item.badge.variant === "green"
                                     ? "bg-emerald-50 text-emerald-700 border-emerald-200/70"
                                     : item.badge.variant === "orange"
@@ -192,7 +192,7 @@ export function ProductsMegaMenu({
                             )}
                           </div>
 
-                          <p className="text-[11px] text-gray-500 font-normal leading-snug mt-0.5 line-clamp-1">
+                          <p className="type-body text-[11px] text-gray-500 mt-0.5 line-clamp-1">
                             {item.description}
                           </p>
                         </div>
@@ -205,7 +205,7 @@ export function ProductsMegaMenu({
 
             {/* Bottom Overview Bar */}
             <div className="bg-slate-50 border-t border-slate-100 px-5 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-2 text-xs text-slate-600">
+              <div className="flex items-center gap-2 type-footer text-xs text-slate-600">
                 <Layers className="w-3.5 h-3.5 text-[#FF6B00]" />
                 <span className="font-medium">10 Categories &bull; 90+ Standard &amp; Custom Composite Products</span>
               </div>

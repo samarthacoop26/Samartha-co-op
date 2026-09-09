@@ -138,16 +138,16 @@ export function LegalPageShell({
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white/5 border border-white/10 rounded-full mb-4 shadow-sm backdrop-blur-sm">
             <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-            <span className="text-[11px] font-bold tracking-widest text-gray-300 uppercase">
+            <span className="type-eyebrow text-gray-300">
               {badge}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h1 className="type-h1 text-white">
             {title}
           </h1>
 
-          <p className="mt-3 text-sm sm:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-3 type-subheading text-gray-300 max-w-2xl mx-auto">
             {subtitle}
           </p>
 
@@ -216,7 +216,7 @@ export function LegalPageShell({
           {/* ── LEFT: Sticky Synchronized Table of Contents (Desktop) ── */}
           <aside className="hidden lg:block lg:col-span-4 sticky top-20 print:hidden space-y-6">
             <div className="bg-white border border-gray-200/90 rounded-2xl p-5 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.04)]">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3.5 flex items-center gap-2 px-1">
+              <h3 className="type-eyebrow text-gray-500 mb-3.5 flex items-center gap-2 px-1">
                 <FileText size={14} className="text-[#FF6B00]" />
                 <span>Document Contents</span>
               </h3>
@@ -235,7 +235,7 @@ export function LegalPageShell({
                       }`}
                     >
                       <span
-                        className={`font-mono text-[11px] font-bold shrink-0 mt-0.5 ${
+                        className={`type-spec text-[11px] font-bold shrink-0 mt-0.5 ${
                           isActive ? "text-[#FF6B00]" : "text-gray-400"
                         }`}
                       >
@@ -252,14 +252,14 @@ export function LegalPageShell({
             <div className="bg-[#0A1628] text-white rounded-2xl p-5 shadow-sm border border-gray-800">
               <div className="flex items-center gap-2 text-[#FF6B00] mb-2">
                 <HelpCircle size={17} />
-                <h4 className="text-sm font-bold text-white">Have Questions?</h4>
+                <h4 className="type-h3 text-sm text-white">Have Questions?</h4>
               </div>
-              <p className="text-xs text-gray-300 leading-relaxed mb-4">
+              <p className="type-body text-xs text-gray-300 leading-relaxed mb-4">
                 Our compliance and customer support team is available to clarify any terms or data inquiries.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-1.5 w-full bg-[#FF6B00] hover:bg-[#e66000] text-white py-2 px-3 rounded-lg text-xs font-bold uppercase tracking-wider transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 w-full bg-[#FF6B00] hover:bg-[#e66000] text-white py-2 px-3 rounded-lg type-btn transition-colors"
               >
                 <span>Contact Support</span>
                 <ArrowRight size={13} />
@@ -273,23 +273,23 @@ export function LegalPageShell({
             <div className="bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-7 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)]">
               <div className="flex items-center justify-between border-b border-gray-100 pb-4 mb-4">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                  <span className="type-eyebrow text-gray-400 block mb-1">
                     Official Entity
                   </span>
-                  <h2 className="text-base font-bold text-[#0A1628]">
+                  <h2 className="type-h3 text-base text-[#0A1628]">
                     {CONTACT_CONFIG.registeredName}
                   </h2>
                 </div>
                 <div className="text-right">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block">
+                  <span className="type-eyebrow text-gray-400 block mb-1">
                     GSTIN
                   </span>
-                  <span className="text-xs font-mono font-semibold text-gray-700">
+                  <span className="type-spec text-xs font-semibold text-gray-700">
                     {CONTACT_CONFIG.gstin}
                   </span>
                 </div>
               </div>
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              <p className="type-body text-xs sm:text-sm text-gray-600 leading-relaxed">
                 This document is published in accordance with the provisions of applicable Indian laws including the Information Technology Act, 2000, and the Digital Personal Data Protection Act, 2023. By accessing or using this website, you acknowledge that you have read and understood these provisions.
               </p>
             </div>
@@ -302,14 +302,14 @@ export function LegalPageShell({
                 className="scroll-mt-28 bg-white border border-gray-200/90 rounded-2xl p-6 sm:p-8 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.03)] transition-all"
               >
                 <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
-                  <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-50 border border-orange-100 text-[#FF6B00] font-mono text-xs font-bold shrink-0">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-orange-50 border border-orange-100 text-[#FF6B00] type-spec text-xs font-bold shrink-0">
                     {section.number}
                   </span>
-                  <h2 className="text-lg sm:text-xl font-bold text-[#0A1628] tracking-tight">
+                  <h2 className="type-h3 text-lg sm:text-xl text-[#0A1628]">
                     {section.title}
                   </h2>
                 </div>
-                <div className="text-sm sm:text-[15px] text-gray-700 leading-relaxed space-y-3.5 prose prose-orange max-w-none">
+                <div className="type-body text-sm sm:text-[15px] text-gray-700 leading-relaxed space-y-3.5 prose prose-orange max-w-none">
                   {section.content}
                 </div>
               </section>

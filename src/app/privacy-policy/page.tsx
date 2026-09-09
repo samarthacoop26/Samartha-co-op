@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-4">
             <div className="bg-gray-50 border border-gray-100 rounded-lg p-3.5">
-              <span className="font-semibold text-gray-900 block text-xs uppercase tracking-wide mb-1 text-[#FF6B00]">
+              <span className="type-eyebrow block text-xs mb-1 text-[#FF6B00]">
                 Contact Details
               </span>
               <p className="text-xs text-gray-600">
@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="bg-gray-50 border border-gray-100 rounded-lg p-3.5">
-              <span className="font-semibold text-gray-900 block text-xs uppercase tracking-wide mb-1 text-[#FF6B00]">
+              <span className="type-eyebrow block text-xs mb-1 text-[#FF6B00]">
                 Project Files
               </span>
               <p className="text-xs text-gray-600">
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div className="bg-gray-50 border border-gray-100 rounded-lg p-3.5">
-              <span className="font-semibold text-gray-900 block text-xs uppercase tracking-wide mb-1 text-[#FF6B00]">
+              <span className="type-eyebrow block text-xs mb-1 text-[#FF6B00]">
                 Technical Usage Data
               </span>
               <p className="text-xs text-gray-600">

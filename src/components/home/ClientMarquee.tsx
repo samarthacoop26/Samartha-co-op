@@ -109,8 +109,8 @@ export function ClientMarquee() {
       
       {/* Crisp, Balanced Trust Label */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8 text-center">
-        <p className="text-xs sm:text-[13px] font-semibold text-gray-500 uppercase tracking-wider">
-          Trusted by leading public sector undertakings, railways & industrial enterprises
+        <p className="type-eyebrow text-gray-500">
+          Trusted by leading public sector undertakings, railways &amp; industrial enterprises
         </p>
       </div>
 

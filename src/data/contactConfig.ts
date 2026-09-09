@@ -28,16 +28,11 @@ export interface ContactData {
   msmeRegNo: string;
   esicRegNo: string;
   pfRegNo: string;
-  isoCert: string;
   email: string;
+  secondaryEmail: string;
   website: string;
   contacts: {
     vishal: {
-      name: string;
-      phone: string;
-      phoneDisplay: string;
-    };
-    ramesh: {
       name: string;
       phone: string;
       phoneDisplay: string;
@@ -84,19 +79,14 @@ export const CONTACT_CONFIG: ContactData = {
   msmeRegNo: "UDYAM-MH-33-0265642",
   esicRegNo: "34000607500000606",
   pfRegNo: "THTHA2797602000",
-  isoCert: "ISO 9001:2015 Certified",
   email: "samarthcorporation.mumbai@gmail.com",
+  secondaryEmail: "samarthcorporation.india@gmail.com",
   website: "samarthcorporation.co.in",
   contacts: {
     vishal: {
       name: "Vishal Gadade",
       phone: "+919930862729",
       phoneDisplay: "+91 99308 62729",
-    },
-    ramesh: {
-      name: "Ramesh Gadade",
-      phone: "+919930240239",
-      phoneDisplay: "+91 99302 40239",
     },
   },
   serviceAreas: [
@@ -130,12 +120,12 @@ export const CONTACT_CONFIG: ContactData = {
       email: "samarthcorporation.mumbai@gmail.com",
     },
     quotations: {
-      title: "Formal Quotations & Project Inquiries (Ramesh Gadade)",
+      title: "Formal Quotations & Project Inquiries",
       description: "Submit tenders, project BOQs, drawings, and request GST-compliant formal commercial offers.",
-      phone: "+919930240239",
-      phoneDisplay: "+91 99302 40239",
-      email: "samarthcorporation.mumbai@gmail.com",
-      supportEmail: "samarthcorporation.mumbai@gmail.com",
+      phone: "+919867339763",
+      phoneDisplay: "+91 98673 39763",
+      email: "samarthcorporation.india@gmail.com",
+      supportEmail: "samarthcorporation.india@gmail.com",
     },
   },
   locations: [
@@ -152,7 +142,7 @@ export const CONTACT_CONFIG: ContactData = {
       coordinates: { lat: 19.2183, lng: 73.0867 },
       googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.123456789!2d73.0850!3d19.2180!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be795f700000001%3A0x1234567890abcdef!2sDombivli+West%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1709712345678!5m2!1sen!2sin",
       googleMapsDirectionsUrl: "https://maps.google.com/?q=Dombivli+West,+Thane,+Maharashtra+421202",
-      phone: "+91 99308 62729 / +91 99302 40239",
+      phone: "+91 99308 62729 / +91 98673 39763",
       email: "samarthcorporation.mumbai@gmail.com",
       operatingHours: "Mon–Sat, 9:00 AM – 6:30 PM IST",
     },
@@ -170,7 +160,7 @@ export const CONTACT_CONFIG: ContactData = {
       googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3772.123456789!2d73.1350!3d19.0650!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c123456789ab%3A0xabcdef1234567890!2sMIDC+Taloja%2C+Maharashtra!5e0!3m2!1sen!2sin!4v1709712399999!5m2!1sen!2sin",
       googleMapsDirectionsUrl: "https://maps.google.com/?q=MIDC+Taloja,+Pendhargaon,+Raigad,+Maharashtra+410208",
       phone: "+91 99308 62729",
-      email: "samarthcorporation.mumbai@gmail.com",
+      email: "samarthcorporation.india@gmail.com",
       operatingHours: "Mon–Sat, 8:30 AM – 7:00 PM IST (Fabrication & Erection Unit)",
     },
   ],

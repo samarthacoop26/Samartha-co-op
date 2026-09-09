@@ -159,18 +159,18 @@ export function QuoteModal() {
           <div className="flex items-start justify-between gap-4">
             <div>
               {/* Subtle Tag */}
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10.5px] font-semibold text-orange-400 mb-1.5">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-orange-400 mb-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
-                <span>Direct Factory RFQ</span>
+                <span className="type-eyebrow text-[10px]">Direct Factory RFQ</span>
               </div>
 
               {/* Title */}
-              <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
+              <h3 className="type-h3 text-xl text-white tracking-tight leading-snug">
                 {modalData.title || "Request a Custom Quote"}
               </h3>
 
               {/* Subtitle */}
-              <p className="text-xs text-slate-300 mt-1 leading-relaxed">
+              <p className="type-body text-xs text-slate-300 mt-1 leading-relaxed">
                 Submit your project specifications &bull; Fast technical pricing from our engineering team
               </p>
             </div>
@@ -194,17 +194,17 @@ export function QuoteModal() {
               <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3.5">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="text-lg font-bold text-gray-900">
+              <h4 className="type-h3 text-lg text-gray-900">
                 Inquiry Sent Successfully!
               </h4>
-              <p className="text-sm text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
+              <p className="type-body text-sm text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
                 Thank you, <strong className="text-gray-900">{formData.fullName}</strong>. We have received your request and will get back to you with pricing and specifications soon.
               </p>
               <div className="mt-6">
                 <button
                   type="button"
                   onClick={handleResetAndClose}
-                  className="px-6 py-2.5 bg-[#FF6B00] hover:bg-[#e66000] text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors cursor-pointer"
+                  className="px-6 py-2.5 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn rounded-lg transition-colors cursor-pointer"
                 >
                   Close
                 </button>
@@ -360,7 +360,7 @@ export function QuoteModal() {
                 <button
                   type="submit"
                   disabled={formState === "submitting"}
-                  className="w-full bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-xs uppercase tracking-wider py-3.5 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed shadow-xs"
+                  className="w-full bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn py-3.5 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed shadow-xs"
                 >
                   {formState === "submitting" ? (
                     <>

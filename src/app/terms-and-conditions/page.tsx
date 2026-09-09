@@ -126,7 +126,7 @@ export default function TermsAndConditionsPage() {
       content: (
         <>
           <p>
-            This website may contain links to external third-party resources (such as Google Maps, BIS/ISO standardization portals, or logistics tracking tools). We do not control or endorse the content, policies, or practices of third-party platforms and accept no liability for interactions on external websites.
+            This website may contain links to external third-party resources (such as Google Maps, government enterprise portals, or logistics tracking tools). We do not control or endorse the content, policies, or practices of third-party platforms and accept no liability for interactions on external websites.
           </p>
         </>
       ),

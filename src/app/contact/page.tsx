@@ -291,10 +291,10 @@ export default function ContactPage() {
 
             {/* ── RIGHT: Contact Information (2/5) ── */}
             <div className="lg:col-span-2 order-2 space-y-7">
-              {/* Key Person 1: Vishal Gadade */}
+              {/* Key Person: Vishal Gadade */}
               <div>
                 <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-3">
-                  Key Contact — Sales & Technical
+                  Key Contact — Sales &amp; Technical
                 </h3>
                 <div className="bg-slate-50 border border-gray-200 rounded-lg p-4 space-y-3">
                   <div className="font-bold text-base text-[#0A1628]">
@@ -315,29 +315,17 @@ export default function ContactPage() {
                     href={`https://wa.me/${sales.whatsapp}?text=${encodeURIComponent("Hi Vishal Sir, I would like to inquire about PP/FRP products.")}`}
                     external
                   />
-                </div>
-              </div>
-
-              {/* Key Person 2: Ramesh Gadade */}
-              <div>
-                <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-3">
-                  Key Contact — Commercial & Erection
-                </h3>
-                <div className="bg-slate-50 border border-gray-200 rounded-lg p-4 space-y-3">
-                  <div className="font-bold text-base text-[#0A1628]">
-                    Ramesh Gadade
-                  </div>
-                  <ContactRow
-                    icon={<Phone size={16} className="text-[#FF6B00]" />}
-                    label="Mobile"
-                    value={quotations.phoneDisplay}
-                    href={`tel:${quotations.phone}`}
-                  />
                   <ContactRow
                     icon={<Mail size={16} className="text-[#FF6B00]" />}
                     label="Official Email"
-                    value={quotations.email}
-                    href={`mailto:${quotations.email}`}
+                    value={sales.email}
+                    href={`mailto:${sales.email}`}
+                  />
+                  <ContactRow
+                    icon={<Mail size={16} className="text-[#FF6B00]" />}
+                    label="Inquiries & Quotations Email"
+                    value={CONTACT_CONFIG.secondaryEmail}
+                    href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
                   />
                 </div>
               </div>

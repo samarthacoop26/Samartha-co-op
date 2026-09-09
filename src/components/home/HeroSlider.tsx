@@ -11,21 +11,21 @@ const slides = [
     id: 1,
     title: "Engineering Composite Solutions for the World's Most Demanding Environments.",
     description: "Manufacturing, installing, and maintaining high-performance FRP products for Industry, Defence, Infrastructure & Railways.",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "/images/about/plant-facility.jpg",
     cta1: { text: "GET A CUSTOM QUOTE \u2192", link: "/quote" },
   },
   {
     id: 2,
     title: "Corrosion-Free Infrastructure. Engineered to Last 30+ Years.",
     description: "From municipal drainage systems to defence-grade enclosures — our FRP products eliminate rust, reduce maintenance costs, and outlast conventional materials.",
-    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    image: "/images/about/utm-testing.jpg",
     cta1: { text: "GET A CUSTOM QUOTE \u2192", link: "/quote" },
   },
   {
     id: 3,
     title: "Trusted by Government, Defence & Railways Across India.",
-    description: "ISO-certified, BIS-compliant manufacturing with pan-India delivery — serving Smart City projects, Indian Railways, and heavy industrial plants.",
-    image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    description: "MSME-registered, GST-compliant manufacturing with pan-India delivery — serving Smart City projects, industrial infrastructure, and heavy chemical plants.",
+    image: "/images/about/defence-railway.jpg",
     cta1: { text: "GET A CUSTOM QUOTE \u2192", link: "/quote" },
   }
 ];

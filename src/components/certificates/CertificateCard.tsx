@@ -13,32 +13,33 @@ export function CertificateCard({ item, onSelect }: CertificateCardProps) {
   return (
     <div
       onClick={() => onSelect(item)}
-      className="group cursor-pointer flex flex-col h-full bg-white rounded-none border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5"
+      className="group cursor-pointer flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
     >
       {/* ── Certificate Preview Sheet ── */}
       <div className="relative aspect-[1/1.28] w-full bg-[#fdfdfd] p-4 sm:p-5 flex flex-col justify-between overflow-hidden select-none border-b border-gray-100">
         {/* Subtle Paper Border */}
-        <div className="absolute inset-2.5 border border-slate-200/90 pointer-events-none" />
+        <div className="absolute inset-2.5 border border-slate-200/90 rounded-xl pointer-events-none" />
 
         {/* ── Document Header ── */}
         <div className="relative z-10 text-center pt-1">
-          {item.category === "iso" ? (
-            <div className="space-y-1">
+          {item.category === "statutory" ? (
+            <div className="space-y-1 border-b border-slate-200 pb-2">
               <div className="flex items-center justify-center gap-1">
-                <span className="text-[11px] font-black uppercase tracking-wider text-slate-800">
+                <span className="text-[10.5px] font-black uppercase tracking-wider text-slate-800">
                   {item.issuingBodyOrClient}
                 </span>
               </div>
-              <p className="text-[8px] font-mono text-slate-500">
-                Reg: {item.registrationOrRefNo}
-              </p>
+              <div className="flex items-center justify-between type-spec text-[8px] text-slate-500 px-1 font-mono-accent">
+                <span>Ref: {item.registrationOrRefNo}</span>
+                <span>Date: {item.issueDate}</span>
+              </div>
             </div>
           ) : (
             <div className="space-y-1 border-b border-slate-200 pb-2">
               <p className="text-[9.5px] font-black uppercase text-slate-900 tracking-tight line-clamp-1">
                 {item.issuingBodyOrClient}
               </p>
-              <div className="flex items-center justify-between text-[7.5px] font-mono text-slate-500 px-1">
+              <div className="flex items-center justify-between type-spec text-[7.5px] text-slate-500 px-1 font-mono-accent">
                 <span>Ref: {item.registrationOrRefNo.substring(0, 16)}</span>
                 <span>Date: {item.issueDate}</span>
               </div>
@@ -48,15 +49,15 @@ export function CertificateCard({ item, onSelect }: CertificateCardProps) {
 
         {/* ── Document Body Preview ── */}
         <div className="relative z-10 my-auto py-2 px-1 text-center">
-          {item.category === "iso" ? (
-            <div className="space-y-2">
-              <div className="inline-block px-2.5 py-0.5 bg-slate-100 rounded border border-slate-200">
-                <p className="text-[9px] font-bold text-slate-800 uppercase tracking-widest">
-                  {item.label}
+          {item.category === "statutory" ? (
+            <div className="space-y-2 text-left">
+              <div className="inline-block px-2 py-0.5 bg-orange-50 rounded border border-orange-200">
+                <p className="text-[8.5px] font-bold text-[#FF6B00] uppercase tracking-wider">
+                  {item.badge}
                 </p>
               </div>
-              <p className="text-[8px] text-slate-600 font-medium leading-relaxed line-clamp-3 italic">
-                &ldquo;{item.documentContent.bodyParagraphs[0]}&rdquo;
+              <p className="text-[8px] text-slate-700 font-medium leading-relaxed line-clamp-4">
+                {item.documentContent.bodyParagraphs[0]}
               </p>
             </div>
           ) : (
@@ -94,15 +95,15 @@ export function CertificateCard({ item, onSelect }: CertificateCardProps) {
           <div className="w-8 h-8 rounded-full bg-[#FF6B00] flex items-center justify-center shadow">
             <Eye className="w-4 h-4" />
           </div>
-          <span className="text-[11px] font-bold uppercase tracking-wider">
+          <span className="type-btn text-[11px] font-bold text-white tracking-wider">
             View Certificate
           </span>
         </div>
       </div>
 
-      {/* ── Signature Yellow Label Banner (Faithful to Reference Screenshot) ── */}
+      {/* ── Signature Yellow Label Banner ── */}
       <div className="w-full bg-[#FFC107] group-hover:bg-[#FFB800] text-[#0A1628] py-3.5 px-3 text-center transition-colors flex items-center justify-center min-h-[50px]">
-        <h3 className="text-xs sm:text-sm font-bold text-[#0A1628] line-clamp-2 leading-tight">
+        <h3 className="type-h3 text-xs sm:text-sm font-bold text-[#0A1628] line-clamp-2 leading-tight">
           {item.label}
         </h3>
       </div>

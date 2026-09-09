@@ -18,8 +18,24 @@ export interface ProductCategory {
 
 export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   {
-    id: "gratings-walkways-platforms",
+    id: "manhole-drain-cable-covers",
     categoryNumber: "01",
+    categoryTitle: "Manhole, Drain & Cable Trench Covers",
+    shortDescription: "Heavy duty composite access solutions tested up to 40T/60T load ratings.",
+    iconName: "CircleDot",
+    statusBadge: "Heavy Duty Infra",
+    items: [
+      "Manhole Covers",
+      "Drain Covers",
+      "Cable Trench Covers",
+      "Cable Duct Covers",
+      "Utility Covers",
+    ],
+    href: "/products/manhole-drain-cable-covers",
+  },
+  {
+    id: "gratings-walkways-platforms",
+    categoryNumber: "02",
     categoryTitle: "Gratings, Walkways & Platforms",
     shortDescription: "High load-bearing, corrosion-resistant FRP molded and pultruded walkway systems.",
     iconName: "Grid",
@@ -37,22 +53,6 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
       "Decking",
     ],
     href: "/products/gratings-walkways-platforms",
-  },
-  {
-    id: "manhole-drain-cable-covers",
-    categoryNumber: "02",
-    categoryTitle: "Manhole, Drain & Cable Trench Covers",
-    shortDescription: "Heavy duty composite access solutions tested up to 40T/60T load ratings.",
-    iconName: "CircleDot",
-    statusBadge: "Heavy Duty Infra",
-    items: [
-      "Manhole Covers",
-      "Drain Covers",
-      "Cable Trench Covers",
-      "Cable Duct Covers",
-      "Utility Covers",
-    ],
-    href: "/products/manhole-drain-cable-covers",
   },
   {
     id: "tanks-piping-chemical-storage",
@@ -236,7 +236,7 @@ export const INDUSTRIAL_PRODUCT_COLUMNS = ALL_PRODUCT_CATEGORIES.slice(0, 3).map
 export const QUICK_RESOURCE_LINKS = [
   { id: "all-products", title: "View All 10 Categories", href: "/products" },
   { id: "cad-rfq", title: "Request Custom CAD Fabrication", href: "/contact" },
-  { id: "certificates", title: "ISO 9001:2015 Certifications", href: "/certificates" },
+  { id: "certificates", title: "MSME & GST Registrations", href: "/certificates" },
 ];
 
 export const PRODUCT_CATEGORIES_DATA = ALL_PRODUCT_CATEGORIES.flatMap((c) =>

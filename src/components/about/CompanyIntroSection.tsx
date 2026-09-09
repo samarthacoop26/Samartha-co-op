@@ -37,26 +37,26 @@ export function CompanyIntroSection() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/80 rounded mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-50 border border-orange-200/80 rounded-full mb-3">
             <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-            <span className="text-xs font-bold tracking-wider text-[#FF6B00] uppercase">
+            <span className="type-eyebrow text-[#FF6B00]">
               About Us
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0A1628] tracking-tight leading-tight">
-            Trusted PP & FRP Engineering Solutions, Manufacturing & Turnkey Projects
+          <h2 className="type-h2 text-[#0A1628]">
+            Trusted PP &amp; FRP Engineering Solutions, Manufacturing &amp; Turnkey Projects
           </h2>
         </div>
 
         {/* 2-Column Content + Stat Matrix */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left: Focused Introduction */}
-          <div className="lg:col-span-7 space-y-4 text-gray-700 text-base sm:text-[16px] leading-relaxed">
+          <div className="lg:col-span-7 space-y-4 type-body text-gray-700">
             <p>
               <strong className="text-[#0A1628] font-bold">
                 {CONTACT_CONFIG.companyName}
               </strong>{" "}
-              is a trusted PP & FRP Engineering Solutions company specializing in the manufacturing,
+              is a trusted PP &amp; FRP Engineering Solutions company specializing in the manufacturing,
               supply, installation, industrial maintenance, and turnkey project execution of
               high-performance PP and FRP systems.
             </p>
@@ -81,19 +81,19 @@ export function CompanyIntroSection() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#FAFAFC] border border-gray-200 rounded-lg p-4 flex flex-col justify-between hover:border-[#FF6B00]/60 transition-colors duration-200"
+                  className="bg-[#FAFAFC] border border-gray-200 rounded-2xl p-4 flex flex-col justify-between hover:border-[#FF6B00]/60 transition-colors duration-200 shadow-2xs"
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xl sm:text-2xl font-extrabold text-[#0A1628] tracking-tight">
+                    <span className="type-h3 text-xl sm:text-2xl text-[#0A1628]">
                       {stat.value}
                     </span>
                     <Icon className="w-4 h-4 text-[#FF6B00]" />
                   </div>
                   <div>
-                    <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wide">
+                    <h3 className="type-eyebrow text-gray-900 leading-snug">
                       {stat.label}
                     </h3>
-                    <p className="text-[11px] text-gray-500 mt-0.5 leading-snug">
+                    <p className="type-footer text-gray-500 mt-0.5">
                       {stat.subtext}
                     </p>
                   </div>

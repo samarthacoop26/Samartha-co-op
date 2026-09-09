@@ -2,7 +2,7 @@ export interface CertificateItem {
   id: string;
   title: string;
   label: string; // Text on the bottom yellow banner
-  category: "iso" | "client" | "statutory";
+  category: "statutory" | "client";
   categoryName: string;
   badge: string;
   issueDate: string;
@@ -14,7 +14,7 @@ export interface CertificateItem {
   clientLocation?: string;
   poNumber?: string;
   summaryQuote?: string;
-  documentType: "ISO Certificate" | "Client Appreciation Letter" | "Performance Certificate" | "Statutory Registration";
+  documentType: "Statutory Registration" | "Client Appreciation Letter" | "Performance Certificate";
   keyProductsSupplied?: string[];
   documentContent: {
     header: string;
@@ -31,105 +31,73 @@ export interface CertificateItem {
 }
 
 export const CERTIFICATES_DATA: CertificateItem[] = [
-  // ─── 1. TOP TIER: ISO CERTIFICATIONS (From Reference Image) ───
+  // ─── 1. STATUTORY & GOVERNMENT ACCREDITATIONS ───
   {
-    id: "iso-9001-2015",
-    title: "ISO 9001:2015 Quality Management System",
-    label: "ISO 9001:2015",
-    category: "iso",
-    categoryName: "ISO Certifications",
-    badge: "Quality Management (QMS)",
-    issueDate: "15-Dec-2020",
-    validity: "Active & Valid through Nov-2026",
-    issuingBodyOrClient: "Accreditation Board for Quality Certification / JAS-ANZ / IAF",
-    registrationOrRefNo: "QMS-IND-2023/8842",
-    standardOrScope: "ISO 9001:2015 Standards for Quality Assurance & Process Control",
+    id: "msme-udyam-registered",
+    title: "MSME / Udyam Registration - Govt of India",
+    label: "MSME / Udyam Registered",
+    category: "statutory",
+    categoryName: "Statutory & Enterprise Registrations",
+    badge: "Ministry of MSME",
+    issueDate: "12-Aug-2020",
+    validity: "Permanent Government Registration",
+    issuingBodyOrClient: "Ministry of Micro, Small and Medium Enterprises, Government of India",
+    registrationOrRefNo: "UDYAM-MH-33-0265642",
+    standardOrScope: "NIC Code 2220: Manufacture of Plastics & Fiber Reinforced Polymer Products",
     description:
-      "Certified Quality Management System covering end-to-end design, tooling, moulding, testing, and supply of FRP/GRP composite products.",
-    documentType: "ISO Certificate",
+      "Official enterprise recognition by the Government of India for advanced manufacturing of PP & FRP composite polymer products, linings, tanks, and chemical equipment.",
+    documentType: "Statutory Registration",
     documentContent: {
-      header: "CERTIFICATE OF REGISTRATION",
-      subHeader: "QUALITY MANAGEMENT SYSTEM - ISO 9001:2015",
-      toWhom: "THIS IS TO CERTIFY THAT",
+      header: "UDYAM REGISTRATION CERTIFICATE",
+      subHeader: "MINISTRY OF MICRO, SMALL AND MEDIUM ENTERPRISES • GOVERNMENT OF INDIA",
+      toWhom: "OFFICIAL GOVERNMENT REGISTRATION RECORD",
       bodyParagraphs: [
-        "The Quality Management System of SAMARTH FRP SOLUTIONS / INDUSTRIES has been independently assessed and found to conform to the requirements of ISO 9001:2015.",
-        "Scope of Certification: Design, Engineering, Manufacturing, Quality Inspection, Testing, and Supply of FRP/GRP Manhole Covers, Moulded Gratings, Chemical Storage Vessels, Pultruded Structural Profiles, Scrubbers, and Custom Composite Industrial Fabrications.",
-        "This certification remains valid subject to satisfactory completion of annual surveillance audits.",
+        "This is to certify that SAMARTH CORPORATION has been officially verified and registered under Udyam Registration No. UDYAM-MH-33-0265642.",
+        "Enterprise Type: Manufacturing Entity in PP & FRP Tanks, Blowers, Scrubbers, M.S. FRP Lining, Thermoplastic Pipelines, and Custom Chemical Process Equipment.",
+        "The manufacturing workshop at MIDC Taloja, Raigad conforms to National Industrial Classification (NIC 22209) and qualifies for preferential procurement across Government and private industrial tenders.",
       ],
       signatory: {
-        name: "Dr. A. K. Sundaram",
-        designation: "Lead Auditor & Director of Certification",
-        department: "Accreditation Bureau of Quality Registrars",
-        organization: "International Certification Authority",
+        name: "National Portal Directorate",
+        designation: "Competent Registration Authority",
+        department: "Udyam Enterprise Registry",
+        organization: "Ministry of MSME, Govt. of India",
       },
     },
   },
   {
-    id: "iso-14001-2015",
-    title: "ISO 14001:2015 Environmental Management System",
-    label: "ISO 14001:2015",
-    category: "iso",
-    categoryName: "ISO Certifications",
-    badge: "Environmental Management (EMS)",
-    issueDate: "18-Jan-2021",
-    validity: "Active & Valid through Jan-2027",
-    issuingBodyOrClient: "Bureau of Environmental & Industrial Compliance",
-    registrationOrRefNo: "EMS-IND-2024/6619",
-    standardOrScope: "ISO 14001:2015 Environmental Standards & Sustainable Manufacturing",
+    id: "gst-registered-entity",
+    title: "GST Registration Certificate - Govt of India",
+    label: "GST Registered Entity",
+    category: "statutory",
+    categoryName: "Statutory & Enterprise Registrations",
+    badge: "Ministry of Finance",
+    issueDate: "18-Nov-2022",
+    validity: "Active & Verified Taxpayer Status",
+    issuingBodyOrClient: "Goods and Services Tax Network (GSTN), Ministry of Finance, Govt. of India",
+    registrationOrRefNo: "27AEVFS9451A1ZK",
+    standardOrScope: "Central Goods and Services Tax Act, 2017 - Principal Place: Dombivli & MIDC Taloja",
     description:
-      "Eco-compliant manufacturing protocols guaranteeing zero hazardous liquid effluent discharge, optimized resin curing, and closed-loop filtration.",
-    documentType: "ISO Certificate",
+      "Official tax compliance and enterprise registration certificate authorizing commercial manufacture, pan-India interstate supply, and GST tax-invoiced industrial contracts.",
+    documentType: "Statutory Registration",
     documentContent: {
-      header: "CERTIFICATE OF CONFORMITY",
-      subHeader: "ENVIRONMENTAL MANAGEMENT SYSTEM - ISO 14001:2015",
-      toWhom: "THIS IS TO CERTIFY THAT",
+      header: "GOVERNMENT OF INDIA",
+      subHeader: "REGISTRATION CERTIFICATE • GOODS AND SERVICES TAX",
+      toWhom: "TAX COMPLIANCE & LEGAL ENTITY RECORD",
       bodyParagraphs: [
-        "SAMARTH FRP SOLUTIONS / INDUSTRIES operates an Environmental Management System which complies with the requirements of ISO 14001:2015 for green manufacturing and minimal environmental impact.",
-        "Scope of Operations: Eco-friendly fabrication and precision processing of High-Performance Fiber Reinforced Polymer Composites with sustainable waste-minimization and carbon-conscious factory protocols.",
-        "Surveillance audit verified satisfactory compliance with all statutory environmental emission thresholds and green industrial guidelines.",
+        "This is to certify that SAMARTH CORPORATION has been verified and registered under the Goods and Services Tax Act, 2017 with Legal Tax Identification GSTIN: 27AEVFS9451A1ZK.",
+        "Constitution of Business: Sole Proprietorship / Manufacturing Enterprise with active manufacturing works at MIDC Taloja, Raigad and registered office at Dombivli (W), Maharashtra.",
+        "The taxpayer is verified and in active standing for executing commercial tenders, issuing GST-compliant tax invoices, e-way bills, and turnkey engineering supplies across India.",
       ],
       signatory: {
-        name: "Elena Rostova",
-        designation: "Senior Certification Officer",
-        department: "Environmental Audit Division",
-        organization: "Global Sustainability Certification Services",
-      },
-    },
-  },
-  {
-    id: "iso-45001-2018",
-    title: "ISO 45001:2018 Occupational Health & Safety",
-    label: "ISO 45001:2018",
-    category: "iso",
-    categoryName: "ISO Certifications",
-    badge: "Occupational Health & Safety (OHSMS)",
-    issueDate: "22-Mar-2021",
-    validity: "Active & Valid through Mar-2027",
-    issuingBodyOrClient: "Occupational Safety Standards Accreditation Board",
-    registrationOrRefNo: "OHSMS-IND-2024/9183",
-    standardOrScope: "ISO 45001:2018 Industrial Workplace & Worker Safety Standards",
-    description:
-      "Comprehensive workplace safety and hygiene compliance, ensuring zero lost-time injury, advanced PPE protocols, and air-exchange shop floors.",
-    documentType: "ISO Certificate",
-    documentContent: {
-      header: "CERTIFICATE OF REGISTRATION",
-      subHeader: "OCCUPATIONAL HEALTH & SAFETY MANAGEMENT SYSTEM - ISO 45001:2018",
-      toWhom: "THIS IS TO CERTIFY THAT",
-      bodyParagraphs: [
-        "The Occupational Health & Safety Management System of SAMARTH FRP SOLUTIONS / INDUSTRIES has been assessed and registered as complying with the requirements of ISO 45001:2018.",
-        "Scope: Safe operational procedures, hazardous vapor extraction, automated resin batch handling, and ergonomic fabrication lines for heavy industrial composite assemblies.",
-        "The registered organization is committed to providing safe and healthy working conditions for the prevention of work-related injury and ill health.",
-      ],
-      signatory: {
-        name: "Vikramjit Banerjee",
-        designation: "Chief Safety Assessor",
-        department: "Occupational Health & Safety Registry",
-        organization: "Safety & Quality Audit Bureau",
+        name: "State Tax Officer / Superintendent",
+        designation: "Proper Officer & Jurisdictional Authority",
+        department: "Central & State GST Directorate",
+        organization: "Ministry of Finance, Govt. of India",
       },
     },
   },
 
-  // ─── 2. CLIENT APPRECIATION & PERFORMANCE LETTERS (From Reference Image) ───
+  // ─── 2. CLIENT APPRECIATION & PERFORMANCE LETTERS ───
   {
     id: "dummy-1",
     title: "Dummy 1 - Performance & Inspection Certificate",
@@ -271,104 +239,6 @@ export const CERTIFICATES_DATA: CertificateItem[] = [
         designation: "Vice President - Operations & Plant Engineering",
         department: "Chemical Process & Safety Directorate",
         organization: "Dummy 4 BioChem Private Limited",
-      },
-    },
-  },
-
-  // ─── 3. STATUTORY & GOVERNMENT ACCREDITATIONS ───
-  {
-    id: "msme-udyam-registered",
-    title: "MSME / Udyam Registration - Govt of India",
-    label: "MSME / Udyam Registered",
-    category: "statutory",
-    categoryName: "Statutory & Approvals",
-    badge: "Ministry of MSME",
-    issueDate: "12-Aug-2020",
-    validity: "Permanent Government Registration",
-    issuingBodyOrClient: "Ministry of Micro, Small and Medium Enterprises, Government of India",
-    registrationOrRefNo: "UDYAM-MH-33-0265642",
-    standardOrScope: "NIC Code 2220: Manufacture of Plastics & Fiber Reinforced Polymer Products",
-    description:
-      "Official enterprise recognition by the Government of India for advanced manufacturing of PP & FRP composite polymer products, linings, tanks, and chemical equipment.",
-    documentType: "Statutory Registration",
-    documentContent: {
-      header: "UDYAM REGISTRATION CERTIFICATE",
-      subHeader: "MINISTRY OF MICRO, SMALL AND MEDIUM ENTERPRISES • GOVERNMENT OF INDIA",
-      toWhom: "OFFICIAL GOVERNMENT REGISTRATION RECORD",
-      bodyParagraphs: [
-        "This is to certify that SAMARTH CORPORATION has been officially verified and registered under Udyam Registration No. UDYAM-MH-33-0265642.",
-        "Enterprise Type: Manufacturing Entity in PP & FRP Tanks, Blowers, Scrubbers, M.S. FRP Lining, Thermoplastic Pipelines, and Custom Chemical Process Equipment.",
-        "The manufacturing workshop at MIDC Taloja, Raigad conforms to National Industrial Classification (NIC 22209) and qualifies for preferential procurement across Government and private industrial tenders.",
-      ],
-      signatory: {
-        name: "National Portal Directorate",
-        designation: "Competent Registration Authority",
-        department: "Udyam Enterprise Registry",
-        organization: "Ministry of MSME, Govt. of India",
-      },
-    },
-  },
-  {
-    id: "bis-standards-compliance",
-    title: "Bureau of Indian Standards (BIS) IS 6746 / IS 1726 & EN 124 Standard Compliance",
-    label: "BIS & EN 124 Standard Compliance",
-    category: "statutory",
-    categoryName: "Statutory & Approvals",
-    badge: "Structural & Resins Standard",
-    issueDate: "05-Jan-2022",
-    validity: "Periodic Laboratory Compliance",
-    issuingBodyOrClient: "Bureau of Indian Standards & NABL Accredited Testing Laboratory",
-    registrationOrRefNo: "BIS-CMP-ENG-5520",
-    standardOrScope: "IS 6746: Unsaturated Polyester Resins | BS EN 124: Class A15 to F900 Load Ratings",
-    description:
-      "Standard compliance certificate certifying that all structural composite members and manhole covers fulfill IS 6746 resin matrix and BS EN 124 load class ratings.",
-    documentType: "Statutory Registration",
-    documentContent: {
-      header: "TEST COMPLIANCE & ACCREDITATION REPORT",
-      subHeader: "BUREAU OF INDIAN STANDARDS & BS EN 124 STRUCTURAL VALIDATION",
-      toWhom: "TECHNICAL SPECIFICATION COMPLIANCE RECORD",
-      bodyParagraphs: [
-        "This document certifies that product lines fabricated by Samarth FRP Solutions conform to IS 6746 specifications for structural grade unsaturated polyester & vinyl ester resins.",
-        "Load Deflection & Proof Testing: FRP Solid Top and Recessed Manhole Covers comply with BS EN 124 / IS 1726 load classes from Class A15 (1.5 Tonne) up to Class D400 (40 Tonne) and Class F900 (90 Tonne airport runway test).",
-        "Material Test Certificates (MTC) with raw batch tensile strength (ASTM D638), flexural modulus (ASTM D790), and Barcol Hardness (ASTM D2583) are archived for every production lot.",
-      ],
-      signatory: {
-        name: "Er. Mahendra Joshi",
-        designation: "Chief Materials Testing Engineer",
-        department: "Polymer & Mechanical Test Laboratory",
-        organization: "NABL Certified Testing Center",
-      },
-    },
-  },
-  {
-    id: "rdso-pwd-vendor",
-    title: "RDSO / Public Works Department Approved Vendor Registration",
-    label: "RDSO / PWD Vendor Enlistment",
-    category: "statutory",
-    categoryName: "Statutory & Approvals",
-    badge: "Govt Infrastructure Enlistment",
-    issueDate: "14-Nov-2021",
-    validity: "Valid through Mar-2027",
-    issuingBodyOrClient: "Public Works Department & Railway Infrastructure Procurement Cell",
-    registrationOrRefNo: "PWD/CE/VR/FRP-2022/194",
-    standardOrScope: "Approved Enlistment for Composite Manhole Covers, Drain Gratings, and Railway Components",
-    description:
-      "Enlisted approved supplier for state highway projects, smart city road drainage, and maintenance-free railway platform composite utilities.",
-    documentType: "Statutory Registration",
-    documentContent: {
-      header: "OFFICE OF THE CHIEF ENGINEER • PUBLIC WORKS DEPARTMENT",
-      subHeader: "APPROVED VENDOR ENLISTMENT FOR COMPOSITE CIVIC UTILITIES",
-      toWhom: "ENLISTMENT NOTIFICATION",
-      bodyParagraphs: [
-        "Samarth FRP Solutions has been enlisted as an Approved Manufacturer & Vendor for supplying Heavy-Duty FRP/GRP Manhole Covers, Chamber Covers, Trench Gratings, and Precast Drain Gratings across PWD & Municipal infrastructure projects.",
-        "Inspection of the manufacturing workshop, load testing test bench, and resin blending facilities verified compliance with PWD Technical Schedule Clause 4.8.",
-        "Products supplied under this registration carry 5-year anti-corrosion and load performance warranties.",
-      ],
-      signatory: {
-        name: "R. C. Mane",
-        designation: "Superintending Engineer (Procurement & Quality)",
-        department: "Infrastructure Material Enlistment Division",
-        organization: "Public Works Department",
       },
     },
   },

@@ -14,7 +14,7 @@ export function MissionSection() {
           <div className="relative z-10 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 border border-white/15 rounded-full mb-5 backdrop-blur-sm">
               <Eye className="w-3.5 h-3.5 text-[#FF6B00]" />
-              <span className="text-[11px] font-bold tracking-widest text-white uppercase">
+              <span className="type-eyebrow text-white">
                 Our Vision
               </span>
             </div>
