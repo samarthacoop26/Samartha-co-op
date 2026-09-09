@@ -88,12 +88,12 @@ export function Footer() {
   const { sales } = CONTACT_CONFIG.departments;
 
   return (
-    <footer className="relative bg-[#060D17] text-white border-t border-slate-800/80 overflow-hidden">
+    <footer className="relative bg-[#060D17] text-white border-t border-slate-800/80 overflow-hidden font-sans">
       {/* Subtle Ambient Top Glow */}
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF6B00]/40 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[120px] bg-[#FF6B00]/5 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-14 sm:pt-16 pb-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-14 sm:pt-16 pb-12 font-sans">
         {/* Main Footer Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-slate-800/70">
           
@@ -112,16 +112,16 @@ export function Footer() {
                   <path d="M12 0L0 28H6L12 14L18 28H24L12 0Z" fill="#FF6B00" />
                   <path d="M6 28H10L14 18H10L6 28Z" fill="white" />
                 </svg>
-                <span className="text-white text-xl font-extrabold tracking-tight">
+                <span className="text-white text-xl font-extrabold tracking-tight font-sans">
                   Samarth Corporation
                 </span>
               </div>
-              <span className="text-slate-400 text-[10px] uppercase tracking-[0.2em] font-bold mt-1 ml-[32px]">
+              <span className="text-[#FF8C33] text-[10.5px] uppercase tracking-[0.18em] font-bold mt-1 ml-[32px] font-mono-accent">
                 PP &amp; FRP Engineering Solutions
               </span>
             </Link>
 
-            <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed max-w-sm font-normal">
+            <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed max-w-sm font-normal font-sans">
               Specialized engineering, custom fabrication, site erection, and turnkey maintenance of high-performance thermoplastic &amp; composite equipment across India.
             </p>
 
@@ -134,12 +134,12 @@ export function Footer() {
 
           {/* Column 2: Minimal Navigation (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <div className="type-eyebrow text-slate-400 flex items-center gap-1.5 font-mono-accent">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
               <span>Navigation</span>
             </div>
 
-            <ul className="space-y-2.5">
+            <ul className="space-y-2.5 font-sans">
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
@@ -149,7 +149,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="group inline-flex items-center gap-2 text-xs sm:text-[13px] text-slate-300 hover:text-white transition-colors duration-150"
+                    className="group inline-flex items-center gap-2 text-xs sm:text-[13px] text-slate-300 hover:text-white transition-colors duration-150 font-sans"
                   >
                     <span className="w-1 h-1 rounded-full bg-slate-600 group-hover:bg-[#FF6B00] group-hover:w-2 transition-all duration-200" />
                     <span>{item.label}</span>
@@ -161,12 +161,12 @@ export function Footer() {
 
           {/* Column 3: Locations & Direct Contacts (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+            <div className="type-eyebrow text-slate-400 flex items-center gap-1.5 font-mono-accent">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
               <span>Facilities &amp; Contacts</span>
             </div>
 
-            <div className="space-y-3 text-xs text-slate-300">
+            <div className="space-y-3 text-xs text-slate-300 font-sans">
               {CONTACT_CONFIG.locations.map((loc) => (
                 <div
                   key={loc.id}
@@ -176,20 +176,20 @@ export function Footer() {
                     <MapPin className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 mt-0.5" />
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-2">
-                        <span className="font-semibold text-slate-200 text-[11.5px]">
+                        <span className="font-semibold text-slate-200 text-[11.5px] font-sans">
                           {loc.shortLabel || loc.name}
                         </span>
                         <a
                           href={loc.googleMapsDirectionsUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[10px] font-bold text-[#FF6B00] hover:underline inline-flex items-center gap-0.5"
+                          className="type-eyebrow text-[10px] font-bold text-[#FF6B00] hover:underline inline-flex items-center gap-0.5 font-mono-accent"
                           title={`Directions to ${loc.name} on Google Maps`}
                         >
                           Directions <ExternalLink className="w-2.5 h-2.5" />
                         </a>
                       </div>
-                      <p className="text-slate-400 text-[11px] leading-snug mt-1">
+                      <p className="text-slate-400 text-[11px] leading-snug mt-1 font-sans">
                         {loc.addressLine1}, {loc.addressLine2}, {loc.cityStateZip}
                       </p>
                     </div>
@@ -198,20 +198,20 @@ export function Footer() {
               ))}
 
               {/* Direct Communications */}
-              <div className="pt-1 space-y-2">
+              <div className="pt-1 space-y-2 font-sans">
                 <div className="flex items-center gap-2.5 text-xs">
                   <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                     <a
                       href="tel:+919930862729"
-                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                      className="text-slate-200 hover:text-[#FF6B00] font-mono-accent font-semibold transition-colors"
                     >
                       +91 99308 62729
                     </a>
                     <span className="text-slate-600">•</span>
                     <a
                       href="tel:+919867339763"
-                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                      className="text-slate-200 hover:text-[#FF6B00] font-mono-accent font-semibold transition-colors"
                     >
                       +91 98673 39763
                     </a>
@@ -223,13 +223,13 @@ export function Footer() {
                   <div className="flex flex-col gap-1">
                     <a
                       href={`mailto:${CONTACT_CONFIG.email}`}
-                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors"
+                      className="text-slate-200 hover:text-[#FF6B00] font-medium transition-colors font-sans"
                     >
                       {CONTACT_CONFIG.email}
                     </a>
                     <a
                       href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
-                      className="text-slate-300 hover:text-[#FF6B00] font-medium transition-colors"
+                      className="text-slate-300 hover:text-[#FF6B00] font-medium transition-colors font-sans"
                     >
                       {CONTACT_CONFIG.secondaryEmail}
                     </a>
@@ -242,13 +242,13 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p className="text-center sm:text-left">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-sans">
+          <p className="text-center sm:text-left type-footer text-slate-400">
             © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
           </p>
 
           {/* Legal Quick Links */}
-          <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5 text-xs text-slate-400 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5 text-xs text-slate-400 font-medium font-sans">
             <Link
               href="/privacy-policy"
               className="hover:text-white transition-colors"
@@ -275,10 +275,10 @@ export function Footer() {
           <button
             onClick={scrollToTop}
             type="button"
-            className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 text-slate-400 hover:text-white transition-all cursor-pointer"
+            className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 text-slate-400 hover:text-white transition-all cursor-pointer font-sans"
             aria-label="Scroll to top of page"
           >
-            <span className="text-[11px] font-semibold">Top</span>
+            <span className="text-[11px] font-semibold font-mono-accent uppercase tracking-wider">Top</span>
             <ArrowUp className="w-3 h-3 text-[#FF6B00] group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
