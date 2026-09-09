@@ -45,6 +45,7 @@ export function QuoteModal() {
   // Sync modalData when opening
   useEffect(() => {
     if (isOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFormData((prev) => ({
         ...prev,
         product: modalData.productName || prev.product || PRODUCT_OPTIONS[0],

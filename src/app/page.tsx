@@ -1,4 +1,5 @@
 import { HeroSlider } from "@/components/home/HeroSlider";
+import { CategoryNavStrip } from "@/components/products/CategoryNavStrip";
 import { ClientMarquee } from "@/components/home/ClientMarquee";
 import { ProductCategories } from "@/components/home/ProductCategories";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <div className="w-full bg-white dark:bg-black">
       <HeroSlider />
+      <CategoryNavStrip />
       <ClientMarquee />
       <ProductCategories />
       <WhyChooseUs />

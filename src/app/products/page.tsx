@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { TOTAL_CATEGORIES_COUNT, TOTAL_PRODUCTS_COUNT } from "@/data/productsData";
 import { ProductsCatalogClient } from "@/components/products/ProductsCatalogClient";
+import { CategoryNavStrip } from "@/components/products/CategoryNavStrip";
 import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
@@ -92,7 +93,10 @@ export default function ProductsOverviewPage() {
         </div>
       </section>
 
-      {/* ═══ 2. ALL 10 CATEGORIES DIRECTORY & SEARCH ═══ */}
+      {/* ═══ 2. QUICK CATEGORY SWITCHER TABS ═══ */}
+      <CategoryNavStrip />
+
+      {/* ═══ 3. ALL 10 CATEGORIES DIRECTORY & SEARCH ═══ */}
       <main className="py-14 sm:py-18 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ProductsCatalogClient />

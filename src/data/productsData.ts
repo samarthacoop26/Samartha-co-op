@@ -4,9 +4,15 @@ export interface ProductItem {
   slug: string;
   categorySlug: string;
   categoryName: string;
+  subheading?: string;
   shortDescription: string;
   features: string[];
-  placeholderLabel: string;
+  placeholderLabel?: string;
+  image?: string;
+  technicalSpecs?: {
+    label: string;
+    value: string;
+  }[];
 }
 
 export interface ProductCategoryDetail {
@@ -1104,6 +1110,146 @@ export const CATEGORY_IMAGE_MAP: Record<string, string> = {
 export function getCategoryImageUrl(categoryIdOrSlug: string): string {
   const clean = categoryIdOrSlug.toLowerCase().trim();
   return CATEGORY_IMAGE_MAP[clean] || "/images/about/plant-facility.jpg";
+}
+
+// Product-level Image Mapping for specific products
+export const PRODUCT_SPECIFIC_IMAGE_MAP: Record<string, string> = {
+  // Tanks & Vessels
+  "frp-tanks": "/images/about/chemical-tanks.jpg",
+  "pp-frp-tanks": "/images/about/pp-frp-tanks.jpg",
+  "chemical-storage-tanks": "/images/about/chemical-tanks.jpg",
+  "acid-storage-tanks": "/images/about/chemical-tanks.jpg",
+  "reaction-vessels": "/images/about/pp-frp-tanks.jpg",
+  "water-treatment-tanks": "/images/about/etp-hdpe-pipelines.jpg",
+  "dual-laminate-tanks": "/images/about/pp-frp-tanks.jpg",
+  "underground-tanks": "/images/about/chemical-tanks.jpg",
+  "frp-scrubbers": "/images/about/blowers-scrubbers.jpg",
+  "frp-blowers": "/images/about/blowers-scrubbers.jpg",
+  "frp-ducting": "/images/about/blowers-scrubbers.jpg",
+  "frp-chimneys": "/images/about/blowers-scrubbers.jpg",
+  "exhaust-hoods": "/images/about/blowers-scrubbers.jpg",
+  "frp-pipes": "/images/about/thermoplastic-piping.jpg",
+  "piping-systems": "/images/about/thermoplastic-piping.jpg",
+  "pipe-fittings": "/images/about/thermoplastic-piping.jpg",
+  "flanges-valves": "/images/about/thermoplastic-piping.jpg",
+  // Gratings & Access
+  "frp-gratings": "/images/about/gratings-walkway.jpg",
+  "walkways": "/images/about/gratings-walkway.jpg",
+  "footbridge-deck-panels": "/images/about/gratings-walkway.jpg",
+  "platforms": "/images/about/gratings-walkway.jpg",
+  "stair-treads": "/images/about/gratings-walkway.jpg",
+  "platform-gratings": "/images/about/gratings-walkway.jpg",
+  "maintenance-walkways": "/images/about/gratings-walkway.jpg",
+  "maintenance-platforms": "/images/about/gratings-walkway.jpg",
+  "anti-slip-panels": "/images/about/gratings-walkway.jpg",
+  // Covers
+  "frp-manhole-covers": "/images/about/manhole-covers.jpg",
+  "drain-covers": "/images/about/manhole-covers.jpg",
+  "cable-trench-covers": "/images/about/manhole-covers.jpg",
+  "gulley-gratings": "/images/about/manhole-covers.jpg",
+  "recessed-covers": "/images/about/manhole-covers.jpg",
+  "water-meter-covers": "/images/about/manhole-covers.jpg",
+  "chamber-covers": "/images/about/manhole-covers.jpg",
+  "inspection-covers": "/images/about/manhole-covers.jpg",
+  // Lining & Safety
+  "handrails": "/images/about/utm-testing.jpg",
+  "ladders": "/images/about/utm-testing.jpg",
+  "caged-ladders": "/images/about/utm-testing.jpg",
+  "safety-barriers": "/images/about/utm-testing.jpg",
+  "structural-profiles": "/images/about/utm-testing.jpg",
+  // Cable Trays
+  "cable-trays": "/images/about/etp-hdpe-pipelines.jpg",
+  "perforated-cable-trays": "/images/about/etp-hdpe-pipelines.jpg",
+  "ladder-type-cable-trays": "/images/about/etp-hdpe-pipelines.jpg",
+  "channel-type-cable-trays": "/images/about/etp-hdpe-pipelines.jpg",
+  "wire-mesh-cable-trays": "/images/about/etp-hdpe-pipelines.jpg",
+  "cable-ducts": "/images/about/etp-hdpe-pipelines.jpg",
+  // Enclosures & Boxes
+  "junction-boxes": "/images/about/stockist-materials.jpg",
+  "control-panels": "/images/about/stockist-materials.jpg",
+  "meter-boxes": "/images/about/stockist-materials.jpg",
+  "distribution-boxes": "/images/about/stockist-materials.jpg",
+  "instrumentation-enclosures": "/images/about/stockist-materials.jpg",
+  "push-button-stations": "/images/about/stockist-materials.jpg",
+  "terminal-boxes": "/images/about/stockist-materials.jpg",
+  "weatherproof-boxes": "/images/about/stockist-materials.jpg",
+  "fire-alarm-boxes": "/images/about/stockist-materials.jpg",
+  // Doors & Panels
+  "frp-doors": "/images/about/tray-custom-fabrication.jpg",
+  "fire-doors": "/images/about/tray-custom-fabrication.jpg",
+  "cleanroom-doors": "/images/about/tray-custom-fabrication.jpg",
+  "frp-windows": "/images/about/tray-custom-fabrication.jpg",
+  "wall-panels": "/images/about/tray-custom-fabrication.jpg",
+  "ceiling-panels": "/images/about/tray-custom-fabrication.jpg",
+  "partition-panels": "/images/about/tray-custom-fabrication.jpg",
+  "cladding-panels": "/images/about/tray-custom-fabrication.jpg",
+  "louvers": "/images/about/tray-custom-fabrication.jpg",
+  // Defence
+  "body-armor-panels": "/images/about/defence-railway.jpg",
+  "ballistic-shields": "/images/about/defence-railway.jpg",
+  "vehicle-armor-panels": "/images/about/defence-railway.jpg",
+  "bullet-resistant-panels": "/images/about/defence-railway.jpg",
+  "tactical-helmets": "/images/about/defence-railway.jpg",
+  "protective-covers": "/images/about/defence-railway.jpg",
+  // Civic & Signage
+  "benches": "/images/about/plant-facility.jpg",
+  "planters": "/images/about/plant-facility.jpg",
+  "dustbins": "/images/about/plant-facility.jpg",
+  "kiosks": "/images/about/plant-facility.jpg",
+  "bus-shelters": "/images/about/plant-facility.jpg",
+  "traffic-signs": "/images/about/sintex-tank-welding.jpg",
+  "safety-signs": "/images/about/sintex-tank-welding.jpg",
+  "glow-in-the-dark-signs": "/images/about/sintex-tank-welding.jpg",
+  "retro-reflective-signs": "/images/about/sintex-tank-welding.jpg",
+  "custom-signage": "/images/about/sintex-tank-welding.jpg",
+};
+
+export function getProductImageUrl(product: ProductItem, categorySlug?: string): string {
+  if (product.image) return product.image;
+  if (PRODUCT_SPECIFIC_IMAGE_MAP[product.slug] || PRODUCT_SPECIFIC_IMAGE_MAP[product.id]) {
+    return PRODUCT_SPECIFIC_IMAGE_MAP[product.slug] || PRODUCT_SPECIFIC_IMAGE_MAP[product.id];
+  }
+  const catSlug = categorySlug || product.categorySlug;
+  return getCategoryImageUrl(catSlug);
+}
+
+// Subheading generator for rich technical subheaders
+export function getProductSubheading(product: ProductItem): string {
+  if (product.subheading) return product.subheading;
+
+  const nameLower = product.name.toLowerCase();
+  if (nameLower.includes("grating") || nameLower.includes("walkway") || nameLower.includes("deck")) {
+    return "Heavy-Duty Pultruded & Molded Structural Access Composite";
+  }
+  if (nameLower.includes("tank") || nameLower.includes("vessel")) {
+    return "Corrosion-Proof Dual-Laminate & Atmospheric Chemical Storage";
+  }
+  if (nameLower.includes("cover") || nameLower.includes("chamber") || nameLower.includes("gulley")) {
+    return "High Load-Bearing Anti-Theft & Sealed Infrastructure Cover";
+  }
+  if (nameLower.includes("box") || nameLower.includes("panel") || nameLower.includes("enclosure")) {
+    return "IP65/IP66 Flame-Retardant & Weatherproof Electrical Housing";
+  }
+  if (nameLower.includes("door") || nameLower.includes("window") || nameLower.includes("louver")) {
+    return "Corrosion-Resistant Industrial & Cleanroom Architectural Assembly";
+  }
+  if (nameLower.includes("ladder") || nameLower.includes("handrail") || nameLower.includes("barrier")) {
+    return "OSHA / IS Safety-Compliant Structural Fall Protection System";
+  }
+  if (nameLower.includes("tray") || nameLower.includes("duct")) {
+    return "Chemical-Resistant Continuous Industrial Cable Management";
+  }
+  if (nameLower.includes("armor") || nameLower.includes("shield") || nameLower.includes("helmet") || nameLower.includes("ballistic")) {
+    return "Military-Grade High-Impact Composite Kinetic Energy Dissipation";
+  }
+  if (nameLower.includes("sign") || nameLower.includes("board")) {
+    return "UV-Stabilized High-Visibility Industrial & Highway Identification";
+  }
+  if (nameLower.includes("blower") || nameLower.includes("scrubber") || nameLower.includes("chimney")) {
+    return "Corrosion-Proof Acid Fume Extraction & Environmental Compliance System";
+  }
+
+  return "Precision Engineered Industrial FRP & PP Composite Assembly";
 }
 
 export const TOTAL_CATEGORIES_COUNT = PRODUCT_CATALOG.length;

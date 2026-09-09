@@ -104,7 +104,7 @@ export function HeroSlider() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
-                  className="text-3xl md:text-4xl lg:text-[48px] font-bold text-white leading-[1.2] tracking-tight"
+                  className="type-h1 text-white tracking-tight"
                 >
                   {slides[currentSlide].title}
                 </motion.h1>
@@ -116,7 +116,7 @@ export function HeroSlider() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                  className="text-base md:text-lg lg:text-xl text-gray-200 font-normal leading-relaxed"
+                  className="type-subheading text-gray-200 max-w-2xl mx-auto"
                 >
                   {slides[currentSlide].description}
                 </motion.p>
@@ -132,7 +132,7 @@ export function HeroSlider() {
                 <button 
                   type="button"
                   onClick={() => openQuoteModal({ title: "Request a Custom Quote" })}
-                  className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#e66000] text-white font-semibold text-base px-8 py-4 rounded shadow-[0_8px_20px_rgba(255,107,0,0.3)] transition-all hover:-translate-y-1 flex items-center justify-center cursor-pointer"
+                  className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-8 py-4 rounded-xl shadow-[0_8px_20px_rgba(255,107,0,0.3)] transition-all hover:-translate-y-1 flex items-center justify-center cursor-pointer"
                 >
                   {slides[currentSlide].cta1.text}
                 </button>
@@ -164,39 +164,39 @@ export function HeroSlider() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 lg:gap-8 divide-x-0 md:divide-x divide-white/10">
             
             {/* Trust Item 1 */}
-            <div className="flex flex-col items-center justify-center text-center p-2 group hover:-translate-y-1 transition-transform">
+            <div className="flex flex-col items-center justify-center text-center p-3 rounded-xl hover:bg-white/5 group hover:-translate-y-1 transition-all">
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <Award className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl">25+ Years</h3>
-              <p className="text-gray-400 text-sm mt-1">of Excellence</p>
+              <h3 className="text-white font-bold text-lg md:text-xl type-h3">25+ Years</h3>
+              <p className="text-gray-400 text-sm mt-1 type-footer">of Excellence</p>
             </div>
             
             {/* Trust Item 2 */}
-            <div className="flex flex-col items-center justify-center text-center p-2 group hover:-translate-y-1 transition-transform">
+            <div className="flex flex-col items-center justify-center text-center p-3 rounded-xl hover:bg-white/5 group hover:-translate-y-1 transition-all">
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <CheckCircle className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl">Govt. Approved</h3>
-              <p className="text-gray-400 text-sm mt-1">Vendor Listed</p>
+              <h3 className="text-white font-bold text-lg md:text-xl type-h3">Govt. Approved</h3>
+              <p className="text-gray-400 text-sm mt-1 type-footer">Vendor Listed</p>
             </div>
             
             {/* Trust Item 3 */}
-            <div className="flex flex-col items-center justify-center text-center p-2 group hover:-translate-y-1 transition-transform">
+            <div className="flex flex-col items-center justify-center text-center p-3 rounded-xl hover:bg-white/5 group hover:-translate-y-1 transition-all">
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <Users className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl">1000+ Clients</h3>
-              <p className="text-gray-400 text-sm mt-1">Served</p>
+              <h3 className="text-white font-bold text-lg md:text-xl type-h3">1000+ Clients</h3>
+              <p className="text-gray-400 text-sm mt-1 type-footer">Served</p>
             </div>
             
             {/* Trust Item 4 */}
-            <div className="flex flex-col items-center justify-center text-center p-2 group hover:-translate-y-1 transition-transform">
+            <div className="flex flex-col items-center justify-center text-center p-3 rounded-xl hover:bg-white/5 group hover:-translate-y-1 transition-all">
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <MapPin className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl">Pan-India</h3>
-              <p className="text-gray-400 text-sm mt-1">Execution</p>
+              <h3 className="text-white font-bold text-lg md:text-xl type-h3">Pan-India</h3>
+              <p className="text-gray-400 text-sm mt-1 type-footer">Delivery Network</p>
             </div>
             
           </div>

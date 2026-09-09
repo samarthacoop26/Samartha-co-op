@@ -1,15 +1,12 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import Link from "next/link";
-import { Search, Layers, ArrowRight, ShieldCheck, Factory, Ruler } from "lucide-react";
+import { Search, Layers } from "lucide-react";
 import { PRODUCT_CATALOG } from "@/data/productsData";
 import { ProductOverviewCard } from "@/components/products/ProductOverviewCard";
-import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function ProductsCatalogClient() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { openQuoteModal } = useQuoteModal();
 
   // Filter categories and products by search query
   const filteredCategories = useMemo(() => {
@@ -80,76 +77,6 @@ export function ProductsCatalogClient() {
           </button>
         </div>
       )}
-
-      {/* ═══ IN-DEPTH TECHNICAL RESIN & COMPOSITE STANDARDS GUIDE ═══ */}
-      <div className="mt-16 bg-white rounded-xl border border-gray-200 p-6 sm:p-8 shadow-xs">
-        <div className="max-w-3xl mb-6">
-          <span className="text-xs font-bold text-[#FF6B00] uppercase tracking-wider block mb-1">
-            Manufacturing Quality Standards
-          </span>
-          <h3 className="text-xl sm:text-2xl font-bold text-[#0A1628]">
-            Engineering Resins &amp; Compliance Specifications
-          </h3>
-          <p className="text-sm text-gray-600 mt-1">
-            All composite and thermoplastic products are fabricated according to strict Indian and International standards with full batch traceability.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          <div className="p-4 rounded-lg bg-gray-50 border border-gray-200">
-            <h4 className="text-sm font-bold text-gray-900 mb-1">Resin Formulations</h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Isophthalic polyester, vinyl ester (Derakane / Hetron equivalent), bisphenol, and epoxy resin matrices tailored to chemical exposure.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-lg bg-gray-50 border border-gray-200">
-            <h4 className="text-sm font-bold text-gray-900 mb-1">Standards Compliance</h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Manufactured adhering to IS 12709, IS 14402, BS 4994, ASTM D3299, and ASTM D4097 engineering codes.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-lg bg-gray-50 border border-gray-200">
-            <h4 className="text-sm font-bold text-gray-900 mb-1">Quality Inspection &amp; Testing</h4>
-            <p className="text-xs text-gray-600 leading-relaxed">
-              Hydrostatic pressure tests, Barcol hardness inspection, UTM tensile tests, and raw resin batch analysis certificates with every order.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* ═══ CUSTOM CAD & FABRICATION CALLOUT ═══ */}
-      <div className="mt-8 p-6 sm:p-8 bg-[#0A1628] rounded-xl text-white flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-md">
-        <div className="max-w-2xl">
-          <div className="flex items-center gap-2 text-orange-400 text-xs font-bold uppercase tracking-wider mb-1.5">
-            <Factory className="w-4 h-4" />
-            <span>Custom Engineering &bull; In-House Tooling</span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold tracking-tight">
-            Need Custom Sizing, Resins, or CAD Drawings?
-          </h3>
-          <p className="mt-2 text-sm text-gray-300 leading-relaxed">
-            Our MIDC Taloja plant fabricates custom PP/FRP equipment, ducting, tanks, and structural shapes to client CAD drawings and project requirements.
-          </p>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3 shrink-0">
-          <button
-            type="button"
-            onClick={() =>
-              openQuoteModal({
-                title: "Custom CAD / Drawing RFQ",
-                message: "I would like to submit custom drawings and dimensions for fabrication quote.",
-              })
-            }
-            className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-lg transition-colors cursor-pointer"
-          >
-            <Ruler className="w-4 h-4" />
-            <span>Submit Custom CAD Specs</span>
-          </button>
-        </div>
-      </div>
     </div>
   );
 }
