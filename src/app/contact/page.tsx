@@ -316,6 +316,12 @@ export default function ContactPage() {
                     external
                   />
                   <ContactRow
+                    icon={<Phone size={16} className="text-[#FF6B00]" />}
+                    label="Inquiries & Quotations Mobile"
+                    value={quotations.phoneDisplay}
+                    href={`tel:${quotations.phone}`}
+                  />
+                  <ContactRow
                     icon={<Mail size={16} className="text-[#FF6B00]" />}
                     label="Official Email"
                     value={sales.email}
