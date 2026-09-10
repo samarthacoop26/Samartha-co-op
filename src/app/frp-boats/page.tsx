@@ -9,20 +9,20 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
 export const metadata: Metadata = {
-  title: `FRP Boats, Patrol Craft & Rescue Vessels | ${CONTACT_CONFIG.companyName}`,
+  title: `FRP Boats | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Manufacturer of unsinkable FRP flood rescue boats, coastal patrol craft, tourist passenger ferries, speedboats, and commercial fishing vessels across India. Built to IRS & ISO 12217 marine standards.",
+    "Manufacturer of unsinkable FRP flood rescue boats, passenger ferries, speedboats, and recreational boats across India.",
   openGraph: {
-    title: `FRP Marine Craft & Boats Manufacturing | ${CONTACT_CONFIG.companyName}`,
+    title: `FRP Boats | ${CONTACT_CONFIG.companyName}`,
     description:
-      "Heavy-duty composite marine vessels engineered with positive buoyancy PU foam cores, marine-grade ISO-NPG resins, and turnkey engine rigging.",
+      "Heavy-duty composite fiberglass boats engineered with positive buoyancy PU foam cores, durable gelcoat finish, and turnkey engine rigging.",
     type: "website",
     images: [
       {
         url: "/images/products/frp-boat-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "FRP Boats & Patrol Vessels - Samarth Corporation",
+        alt: "FRP Boats - Samarth Corporation",
       },
     ],
   },

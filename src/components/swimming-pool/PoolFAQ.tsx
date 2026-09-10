@@ -8,34 +8,34 @@ export function PoolFAQ() {
 
   const faqs = [
     {
-      question: "Can an FRP swimming pool really be installed on a building rooftop or terrace?",
+      question: "Can an FRP pool be installed on a rooftop or terrace?",
       answer:
-        "Yes! Because monolithic FRP composite shells are significantly lighter than concrete pools, their dead-load on building columns and floor slabs is minimal. When filled with water, the weight is evenly distributed across the slab without localized point stress. Our structural engineering team calculates the load per square foot and provides structural sign-off for your architect.",
+        "Yes. FRP pools are much lighter than concrete pools, making them safe and suitable for rooftops, terraces, and backyards with even weight distribution.",
     },
     {
-      question: "How does the installation take only 3 to 7 days compared to months for concrete?",
+      question: "How long does installation take?",
       answer:
-        "Traditional concrete pools require on-site shuttering, steel rebar tying, guniting/concreting, a 28-day water curing period, waterproofing plastering, and tile laying. In contrast, an FRP pool shell is 100% factory manufactured, cured, and hydro-tested before arriving at your site. Once the excavation/bed is ready, the shell is lowered by crane, plumbed to the filtration plant, backfilled, and filled with water in just 3 to 7 days.",
+        "Usually just 3 to 7 days. Because the pool shell is pre-built and tested at our factory, it arrives ready to be placed, plumbed, and filled with water.",
     },
     {
-      question: "Why do FRP pools consume 70% less chlorine and chemicals than tiled pools?",
+      question: "Is maintenance easier than a traditional concrete pool?",
       answer:
-        "Concrete plaster and cement tile grouting are highly porous, harboring microscopic algae roots and calcium deposits that require heavy chlorination and acid washing to remove. Our marine-grade ISO-NPG gelcoat surface is 100% non-porous and ultra-smooth. Algae cannot embed or root on the surface, drastically lowering chemical demand and keeping the water crystal clear with minimal maintenance.",
+        "Yes. The smooth, non-porous gelcoat surface prevents algae growth and needs far fewer chemicals, making daily upkeep simple and affordable.",
     },
     {
-      question: "What happens if there is ground settlement, seismic activity, or black cotton soil?",
+      question: "Will the pool crack if the ground or soil shifts?",
       answer:
-        "Concrete is rigid and brittle; any ground settlement, seismic vibration, or expansive clay (black cotton soil) movement causes concrete to crack and leak. FRP composite shells possess high flexural elasticity and tensile strength. The shell flexes elastically with ground movement and returns to its shape without developing any structural cracks or leaks.",
+        "No. FRP composite is strong yet flexible, so it easily withstands minor soil settlement and ground movement without cracking or leaking.",
     },
     {
-      question: "What filtration, water treatment, and lighting packages are included?",
+      question: "What filtration and accessories are included?",
       answer:
-        "We provide a complete turnkey package including a heavy-duty sand filter with multiport valve, self-priming recirculation pump, IP68 underwater LED multi-colour lights with remote control, skimmer boxes, and return inlets. Optional upgrades include eco-friendly salt chlorinators, titanium pool heat pumps, and endless-swimming counter-current swim jets.",
+        "Every setup includes a filtration pump, sand filter, skimmer box, return nozzles, and waterproof LED lighting.",
     },
     {
-      question: "What is the warranty and expected lifespan of an FRP swimming pool?",
+      question: "What is the lifespan and warranty?",
       answer:
-        "Samarth Corporation composite pool shells are engineered with a 30+ year lifespan. Every shell is backed by a 15-Year Structural Shell Warranty against laminate failure, osmotic blistering, and water leakage, along with standard manufacturer warranties on all filtration pumps, LED lighting, and valves.",
+        "Our FRP pools have a lifespan of 30+ years and come with a 15-year structural warranty against cracks and leaks.",
     },
   ];
 
@@ -50,10 +50,10 @@ export function PoolFAQ() {
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="type-h2 text-2xl sm:text-3xl font-bold text-[#0A1628] tracking-tight">
-            FRP Swimming Pool Technical FAQs
+            FRP Swimming Pool FAQs
           </h2>
           <p className="type-subheading text-gray-600 text-xs sm:text-sm mt-2">
-            Everything you need to know about rooftop loads, installation timelines, maintenance, and warranties.
+            Quick answers to common questions about installation, maintenance, and durability.
           </p>
         </div>
 

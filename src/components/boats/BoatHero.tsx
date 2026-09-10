@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Layers } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function BoatHero() {
@@ -29,24 +29,19 @@ export function BoatHero() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black/50 backdrop-blur-md border border-white/20 rounded-full shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
               <span className="type-eyebrow text-white">
-                Category 12 &bull; Naval &amp; Marine (IRS/ISO)
+                Commercial &amp; Rescue Boats
               </span>
-            </div>
-
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-white/15 backdrop-blur-md border border-white/20 rounded-full text-white">
-              <Layers className="w-3.5 h-3.5 text-[#FF8C33]" />
-              <span className="type-spec text-[11px] text-white">Flood Rescue &amp; Marine Craft</span>
             </div>
           </div>
 
           {/* H1 Title */}
           <h1 className="type-h1 text-white drop-shadow-md">
-            FRP Boats &amp; Marine Vessels
+            FRP Boats
           </h1>
 
-          {/* In-depth Category Description */}
+          {/* Simple Subheading */}
           <p className="mt-4 type-subheading text-gray-200 drop-shadow-sm">
-            Unsinkable composite flood rescue boats, coastal patrol craft, tourist ferries, speedboats, and commercial fishing vessels manufactured to strict IRS and ISO 12217 marine safety standards for government tenders and private operations across India.
+            High-strength, unsinkable fiberglass boats built for rescue operations, patrolling, passenger transport, and recreation. Lightweight, durable, and completely rust-free.
           </p>
 
           {/* CTAs */}
@@ -55,14 +50,14 @@ export function BoatHero() {
               type="button"
               onClick={() =>
                 openQuoteModal({
-                  title: "Quote Request: FRP Boats & Marine Vessels",
+                  title: "Quote Request: FRP Boats",
                   message:
-                    "I need specifications, hull design, outboard engine options, seating capacity, and pricing for FRP Boats.",
+                    "I need specifications, models, seating capacity, and pricing for FRP Boats.",
                 })
               }
               className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-6 py-3.5 rounded-xl shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer group"
             >
-              <span>Request Category Pricing</span>
+              <span>Request Pricing</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
@@ -85,7 +80,7 @@ export function BoatHero() {
             Products
           </Link>
           <span className="opacity-60">/</span>
-          <span className="text-[#0A1628]">FRP Boats &amp; Marine Craft</span>
+          <span className="text-[#0A1628]">FRP Boats</span>
         </div>
       </div>
     </section>

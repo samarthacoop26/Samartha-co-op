@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2, ShieldCheck, Factory } from "lucide-react";
 import { ProductItem } from "@/data/productsData";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
@@ -22,8 +23,26 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
   };
 
   return (
-    <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-md transition-all duration-200 p-6 justify-between">
+    <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-lg transition-all duration-300 p-5 sm:p-6 justify-between overflow-hidden">
       <div>
+        {/* Product Image Section */}
+        {product.image ? (
+          <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden mb-4 bg-gray-100 border border-gray-100">
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+          </div>
+        ) : (
+          <div className="relative w-full h-36 rounded-xl overflow-hidden mb-4 bg-slate-900/5 flex items-center justify-center border border-gray-100">
+            <Factory className="w-10 h-10 text-gray-300" />
+          </div>
+        )}
+
         {/* Top Meta Line */}
         <div className="flex items-center justify-between gap-2 mb-3">
           <span className="inline-flex items-center gap-1.5 type-eyebrow text-orange-600 bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-100 text-[11px]">

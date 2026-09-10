@@ -8,34 +8,34 @@ export function BoatFAQ() {
 
   const faqs = [
     {
-      question: "Are Samarth Corporation FRP boats unsinkable in case of swamping or breach?",
+      question: "Are these FRP boats unsinkable?",
       answer:
-        "Yes. All our rescue craft, patrol boats, and passenger vessels are engineered with positive flotation. The underfloor cavities, gunwales, and double-bottom compartments are injected with high-density, closed-cell polyurethane (PU) marine foam. Even if the hull sustains severe damage or is filled to the brim with water, the boat maintains positive buoyancy and remains fully upright.",
+        "Yes. The hulls are built with high-density polyurethane foam flotation chambers, so the boat stays safely afloat and upright even if flooded with water.",
     },
     {
-      question: "What marine certifications, standards, and survey approvals are supported?",
+      question: "Can you supply the boat with outboard engines?",
       answer:
-        "Our FRP vessels are fabricated in accordance with Indian Register of Shipping (IRS) guidelines, Mercantile Marine Department (MMD) rules, and ISO 12217 small craft stability and buoyancy standards. For government and municipal tenders, we facilitate third-party inspections and pre-dispatch sea trials with authorized naval surveyors.",
+        "Yes. We deliver turnkey boats fitted with your choice of outboard motors (Yamaha, Mercury, Suzuki, etc.) along with steering controls.",
     },
     {
-      question: "Can you supply the boat with factory-fitted outboard engines and steering?",
+      question: "Can we customize the color, seating, and canopy?",
       answer:
-        "Yes, we provide turnkey delivery. We are authorized to rig and supply complete propulsion packages including Yamaha, Mercury, Suzuki, or Honda 4-stroke outboard motors, calibrated hydraulic steering systems, remote throttle consoles, dual-battery electrical systems, and stainless steel propeller assemblies.",
+        "Yes. We offer custom hull colors, agency logos, flexible seating arrangements, and hardtop or folding canopy options.",
     },
     {
-      question: "How are the boats transported and delivered across different states in India?",
+      question: "How are the boats transported and delivered across India?",
       answer:
-        "We manufacture and supply heavy-duty custom road transport boat trailers equipped with winches, rollers, and submersible waterproof LED tail lamps. For long-distance logistics across India, boats are securely cradled, shrink-wrapped, and transported on dedicated flatbed trucks directly to your specified port, dam site, or facility.",
+        "We deliver boats safely on dedicated road trailers or flatbed trucks directly to your port, lake, dam, or facility anywhere across India.",
     },
     {
-      question: "Can we customize the hull color, seating layout, and canopy design for our agency?",
+      question: "Do you support government tenders and certifications?",
       answer:
-        "Absolutely. Every boat can be customized with specific marine gelcoat color schemes (e.g., high-visibility disaster orange, navy patrol blue, forest green, or resort pearl white), agency logos, custom seating arrangements (jockey seats, bench seats, or luxury cushioned upholstery), and rigid FRP hardtops or collapsible bimini canopies.",
+        "Yes. Our boats comply with IRS and ISO marine standards, and we provide third-party inspections and sea-trial certificates for tenders.",
     },
     {
-      question: "What is the warranty and expected service life of an FRP composite boat?",
+      question: "What is the lifespan and warranty?",
       answer:
-        "Our FRP composite hulls offer a design life exceeding 30 years with virtually zero maintenance (no rot, no rust, and no marine borer decay). We provide a standard 5-Year Structural Hull Warranty against laminate defects and osmotic blistering, along with complete OEM warranties on all fitted engines and electronics.",
+        "FRP boats do not rust, rot, or corrode and last 30+ years. We provide a 5-year structural hull warranty along with standard engine warranties.",
     },
   ];
 
@@ -50,10 +50,10 @@ export function BoatFAQ() {
             <span>Frequently Asked Questions</span>
           </div>
           <h2 className="type-h2 text-2xl sm:text-3xl font-bold text-[#0A1628] tracking-tight">
-            FRP Boats &amp; Marine Craft Technical FAQs
+            FRP Boats &amp; Marine FAQs
           </h2>
           <p className="type-subheading text-gray-600 text-xs sm:text-sm mt-2">
-            Got questions regarding naval standards, sea trials, engine selection, or tender specifications?
+            Quick answers to common questions about our boats, engines, delivery, and customization.
           </p>
         </div>
 
