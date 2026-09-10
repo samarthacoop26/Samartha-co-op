@@ -110,9 +110,6 @@ export function Footer() {
                   className="object-contain object-left drop-shadow-[0_2px_14px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <span className="block text-[#FF8C33] text-[10.5px] uppercase tracking-[0.18em] font-bold mt-2 font-mono-accent">
-                PP &amp; FRP Engineering Solutions
-              </span>
             </Link>
 
             <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed max-w-sm font-normal font-sans">
