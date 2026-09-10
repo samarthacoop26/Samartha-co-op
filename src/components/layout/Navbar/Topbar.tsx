@@ -30,23 +30,25 @@ export function Topbar() {
   return (
     <div className="flex items-center justify-between py-2 px-4 sm:px-6 md:px-10 border-b border-gray-700/50 bg-[#1E2229] text-xs text-gray-300">
       {/* Left side: Contact (Email & Phone) */}
-      <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
+      <div className="flex items-center gap-3 sm:gap-6 flex-wrap">
+        {/* Official Email */}
         <a 
           href={`mailto:${CONTACT_CONFIG.email}`} 
-          className="flex items-center gap-1.5 transition-colors hover:text-[#FF6B00]"
+          className="group flex items-center gap-1.5 text-gray-200 hover:text-[#FF6B00] transition-colors py-0.5 font-medium"
           title={`Email us at ${CONTACT_CONFIG.email}`}
         >
-          <Mail className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
-          <span className="hidden xs:inline">{CONTACT_CONFIG.email}</span>
+          <Mail className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 group-hover:scale-110 transition-transform" />
+          <span className="font-mono-accent text-[11px] sm:text-xs tracking-tight">{CONTACT_CONFIG.email}</span>
         </a>
         
+        {/* Phone */}
         <a 
           href={`tel:${CONTACT_CONFIG.contacts.vishal.phone}`} 
-          className="flex items-center gap-1.5 transition-colors hover:text-[#FF6B00]"
+          className="group flex items-center gap-1.5 text-gray-300 hover:text-[#FF6B00] transition-colors py-0.5 font-medium"
           title={`Call ${CONTACT_CONFIG.contacts.vishal.name} (${CONTACT_CONFIG.contacts.vishal.phoneDisplay})`}
         >
-          <Phone className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
-          <span>{CONTACT_CONFIG.contacts.vishal.phoneDisplay}</span>
+          <Phone className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 group-hover:scale-110 transition-transform" />
+          <span className="font-mono-accent text-[11px] sm:text-xs">{CONTACT_CONFIG.contacts.vishal.phoneDisplay}</span>
         </a>
       </div>
       
