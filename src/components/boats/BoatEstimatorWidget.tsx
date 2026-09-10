@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import {
-  Compass,
   ArrowRight,
   Sparkles,
   ShieldCheck,
@@ -17,7 +16,7 @@ export function BoatEstimatorWidget() {
   const [vesselType, setVesselType] = useState<string>("Flood Relief & Rescue Craft");
   const [lengthClass, setLengthClass] = useState<string>("16ft – 21ft (4.8m – 6.4m)");
   const [engineClass, setEngineClass] = useState<string>("40 HP – 60 HP Outboard (OBM)");
-  const [seatingCapacity, setSeatingCapacity] = useState<string>("6 to 10 Persons");
+  const seatingCapacity = "6 to 10 Persons";
   const [accessories, setAccessories] = useState<string[]>([
     "Heavy-Duty Rubber D-Fender Rub Rail",
     "Positive Buoyancy PU Foam Core",

@@ -1,16 +1,10 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { ArrowRight, Download, FileText } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export function FinalCTA() {
   const { openQuoteModal } = useQuoteModal();
-  const handleDownloadBrochure = () => {
-    // Open printable / downloadable brochure or trigger download
-    window.open("/contact", "_self");
-  };
 
   return (
     <section className="relative w-full bg-[#111827] text-white py-16 md:py-20 overflow-hidden">

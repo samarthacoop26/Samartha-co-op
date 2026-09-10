@@ -6,8 +6,6 @@ import {
   Zap,
   Navigation,
   LifeBuoy,
-  Radio,
-  Fuel,
   Sliders,
   Anchor,
   CheckCircle2,

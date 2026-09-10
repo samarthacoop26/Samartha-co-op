@@ -12,7 +12,6 @@ import {
   ExternalLink,
   CheckCircle2,
   Loader2,
-  Clock,
   ArrowRight,
   ShieldCheck,
 } from "lucide-react";

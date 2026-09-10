@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { motion, HTMLMotionProps, Variants } from "framer-motion";
+import { motion, HTMLMotionProps, Variants, Variant } from "framer-motion";
 
 export type AnimationDirection = "up" | "down" | "left" | "right" | "fade" | "scale" | "blur";
 
@@ -18,8 +18,8 @@ interface ScrollRevealProps extends HTMLMotionProps<"div"> {
 }
 
 const getVariants = (direction: AnimationDirection, distance: number): Variants => {
-  const hidden: Record<string, any> = { opacity: 0 };
-  const visible: Record<string, any> = { opacity: 1 };
+  const hidden: Variant = { opacity: 0 };
+  const visible: Variant = { opacity: 1 };
 
   switch (direction) {
     case "up":

@@ -1,16 +1,13 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import {
   ShieldAlert,
   Layers,
   Gauge,
   FlaskConical,
   CheckCircle2,
-  FileSpreadsheet,
   ArrowRight,
-  DownloadCloud,
 } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 

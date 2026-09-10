@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
-import { CheckCircle2, AlertTriangle, Scale, ShieldAlert } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Terms & Conditions | ${CONTACT_CONFIG.companyName}`,

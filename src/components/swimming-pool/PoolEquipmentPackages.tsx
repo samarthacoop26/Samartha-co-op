@@ -4,7 +4,6 @@ import React from "react";
 import {
   Waves,
   Sparkles,
-  Zap,
   Flame,
   CheckCircle2,
   Droplets,

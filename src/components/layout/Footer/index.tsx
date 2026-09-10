@@ -17,8 +17,6 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const { sales } = CONTACT_CONFIG.departments;
-
   return (
     <footer className="relative bg-[#060D17] text-white border-t border-slate-800/80 overflow-hidden font-sans">
       {/* Subtle Ambient Top Glow */}

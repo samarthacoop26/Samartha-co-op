@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, CheckCircle, Users, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";

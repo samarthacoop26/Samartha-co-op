@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
-import { AlertCircle, FileCheck, Layers, HelpCircle, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {

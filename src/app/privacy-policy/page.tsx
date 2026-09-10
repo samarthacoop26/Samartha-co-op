@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
-import { ShieldCheck, Lock, FileCheck, Mail, Database, Cookie, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${CONTACT_CONFIG.companyName}`,
