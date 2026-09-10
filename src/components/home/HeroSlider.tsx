@@ -9,7 +9,7 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 const slides = [
   {
     id: 1,
-    title: "Engineering Composite Solutions for the World's Most Demanding Environments.",
+    title: "Engineering FRP Solutions for the World's Most Demanding Environments.",
     description: "Manufacturing, installing, and maintaining high-performance FRP products for Industry, Defence, Infrastructure & Railways.",
     image: "/images/about/plant-facility.jpg",
     cta1: { text: "GET A CUSTOM QUOTE \u2192", link: "/quote" },

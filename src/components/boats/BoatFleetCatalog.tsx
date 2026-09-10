@@ -1,20 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import {
-  LifeBuoy,
   Shield,
   Users,
   Compass,
-  Fish,
-  Sparkles,
   ArrowRight,
   CheckCircle2,
   Gauge,
   Ruler,
   Weight,
-  Layers,
 } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
@@ -48,7 +44,7 @@ export const BOAT_FLEET: BoatModel[] = [
     tagline: "Heavy-Duty Flood Relief & Life-Saving Monocoque Craft",
     description:
       "Engineered specifically for disaster management authorities, fire brigades, and municipal flood relief operations. Built with high-buoyancy PU foam sandwich chambers that keep the boat fully floating and operational even if swamped with water.",
-    image: "/images/products/frp-boat-factory.jpg",
+    image: "/images/products/frp-marine-boat.jpg",
     specs: {
       length: "4.5m – 6.5m (15ft – 21ft)",
       beam: "1.8m – 2.2m (6ft – 7.2ft)",
@@ -75,192 +71,10 @@ export const BOAT_FLEET: BoatModel[] = [
     ],
     popular: true,
   },
-  {
-    id: "patrol-surveillance-craft",
-    category: "patrol",
-    name: "Coastal Patrol & Marine Police Speedboat",
-    tagline: "High-Speed Deep-Vee Tactical Interception Vessel",
-    description:
-      "High-speed tactical interceptor and security patrol craft designed for coastal security agencies, port trusts, and marine police. Features deep-vee deadrise for high-speed rough sea handling, optional ballistic shielding, and ergonomic enclosed or semi-enclosed wheelhouses.",
-    image: "/images/products/frp-boat-hero.jpg",
-    specs: {
-      length: "7.5m – 11.5m (25ft – 38ft)",
-      beam: "2.6m – 3.2m (8.5ft – 10.5ft)",
-      draft: "0.55m – 0.85m",
-      capacity: "6 to 10 Armed Crew / Personnel",
-      engineHP: "Twin 150 HP to 300 HP Outboard / Inboard",
-      speed: "35 – 45+ Knots",
-      weight: "1,450 kg – 2,800 kg",
-      hullType: "Deep-Vee 22° Deadrise with Multi-Strakes",
-    },
-    features: [
-      "Heavy Composite Stringer Grid for High-Impact Wave Slamming",
-      "Enclosed Wheelhouse with Toughened Marine Glass Windshields",
-      "Dual Heavy-Duty Transom Engine Mountings with Tie-Bars",
-      "Radar Arch with Mounts for Marine Radar, GPS & VHF Antennas",
-      "Shock-Absorbing Helm Seats & Integrated Navigational Console",
-      "High Capacity 300L–600L Aluminum/FRP Fuel Tank",
-    ],
-    recommendedUse: [
-      "Marine Police & Coastal Border Security",
-      "Major Port Trust Security & Pilot Boarding",
-      "Fisheries Department Anti-Poaching Patrol",
-      "Offshore Industrial Facility Security",
-    ],
-    popular: true,
-  },
-  {
-    id: "passenger-tourism-ferry",
-    category: "passenger",
-    name: "Commercial Passenger Ferry & Tourist Water Taxi",
-    tagline: "High-Stability Covered Passenger Boat for Lakes & Coastal Rivers",
-    description:
-      "Spacious, fuel-efficient composite passenger craft tailored for ecotourism resorts, inland waterways authorities, lake tourism boards, and water transport operators. Designed with cathedral/semi-displacement hulls for maximum lateral stability and comfort.",
-    image: "/images/about/plant-facility.jpg",
-    specs: {
-      length: "6.0m – 13.0m (20ft – 42ft)",
-      beam: "2.3m – 3.6m (7.5ft – 12ft)",
-      draft: "0.35m – 0.60m",
-      capacity: "10 to 35 Seated Passengers",
-      engineHP: "40 HP to 150 HP (Single/Twin OBM)",
-      speed: "12 – 22 Knots",
-      weight: "650 kg – 2,200 kg",
-      hullType: "High-Stability Semi-Cathedral / Tri-Hull",
-    },
-    features: [
-      "Rigid FRP Hardtop Roof Canopy with Stainless Steel Uprights",
-      "Comfortable UV-Resistant Ergonomic Marine Seating Benches",
-      "Non-Slip Water-Repellent Cockpit Decking with Scupper Drains",
-      "Full Passenger Handrail Perimeter in Grade 316 Stainless Steel",
-      "Under-Seat Lifejacket Stowage Compartments with Marine Locks",
-      "LED Deck Illumination & Integrated PA Audio System Provision",
-    ],
-    recommendedUse: [
-      "State Tourism Development Corporations (STDC)",
-      "Luxury Island & Lake Eco-Resorts",
-      "River Safari, Mangrove Tours & Dolphin Sightseeing",
-      "Inter-Island Passenger Transit & Water Taxis",
-    ],
-  },
-  {
-    id: "sports-motorboat",
-    category: "sports",
-    name: "Luxury FRP Speedboat & Offshore Sports Motorboat",
-    tagline: "Aerodynamic Planing Hull for Private Recreation & Watersports",
-    description:
-      "Sleek and sporty high-performance speedboats crafted for watersports enthusiasts, yacht clubs, hotel water-skiing operations, and private recreation. Features precision hydro-dynamic strakes for immediate planing, rapid throttle response, and luxury cockpit styling.",
-    image: "/images/products/frp-boat-hero.jpg",
-    specs: {
-      length: "5.0m – 8.5m (16.5ft – 28ft)",
-      beam: "2.1m – 2.5m (6.8ft – 8.2ft)",
-      draft: "0.30m – 0.45m",
-      capacity: "4 to 8 Persons",
-      engineHP: "60 HP to 200 HP Outboard",
-      speed: "30 – 42 Knots",
-      weight: "480 kg – 950 kg",
-      hullType: "High-Performance Monohull Planing V",
-    },
-    features: [
-      "Center Console or Dual-Console Ergonomic Steering Cockpit",
-      "Custom Metallic/Pearl Marine Gelcoat Dual-Tone Graphics",
-      "Water-Ski & Wakeboard Stainless Steel Towing Pylon",
-      "Marine Bluetooth Sound System with Waterproof Speakers",
-      "Retractable Bimini Sunshade & Fold-Down Stern Swim Ladder",
-      "Hydraulic Steering System with Tilt Marine Steering Wheel",
-    ],
-    recommendedUse: [
-      "Private Villa & Waterfront Homeowners",
-      "Watersports Clubs (Wakeboarding, Water-Skiing, Tube Towing)",
-      "Luxury Resort Guest Recreation Fleet",
-      "Marina & Yacht Club Day Cruising",
-    ],
-  },
-  {
-    id: "fishing-trawler",
-    category: "fishing",
-    name: "FRP Commercial Fishing Boat & Trawler",
-    tagline: "Insulated Fish Holds & Low-Resistance Heavy Seakeeping Hull",
-    description:
-      "Sturdy commercial composite fishing craft designed to replace traditional timber boats. Completely eliminates shipworm (Teredo) rot and dry rot decay, while cutting fuel consumption by 25% thanks to lower hull friction and optimized hydrodynamics.",
-    image: "/images/about/defence-railway.jpg",
-    specs: {
-      length: "7.0m – 11.0m (23ft – 36ft)",
-      beam: "2.4m – 3.4m (8ft – 11ft)",
-      draft: "0.50m – 0.90m",
-      capacity: "4 to 8 Crew + 3 to 6 Tons Catch",
-      engineHP: "Inboard Diesel (20 HP – 110 HP) / OBM",
-      speed: "8 – 16 Knots",
-      weight: "1,100 kg – 2,500 kg",
-      hullType: "Displacement / Semi-Displacement Heavy Keel",
-    },
-    features: [
-      "PU Foam Insulated High-Density Fish Hold (Retains Ice for 48+ Hrs)",
-      "Reinforced Gunwales with Net Roller Mountings & Heavy D-Fenders",
-      "Stainless Steel 316 Rudder, Propeller Shaft & Stern Tube Assembly",
-      "Heavy Laminated Keel Skeg for Beach Landing & Grounding Protection",
-      "Battery Charger & Navigation Lights with Solar Panel Mount",
-      "Anti-Fouling Bottom Paint System for Extended In-Water Mooring",
-    ],
-    recommendedUse: [
-      "Coastal & Deep-Sea Marine Fisheries",
-      "Aquaculture & Fish Farming Feed Workboats",
-      "Estuary & Backwater Gillnet & Trawl Operations",
-      "Harbor Support & Mooring Line Handling",
-    ],
-  },
-  {
-    id: "pedal-rowboat-kayak",
-    category: "recreation",
-    name: "Amusement Park Pedal Boats, Safari Rowboats & Kayaks",
-    tagline: "Zero-Maintenance Recreational Watercraft for Theme Parks & Boating Lakes",
-    description:
-      "Durable, colorful, and fun-filled FRP pedal craft and rowboats designed for municipal boating clubs, amusement parks, dams, and hotel lakes. Molded in high-impact composite with UV-stabilized pigments and stainless steel paddle mechanisms.",
-    image: "/images/about/stockist-materials.jpg",
-    specs: {
-      length: "2.8m – 4.2m (9ft – 14ft)",
-      beam: "1.4m – 1.8m (4.5ft – 6ft)",
-      draft: "0.15m – 0.25m",
-      capacity: "2-Seater / 4-Seater / 6-Seater",
-      engineHP: "Human Pedal / Electric Trolling Motor Option",
-      speed: "3 – 6 Knots",
-      weight: "85 kg – 180 kg",
-      hullType: "Catamaran Twin-Pontoon High Stability",
-    },
-    features: [
-      "Twin Catamaran Pontoon Design for Virtual Anti-Capsize Stability",
-      "Grade 304 Stainless Steel Crankshaft, Rudder & Propulsion Paddles",
-      "Vibrant UV-Resistant Color Pigments (No Fading in Intense Sun)",
-      "Built-in Canopy Frame & Cup Holders for Leisure Cruising",
-      "Ergonomic Backrests with Self-Bailing Footwell Drainage",
-      "Custom Themed Shapes (Swan, Pelican, Classic Sports Car, Speedster)",
-    ],
-    recommendedUse: [
-      "Municipal & City Boating Lakes & Water Bodies",
-      "Amusement Parks, Water Parks & Adventure Resorts",
-      "Forest Safari & Eco-Tourism Lakes",
-      "Commercial Boat Rental Operations",
-    ],
-  },
-];
-
-const CATEGORIES = [
-  { id: "all", label: "All Marine Vessels", icon: Compass },
-  { id: "rescue", label: "Flood & Disaster Rescue", icon: LifeBuoy },
-  { id: "patrol", label: "Patrol & Speedboats", icon: Shield },
-  { id: "passenger", label: "Passenger & Tourism", icon: Users },
-  { id: "sports", label: "Sports & Motorboats", icon: Sparkles },
-  { id: "fishing", label: "Commercial Fishing", icon: Fish },
-  { id: "recreation", label: "Pedal Boats & Kayaks", icon: Layers },
 ];
 
 export function BoatFleetCatalog() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const { openQuoteModal } = useQuoteModal();
-
-  const filteredBoats =
-    selectedCategory === "all"
-      ? BOAT_FLEET
-      : BOAT_FLEET.filter((b) => b.category === selectedCategory);
 
   const handleRequestQuote = (boat: BoatModel) => {
     openQuoteModal({
@@ -278,13 +92,13 @@ export function BoatFleetCatalog() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-gray-200">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-[#FF6B00] rounded-lg text-xs font-bold font-mono-accent uppercase tracking-wider mb-2">
-              <span>Complete Naval Fleet Range</span>
+              <span>Naval &amp; Marine Craft</span>
             </div>
             <h2 className="type-h2 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A1628] tracking-tight">
-              FRP Boats &amp; Vessels Catalog ({BOAT_FLEET.length} Classes)
+              FRP Boats &amp; Marine Vessels
             </h2>
             <p className="type-subheading text-gray-600 text-sm sm:text-base mt-2 max-w-3xl">
-              From high-buoyancy disaster flood relief craft to high-speed coastal interceptors and commercial tourism ferries, all hulls are precision molded to rigorous IRS and ISO marine standards.
+              High-buoyancy disaster flood relief and marine rescue craft precision molded with positive buoyancy PU foam cores to rigorous IRS and ISO marine standards.
             </p>
           </div>
 
@@ -294,32 +108,9 @@ export function BoatFleetCatalog() {
           </div>
         </div>
 
-        {/* Filter Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto py-6 no-scrollbar">
-          {CATEGORIES.map((cat) => {
-            const Icon = cat.icon;
-            const isSelected = selectedCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-[13px] font-semibold transition-all whitespace-nowrap cursor-pointer ${
-                  isSelected
-                    ? "bg-[#0A1628] text-white shadow-md"
-                    : "bg-white text-gray-700 hover:bg-gray-100 border border-gray-200/80"
-                }`}
-              >
-                <Icon className={`w-3.5 h-3.5 ${isSelected ? "text-[#FF6B00]" : "text-gray-500"}`} />
-                <span>{cat.label}</span>
-              </button>
-            );
-          })}
-        </div>
-
         {/* Boat Cards Grid */}
-        <div className="space-y-8 mt-2">
-          {filteredBoats.map((boat, idx) => (
+        <div className="space-y-8 mt-6">
+          {BOAT_FLEET.map((boat, idx) => (
             <div
               key={boat.id}
               className="bg-white rounded-2xl border border-gray-200/90 hover:border-[#FF6B00]/60 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden group"

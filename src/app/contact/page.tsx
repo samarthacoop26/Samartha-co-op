@@ -384,7 +384,7 @@ export default function ContactPage() {
               Our Registered Office & Workshop Locations
             </h2>
             <p className="text-sm text-gray-500 mt-1">
-              Registered corporate presence in Dombivli (W) & heavy engineering workshop in MIDC Taloja, Raigad.
+              Registered corporate presence in Dombivli (E) &amp; heavy engineering workshop in MIDC Taloja, Raigad.
             </p>
           </div>
 
@@ -392,12 +392,12 @@ export default function ContactPage() {
             {CONTACT_CONFIG.locations.map((loc) => (
               <div
                 key={loc.id}
-                className="border border-gray-200 rounded-xl overflow-hidden bg-white hover:shadow-lg transition-shadow duration-300"
+                className="border border-gray-200 rounded-2xl overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300 flex flex-col"
               >
                 {/* Map */}
-                <div className="w-full h-52 bg-gray-100">
+                <div className="w-full h-64 sm:h-72 bg-gray-100 relative">
                   <iframe
-                    title={`Map — ${loc.name}`}
+                    title={`Google Map for ${loc.name}`}
                     src={loc.googleMapsEmbedUrl}
                     width="100%"
                     height="100%"
@@ -405,45 +405,53 @@ export default function ContactPage() {
                     allowFullScreen={false}
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full h-full"
                   />
                 </div>
 
                 {/* Card Content */}
-                <div className="p-5 sm:p-6">
-                  <div className="flex items-center justify-between gap-3 mb-3">
-                    <div className="flex items-center gap-2.5">
-                      <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center">
-                        {loc.type === "office" ? (
-                          <Building2 size={16} className="text-[#FF6B00]" />
-                        ) : (
-                          <Factory size={16} className="text-[#FF6B00]" />
-                        )}
+                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between gap-3 mb-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-9 h-9 rounded-xl bg-orange-50 flex items-center justify-center shrink-0">
+                          {loc.type === "office" ? (
+                            <Building2 size={18} className="text-[#FF6B00]" />
+                          ) : (
+                            <Factory size={18} className="text-[#FF6B00]" />
+                          )}
+                        </div>
+                        <h3 className="text-base font-bold text-[#0A1628]">
+                          {loc.name}
+                        </h3>
                       </div>
-                      <h3 className="text-base font-bold text-[#0A1628]">
-                        {loc.name}
-                      </h3>
+                      <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">
+                        {loc.badge}
+                      </span>
                     </div>
-                    <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-gray-100 px-2.5 py-1 rounded-md whitespace-nowrap">
-                      {loc.badge}
-                    </span>
+
+                    <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                      <strong className="font-semibold text-gray-800">{loc.addressLine1}</strong>
+                      <br />
+                      {loc.addressLine2}, {loc.cityStateZip}
+                    </p>
                   </div>
 
-                  <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                    {loc.addressLine1}
-                    <br />
-                    {loc.addressLine2}, {loc.cityStateZip}
-                  </p>
-
-                  <a
-                    href={loc.googleMapsDirectionsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:text-[#e66000] transition-colors"
-                  >
-                    <MapPin size={13} />
-                    <span>Open in Google Maps</span>
-                    <ExternalLink size={11} />
-                  </a>
+                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-xs text-gray-500">
+                      {loc.operatingHours}
+                    </span>
+                    <a
+                      href={loc.googleMapsDirectionsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FF6B00] hover:bg-[#e66000] text-white text-xs font-semibold transition-colors shadow-xs"
+                    >
+                      <MapPin size={13} />
+                      <span>Directions</span>
+                      <ExternalLink size={11} />
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}

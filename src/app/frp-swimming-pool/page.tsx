@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { PoolHero } from "@/components/swimming-pool/PoolHero";
 import { PoolModelsGrid } from "@/components/swimming-pool/PoolModelsGrid";
 import { PoolVsConcreteTable } from "@/components/swimming-pool/PoolVsConcreteTable";
-import { PoolInstallationTimeline } from "@/components/swimming-pool/PoolInstallationTimeline";
 import { PoolFAQ } from "@/components/swimming-pool/PoolFAQ";
 import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -41,10 +40,7 @@ export default function FRPSwimmingPoolPage() {
       {/* 3. FRP VS CONCRETE COMPARISON MATRIX */}
       <PoolVsConcreteTable />
 
-      {/* 4. 6-STAGE TURNKEY INSTALLATION TIMELINE */}
-      <PoolInstallationTimeline />
-
-      {/* 5. TECHNICAL FAQS */}
+      {/* 4. TECHNICAL FAQS */}
       <PoolFAQ />
 
       {/* 6. REUSED CERTIFICATIONS STRIP */}

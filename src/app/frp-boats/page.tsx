@@ -2,11 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { BoatHero } from "@/components/boats/BoatHero";
 import { BoatFleetCatalog } from "@/components/boats/BoatFleetCatalog";
-import { BoatHullEngineering } from "@/components/boats/BoatHullEngineering";
 import { BoatVsWoodAluTable } from "@/components/boats/BoatVsWoodAluTable";
-import { BoatEnginesRigging } from "@/components/boats/BoatEnginesRigging";
-import { BoatApplicationsGrid } from "@/components/boats/BoatApplicationsGrid";
-import { BoatEstimatorWidget } from "@/components/boats/BoatEstimatorWidget";
 import { BoatFAQ } from "@/components/boats/BoatFAQ";
 import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
@@ -41,28 +37,16 @@ export default function FRPBoatsPage() {
       {/* 2. FLEET SHOWCASE & INTERACTIVE CATALOG (6 CATEGORIES) */}
       <BoatFleetCatalog />
 
-      {/* 3. 7-LAYER NAVAL COMPOSITE HULL ENGINEERING BREAKDOWN */}
-      <BoatHullEngineering />
-
-      {/* 4. FRP VS WOOD & ALUMINUM COMPARISON MATRIX */}
+      {/* 3. FRP VS WOOD & ALUMINUM COMPARISON MATRIX */}
       <BoatVsWoodAluTable />
 
-      {/* 5. ENGINES, HYDRAULIC STEERING & MARINE RIGGING */}
-      <BoatEnginesRigging />
-
-      {/* 6. OPERATIONAL APPLICATIONS & INDUSTRY SECTORS */}
-      <BoatApplicationsGrid />
-
-      {/* 7. INTERACTIVE VESSEL ESTIMATOR / QUOTE CONFIGURATOR */}
-      <BoatEstimatorWidget />
-
-      {/* 8. NAVAL TECHNICAL FAQS */}
+      {/* 4. NAVAL TECHNICAL FAQS */}
       <BoatFAQ />
 
-      {/* 9. REUSED CERTIFICATIONS STRIP */}
+      {/* 5. REUSED CERTIFICATIONS STRIP */}
       <CertificationsSection />
 
-      {/* 10. REUSED GLOBAL FINAL CTA */}
+      {/* 6. REUSED GLOBAL FINAL CTA */}
       <FinalCTA />
     </div>
   );

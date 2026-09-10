@@ -9,13 +9,13 @@ import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
 export const metadata: Metadata = {
-  title: `FRP & Composite Products Catalog | ${CONTACT_CONFIG.companyName}`,
+  title: `FRP Products Catalog | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Explore Samarth Corporation's complete range of FRP & PP products across 10 industrial divisions — gratings, manhole covers, chemical storage tanks, electrical enclosures, safety structures, defence gear, and civic infrastructure.",
+    "Explore Samarth Corporation's complete range of FRP products across 10 industrial divisions — gratings, manhole covers, chemical storage tanks, electrical enclosures, safety structures, defence gear, and civic infrastructure.",
   openGraph: {
     title: `FRP Products Catalog | ${CONTACT_CONFIG.companyName}`,
     description:
-      "Direct factory supply of high-performance FRP & PP products for government, defence, railway, municipal, and industrial projects across India.",
+      "Direct factory supply of high-performance FRP products for government, defence, railway, municipal, and industrial projects across India.",
     type: "website",
   },
 };
@@ -47,7 +47,7 @@ export default function ProductsOverviewPage() {
             </div>
 
             <h1 className="type-h1 text-white drop-shadow-md">
-              FRP &amp; Composite Products Catalog
+              FRP Products Catalog
             </h1>
 
             <p className="mt-4 type-subheading text-gray-200">

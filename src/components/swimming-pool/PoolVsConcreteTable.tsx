@@ -71,7 +71,7 @@ export function PoolVsConcreteTable() {
             <span>Engineering Benchmark</span>
           </div>
           <h2 className="type-h2 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A1628] tracking-tight">
-            FRP Monolithic Shells vs. RCC Concrete &amp; Vinyl Pools
+            FRP Swimming Pool vs. RCC Concrete &amp; Vinyl Pools
           </h2>
           <p className="type-subheading text-gray-600 text-sm sm:text-base mt-2">
             Compare structural durability, maintenance costs, and installation timelines to see why modern architects and villa owners prefer composite pools.

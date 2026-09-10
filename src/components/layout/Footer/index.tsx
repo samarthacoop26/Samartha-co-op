@@ -12,75 +12,6 @@ import {
 import Link from "next/link";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
-const SocialLink = ({
-  icon,
-  href,
-  label,
-}: {
-  icon: React.ReactNode;
-  href: string;
-  label: string;
-}) => (
-  <Link
-    href={href}
-    aria-label={label}
-    className="w-8 h-8 rounded-lg bg-slate-800/50 border border-slate-700/60 flex items-center justify-center text-slate-400 hover:text-white hover:border-[#FF6B00] hover:bg-[#FF6B00]/10 transition-all duration-200"
-  >
-    {icon}
-  </Link>
-);
-
-const FacebookIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-  </svg>
-);
-
-const TwitterIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-  </svg>
-);
-
-const LinkedinIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-  </svg>
-);
-
 export function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -115,12 +46,6 @@ export function Footer() {
             <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed max-w-sm font-normal font-sans">
               Specialized engineering, custom fabrication, site erection, and turnkey maintenance of high-performance thermoplastic &amp; composite equipment across India.
             </p>
-
-            <div className="flex items-center gap-2.5 pt-1">
-              <SocialLink icon={<LinkedinIcon />} href="#" label="LinkedIn" />
-              <SocialLink icon={<TwitterIcon />} href="#" label="Twitter" />
-              <SocialLink icon={<FacebookIcon />} href="#" label="Facebook" />
-            </div>
           </div>
 
           {/* Column 2: Minimal Navigation (3 cols) */}
