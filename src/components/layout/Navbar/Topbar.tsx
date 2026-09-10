@@ -29,7 +29,7 @@ export function Topbar() {
 
   return (
     <div className="flex items-center justify-between py-2 px-4 sm:px-6 md:px-10 border-b border-gray-700/50 bg-[#1E2229] text-xs text-gray-300">
-      {/* Left side: Contact + Clickable Addresses */}
+      {/* Left side: Contact (Email & Phone) */}
       <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
         <a 
           href={`mailto:${CONTACT_CONFIG.email}`} 
@@ -48,9 +48,12 @@ export function Topbar() {
           <Phone className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
           <span>{CONTACT_CONFIG.contacts.vishal.phoneDisplay}</span>
         </a>
-
+      </div>
+      
+      {/* Right side: Clickable Addresses + Socials */}
+      <div className="flex items-center gap-4 sm:gap-6">
         {/* Clickable Addresses Section */}
-        <div className="flex items-center gap-2 border-l border-gray-700 pl-4 sm:pl-6 hidden lg:flex text-gray-400">
+        <div className="flex items-center gap-2 hidden md:flex text-gray-300">
           <MapPin className="w-3.5 h-3.5 text-[#FF6B00] shrink-0 animate-pulse" />
           <div className="flex items-center gap-2 text-[11px]">
             {/* Workshop Link */}
@@ -58,16 +61,13 @@ export function Topbar() {
               href={workshop.googleMapsDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 hover:text-[#FF6B00] transition-colors py-0.5"
+              className="group inline-flex items-center gap-1.5 text-gray-300 hover:text-[#FF6B00] transition-colors py-0.5 px-1.5 rounded hover:bg-white/5 cursor-pointer font-semibold"
               title="Open MIDC Taloja Workshop on Google Maps (Directions & Location)"
             >
-              <strong className="font-semibold text-gray-200 group-hover:text-[#FF6B00] transition-colors">
-                WORKSHOP:
-              </strong>
-              <span className="underline decoration-dotted decoration-gray-600 group-hover:decoration-[#FF6B00] underline-offset-2">
-                MIDC Taloja, Raigad
+              <span className="text-gray-200 group-hover:text-[#FF6B00] transition-colors">
+                WORKSHOP
               </span>
-              <ExternalLink className="w-2.5 h-2.5 opacity-50 group-hover:opacity-100 group-hover:text-[#FF6B00] transition-opacity" />
+              <ExternalLink className="w-3 h-3 text-[#FF6B00] opacity-70 group-hover:opacity-100 transition-opacity" />
             </a>
 
             <span className="text-gray-600">|</span>
@@ -77,24 +77,19 @@ export function Topbar() {
               href={regdOffice.googleMapsDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 hover:text-[#FF6B00] transition-colors py-0.5"
-              title="Open Dombivli Registered Office on Google Maps (Directions & Location)"
+              className="group inline-flex items-center gap-1.5 text-gray-300 hover:text-[#FF6B00] transition-colors py-0.5 px-1.5 rounded hover:bg-white/5 cursor-pointer font-semibold"
+              title="Open Dombivli East Registered Office on Google Maps (Directions & Location)"
             >
-              <strong className="font-semibold text-gray-200 group-hover:text-[#FF6B00] transition-colors">
-                REGD:
-              </strong>
-              <span className="underline decoration-dotted decoration-gray-600 group-hover:decoration-[#FF6B00] underline-offset-2">
-                Dombivli (W), Thane
+              <span className="text-gray-200 group-hover:text-[#FF6B00] transition-colors">
+                REGD. OFFICE
               </span>
-              <ExternalLink className="w-2.5 h-2.5 opacity-50 group-hover:opacity-100 group-hover:text-[#FF6B00] transition-opacity" />
+              <ExternalLink className="w-3 h-3 text-[#FF6B00] opacity-70 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
         </div>
-      </div>
-      
-      {/* Right side: Socials (GST, UDYAM, and Operating Hours removed) */}
-      <div className="flex items-center gap-4 text-gray-400">
-        <div className="flex items-center gap-3">
+
+        {/* Socials */}
+        <div className="flex items-center gap-3 border-l border-gray-700/60 pl-4 text-gray-400">
           <Link 
             href="https://linkedin.com" 
             target="_blank" 

@@ -18,8 +18,40 @@ export interface ProductCategory {
 
 export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   {
-    id: "manhole-drain-cable-covers",
+    id: "industrial-projects",
     categoryNumber: "01",
+    categoryTitle: "Industrial Projects",
+    shortDescription: "Turnkey plant systems, chemical scrubbers, blowers, ducting, tanks & specialized composite equipment.",
+    iconName: "Factory",
+    statusBadge: "Turnkey Plant Execution",
+    items: [
+      "FRP Chemical Pipelines",
+      "FRP Fittings",
+      "FRP Tanks",
+      "FRP Scrubbers",
+      "FRP Blowers",
+      "FRP Ducting",
+      "FRP Chimneys",
+      "FRP Cooling Tower Parts",
+      "FRP Pump Covers",
+      "FRP Motor Covers",
+      "FRP Machine Guards",
+      "FRP Cable Trays",
+      "FRP Gratings",
+      "FRP Handrails",
+      "FRP Ladders",
+      "FRP Platforms",
+      "FRP Pultruded Profiles",
+      "FRP Doors & Windows",
+      "FRP Cabinets",
+      "FRP Electrical Enclosures",
+      "FRP Junction Boxes",
+    ],
+    href: "/products/industrial-projects",
+  },
+  {
+    id: "manhole-drain-cable-covers",
+    categoryNumber: "02",
     categoryTitle: "Manhole, Drain & Cable Trench Covers",
     shortDescription: "Heavy duty composite access solutions tested up to 40T/60T load ratings.",
     iconName: "CircleDot",
@@ -35,7 +67,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "gratings-walkways-platforms",
-    categoryNumber: "02",
+    categoryNumber: "03",
     categoryTitle: "Gratings, Walkways & Platforms",
     shortDescription: "High load-bearing, corrosion-resistant FRP molded and pultruded walkway systems.",
     iconName: "Grid",
@@ -56,7 +88,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "tanks-piping-chemical-storage",
-    categoryNumber: "03",
+    categoryNumber: "04",
     categoryTitle: "Tanks, Piping & Chemical Storage",
     shortDescription: "Chemical storage vessels, dual-laminate tanks and high-pressure thermoplastic piping.",
     iconName: "Boxes",
@@ -74,7 +106,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "doors-windows-panels",
-    categoryNumber: "04",
+    categoryNumber: "05",
     categoryTitle: "Doors, Windows & Panels",
     shortDescription: "Fire-retardant, moisture-proof composite architectural doors and transport body panels.",
     iconName: "DoorOpen",
@@ -97,7 +129,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "electrical-enclosures-control-boxes",
-    categoryNumber: "05",
+    categoryNumber: "06",
     categoryTitle: "Electrical Enclosures & Control Boxes",
     shortDescription: "Dielectric, non-conductive weather-proof kiosks and junction enclosures.",
     iconName: "Cpu",
@@ -120,7 +152,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "handrails-ladders-safety",
-    categoryNumber: "06",
+    categoryNumber: "07",
     categoryTitle: "Handrails, Ladders & Safety Structures",
     shortDescription: "OSHA-compliant safety guard rails, cage ladders and non-conductive fencing.",
     iconName: "Shield",
@@ -137,7 +169,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "cable-management-systems",
-    categoryNumber: "07",
+    categoryNumber: "08",
     categoryTitle: "Cable Management Systems",
     shortDescription: "Corrosion-proof FRP perforated and ladder type cable trays and routing supports.",
     iconName: "Workflow",
@@ -151,7 +183,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "civic-furniture-public-infra",
-    categoryNumber: "08",
+    categoryNumber: "09",
     categoryTitle: "Civic Furniture & Public Infrastructure",
     shortDescription: "Bespoke composite urban structures, cabins, modular toilets and canopies.",
     iconName: "Building",
@@ -178,7 +210,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "signage",
-    categoryNumber: "09",
+    categoryNumber: "10",
     categoryTitle: "Signage",
     shortDescription: "UV-resistant and weatherproof industrial and highway composite sign boards.",
     iconName: "Signpost",
@@ -194,7 +226,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "defence-equipment-protective-gear",
-    categoryNumber: "10",
+    categoryNumber: "11",
     categoryTitle: "Defence Equipment & Protective Gear",
     shortDescription: "Military-spec containers, ammunition cases, radomes and lightweight UAV components.",
     iconName: "ShieldAlert",
@@ -218,6 +250,40 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     ],
     href: "/products/defence-equipment-protective-gear",
   },
+  {
+    id: "frp-boats-marine-craft",
+    categoryNumber: "12",
+    categoryTitle: "FRP Boats",
+    shortDescription: "Unsinkable composite flood rescue boats, coastal patrol craft, tourist ferries & sports motorboats.",
+    iconName: "Anchor",
+    statusBadge: "Naval & Marine (IRS/ISO)",
+    items: [
+      "Flood Relief Rescue Boats",
+      "Coastal Patrol Speedboats",
+      "Passenger Tourism Ferries",
+      "Sports Motorboats",
+      "Commercial Fishing Trawlers",
+      "Amusement Pedal Boats & Kayaks",
+    ],
+    href: "/frp-boats",
+  },
+  {
+    id: "frp-swimming-pools",
+    categoryNumber: "13",
+    categoryTitle: "FRP Swimming Pools & Spas",
+    shortDescription: "One-piece monolithic fiberglass swimming pools, rooftop plunge pools & hydrotherapy whirlpool spas.",
+    iconName: "Waves",
+    statusBadge: "100% Leak-Proof Monolithic",
+    items: [
+      "Urban Plunge & Terrace Pools",
+      "Family Leisure & Patio Pools",
+      "Dual-Lane Fitness Lap Pools",
+      "Resort Infinity Edge Pools",
+      "Modular Container Above-Ground Pools",
+      "Hydrotherapy Jacuzzi Spas",
+    ],
+    href: "/frp-swimming-pool",
+  },
 ];
 
 // Legacy backward compatibility export
@@ -234,7 +300,9 @@ export const INDUSTRIAL_PRODUCT_COLUMNS = ALL_PRODUCT_CATEGORIES.slice(0, 3).map
 }));
 
 export const QUICK_RESOURCE_LINKS = [
-  { id: "all-products", title: "View All 10 Categories", href: "/products" },
+  { id: "all-products", title: "View All 13 Categories", href: "/products" },
+  { id: "frp-boats", title: "FRP Boats & Patrol Vessels", href: "/frp-boats" },
+  { id: "frp-pools", title: "Prefab FRP Swimming Pools", href: "/frp-swimming-pool" },
   { id: "cad-rfq", title: "Request Custom CAD Fabrication", href: "/contact" },
   { id: "certificates", title: "MSME & GST Registrations", href: "/certificates" },
 ];
@@ -248,3 +316,4 @@ export const PRODUCT_CATEGORIES_DATA = ALL_PRODUCT_CATEGORIES.flatMap((c) =>
     iconName: c.iconName,
   }))
 );
+

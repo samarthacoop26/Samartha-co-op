@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import {
   Phone,
   Mail,
@@ -99,24 +100,17 @@ export function Footer() {
           
           {/* Column 1: Brand & Heritage (5 cols) */}
           <div className="lg:col-span-5 space-y-5">
-            <Link href="/" className="inline-flex flex-col group">
-              <div className="flex items-center gap-2.5">
-                <svg
-                  width="22"
-                  height="26"
-                  viewBox="0 0 24 28"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="transition-transform duration-300 group-hover:scale-105"
-                >
-                  <path d="M12 0L0 28H6L12 14L18 28H24L12 0Z" fill="#FF6B00" />
-                  <path d="M6 28H10L14 18H10L6 28Z" fill="white" />
-                </svg>
-                <span className="text-white text-xl font-extrabold tracking-tight font-sans">
-                  Samarth Corporation
-                </span>
+            <Link href="/" className="inline-block group" aria-label="Samarth Corporation - Home">
+              <div className="relative h-12 sm:h-14 w-44 sm:w-52 flex items-center">
+                <Image
+                  src="/images/brand/logo.png"
+                  alt="Samarth Corporation"
+                  fill
+                  sizes="(max-width: 640px) 176px, 208px"
+                  className="object-contain object-left drop-shadow-[0_2px_14px_rgba(255,107,0,0.2)] group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <span className="text-[#FF8C33] text-[10.5px] uppercase tracking-[0.18em] font-bold mt-1 ml-[32px] font-mono-accent">
+              <span className="block text-[#FF8C33] text-[10.5px] uppercase tracking-[0.18em] font-bold mt-2 font-mono-accent">
                 PP &amp; FRP Engineering Solutions
               </span>
             </Link>
@@ -143,7 +137,10 @@ export function Footer() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
-                { label: "Products", href: "/products" },
+                { label: "Products Catalog", href: "/products" },
+                { label: "FRP Swimming Pools", href: "/frp-swimming-pool" },
+                { label: "FRP Boats", href: "/frp-boats" },
+                { label: "Corporate Brochure (PDF)", href: "/brochure" },
                 { label: "Contact Us", href: "/contact" },
               ].map((item) => (
                 <li key={item.label}>
@@ -243,7 +240,7 @@ export function Footer() {
 
         {/* Footer Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-sans">
-          <p className="text-center sm:text-left type-footer text-slate-400">
+          <p className="text-center sm:text-left type-footer text-slate-400" suppressHydrationWarning>
             © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
           </p>
 

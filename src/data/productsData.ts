@@ -30,9 +30,232 @@ export interface ProductCategoryDetail {
 
 export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
+    id: "industrial-projects",
+    slug: "industrial-projects",
+    categoryNumber: "01",
+    categoryTitle: "Industrial Projects",
+    shortDescription: "Turnkey plant systems, chemical scrubbers, blowers, ducting, tanks & specialized composite equipment.",
+    heroDescription: "End-to-end industrial composite fabrication, site erection, process piping, and pollution control systems engineered for chemical plants, refineries, metal refineries, and heavy processing facilities across India.",
+    iconName: "Factory",
+    badge: "Turnkey Plant Execution",
+    aliases: ["industrial-plant-systems", "turnkey-projects", "industrial-plant-fabrication", "turnkey-systems"],
+    products: [
+      {
+        id: "frp-chemical-pipelines",
+        name: "FRP Chemical Pipelines",
+        slug: "frp-chemical-pipelines",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Corrosion-proof solid FRP and PP/FRP dual-laminate piping systems designed for aggressive acids, alkalis, and industrial effluents.",
+        features: ["Operating Temperatures up to 120°C", "Dual-Laminate (PP/FRP, PVDF/FRP) Available", "High Chemical & Hydraulic Abrasion Resistance", "Manufactured to ASTM D2996 / BS 4994"],
+        placeholderLabel: "FRP Chemical Process Pipeline System",
+      },
+      {
+        id: "frp-fittings",
+        name: "FRP Fittings",
+        slug: "frp-fittings",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Precision-molded and contact-molded FRP elbows, tees, reducers, flanges, stub ends, and blind flanges for process piping.",
+        features: ["Full Vacuum & High-Pressure Rated", "Dimensional Accuracy to ANSI B16.5", "Seamless Joint Integrity", "Acid & Alkaline Resistant"],
+        placeholderLabel: "Heavy-Duty FRP Pipe Fittings & Flanges",
+      },
+      {
+        id: "frp-tanks",
+        name: "FRP Tanks",
+        slug: "frp-tanks",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Custom-fabricated vertical, horizontal, and rectangular chemical storage vessels, reaction tanks, and dual laminate process tanks.",
+        features: ["Capacities from 500L to 100,000L", "Dual Laminate Liner Matrix", "ASME RTP-1 / BS 4994 Design Standard", "Integrated Nozzles, Manholes & Level Indicators"],
+        placeholderLabel: "Custom Industrial FRP Process Tank",
+      },
+      {
+        id: "frp-scrubbers",
+        name: "FRP Scrubbers",
+        slug: "frp-scrubbers",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "High-efficiency packed bed, venturi, and multi-stage wet scrubbers engineered for neutralizing hazardous acid fumes, NOx, SO2, and CL2 gases.",
+        features: ["99%+ Toxic Fume Neutralization Efficiency", "Non-Corrosive FRP Shell & Internals", "Integrated Spray Headers & Demisters", "Pollution Control Board (PCB) Compliant"],
+        placeholderLabel: "Industrial FRP Packed Bed Scrubber Unit",
+      },
+      {
+        id: "frp-blowers",
+        name: "FRP Blowers",
+        slug: "frp-blowers",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Dynamically balanced centrifugal exhaust blowers engineered to handle corrosive acid fumes, toxic vapors, and humid chemical gases.",
+        features: ["Dynamically Balanced Impellers", "High Static Pressure Capabilities", "Direct Driven or V-Belt Driven", "Vibration Dampened Base Frames"],
+        placeholderLabel: "Anti-Corrosive FRP Centrifugal Blower",
+      },
+      {
+        id: "frp-ducting",
+        name: "FRP Ducting",
+        slug: "frp-ducting",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Heavy-duty circular and rectangular composite exhaust ducting, dampers, headers, and expansion joints for industrial ventilation.",
+        features: ["Leakproof Bell & Spigot or Flanged Joints", "UV Weather-Resistant Outer Barrier", "Fire-Retardant Resin Formulation", "Minimal Pressure Drop Design"],
+        placeholderLabel: "FRP Industrial Exhaust Ducting System",
+      },
+      {
+        id: "frp-chimneys",
+        name: "FRP Chimneys",
+        slug: "frp-chimneys",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Self-supporting and guyed FRP exhaust stacks and chimneys designed for continuous discharge of hot corrosive flue gases.",
+        features: ["High Wind Load & Seismic Resistance", "Heights up to 60+ Meters", "Integrated Aircraft Warning Lights & Lightning Arrestors", "Continuous Corrosive Gas Exhaustion"],
+        placeholderLabel: "Self-Supporting FRP Exhaust Chimney Stack",
+      },
+      {
+        id: "frp-cooling-tower-parts",
+        name: "FRP Cooling Tower Parts",
+        slug: "frp-cooling-tower-parts",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "High-strength composite fan cylinders, drift eliminators, air inlet louvers, casing panels, and distribution basins for cooling towers.",
+        features: ["Aerodynamic Fan Cylinder Profiles", "Algae & Biological Slime Resistant", "UV & Hot Water Proof Matrix", "Lightweight Structural Efficiency"],
+        placeholderLabel: "FRP Cooling Tower Fan Stack & Casing Panels",
+      },
+      {
+        id: "frp-pump-covers",
+        name: "FRP Pump Covers",
+        slug: "frp-pump-covers",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Acoustic and weatherproof composite pump canopies designed to shield process chemical pumps from weather and corrosive splashes.",
+        features: ["Quick-Access Inspection Hatches", "Acoustic Noise Attenuation", "Corrosive Splash Barrier", "Lightweight Removable Design"],
+        placeholderLabel: "FRP Chemical Pump Protective Canopy",
+      },
+      {
+        id: "frp-motor-covers",
+        name: "FRP Motor Covers",
+        slug: "frp-motor-covers",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Ventilated protective canopies engineered to safeguard industrial electric motors and drives from rain, sunlight, and chemical fallouts.",
+        features: ["Integrated Airflow Louvers for Cooling", "UV Stabilized Resin Matrix", "Non-Conductive & Shockproof", "Corrosion-Proof Fastener Points"],
+        placeholderLabel: "Ventilated FRP Electric Motor Guard Canopy",
+      },
+      {
+        id: "frp-machine-guards",
+        name: "FRP Machine Guards",
+        slug: "frp-machine-guards",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "High-impact safety guards for rotating drives, conveyor belts, coupling assemblies, and plant machinery complying with OSHA standards.",
+        features: ["High Impact & Shatter Resistant", "Safety Yellow High-Visibility Gelcoat", "Zero Spark Hazard in Explosive Zones", "Custom Machine Profile Shaping"],
+        placeholderLabel: "FRP Industrial Machine Safety Guard",
+      },
+      {
+        id: "frp-cable-trays",
+        name: "FRP Cable Trays",
+        slug: "frp-cable-trays",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Continuous pultruded ladder and perforated composite cable trays for power plant, refinery, and offshore cable routing.",
+        features: ["Non-Magnetic & Dielectric", "High Weight-to-Strength Ratio", "Corrosion & Chemical Vapor Proof", "NEMA FG-1 / BS Loading Standards"],
+        placeholderLabel: "Pultruded FRP Heavy Cable Tray System",
+      },
+      {
+        id: "frp-gratings",
+        name: "FRP Gratings",
+        slug: "frp-gratings",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Molded and pultruded heavy-duty composite mesh gratings with concave or quartz grit anti-slip surfaces for chemical plant floors.",
+        features: ["Bi-Directional High Load Capacity", "Fire Retardant Class 1 Matrix", "Acid & Alkali Resistant", "Zero Maintenance & Long Life"],
+        placeholderLabel: "Heavy-Duty FRP Anti-Slip Molded Grating",
+      },
+      {
+        id: "frp-handrails",
+        name: "FRP Handrails",
+        slug: "frp-handrails",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Modular composite safety guardrail systems complete with stanchions, top rails, mid rails, and kick plates for hazardous areas.",
+        features: ["OSHA 1910.29 Compliant", "Safety Yellow UV-Resistant Color", "Dielectric & Thermal Insulation", "Easy Bolt-Together Site Assembly"],
+        placeholderLabel: "OSHA-Compliant FRP Industrial Handrail System",
+      },
+      {
+        id: "frp-ladders",
+        name: "FRP Ladders",
+        slug: "frp-ladders",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Non-conductive caged monkey ladders and straight access ladders engineered for chemical storage tanks, cooling towers, and roofs.",
+        features: ["OSHA Safety Cage Integration", "Rung Grip Surface Traction", "Non-Conductive for High Voltage Areas", "Corrosion-Proof Wall Standoff Mounts"],
+        placeholderLabel: "FRP Caged Safety Access Ladder Assembly",
+      },
+      {
+        id: "frp-platforms",
+        name: "FRP Platforms",
+        slug: "frp-platforms",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Engineered elevated access walkways, reactor maintenance staging, and stair tower platforms built with structural composite beams.",
+        features: ["Complete Structural Modularity", "Turnkey Design & Fabrication", "Integrated Handrails & Anti-Slip Decking", "Lightweight Fast On-Site Installation"],
+        placeholderLabel: "Elevated FRP Industrial Maintenance Platform",
+      },
+      {
+        id: "frp-pultruded-profiles",
+        name: "FRP Pultruded Profiles",
+        slug: "frp-pultruded-profiles",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "High-strength structural composite I-beams, C-channels, equal angles, solid rods, and square tubes for chemical structure fabrication.",
+        features: ["High Tensile & Flexural Modulus", "Uniform Fiber Volume Fraction", "Electrically & Thermally Non-Conductive", "Dimensional Stability Across Temperatures"],
+        placeholderLabel: "Structural FRP Pultruded Beams & Sections",
+      },
+      {
+        id: "frp-doors-windows",
+        name: "FRP Doors & Windows",
+        slug: "frp-doors-windows",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Heavy-duty corrosion-resistant doors and window assemblies engineered for pharmaceutical cleanrooms, laboratories, and chemical plants.",
+        features: ["Seamless Hygiene Gelcoat Surface", "Chemical Splash & Washdown Impervious", "EPDM Compression Gaskets", "Stainless Steel 316 Hardware Ready"],
+        placeholderLabel: "Heavy-Duty FRP Industrial Door & Window Unit",
+      },
+      {
+        id: "frp-cabinets",
+        name: "FRP Cabinets",
+        slug: "frp-cabinets",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Weatherproof and chemical-resistant composite cabinets for plant instrumentation, fire extinguishers, emergency PPE, and sample storage.",
+        features: ["IP65 / NEMA 4X Protection", "Viewing Window (Polycarbonate/Glass) Ready", "Lockable Stainless Steel Latches", "Internal Adjustable Equipment Shelves"],
+        placeholderLabel: "FRP Instrumentation & Safety Storage Cabinet",
+      },
+      {
+        id: "frp-electrical-enclosures",
+        name: "FRP Electrical Enclosures",
+        slug: "frp-electrical-enclosures",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Dielectric, weather-tight IP66 electrical distribution boxes, motor control center canopies, and transformer protection enclosures.",
+        features: ["100% Non-Conductive Dielectric Matrix", "Flame Retardant UL94-V0 Resin", "Seamless Polyurethane Gasket Seal", "Internal Mounting Base Plates"],
+        placeholderLabel: "IP66 Flame-Retardant FRP Electrical Enclosure",
+      },
+      {
+        id: "frp-junction-boxes",
+        name: "FRP Junction Boxes",
+        slug: "frp-junction-boxes",
+        categorySlug: "industrial-projects",
+        categoryName: "Industrial Projects",
+        shortDescription: "Heavy-duty industrial terminal junction boxes designed for corrosive atmosphere wiring, hazardous zones, and marine installations.",
+        features: ["IP66/IP67 Weatherproof Rating", "Brass Earth Continuity Plates", "Captive Stainless Steel Screws", "Pre-Formed Cable Gland Knockouts"],
+        placeholderLabel: "Weatherproof FRP Industrial Junction Box",
+      },
+    ],
+  },
+  {
     id: "manhole-drain-cable-covers",
     slug: "manhole-drain-cable-covers",
-    categoryNumber: "01",
+    categoryNumber: "02",
     categoryTitle: "Manhole, Drain & Cable Trench Covers",
     shortDescription: "Heavy-duty composite access covers tested up to 40T/60T load ratings with zero scrap value and high durability.",
     heroDescription: "High-integrity FRP composite covers engineered for municipal roads, commercial complexes, utilities, and substation trenches, completely eliminating metal theft risks and corrosion decay.",
@@ -95,7 +318,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "gratings-walkways-platforms",
     slug: "gratings-walkways-platforms",
-    categoryNumber: "02",
+    categoryNumber: "03",
     categoryTitle: "Gratings, Walkways & Platforms",
     shortDescription: "High load-bearing, slip-resistant FRP molded and pultruded walkway systems for heavy industrial and municipal access.",
     heroDescription: "Engineered composite gratings, walkway modules, and structural access platforms manufactured with premium vinyl ester and isophthalic resins for maximum corrosion resistance and bi-directional strength.",
@@ -208,7 +431,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "tanks-piping-chemical-storage",
     slug: "tanks-piping-chemical-storage",
-    categoryNumber: "03",
+    categoryNumber: "04",
     categoryTitle: "Tanks, Piping & Chemical Storage",
     shortDescription: "Corrosion-resistant chemical storage vessels, dual-laminate tanks, and high-pressure thermoplastic piping.",
     heroDescription: "Specialized PP, FRP, and dual-laminate storage equipment engineered for acids, alkalis, aggressive chemical effluents, and process fluid transport across manufacturing and chemical plants.",
@@ -291,7 +514,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "doors-windows-panels",
     slug: "doors-windows-panels",
-    categoryNumber: "04",
+    categoryNumber: "05",
     categoryTitle: "Doors, Windows & Panels",
     shortDescription: "Fire-retardant, moisture-proof composite architectural doors and transport body panels.",
     heroDescription: "High-strength FRP doors, modular frames, and structural sandwich panels engineered for hospitals, industrial wet areas, railway coaches, and specialized transit driver cabins.",
@@ -424,7 +647,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "electrical-enclosures-control-boxes",
     slug: "electrical-enclosures-control-boxes",
-    categoryNumber: "05",
+    categoryNumber: "06",
     categoryTitle: "Electrical Enclosures & Control Boxes",
     shortDescription: "Dielectric, non-conductive, weatherproof kiosks and junction enclosures for power utilities and industrial controls.",
     heroDescription: "High-grade SMC/DMC and molded FRP electrical cabinets engineered with high dielectric strength, IP65/IP66 ingress protection, and fire-retardant properties to safeguard critical power distribution systems.",
@@ -557,7 +780,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "handrails-ladders-safety",
     slug: "handrails-ladders-safety",
-    categoryNumber: "06",
+    categoryNumber: "07",
     categoryTitle: "Handrails, Ladders & Safety Structures",
     shortDescription: "OSHA-compliant safety guard rails, cage ladders, and non-conductive fencing for hazardous plant areas.",
     heroDescription: "Industrial FRP pultruded railings, modular safety ladders with safety cages, and non-sparking perimeter enclosures engineered for wastewater plants, power stations, and chemical tank roofs.",
@@ -630,7 +853,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "cable-management-systems",
     slug: "cable-management-systems",
-    categoryNumber: "07",
+    categoryNumber: "08",
     categoryTitle: "Cable Management Systems",
     shortDescription: "Corrosion-proof FRP perforated, ladder-type cable trays and structural routing supports.",
     heroDescription: "High-load composite cable trays, covers, and pultruded unistrut supports engineered to prevent cable damage in oil refineries, fertilizer plants, offshore platforms, and underground tunnels.",
@@ -673,7 +896,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "civic-furniture-public-infra",
     slug: "civic-furniture-public-infra",
-    categoryNumber: "08",
+    categoryNumber: "09",
     categoryTitle: "Civic Furniture & Public Infrastructure",
     shortDescription: "Bespoke composite urban structures, portable cabins, modular toilets, canopies, and architectural domes.",
     heroDescription: "Durable, weather-resistant composite civic furniture and pre-fabricated modular public infrastructure designed for Smart Cities, municipal corporations, public parks, and transit terminals.",
@@ -846,7 +1069,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "signage",
     slug: "signage",
-    categoryNumber: "09",
+    categoryNumber: "10",
     categoryTitle: "Signage",
     shortDescription: "UV-resistant and weatherproof industrial, highway, and municipal composite sign boards.",
     heroDescription: "High-visibility FRP signage, retro-reflective traffic boards, and heavy industrial safety sign systems engineered to resist extreme weathering, chemical exposure, and mechanical warping.",
@@ -909,7 +1132,7 @@ export const PRODUCT_CATALOG: ProductCategoryDetail[] = [
   {
     id: "defence-equipment-protective-gear",
     slug: "defence-equipment-protective-gear",
-    categoryNumber: "10",
+    categoryNumber: "11",
     categoryTitle: "Defence Equipment & Protective Gear",
     shortDescription: "Military-spec containers, ammunition cases, radomes, and lightweight UAV composite components.",
     heroDescription: "High-performance composite defence hardware manufactured in strict compliance with military specifications (MIL-SPEC) for extreme tactical environments, missile logistics, ballistics, and aerospace applications.",
@@ -1101,16 +1324,20 @@ export const CATEGORY_IMAGE_MAP: Record<string, string> = {
   "doors-windows-panels": "/images/about/tray-custom-fabrication.jpg",
   "electrical-enclosures-control-boxes": "/images/about/stockist-materials.jpg",
   "handrails-ladders-safety-structures": "/images/about/utm-testing.jpg",
+  "handrails-ladders-safety": "/images/about/utm-testing.jpg",
   "cable-management-systems": "/images/about/etp-hdpe-pipelines.jpg",
   "civic-furniture-public-infrastructure": "/images/about/plant-facility.jpg",
+  "civic-furniture-public-infra": "/images/about/plant-facility.jpg",
   "signage": "/images/about/sintex-tank-welding.jpg",
   "defence-equipment-protective-gear": "/images/about/defence-railway.jpg",
+  "industrial-projects": "/images/about/blowers-scrubbers.jpg",
 };
 
 export function getCategoryImageUrl(categoryIdOrSlug: string): string {
   const clean = categoryIdOrSlug.toLowerCase().trim();
   return CATEGORY_IMAGE_MAP[clean] || "/images/about/plant-facility.jpg";
 }
+
 
 // Product-level Image Mapping for specific products
 export const PRODUCT_SPECIFIC_IMAGE_MAP: Record<string, string> = {
@@ -1202,6 +1429,24 @@ export const PRODUCT_SPECIFIC_IMAGE_MAP: Record<string, string> = {
   "glow-in-the-dark-signs": "/images/about/sintex-tank-welding.jpg",
   "retro-reflective-signs": "/images/about/sintex-tank-welding.jpg",
   "custom-signage": "/images/about/sintex-tank-welding.jpg",
+  // Marine Boats
+  "frp-boats": "/images/products/frp-boat-hero.jpg",
+  "frp-boat": "/images/products/frp-boat-hero.jpg",
+  "disaster-rescue-boat": "/images/products/frp-boat-factory.jpg",
+  "patrol-surveillance-craft": "/images/products/frp-boat-hero.jpg",
+  "passenger-tourism-ferry": "/images/about/plant-facility.jpg",
+  "sports-motorboat": "/images/products/frp-boat-hero.jpg",
+  "fishing-trawler": "/images/about/defence-railway.jpg",
+  "pedal-rowboat-kayak": "/images/about/stockist-materials.jpg",
+  // Swimming Pools
+  "frp-swimming-pool": "/images/products/frp-swimming-pool-hero.jpg",
+  "frp-swimming-pools": "/images/products/frp-swimming-pool-hero.jpg",
+  "plunge-terrace-pool": "/images/products/frp-swimming-pool-hero.jpg",
+  "family-leisure-pool": "/images/products/frp-swimming-pool-hero.jpg",
+  "luxury-lap-pool": "/images/products/frp-pool-manufacturing.jpg",
+  "resort-infinity-pool": "/images/products/frp-swimming-pool-hero.jpg",
+  "modular-container-pool": "/images/about/tray-custom-fabrication.jpg",
+  "jacuzzi-hydrotherapy-spa": "/images/about/stockist-materials.jpg",
 };
 
 export function getProductImageUrl(product: ProductItem, categorySlug?: string): string {
@@ -1218,6 +1463,12 @@ export function getProductSubheading(product: ProductItem): string {
   if (product.subheading) return product.subheading;
 
   const nameLower = product.name.toLowerCase();
+  if (nameLower.includes("boat") || nameLower.includes("vessel") || nameLower.includes("patrol") || nameLower.includes("craft")) {
+    return "IRS / ISO 12217 Compliant Positive Flotation Marine Composite";
+  }
+  if (nameLower.includes("pool") || nameLower.includes("jacuzzi") || nameLower.includes("spa")) {
+    return "100% Monolithic Zero-Leak Prefabricated Composite Shell";
+  }
   if (nameLower.includes("grating") || nameLower.includes("walkway") || nameLower.includes("deck")) {
     return "Heavy-Duty Pultruded & Molded Structural Access Composite";
   }

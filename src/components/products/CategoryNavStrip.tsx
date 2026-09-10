@@ -15,12 +15,17 @@ interface NavItem {
   href: string;
 }
 
-// 2-Row Pyramid Structure (Row 1: 6 pills, Row 2: 5 pills centered below)
+// 2-Row Balanced Structure
 const ROW_1_CATEGORIES: NavItem[] = [
   {
     id: "all",
     name: "All Categories",
     href: "/products",
+  },
+  {
+    id: "industrial-projects",
+    name: "Industrial Projects",
+    href: "/products/industrial-projects",
   },
   {
     id: "manhole-drain-cable-covers",
@@ -42,14 +47,14 @@ const ROW_1_CATEGORIES: NavItem[] = [
     name: "Doors, Windows & Panels",
     href: "/products/doors-windows-panels",
   },
+];
+
+const ROW_2_CATEGORIES: NavItem[] = [
   {
     id: "electrical-enclosures-control-boxes",
     name: "Electrical Enclosures",
     href: "/products/electrical-enclosures-control-boxes",
   },
-];
-
-const ROW_2_CATEGORIES: NavItem[] = [
   {
     id: "handrails-ladders-safety",
     name: "Handrails & Safety Ladders",

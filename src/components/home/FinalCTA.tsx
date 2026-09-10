@@ -51,13 +51,16 @@ export function FinalCTA() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
 
-            <Link
-              href="/certificates"
+            <a
+              href="/samarth-brochure.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 type-btn px-7 py-4 rounded-xl backdrop-blur-md transition-all duration-200 group text-center cursor-pointer"
+              title="Download & View Samarth Corporation Product Brochure (PDF)"
             >
               <Download className="w-4 h-4 text-[#FF6B00] group-hover:translate-y-0.5 transition-transform" />
               <span>DOWNLOAD BROCHURE</span>
-            </Link>
+            </a>
           </div>
 
         </div>

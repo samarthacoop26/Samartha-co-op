@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Layers, ShieldCheck } from "lucide-react";
+import { ArrowRight, Layers } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { getCategoryImageUrl } from "@/data/productsData";
 
@@ -84,14 +84,6 @@ export function ProductCategoryHero({
               <span>Request Category Pricing</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-
-            <Link
-              href="/certificates"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/25 type-btn px-5 py-3.5 rounded-xl backdrop-blur-md transition-all"
-            >
-              <ShieldCheck className="w-4 h-4 text-[#FF8C33]" />
-              <span>Accreditations &amp; Certificates</span>
-            </Link>
           </div>
         </div>
       </div>

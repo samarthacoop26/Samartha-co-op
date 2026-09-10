@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { X, Send, Check, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 
-const WHATSAPP_PHONE = "919930862729";
+const WHATSAPP_PHONE = "919867339763";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>

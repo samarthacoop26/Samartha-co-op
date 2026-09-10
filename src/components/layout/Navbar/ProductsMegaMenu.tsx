@@ -16,6 +16,10 @@ import {
   ShieldAlert,
   ArrowRight,
   Layers,
+  Download,
+  Factory,
+  Anchor,
+  Waves,
 } from "lucide-react";
 
 interface ProductsDropdownProps {
@@ -47,11 +51,24 @@ export function ProductsMegaMenu({
   onMouseEnter,
   onMouseLeave,
 }: ProductsDropdownProps) {
-  // 3 Primary Product Category Columns (10 Core Sectors)
+  // 3 Primary Product Category Columns (11 Core Sectors)
   const productSections: ProductSection[] = [
     {
-      header: "Structural & Access",
+      header: "Process & Industrial Plants",
       items: [
+        {
+          title: "Industrial Projects",
+          description: "Turnkey scrubbers, blowers, chemical piping & plant execution.",
+          href: "/products/industrial-projects",
+          icon: <Factory className="w-4 h-4 text-[#FF6B00]" />,
+          badge: { text: "Turnkey", variant: "orange" },
+        },
+        {
+          title: "Tanks & Chemical Storage",
+          description: "Dual-laminate chemical tanks & high-pressure piping.",
+          href: "/products/tanks-piping-chemical-storage",
+          icon: <Boxes className="w-4 h-4 text-[#FF6B00]" />,
+        },
         {
           title: "Manhole & Trench Covers",
           description: "Composite covers tested up to 40T/60T load.",
@@ -64,18 +81,6 @@ export function ProductsMegaMenu({
           description: "High load-bearing FRP molded & pultruded systems.",
           href: "/products/gratings-walkways-platforms",
           icon: <Grid className="w-4 h-4 text-[#FF6B00]" />,
-        },
-        {
-          title: "Tanks & Chemical Storage",
-          description: "Dual-laminate chemical tanks & high-pressure piping.",
-          href: "/products/tanks-piping-chemical-storage",
-          icon: <Boxes className="w-4 h-4 text-[#FF6B00]" />,
-        },
-        {
-          title: "Handrails & Safety Ladders",
-          description: "OSHA-compliant guard rails & cage ladders.",
-          href: "/products/handrails-ladders-safety",
-          icon: <Shield className="w-4 h-4 text-[#FF6B00]" />,
         },
       ],
     },
@@ -100,17 +105,22 @@ export function ProductsMegaMenu({
           href: "/products/cable-management-systems",
           icon: <Workflow className="w-4 h-4 text-[#FF6B00]" />,
         },
+        {
+          title: "Handrails & Safety Ladders",
+          description: "OSHA-compliant guard rails & cage ladders.",
+          href: "/products/handrails-ladders-safety",
+          icon: <Shield className="w-4 h-4 text-[#FF6B00]" />,
+        },
       ],
     },
     {
-      header: "Defence & Civic Infra",
+      header: "Civic, Infra & Marine",
       items: [
         {
           title: "Defence Equipment & Gear",
           description: "Mil-spec missile boxes, ammo containers & radomes.",
           href: "/products/defence-equipment-protective-gear",
           icon: <ShieldAlert className="w-4 h-4 text-[#FF6B00]" />,
-          badge: { text: "Defence", variant: "green" },
         },
         {
           title: "Civic & Public Infra",
@@ -123,6 +133,18 @@ export function ProductsMegaMenu({
           description: "UV-resistant composite hazard & highway boards.",
           href: "/products/signage",
           icon: <Signpost className="w-4 h-4 text-[#FF6B00]" />,
+        },
+        {
+          title: "FRP Boats",
+          description: "Unsinkable flood rescue boats, patrol craft & ferries.",
+          href: "/frp-boats",
+          icon: <Anchor className="w-4 h-4 text-[#FF6B00]" />,
+        },
+        {
+          title: "FRP Swimming Pools",
+          description: "Prefabricated monolithic shells & rooftop plunge pools.",
+          href: "/frp-swimming-pool",
+          icon: <Waves className="w-4 h-4 text-[#FF6B00]" />,
         },
       ],
     },
@@ -207,16 +229,29 @@ export function ProductsMegaMenu({
             <div className="bg-slate-50 border-t border-slate-100 px-5 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2 type-footer text-xs text-slate-600">
                 <Layers className="w-3.5 h-3.5 text-[#FF6B00]" />
-                <span className="font-medium">10 Categories &bull; 90+ Standard &amp; Custom Composite Products</span>
+                <span className="font-medium">13 Divisions &bull; Boats, Swimming Pools &amp; Industrial Composite Systems</span>
               </div>
-              <Link
-                href="/products"
-                onClick={onClose}
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#FF6B00] hover:text-[#e66000] transition-colors"
-              >
-                <span>View Full Catalog</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              <div className="flex items-center gap-4">
+                <a
+                  href="/samarth-brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-slate-700 hover:text-[#FF6B00] transition-colors"
+                  title="Download Corporate Product Brochure (PDF)"
+                >
+                  <Download className="w-3.5 h-3.5 text-[#FF6B00]" />
+                  <span>Brochure (PDF)</span>
+                </a>
+                <span className="text-slate-300">|</span>
+                <Link
+                  href="/products"
+                  onClick={onClose}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#FF6B00] hover:text-[#e66000] transition-colors"
+                >
+                  <span>View Full Catalog</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
             </div>
 
           </div>

@@ -294,7 +294,7 @@ export default function ContactPage() {
               {/* Key Person: Vishal Gadade */}
               <div>
                 <h3 className="text-[11px] font-bold uppercase tracking-widest text-[#FF6B00] mb-3">
-                  Key Contact — Sales &amp; Technical
+                  Key Contact
                 </h3>
                 <div className="bg-slate-50 border border-gray-200 rounded-lg p-4 space-y-3">
                   <div className="font-bold text-base text-[#0A1628]">
@@ -302,18 +302,21 @@ export default function ContactPage() {
                   </div>
                   <ContactRow
                     icon={<Phone size={16} className="text-[#FF6B00]" />}
-                    label="Mobile"
+                    label="Mobile & WhatsApp"
                     value={sales.phoneDisplay}
                     href={`tel:${sales.phone}`}
-                  />
-                  <ContactRow
-                    icon={
-                      <MessageSquare size={16} className="text-green-600" />
+                    action={
+                      <a
+                        href={`https://wa.me/${sales.whatsapp}?text=${encodeURIComponent("Hi Vishal Sir, I would like to inquire about PP/FRP products.")}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2 py-1 bg-green-50 hover:bg-green-100 text-green-700 text-[11px] font-semibold rounded border border-green-200/60 transition-colors"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageSquare size={12} className="text-green-600" />
+                        <span>Chat</span>
+                      </a>
                     }
-                    label="WhatsApp Chat"
-                    value={sales.whatsappDisplay}
-                    href={`https://wa.me/${sales.whatsapp}?text=${encodeURIComponent("Hi Vishal Sir, I would like to inquire about PP/FRP products.")}`}
-                    external
                   />
                   <ContactRow
                     icon={<Phone size={16} className="text-[#FF6B00]" />}
@@ -504,32 +507,37 @@ function ContactRow({
   value,
   href,
   external,
+  action,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   href: string;
   external?: boolean;
+  action?: React.ReactNode;
 }) {
   return (
-    <div className="flex items-center gap-3.5">
-      <div className="w-8 h-8 rounded-lg bg-white border border-gray-200 flex items-center justify-center shrink-0">
-        {icon}
+    <div className="flex items-center justify-between gap-2">
+      <div className="flex items-center gap-3.5 min-w-0">
+        <div className="w-8 h-8 rounded-lg bg-white border border-gray-200 flex items-center justify-center shrink-0">
+          {icon}
+        </div>
+        <div className="min-w-0">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 leading-none mb-1">
+            {label}
+          </p>
+          <a
+            href={href}
+            {...(external
+              ? { target: "_blank", rel: "noopener noreferrer" }
+              : {})}
+            className="text-xs sm:text-sm font-semibold text-[#0A1628] hover:text-[#FF6B00] transition-colors truncate block font-mono-accent"
+          >
+            {value}
+          </a>
+        </div>
       </div>
-      <div className="min-w-0">
-        <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 leading-none mb-1">
-          {label}
-        </p>
-        <a
-          href={href}
-          {...(external
-            ? { target: "_blank", rel: "noopener noreferrer" }
-            : {})}
-          className="text-xs sm:text-sm font-semibold text-[#0A1628] hover:text-[#FF6B00] transition-colors truncate block"
-        >
-          {value}
-        </a>
-      </div>
+      {action && <div className="shrink-0">{action}</div>}
     </div>
   );
 }

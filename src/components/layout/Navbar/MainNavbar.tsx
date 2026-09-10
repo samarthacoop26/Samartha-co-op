@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Menu,
   X,
@@ -54,28 +55,23 @@ export function MainNavbar() {
 
   return (
     <div className="w-full bg-transparent relative">
-      <div className="flex items-center justify-between py-3.5 md:py-4 px-6 md:px-12">
-        {/* Logo */}
-        <Link href="/" className="flex flex-col group">
-          <div className="flex items-center gap-3">
-            <svg
-              width="24"
-              height="28"
-              viewBox="0 0 24 28"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="transition-transform duration-300 group-hover:scale-105"
-            >
-              <path d="M12 0L0 28H6L12 14L18 28H24L12 0Z" fill="#FF6B00" />
-              <path d="M6 28H10L14 18H10L6 28Z" fill="white" />
-            </svg>
-            <span className="text-white text-2xl font-bold tracking-wide">
-              Samarth
-            </span>
+      <div className="flex items-center justify-between py-3 md:py-3.5 px-6 md:px-12">
+        {/* Brand Logo */}
+        <Link
+          href="/"
+          className="group flex items-center transition-transform duration-300 hover:scale-[1.02]"
+          aria-label="Samarth Corporation - Home"
+        >
+          <div className="relative h-11 sm:h-12 md:h-13 w-36 sm:w-40 md:w-44 flex items-center">
+            <Image
+              src="/images/brand/logo.png"
+              alt="Samarth Corporation - PP & FRP Engineering Solutions"
+              fill
+              priority
+              sizes="(max-width: 640px) 144px, (max-width: 768px) 160px, 176px"
+              className="object-contain object-left drop-shadow-[0_2px_12px_rgba(255,107,0,0.18)]"
+            />
           </div>
-          <span className="text-slate-400 text-[10px] uppercase tracking-[0.18em] ml-[36px] font-semibold mt-0.5">
-            Corporation • PP &amp; FRP
-          </span>
         </Link>
 
         {/* Desktop Nav Links */}
@@ -216,7 +212,7 @@ export function MainNavbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-between p-2.5 bg-[#FF6B00]/15 border border-[#FF6B00]/40 text-white type-btn text-xs rounded-xl transition-colors"
                 >
-                  <span>Explore All 10 Categories</span>
+                  <span>Explore All 13 Categories</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FF6B00]" />
                 </Link>
 

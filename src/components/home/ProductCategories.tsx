@@ -17,26 +17,17 @@ interface ProductCategory {
 
 const productCategories: ProductCategory[] = [
   {
-    id: "manhole-drain-cable-covers",
+    id: "industrial-projects",
     categoryNumber: "01",
-    title: "Manhole & Trench Covers",
-    subheading: "Corrosion-free, tamper-resistant covers engineered for municipal, Smart City and civic infrastructure projects.",
-    image: "/images/about/manhole-covers.jpg",
-    link: "/products/manhole-drain-cable-covers",
-    badge: "Anti-Theft / 40T-60T",
-  },
-  {
-    id: "gratings-walkways-platforms",
-    categoryNumber: "02",
-    title: "Gratings & Walkway Systems",
-    subheading: "Slip-resistant, load-rated FRP gratings, walkways and platforms built for industrial and infrastructure use.",
-    image: "/images/about/gratings-walkway.jpg",
-    link: "/products/gratings-walkways-platforms",
-    badge: "Load Rated",
+    title: "Industrial Projects & Turnkey Systems",
+    subheading: "Custom-built chemical scrubbers, exhaust blowers, pipelines, process tanks and plant erection across India.",
+    image: "/images/about/blowers-scrubbers.jpg",
+    link: "/products/industrial-projects",
+    badge: "Turnkey Execution",
   },
   {
     id: "tanks-piping-chemical-storage",
-    categoryNumber: "03",
+    categoryNumber: "04",
     title: "Tanks & Chemical Piping",
     subheading: "Chemical-resistant storage tanks and pipeline systems for process plants, power stations and industrial facilities.",
     image: "/images/about/pp-frp-tanks.jpg",
@@ -44,8 +35,26 @@ const productCategories: ProductCategory[] = [
     badge: "Dual Laminate",
   },
   {
+    id: "gratings-walkways-platforms",
+    categoryNumber: "03",
+    title: "Gratings & Walkway Systems",
+    subheading: "Slip-resistant, load-rated FRP gratings, walkways and platforms built for industrial and infrastructure use.",
+    image: "/images/about/gratings-walkway.jpg",
+    link: "/products/gratings-walkways-platforms",
+    badge: "Load Rated",
+  },
+  {
+    id: "manhole-drain-cable-covers",
+    categoryNumber: "02",
+    title: "Manhole & Trench Covers",
+    subheading: "Corrosion-free, tamper-resistant covers engineered for municipal, Smart City and civic infrastructure projects.",
+    image: "/images/about/manhole-covers.jpg",
+    link: "/products/manhole-drain-cable-covers",
+    badge: "Anti-Theft / 40T-60T",
+  },
+  {
     id: "doors-windows-panels",
-    categoryNumber: "04",
+    categoryNumber: "05",
     title: "Doors, Windows & Enclosures",
     subheading: "Weatherproof doors, windows and electrical enclosures engineered for demanding industrial and public infrastructure.",
     image: "/images/about/tray-custom-fabrication.jpg",
@@ -53,17 +62,8 @@ const productCategories: ProductCategory[] = [
     badge: "IP65 Weatherproof",
   },
   {
-    id: "handrails-ladders-safety",
-    categoryNumber: "05",
-    title: "Safety & Access Structures",
-    subheading: "Handrails, ladders and safety railings designed to meet industrial safety and compliance standards.",
-    image: "/images/about/utm-testing.jpg",
-    link: "/products/handrails-ladders-safety-structures",
-    badge: "IS / OSHA Norms",
-  },
-  {
     id: "defence-equipment-protective-gear",
-    categoryNumber: "06",
+    categoryNumber: "11",
     title: "Defence & Railway Components",
     subheading: "Precision-engineered FRP components built to specification for defence, railway and metro applications.",
     image: "/images/about/defence-railway.jpg",
@@ -208,13 +208,13 @@ export function ProductCategories() {
           ))}
         </motion.div>
 
-        {/* View All 10 Categories CTA Strip */}
+        {/* View All 11 Categories CTA Strip */}
         <div className="mt-12 text-center">
           <Link
             href="/products"
             className="inline-flex items-center gap-2.5 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn px-8 py-4 rounded-xl transition-all duration-300 shadow-md group"
           >
-            <span>Explore All 10 Product Categories &amp; 90+ Products</span>
+            <span>Explore All 11 Product Categories &amp; 110+ Products</span>
             <ArrowUpRight className="w-4 h-4 text-[#FF6B00] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

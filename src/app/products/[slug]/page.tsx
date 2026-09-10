@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   PRODUCT_CATALOG,
@@ -12,7 +11,7 @@ import { ProductSectionItem } from "@/components/products/ProductSectionItem";
 import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
-import { ShieldCheck, Info, FileText } from "lucide-react";
+import { Info } from "lucide-react";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -105,7 +104,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           </div>
 
           {/* Sequential In-Depth Product Sections (One after another with Left Image & Right Specs) */}
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-4 sm:space-y-5">
             {category.products.map((product, index) => (
               <ProductSectionItem
                 key={product.id}
@@ -146,23 +145,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 <p className="text-xs font-semibold text-gray-800">Custom drawings, CAD, and sizes</p>
               </div>
             </div>
-          </div>
-
-          {/* Quality Assurance Note at base of grid */}
-          <div className="mt-6 p-4 sm:p-5 bg-white rounded-xl border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-700 shadow-xs">
-            <div className="flex items-center gap-2.5">
-              <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
-              <span>
-                <strong>Factory Quality Assurance:</strong> Raw resin batch test certificates, hydro-test reports, and load deflection tests are provided with every dispatch.
-              </span>
-            </div>
-            <Link
-              href="/certificates"
-              className="font-bold text-[#FF6B00] hover:underline shrink-0 inline-flex items-center gap-1"
-            >
-              <span>View Accreditations &amp; Registrations</span>
-              <FileText className="w-3.5 h-3.5" />
-            </Link>
           </div>
 
         </div>

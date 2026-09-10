@@ -69,7 +69,7 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
           onClick={handleEnquire}
           className="w-full inline-flex items-center justify-center gap-2 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn py-3 px-4 rounded-xl transition-colors duration-200 cursor-pointer group/btn shadow-xs"
         >
-          <span>Request Quote / RFQ</span>
+          <span>Request Quote</span>
           <ArrowRight className="w-3.5 h-3.5 text-orange-400 group-hover/btn:text-white group-hover/btn:translate-x-1 transition-all" />
         </button>
       </div>
