@@ -22,8 +22,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Samarth Corporation | PP & FRP Engineering Solutions, Lining & Turnkey Projects",
-  description: "Manufacturer & stockist of PP & FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution across India.",
+  title: "Samarth Corporation | FRP Engineering Solutions, Lining & Turnkey Projects",
+  description: "Manufacturer & stockist of FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution across India.",
   manifest: "/site.webmanifest",
   icons: {
     icon: [

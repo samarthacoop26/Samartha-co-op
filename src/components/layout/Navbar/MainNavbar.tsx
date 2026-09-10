@@ -65,7 +65,7 @@ export function MainNavbar() {
           <div className="relative h-11 sm:h-12 md:h-13 w-36 sm:w-40 md:w-44 flex items-center">
             <Image
               src="/images/brand/logo.png"
-              alt="Samarth Corporation - PP & FRP Engineering Solutions"
+              alt="Samarth Corporation - FRP Engineering Solutions"
               fill
               priority
               sizes="(max-width: 640px) 144px, (max-width: 768px) 160px, 176px"
