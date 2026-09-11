@@ -205,7 +205,7 @@ export default function ContactPage() {
                         label="Phone Number"
                         required
                         type="tel"
-                        placeholder="+91 99308 62729"
+                        placeholder="+91 98673 39763"
                         value={formData.phone}
                         error={errors.phone}
                         onChange={handleInputChange}

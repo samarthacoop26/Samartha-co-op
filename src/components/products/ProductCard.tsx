@@ -26,10 +26,10 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
     <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-lg transition-all duration-300 p-5 sm:p-6 justify-between overflow-hidden">
       <div>
         {/* Product Image Section */}
-        {product.image ? (
+        {product.image || (product.images && product.images.length > 0) ? (
           <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden mb-4 bg-gray-100 border border-gray-100">
             <Image
-              src={product.image}
+              src={product.image || product.images![0]}
               alt={product.name}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

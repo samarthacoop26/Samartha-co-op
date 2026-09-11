@@ -3,8 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import { X, Send, Check, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
+import { CONTACT_CONFIG } from "@/data/contactConfig";
 
-const WHATSAPP_PHONE = "919867339763";
+const WHATSAPP_PHONE = CONTACT_CONFIG.departments.sales.whatsapp;
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -76,6 +77,7 @@ const itemVariants: Variants = {
 };
 
 export function FloatingContact() {
+  const [mounted, setMounted] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedInquiry, setSelectedInquiry] = useState(
     inquiryCategories[1].items[0].message
@@ -84,6 +86,10 @@ export function FloatingContact() {
     inquiryCategories[1].items[0].message
   );
   const drawerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close when clicking outside drawer
   useEffect(() => {
@@ -106,6 +112,8 @@ export function FloatingContact() {
     window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`, "_blank");
     setIsDrawerOpen(false);
   };
+
+  if (!mounted) return null;
 
   return (
     <>

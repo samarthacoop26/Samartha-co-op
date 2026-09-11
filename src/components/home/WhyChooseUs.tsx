@@ -130,6 +130,7 @@ export function WhyChooseUs() {
             initial={false}
             animate={{ width: activeLineWidth }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            suppressHydrationWarning
           />
 
           {/* Connected Rectangular Blocks Grid */}

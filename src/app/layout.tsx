@@ -74,7 +74,7 @@ export default function RootLayout({
         <GlobalScrollAnimationProvider />
         <QuoteModalProvider>
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow" suppressHydrationWarning>
             {children}
           </main>
           <Footer />

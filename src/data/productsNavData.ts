@@ -217,7 +217,6 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     statusBadge: "Traffic & Industrial",
     items: [
       "Sign Boards",
-      "Name Boards",
       "Direction Boards",
       "Traffic Sign Boards",
       "Advertisement Boards",

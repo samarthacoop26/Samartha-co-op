@@ -219,11 +219,14 @@ export function GlobalScrollAnimationProvider() {
       });
     };
 
-    // Initial run + slight delay for dynamic hydration
-    observeElements();
-    const timer = setTimeout(observeElements, 150);
+    // Defer element observation until after React hydration is completely settled
+    let timer: NodeJS.Timeout;
+    const rafId = requestAnimationFrame(() => {
+      timer = setTimeout(observeElements, 100);
+    });
 
     return () => {
+      cancelAnimationFrame(rafId);
       clearTimeout(timer);
       observer.disconnect();
     };

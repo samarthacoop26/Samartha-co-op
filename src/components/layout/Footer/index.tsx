@@ -120,17 +120,17 @@ export function Footer() {
                   <Phone className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                     <a
-                      href="tel:+919930862729"
-                      className="text-slate-200 hover:text-[#FF6B00] font-mono-accent font-semibold transition-colors"
-                    >
-                      +91 99308 62729
-                    </a>
-                    <span className="text-slate-600">•</span>
-                    <a
                       href="tel:+919867339763"
                       className="text-slate-200 hover:text-[#FF6B00] font-mono-accent font-semibold transition-colors"
                     >
                       +91 98673 39763
+                    </a>
+                    <span className="text-slate-600">•</span>
+                    <a
+                      href="tel:+919930862729"
+                      className="text-slate-200 hover:text-[#FF6B00] font-mono-accent font-semibold transition-colors"
+                    >
+                      +91 99308 62729
                     </a>
                   </div>
                 </div>

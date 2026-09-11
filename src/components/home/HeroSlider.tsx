@@ -72,6 +72,7 @@ export function HeroSlider() {
             transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url('${slides[currentSlide].image}')` }}
+            suppressHydrationWarning
           />
         </AnimatePresence>
         

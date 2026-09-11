@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   ArrowRight,
   CheckCircle2,
-  ShieldCheck,
-  Ruler,
   Layers,
   Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  Camera,
 } from "lucide-react";
 import {
   ProductItem,
@@ -34,10 +35,34 @@ export function ProductSectionItem({
   totalProducts,
 }: ProductSectionItemProps) {
   const { openQuoteModal } = useQuoteModal();
-  const [imageError, setImageError] = useState(false);
-
   const imageUrl = getProductImageUrl(product, categorySlug);
   const subheading = getProductSubheading(product);
+
+  const images =
+    product.images && product.images.length > 0 ? product.images : [imageUrl];
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Automatic image rotation for multi-image products
+  useEffect(() => {
+    if (images.length <= 1 || isPaused) return;
+
+    const interval = setInterval(() => {
+      setActiveIdx((prev) => (prev + 1) % images.length);
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [images.length, isPaused]);
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setActiveIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
 
   const handleRequestQuote = () => {
     openQuoteModal({
@@ -53,22 +78,61 @@ export function ProductSectionItem({
       className="group scroll-mt-28 bg-white rounded-2xl border border-gray-200/90 hover:border-[#FF6B00]/70 shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-        
         {/* ═══ LEFT SIDE: PRODUCT IMAGE & ENGINEERING BADGES (5 cols on desktop) ═══ */}
-        <div className="lg:col-span-5 relative min-h-[200px] sm:min-h-[230px] lg:min-h-full bg-gray-100 overflow-hidden flex flex-col justify-between p-3 sm:p-3.5">
-          {/* Main Product Image with subtle hover zoom */}
-          <Image
-            src={imageError ? "/images/about/plant-facility.jpg" : imageUrl}
-            alt={`${product.name} - Samarth Corporation`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
-            onError={() => setImageError(true)}
-            priority={index !== undefined && index < 2}
+        <div
+          className="lg:col-span-5 relative min-h-[260px] sm:min-h-[300px] lg:min-h-[390px] bg-slate-950 overflow-hidden flex flex-col justify-between p-3 sm:p-3.5 group/img"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Ambient Blurred Background Layer */}
+          {images.map((img, idx) => (
+            <Image
+              key={`bg-${img}-${idx}`}
+              src={img}
+              alt=""
+              fill
+              unoptimized
+              aria-hidden="true"
+              className={`object-cover blur-2xl opacity-25 scale-110 transition-opacity duration-700 pointer-events-none ${
+                activeIdx === idx ? "opacity-25" : "opacity-0"
+              }`}
+            />
+          ))}
+
+          {/* Soft gradient overlay for contrast with badges and controls */}
+          <div
+            className={`absolute inset-0 pointer-events-none z-[3] transition-colors duration-500 ${
+              images[activeIdx]?.toLowerCase().includes("cable_duct") || images[activeIdx]?.toLowerCase().includes("cable_cover1")
+                ? "bg-gradient-to-t from-black/60 via-transparent to-black/40"
+                : "bg-gradient-to-t from-black/85 via-black/10 to-black/75"
+            }`}
           />
 
-          {/* Soft gradient overlay for contrast with badges */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/45 pointer-events-none" />
+          {/* Main Focused Product Image - Adaptive Cover for Site Photos & Contain with Studio Background for Products */}
+          <div className="absolute inset-0 z-[2] overflow-hidden">
+            {images.map((img, idx) => {
+              const isStudioProduct = img.toLowerCase().includes("cable_duct") || img.toLowerCase().includes("cable_cover1");
+              return (
+                <Image
+                  key={`main-${img}-${idx}`}
+                  src={img}
+                  alt={`${product.name} - View ${idx + 1}`}
+                  fill
+                  unoptimized
+                  className={`transition-all duration-700 ease-in-out group-hover/img:scale-105 ${
+                    isStudioProduct
+                      ? "object-contain p-6 bg-white"
+                      : "object-cover object-center"
+                  } ${
+                    activeIdx === idx
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 pointer-events-none"
+                  }`}
+                  priority={index !== undefined && index < 2}
+                />
+              );
+            })}
+          </div>
 
           {/* Top Floating Badges */}
           <div className="relative z-10 flex items-center justify-between gap-2">
@@ -81,33 +145,76 @@ export function ProductSectionItem({
               </span>
             </span>
 
-            {index !== undefined && totalProducts !== undefined && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-bold text-gray-900 shadow-xs shrink-0">
-                <Layers className="w-2.5 h-2.5 text-[#FF6B00]" />
+            {images.length > 1 ? (
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-black/75 backdrop-blur-md border border-white/20 rounded-full text-[10px] font-bold text-white shadow-xs shrink-0">
+                <Camera className="w-3 h-3 text-[#FF6B00]" />
                 <span>
-                  {String(index + 1).padStart(2, "0")} / {String(totalProducts).padStart(2, "0")}
+                  {activeIdx + 1} / {images.length}
                 </span>
               </span>
+            ) : (
+              index !== undefined &&
+              totalProducts !== undefined && (
+                <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-white/95 backdrop-blur-md rounded-full text-[10px] font-bold text-gray-900 shadow-xs shrink-0">
+                  <Layers className="w-2.5 h-2.5 text-[#FF6B00]" />
+                  <span>
+                    {String(index + 1).padStart(2, "0")} /{" "}
+                    {String(totalProducts).padStart(2, "0")}
+                  </span>
+                </span>
+              )
             )}
           </div>
 
-          {/* Bottom Floating Technical Details on Image */}
-          <div className="relative z-10 space-y-1 mt-auto pt-4">
-            <div className="flex flex-wrap items-center gap-1">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/75 backdrop-blur-md rounded-md text-[10px] font-semibold text-emerald-300 border border-emerald-500/30">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                IS / ASTM Compliant
-              </span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-black/75 backdrop-blur-md rounded-md text-[10px] font-semibold text-orange-200 border border-orange-500/30">
-                <Ruler className="w-3 h-3 text-[#FF6B00]" />
-                Custom CAD &amp; Sizing
-              </span>
-            </div>
+          {/* Left/Right Arrow Navigation & Mini Thumbnail Switcher (if multiple images) */}
+          {images.length > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={handlePrev}
+                aria-label="Previous image"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-[#FF6B00] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all opacity-85 sm:opacity-0 sm:group-hover/img:opacity-100 hover:scale-110 shadow-md z-10 cursor-pointer"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                aria-label="Next image"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/65 hover:bg-[#FF6B00] text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all opacity-85 sm:opacity-0 sm:group-hover/img:opacity-100 hover:scale-110 shadow-md z-10 cursor-pointer"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
 
-            <p className="text-[10px] text-gray-200/90 font-medium">
-              Precision Compression / Contact Molded &bull; Direct Factory Supply
-            </p>
-          </div>
+              {/* Clickable Mini Thumbnails Row */}
+              <div className="absolute bottom-2.5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-20 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-white/15 shadow-md max-w-[90%] overflow-x-auto">
+                {images.map((img, idx) => (
+                  <button
+                    key={`thumb-${img}-${idx}`}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveIdx(idx);
+                    }}
+                    aria-label={`Switch to image ${idx + 1}`}
+                    className={`relative w-8 h-8 rounded-md overflow-hidden border transition-all duration-200 cursor-pointer shrink-0 ${
+                      activeIdx === idx
+                        ? "border-[#FF6B00] ring-2 ring-[#FF6B00]/70 scale-105"
+                        : "border-white/30 opacity-60 hover:opacity-100 hover:border-white"
+                    }`}
+                  >
+                    <Image
+                      src={img}
+                      alt={`Thumbnail ${idx + 1}`}
+                      fill
+                      unoptimized
+                      className="object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         {/* ═══ RIGHT SIDE: HEADING, SUBHEADING, DESCRIPTION & SPECS (7 cols on desktop) ═══ */}

@@ -1,24 +1,23 @@
 "use client";
 
-import { useState } from 'react';
-import { motion, useScroll, useMotionValueEvent, type Transition } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Topbar } from './Topbar';
 import { MainNavbar } from './MainNavbar';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    if (latest > 40) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
 
-  // Buttery smooth transition for navbar layout and animations
-  const smoothTransition: Transition = { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Run once on mount to capture any initial scroll position
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header 
@@ -27,13 +26,10 @@ export function Navbar() {
       }`}
     >
       {/* Container with drop-shadow filter so the polygon chamfer casts a rich, realistic shadow */}
-      <motion.div 
-        className="relative w-full mx-auto filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)]"
-        initial={false}
-        animate={{
-          maxWidth: isScrolled ? '100%' : '1280px', // 1280px is max-w-7xl
-        }}
-        transition={smoothTransition}
+      <div 
+        className={`relative w-full mx-auto filter drop-shadow-[0_20px_30px_rgba(0,0,0,0.6)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          isScrolled ? 'max-w-full' : 'max-w-7xl'
+        }`}
       >
         {/* Layer 1: Crisp outer border matching the iconic chamfered polygon */}
         <div 
@@ -57,22 +53,19 @@ export function Navbar() {
 
         {/* Navbar Content Layer - kept unclipped so dropdowns and overlays render cleanly */}
         <div className="relative z-10">
-          <motion.div
-            initial={false}
-            animate={{
-              height: isScrolled ? 0 : 'auto',
-              opacity: isScrolled ? 0 : 1,
-              translateY: isScrolled ? -20 : 0
-            }}
-            transition={smoothTransition}
-            className={isScrolled ? 'overflow-hidden pointer-events-none' : 'overflow-hidden'}
+          <div
+            className={`overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              isScrolled
+                ? 'max-h-0 opacity-0 -translate-y-4 pointer-events-none'
+                : 'max-h-16 opacity-100 translate-y-0'
+            }`}
           >
             <Topbar />
-          </motion.div>
+          </div>
           
           <MainNavbar />
         </div>
-      </motion.div>
+      </div>
     </header>
   );
 }
