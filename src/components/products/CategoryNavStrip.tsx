@@ -14,8 +14,7 @@ interface NavItem {
   href: string;
 }
 
-// 2-Row Balanced Structure
-const ROW_1_CATEGORIES: NavItem[] = [
+const ALL_NAV_CATEGORIES: NavItem[] = [
   {
     id: "all",
     name: "All Categories",
@@ -46,9 +45,6 @@ const ROW_1_CATEGORIES: NavItem[] = [
     name: "Doors, Windows & Panels",
     href: "/products/doors-windows-panels",
   },
-];
-
-const ROW_2_CATEGORIES: NavItem[] = [
   {
     id: "electrical-enclosures-control-boxes",
     name: "Electrical Enclosures",
@@ -79,19 +75,47 @@ const ROW_2_CATEGORIES: NavItem[] = [
     name: "Defence Equipment",
     href: "/products/defence-equipment-protective-gear",
   },
+  {
+    id: "frp-boats",
+    name: "FRP Boats",
+    href: "/frp-boats",
+  },
+  {
+    id: "frp-swimming-pools",
+    name: "FRP Swimming Pools",
+    href: "/frp-swimming-pool",
+  },
 ];
 
 export function CategoryNavStrip({ currentCategorySlug, className = "" }: CategoryNavStripProps) {
   const isAllActive = !currentCategorySlug || currentCategorySlug === "all";
 
   const renderPill = (item: NavItem) => {
-    const isActive = item.id === "all" ? isAllActive : item.id === currentCategorySlug;
+    let isActive = false;
+    if (item.id === "all") {
+      isActive = isAllActive;
+    } else if (item.id === currentCategorySlug) {
+      isActive = true;
+    } else if (
+      item.id === "frp-boats" &&
+      (currentCategorySlug === "frp-boats" ||
+        currentCategorySlug === "frp-boat" ||
+        currentCategorySlug === "frp-boats-marine-craft")
+    ) {
+      isActive = true;
+    } else if (
+      item.id === "frp-swimming-pools" &&
+      (currentCategorySlug === "frp-swimming-pools" ||
+        currentCategorySlug === "frp-swimming-pool")
+    ) {
+      isActive = true;
+    }
 
     return (
       <Link
         key={item.id}
         href={item.href}
-        className={`relative inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap select-none group border ${
+        className={`relative inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap select-none group border ${
           isActive
             ? "bg-[#FF6B00] border-[#FF6B00] text-white shadow-md shadow-[#FF6B00]/30 ring-2 ring-[#FF6B00]/20 scale-[1.02]"
             : "bg-[#F1F4F8] border-transparent text-[#0A1628] hover:bg-orange-50 hover:text-[#FF6B00] hover:border-orange-200 hover:shadow-xs active:scale-95"
@@ -106,25 +130,12 @@ export function CategoryNavStrip({ currentCategorySlug, className = "" }: Catego
   return (
     <nav
       aria-label="Product Category Navigation"
-      className={`w-full bg-white border-b border-gray-100 py-6 sm:py-8 ${className}`}
+      className={`w-full bg-white border-b border-gray-100 py-5 sm:py-6 ${className}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* ═══ 2-ROW PYRAMID CONTAINER ═══ */}
-        <div className="flex flex-col items-center justify-center gap-2.5 sm:gap-3">
-          
-          {/* Tier 1: Row 1 (Top 6 Pills) */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 w-full">
-            {ROW_1_CATEGORIES.map(renderPill)}
-          </div>
-
-          {/* Tier 2: Row 2 (Bottom 5 Pills - Centered to form Pyramid) */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 w-full">
-            {ROW_2_CATEGORIES.map(renderPill)}
-          </div>
-
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 max-w-6xl mx-auto">
+          {ALL_NAV_CATEGORIES.map(renderPill)}
         </div>
-
       </div>
     </nav>
   );

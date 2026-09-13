@@ -11,7 +11,7 @@ import { CONTACT_CONFIG } from "@/data/contactConfig";
 export const metadata: Metadata = {
   title: `FRP Products Catalog | ${CONTACT_CONFIG.companyName}`,
   description:
-    "Explore Samarth Corporation's complete range of FRP products across 10 industrial divisions — gratings, manhole covers, chemical storage tanks, electrical enclosures, safety structures, defence gear, and civic infrastructure.",
+    "Explore Samarth Corporation's complete range of FRP products across all 13 industrial & marine divisions — gratings, manhole covers, chemical storage tanks, doors, electrical enclosures, safety structures, defence gear, FRP boats, and monolithic swimming pools.",
   openGraph: {
     title: `FRP Products Catalog | ${CONTACT_CONFIG.companyName}`,
     description:
@@ -42,7 +42,7 @@ export default function ProductsOverviewPage() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black/40 backdrop-blur-md border border-white/20 rounded-full mb-3.5 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
               <span className="type-eyebrow text-white">
-                Complete Manufacturing Scope &bull; 10 Divisions
+                Complete Manufacturing Scope &bull; {TOTAL_CATEGORIES_COUNT} Divisions
               </span>
             </div>
 

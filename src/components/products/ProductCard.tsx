@@ -13,6 +13,13 @@ interface ProductCardProps {
 
 export function ProductCard({ product, categoryNumber }: ProductCardProps) {
   const { openQuoteModal } = useQuoteModal();
+  const images =
+    product.images && product.images.length > 0
+      ? product.images
+      : product.image
+      ? [product.image]
+      : [];
+  const [activeIdx, setActiveIdx] = React.useState(0);
 
   const handleEnquire = () => {
     openQuoteModal({
@@ -22,20 +29,69 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
     });
   };
 
+  const currentImg = images[activeIdx] || product.image;
+  const isStudio =
+    currentImg?.toLowerCase().includes("enclos") ||
+    currentImg?.toLowerCase().includes("frp_pub") ||
+    currentImg?.toLowerCase().includes("frp_pump.jpg") ||
+    currentImg?.toLowerCase().includes("frp_cabi") ||
+    currentImg?.toLowerCase().includes("frp_equi3") ||
+    currentImg?.toLowerCase().includes("frp_equi4") ||
+    currentImg?.toLowerCase().includes("frp_equi5") ||
+    currentImg?.toLowerCase().includes("cable_duct") ||
+    currentImg?.toLowerCase().includes("elec") ||
+    currentImg?.toLowerCase().includes("frp_box") ||
+    currentImg?.toLowerCase().includes("junc") ||
+    currentImg?.toLowerCase().includes("frp_gun") ||
+    currentImg?.toLowerCase().includes("frp_shel2") ||
+    currentImg?.toLowerCase().includes("frp_prot.") ||
+    currentImg?.toLowerCase().includes("frp_prot2") ||
+    currentImg?.toLowerCase().includes("frp_prot3") ||
+    currentImg?.toLowerCase().includes("frp_helmet") ||
+    currentImg?.toLowerCase().includes("frp_uav.") ||
+    currentImg?.toLowerCase().includes("frp_drone") ||
+    currentImg?.toLowerCase().includes("frp_ca1") ||
+    currentImg?.toLowerCase().includes("frp_grenade") ||
+    currentImg?.toLowerCase().includes("frp_ammo");
+
   return (
     <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-lg transition-all duration-300 p-5 sm:p-6 justify-between overflow-hidden">
       <div>
         {/* Product Image Section */}
-        {product.image || (product.images && product.images.length > 0) ? (
-          <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden mb-4 bg-gray-100 border border-gray-100">
+        {currentImg ? (
+          <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden mb-4 bg-gray-50 border border-gray-100 group/img">
             <Image
-              src={product.image || product.images![0]}
+              src={currentImg}
               alt={product.name}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+              className={`transition-all duration-500 ease-out group-hover:scale-105 ${
+                isStudio ? "object-contain p-4 bg-white" : "object-cover object-center"
+              }`}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+            {/* Multiple Images Dots Switcher */}
+            {images.length > 1 && (
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10 bg-black/50 backdrop-blur-xs px-2 py-1 rounded-full">
+                {images.map((img, idx) => (
+                  <button
+                    key={`dot-${img}-${idx}`}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveIdx(idx);
+                    }}
+                    aria-label={`Show image ${idx + 1}`}
+                    className={`w-2 h-2 rounded-full transition-all cursor-pointer ${
+                      activeIdx === idx
+                        ? "bg-[#FF6B00] w-4"
+                        : "bg-white/70 hover:bg-white"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
         ) : (
           <div className="relative w-full h-36 rounded-xl overflow-hidden mb-4 bg-slate-900/5 flex items-center justify-center border border-gray-100">

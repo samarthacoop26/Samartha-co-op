@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { BoatHero } from "@/components/boats/BoatHero";
+import { CategoryNavStrip } from "@/components/products/CategoryNavStrip";
 import { BoatFleetCatalog } from "@/components/boats/BoatFleetCatalog";
 import { BoatVsWoodAluTable } from "@/components/boats/BoatVsWoodAluTable";
 import { BoatFAQ } from "@/components/boats/BoatFAQ";
@@ -34,7 +35,10 @@ export default function FRPBoatsPage() {
       {/* 1. HERO SECTION WITH HIGH-IMPACT VISUALS & METRICS */}
       <BoatHero />
 
-      {/* 2. FLEET SHOWCASE & INTERACTIVE CATALOG (6 CATEGORIES) */}
+      {/* 2. CATEGORY NAV STRIP */}
+      <CategoryNavStrip currentCategorySlug="frp-boats" />
+
+      {/* 3. FLEET SHOWCASE & INTERACTIVE CATALOG (6 CATEGORIES) */}
       <BoatFleetCatalog />
 
       {/* 3. FRP VS WOOD & ALUMINUM COMPARISON MATRIX */}

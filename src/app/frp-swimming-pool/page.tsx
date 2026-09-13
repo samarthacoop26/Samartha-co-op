@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import { PoolHero } from "@/components/swimming-pool/PoolHero";
+import { CategoryNavStrip } from "@/components/products/CategoryNavStrip";
 import { PoolModelsGrid } from "@/components/swimming-pool/PoolModelsGrid";
 import { PoolVsConcreteTable } from "@/components/swimming-pool/PoolVsConcreteTable";
 import { PoolFAQ } from "@/components/swimming-pool/PoolFAQ";
@@ -34,7 +35,10 @@ export default function FRPSwimmingPoolPage() {
       {/* 1. HERO SECTION WITH VILLA VISUALS & METRICS */}
       <PoolHero />
 
-      {/* 2. POOL MODELS & SIZES INTERACTIVE CATALOG (6 CATEGORIES) */}
+      {/* 2. CATEGORY NAV STRIP */}
+      <CategoryNavStrip currentCategorySlug="frp-swimming-pools" />
+
+      {/* 3. POOL MODELS & SIZES INTERACTIVE CATALOG (6 CATEGORIES) */}
       <PoolModelsGrid />
 
       {/* 3. FRP VS CONCRETE COMPARISON MATRIX */}

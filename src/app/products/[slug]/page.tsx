@@ -1,6 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import {
   PRODUCT_CATALOG,
   getCategoryBySlug,
@@ -62,6 +62,10 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   if (!category) {
     notFound();
+  }
+
+  if (category.customHref) {
+    redirect(category.customHref);
   }
 
   return (

@@ -12,11 +12,12 @@ interface ProductOverviewCardProps {
 
 export function ProductOverviewCard({ category }: ProductOverviewCardProps) {
   const imageUrl = getCategoryImageUrl(category.id);
+  const targetHref = category.customHref || `/products/${category.slug}`;
 
   return (
     <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden">
-      {/* Category Image Header */}
-      <div className="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden">
+      {/* Category Image Header - Clickable */}
+      <Link href={targetHref} className="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden block">
         <Image
           src={imageUrl}
           alt={category.categoryTitle}
@@ -25,7 +26,7 @@ export function ProductOverviewCard({ category }: ProductOverviewCardProps) {
           className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
         />
         {/* Soft gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent pointer-events-none" />
 
         {/* Category Number Badge */}
         <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
@@ -43,11 +44,11 @@ export function ProductOverviewCard({ category }: ProductOverviewCardProps) {
 
         {/* Category Title overlay at bottom of image */}
         <div className="absolute bottom-3 left-4 right-4 z-10">
-          <h3 className="type-h3 text-white drop-shadow-md">
+          <h3 className="type-h3 text-white drop-shadow-md group-hover:text-orange-200 transition-colors">
             {category.categoryTitle}
           </h3>
         </div>
-      </div>
+      </Link>
 
       {/* Card Body */}
       <div className="flex flex-col flex-grow p-5 sm:p-6 justify-between bg-white">
@@ -83,10 +84,14 @@ export function ProductOverviewCard({ category }: ProductOverviewCardProps) {
         {/* Action Button */}
         <div className="pt-4 border-t border-gray-100">
           <Link
-            href={`/products/${category.slug}`}
-            className="w-full inline-flex items-center justify-center gap-2 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn py-3 px-4 rounded-xl transition-colors duration-200 text-center"
+            href={targetHref}
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn py-3 px-4 rounded-xl transition-colors duration-200 text-center font-bold"
           >
-            <span>View All {category.products.length} Products</span>
+            <span>
+              {category.customHref
+                ? `Explore ${category.categoryTitle}`
+                : `View All ${category.products.length} Products`}
+            </span>
             <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
