@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { X, Send, Check, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
@@ -76,8 +76,14 @@ const itemVariants: Variants = {
   },
 };
 
+const emptySubscribe = () => () => {};
+
 export function FloatingContact() {
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [selectedInquiry, setSelectedInquiry] = useState(
     inquiryCategories[1].items[0].message
@@ -86,10 +92,6 @@ export function FloatingContact() {
     inquiryCategories[1].items[0].message
   );
   const drawerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Close when clicking outside drawer
   useEffect(() => {
