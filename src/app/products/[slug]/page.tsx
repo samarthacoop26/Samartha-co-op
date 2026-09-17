@@ -12,6 +12,7 @@ import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { Info } from "lucide-react";
+import { CategoryViewTracker } from "@/components/products/CategoryViewTracker";
 
 interface CategoryPageProps {
   params: Promise<{
@@ -70,6 +71,14 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   return (
     <div className="w-full bg-white text-[#0A1628] font-sans min-h-screen">
+      {/* ═══ 0. GA4 CATEGORY VIEW TRACKER ═══ */}
+      <CategoryViewTracker
+        id={category.id}
+        name={category.categoryTitle}
+        categoryNumber={category.categoryNumber}
+        productCount={category.products.length}
+      />
+
       {/* ═══ 1. CATEGORY HEADER (H1, BREADCRUMB, SUMMARY) ═══ */}
       <ProductCategoryHero
         categoryNumber={category.categoryNumber}

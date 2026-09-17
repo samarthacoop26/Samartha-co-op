@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Award, CheckCircle, Users, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackCtaClick } from "@/lib/analytics";
 
 const slides = [
   {
@@ -131,7 +132,10 @@ export function HeroSlider() {
               >
                 <button 
                   type="button"
-                  onClick={() => openQuoteModal({ title: "Request a Custom Quote" })}
+                  onClick={() => {
+                    trackCtaClick(slides[currentSlide].cta1.text, "Hero Slider", `Slide ${currentSlide + 1}: ${slides[currentSlide].title}`);
+                    openQuoteModal({ title: "Request a Custom Quote" });
+                  }}
                   className="w-full sm:w-auto bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-8 py-4 rounded-xl shadow-[0_8px_20px_rgba(255,107,0,0.3)] transition-all hover:-translate-y-1 flex items-center justify-center cursor-pointer"
                 >
                   {slides[currentSlide].cta1.text}

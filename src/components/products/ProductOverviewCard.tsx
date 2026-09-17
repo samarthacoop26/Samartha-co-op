@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Layers } from "lucide-react";
 import { ProductCategoryDetail, getCategoryImageUrl } from "@/data/productsData";
+import { trackCategoryCardClick } from "@/lib/analytics";
 
 interface ProductOverviewCardProps {
   category: ProductCategoryDetail;
@@ -14,10 +15,22 @@ export function ProductOverviewCard({ category }: ProductOverviewCardProps) {
   const imageUrl = getCategoryImageUrl(category.id);
   const targetHref = category.customHref || `/products/${category.slug}`;
 
+  const handleCardClick = () => {
+    trackCategoryCardClick({
+      id: category.id,
+      name: category.categoryTitle,
+      destination: targetHref,
+    });
+  };
+
   return (
     <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden">
       {/* Category Image Header - Clickable */}
-      <Link href={targetHref} className="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden block">
+      <Link
+        href={targetHref}
+        onClick={handleCardClick}
+        className="relative w-full aspect-[16/10] bg-gray-100 overflow-hidden block"
+      >
         <Image
           src={imageUrl}
           alt={category.categoryTitle}
@@ -85,6 +98,7 @@ export function ProductOverviewCard({ category }: ProductOverviewCardProps) {
         <div className="pt-4 border-t border-gray-100">
           <Link
             href={targetHref}
+            onClick={handleCardClick}
             className="w-full inline-flex items-center justify-center gap-2 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn py-3 px-4 rounded-xl transition-colors duration-200 text-center font-bold"
           >
             <span>

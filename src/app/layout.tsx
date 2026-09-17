@@ -8,6 +8,8 @@ import { QuoteModalProvider } from "@/context/QuoteModalContext";
 import { QuoteModal } from "@/components/common/QuoteModal";
 import { SmoothScroll } from "@/components/common/SmoothScroll";
 import { GlobalScrollAnimationProvider } from "@/components/common/MotionReveal";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { AnalyticsTracker } from "@/components/analytics/AnalyticsTracker";
 
 const archivo = Archivo({
   variable: "--font-archivo",
@@ -70,6 +72,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#0A1628] font-sans" suppressHydrationWarning>
+        <GoogleAnalytics />
+        <AnalyticsTracker />
         <SmoothScroll />
         <GlobalScrollAnimationProvider />
         <QuoteModalProvider>

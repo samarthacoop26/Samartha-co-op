@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, useRef, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
 import {
   Phone,
@@ -11,11 +11,15 @@ import {
   MapPin,
   ExternalLink,
   CheckCircle2,
+  AlertCircle,
   Loader2,
   ArrowRight,
   ShieldCheck,
 } from "lucide-react";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
+import { trackContactForm, trackDirectContact } from "@/lib/analytics";
+import { sendInquiry } from "@/app/actions/sendInquiry";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -29,12 +33,20 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const formStartedRef = useRef(false);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      trackContactForm("start", { companyName: formData.companyName });
+    }
+
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -60,12 +72,55 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!validateForm() || isSubmitting) return;
+    if (!validateForm()) {
+      trackContactForm("submit_error", {
+        companyName: formData.companyName,
+        errorMessage: "Validation failed",
+      });
+      return;
+    }
+    if (isSubmitting) return;
 
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setServerError(null);
+
+    try {
+      const result = await sendInquiry({
+        source: "homepage_form",
+        fullName: formData.fullName,
+        company: formData.companyName,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+      });
+
+      setIsSubmitting(false);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        trackContactForm("submit_success", {
+          companyName: formData.companyName,
+        });
+      } else {
+        setServerError(result.message);
+        if (result.errors) {
+          setErrors((prev) => ({ ...prev, ...result.errors }));
+        }
+        trackContactForm("submit_error", {
+          companyName: formData.companyName,
+          errorMessage: result.message,
+        });
+      }
+    } catch {
+      setIsSubmitting(false);
+      setServerError(
+        "An unexpected error occurred while sending your inquiry. Please try again or reach out to our team directly via phone or WhatsApp."
+      );
+      trackContactForm("submit_error", {
+        companyName: formData.companyName,
+        errorMessage: "Network error",
+      });
+    }
   };
 
   const { sales, quotations } = CONTACT_CONFIG.departments;
@@ -135,45 +190,63 @@ export default function ContactPage() {
                   Fill out the form below and our leadership team will respond with competitive rates and engineering details within 24 hours.
                 </p>
 
-                {isSubmitted ? (
-                  <div className="py-14 text-center space-y-5">
-                    <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto">
-                      <CheckCircle2 size={36} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-[#0A1628]">
-                      Inquiry Sent Successfully
-                    </h3>
-                    <p className="text-sm text-gray-500 max-w-sm mx-auto leading-relaxed">
-                      Thank you,{" "}
-                      <span className="font-semibold text-[#0A1628]">
-                        {formData.fullName}
-                      </span>
-                      . We have received your message and our team will get in
-                      touch promptly.
-                    </p>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsSubmitted(false);
-                        setFormData({
-                          fullName: "",
-                          companyName: "",
-                          phone: "",
-                          email: "",
-                          message: "",
-                        });
-                      }}
-                      className="mt-2 px-7 py-2.5 text-sm font-semibold bg-[#0A1628] hover:bg-gray-800 text-white rounded-md transition-colors cursor-pointer"
+                <AnimatePresence mode="wait">
+                  {isSubmitted ? (
+                    <motion.div
+                      key="inquiry-success"
+                      initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                      transition={{ duration: 0.3 }}
+                      className="py-14 text-center space-y-5"
                     >
-                      Send Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form
-                    onSubmit={handleSubmit}
-                    noValidate
-                    className="space-y-5"
-                  >
+                      <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto">
+                        <CheckCircle2 size={36} />
+                      </div>
+                      <h3 className="text-2xl font-bold text-[#0A1628]">
+                        Inquiry Sent Successfully
+                      </h3>
+                      <p className="text-sm text-gray-500 max-w-sm mx-auto leading-relaxed">
+                        Thank you,{" "}
+                        <span className="font-semibold text-[#0A1628]">
+                          {formData.fullName}
+                        </span>
+                        . We have received your inquiry and our leadership team will respond with competitive rates and engineering details within 24 hours.
+                      </p>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsSubmitted(false);
+                          setFormData({
+                            fullName: "",
+                            companyName: "",
+                            phone: "",
+                            email: "",
+                            message: "",
+                          });
+                        }}
+                        className="mt-2 px-7 py-2.5 text-sm font-semibold bg-[#0A1628] hover:bg-gray-800 text-white rounded-md transition-colors cursor-pointer"
+                      >
+                        Send Another Inquiry
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <motion.form
+                      key="inquiry-form"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      onSubmit={handleSubmit}
+                      noValidate
+                      className="space-y-5"
+                    >
+                      {serverError && (
+                        <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-xs sm:text-sm text-red-700 flex items-start gap-2.5">
+                          <AlertCircle className="w-5 h-5 shrink-0 text-red-600 mt-0.5" />
+                          <span>{serverError}</span>
+                        </div>
+                      )}
                     {/* Row 1 */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <FormField
@@ -274,8 +347,9 @@ export default function ContactPage() {
                         Direct response from our leadership team.
                       </p>
                     </div>
-                  </form>
-                )}
+                    </motion.form>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Trust Strip */}
@@ -304,11 +378,23 @@ export default function ContactPage() {
                     label="Mobile & WhatsApp"
                     value={sales.phoneDisplay}
                     href={`tel:${sales.phone}`}
+                    onClick={() =>
+                      trackDirectContact("phone", {
+                        location: "Contact Page Key Contact",
+                        value: sales.phone,
+                      })
+                    }
                     action={
                       <a
                         href={`https://wa.me/${sales.whatsapp}?text=${encodeURIComponent("Hi Vishal Sir, I would like to inquire about PP/FRP products.")}`}
                         target="_blank"
                         rel="noopener noreferrer"
+                        onClick={() =>
+                          trackDirectContact("whatsapp", {
+                            location: "Contact Page Key Contact",
+                            value: sales.whatsapp,
+                          })
+                        }
                         className="inline-flex items-center gap-1 px-2 py-1 bg-green-50 hover:bg-green-100 text-green-700 text-[11px] font-semibold rounded border border-green-200/60 transition-colors"
                         title="Chat on WhatsApp"
                       >
@@ -322,18 +408,36 @@ export default function ContactPage() {
                     label="Inquiries & Quotations Mobile"
                     value={quotations.phoneDisplay}
                     href={`tel:${quotations.phone}`}
+                    onClick={() =>
+                      trackDirectContact("phone", {
+                        location: "Contact Page Quotations Mobile",
+                        value: quotations.phone,
+                      })
+                    }
                   />
                   <ContactRow
                     icon={<Mail size={16} className="text-[#FF6B00]" />}
                     label="Official Email"
                     value={sales.email}
                     href={`mailto:${sales.email}`}
+                    onClick={() =>
+                      trackDirectContact("email", {
+                        location: "Contact Page Official Email",
+                        value: sales.email,
+                      })
+                    }
                   />
                   <ContactRow
                     icon={<Mail size={16} className="text-[#FF6B00]" />}
                     label="Inquiries & Quotations Email"
                     value={CONTACT_CONFIG.secondaryEmail}
                     href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
+                    onClick={() =>
+                      trackDirectContact("email", {
+                        location: "Contact Page Quotations Email",
+                        value: CONTACT_CONFIG.secondaryEmail,
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -444,6 +548,12 @@ export default function ContactPage() {
                       href={loc.googleMapsDirectionsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackDirectContact("maps", {
+                          location: `Contact Page Map - ${loc.name}`,
+                          value: loc.googleMapsDirectionsUrl,
+                        })
+                      }
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#FF6B00] hover:bg-[#e66000] text-white text-xs font-semibold transition-colors shadow-xs"
                     >
                       <MapPin size={13} />
@@ -515,6 +625,7 @@ function ContactRow({
   href,
   external,
   action,
+  onClick,
 }: {
   icon: React.ReactNode;
   label: string;
@@ -522,6 +633,7 @@ function ContactRow({
   href: string;
   external?: boolean;
   action?: React.ReactNode;
+  onClick?: () => void;
 }) {
   return (
     <div className="flex items-center justify-between gap-2">
@@ -535,6 +647,7 @@ function ContactRow({
           </p>
           <a
             href={href}
+            onClick={onClick}
             {...(external
               ? { target: "_blank", rel: "noopener noreferrer" }
               : {})}

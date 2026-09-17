@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackProductQuoteClick } from "@/lib/analytics";
 
 export interface BoatModel {
   id: string;
@@ -230,6 +231,13 @@ export function BoatFleetCatalog() {
   const { openQuoteModal } = useQuoteModal();
 
   const handleRequestQuote = (boat: BoatModel) => {
+    trackProductQuoteClick({
+      id: boat.id,
+      name: boat.name,
+      categoryName: "FRP Boats",
+      source: "boat_grid",
+    });
+
     openQuoteModal({
       productName: boat.name,
       title: `RFQ: ${boat.name}`,

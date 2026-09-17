@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { Search, Layers, Download } from "lucide-react";
 import { PRODUCT_CATALOG } from "@/data/productsData";
 import { ProductOverviewCard } from "@/components/products/ProductOverviewCard";
+import { trackCatalogSearch, trackBrochureDownload } from "@/lib/analytics";
 
 export function ProductsCatalogClient() {
   const [searchQuery, setSearchQuery] = useState("");
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Filter categories and products by search query
   const filteredCategories = useMemo(() => {
@@ -26,6 +28,23 @@ export function ProductsCatalogClient() {
       return matchTitle || matchDesc || matchBadge || matchProduct;
     });
   }, [searchQuery]);
+
+  // Debounce search query analytics
+  useEffect(() => {
+    if (!searchQuery.trim()) return;
+
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    searchTimeoutRef.current = setTimeout(() => {
+      trackCatalogSearch(searchQuery, filteredCategories.length);
+    }, 800);
+
+    return () => {
+      if (searchTimeoutRef.current) clearTimeout(searchTimeoutRef.current);
+    };
+  }, [searchQuery, filteredCategories.length]);
 
   return (
     <div>
@@ -58,6 +77,7 @@ export function ProductsCatalogClient() {
               href="/samarth-brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackBrochureDownload("Products Catalog Bar")}
               className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-orange-50 border border-orange-200 hover:bg-[#FF6B00] text-[#FF6B00] hover:text-white text-xs font-bold transition-all group"
               title="Download full Samarth Corporation Technical Catalog Brochure (PDF)"
             >

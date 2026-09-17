@@ -2,7 +2,9 @@
 
 import { useState, ChangeEvent, FormEvent } from "react";
 import { CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
+import { sendInquiry } from "@/app/actions/sendInquiry";
 
 interface FormValues {
   fullName: string;
@@ -24,6 +26,7 @@ export function RFQContactForm() {
   const [formData, setFormData] = useState<FormValues>(initialFormValues);
   const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({});
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [serverError, setServerError] = useState<string | null>(null);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -71,12 +74,30 @@ export function RFQContactForm() {
     if (!validateForm() || formState === "submitting") return;
 
     setFormState("submitting");
+    setServerError(null);
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 800));
-      setFormState("success");
+      const result = await sendInquiry({
+        source: "homepage_form",
+        fullName: formData.fullName,
+        company: formData.companyName,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+      });
+
+      if (result.success) {
+        setFormState("success");
+      } else {
+        setFormState("error");
+        setServerError(result.message);
+        if (result.errors) {
+          setErrors((prev) => ({ ...prev, ...result.errors }));
+        }
+      }
     } catch {
       setFormState("error");
+      setServerError("An unexpected error occurred. Please try again or contact us directly.");
     }
   };
 
@@ -84,6 +105,7 @@ export function RFQContactForm() {
     setFormData(initialFormValues);
     setErrors({});
     setFormState("idle");
+    setServerError(null);
   };
 
   return (
@@ -94,36 +116,52 @@ export function RFQContactForm() {
           Send an Inquiry
         </h2>
         <p className="type-subheading text-sm text-gray-600 mt-1">
-          Fill out the form below and our engineering team will get back to you with pricing and technical details.
+          Fill out the form below and our engineering team will get back to you with pricing and technical details within 24 hours.
         </p>
       </div>
 
-      {formState === "success" ? (
-        <div className="py-12 px-4 text-center max-w-lg mx-auto">
-          <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <CheckCircle2 className="w-8 h-8" />
-          </div>
-          <h3 className="type-h2 text-2xl text-[#0A1628]">Inquiry Sent Successfully</h3>
-          <p className="type-body text-sm text-gray-600 mt-2">
-            Thank you, <span className="font-semibold">{formData.fullName}</span>. We have received your message and our team will get in touch with you within 24 hours.
-          </p>
-          <button
-            type="button"
-            onClick={handleReset}
-            className="mt-6 inline-flex items-center justify-center px-6 py-3 type-btn text-xs bg-[#0A1628] hover:bg-gray-800 text-white rounded-xl transition-colors cursor-pointer"
+      <AnimatePresence mode="wait">
+        {formState === "success" ? (
+          <motion.div
+            key="rfq-success"
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="py-12 px-4 text-center max-w-lg mx-auto"
           >
-            Send Another Inquiry
-          </button>
-        </div>
-      ) : (
-        <form onSubmit={handleSubmit} noValidate className="space-y-5">
-          
-          {formState === "error" && (
-            <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
-              <span>An error occurred while sending your inquiry. Please try again or contact us directly.</span>
+            <div className="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <CheckCircle2 className="w-8 h-8" />
             </div>
-          )}
+            <h3 className="type-h2 text-2xl text-[#0A1628]">Inquiry Sent Successfully</h3>
+            <p className="type-body text-sm text-gray-600 mt-2">
+              Thank you, <span className="font-semibold">{formData.fullName}</span>. We have received your message and our team will get in touch with you within 24 hours.
+            </p>
+            <button
+              type="button"
+              onClick={handleReset}
+              className="mt-6 inline-flex items-center justify-center px-6 py-3 type-btn text-xs bg-[#0A1628] hover:bg-gray-800 text-white rounded-xl transition-colors cursor-pointer"
+            >
+              Send Another Inquiry
+            </button>
+          </motion.div>
+        ) : (
+          <motion.form
+            key="rfq-form"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onSubmit={handleSubmit}
+            noValidate
+            className="space-y-5"
+          >
+            {formState === "error" && (
+              <div className="p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 shrink-0 text-red-600 mt-0.5" />
+                <span>{serverError || "An error occurred while sending your inquiry. Please try again or contact us directly."}</span>
+              </div>
+            )}
 
           {/* Row 1: Full Name & Company Name */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -249,8 +287,9 @@ export function RFQContactForm() {
             </p>
           </div>
 
-        </form>
+        </motion.form>
       )}
+    </AnimatePresence>
 
     </div>
   );

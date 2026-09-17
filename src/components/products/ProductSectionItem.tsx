@@ -17,6 +17,7 @@ import {
   getProductSubheading,
 } from "@/data/productsData";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackProductQuoteClick, trackProductGallerySwitch } from "@/lib/analytics";
 
 interface ProductSectionItemProps {
   product: ProductItem;
@@ -56,15 +57,26 @@ export function ProductSectionItem({
 
   const handlePrev = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setActiveIdx((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    const nextIdx = activeIdx === 0 ? images.length - 1 : activeIdx - 1;
+    setActiveIdx(nextIdx);
+    trackProductGallerySwitch(product.name, nextIdx);
   };
 
   const handleNext = (e: React.MouseEvent) => {
     e.stopPropagation();
-    setActiveIdx((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    const nextIdx = activeIdx === images.length - 1 ? 0 : activeIdx + 1;
+    setActiveIdx(nextIdx);
+    trackProductGallerySwitch(product.name, nextIdx);
   };
 
   const handleRequestQuote = () => {
+    trackProductQuoteClick({
+      id: product.id,
+      name: product.name,
+      categoryName: categoryName || product.categoryName,
+      source: "product_section",
+    });
+
     openQuoteModal({
       productName: product.name,
       title: `RFQ: ${product.name}`,
@@ -195,6 +207,7 @@ export function ProductSectionItem({
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveIdx(idx);
+                      trackProductGallerySwitch(product.name, idx);
                     }}
                     aria-label={`Switch to image ${idx + 1}`}
                     className={`relative w-8 h-8 rounded-md overflow-hidden border transition-all duration-200 cursor-pointer shrink-0 ${

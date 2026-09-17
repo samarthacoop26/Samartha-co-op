@@ -1,5 +1,8 @@
+"use client";
+
 import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
 import { CONTACT_CONFIG } from '@/data/contactConfig';
+import { trackDirectContact } from '@/lib/analytics';
 
 export function Topbar() {
   const workshop = CONTACT_CONFIG.locations[1];
@@ -11,7 +14,13 @@ export function Topbar() {
       <div className="flex items-center gap-2.5 sm:gap-6 flex-wrap">
         {/* Official Email */}
         <a 
-          href={`mailto:${CONTACT_CONFIG.email}`} 
+          href={`mailto:${CONTACT_CONFIG.email}`}
+          onClick={() =>
+            trackDirectContact('email', {
+              location: 'Topbar',
+              value: CONTACT_CONFIG.email,
+            })
+          }
           className="group flex items-center gap-1.5 text-gray-200 hover:text-[#FF6B00] transition-colors py-0.5 font-medium"
           title={`Email us at ${CONTACT_CONFIG.email}`}
         >
@@ -21,7 +30,13 @@ export function Topbar() {
         
         {/* Phone */}
         <a 
-          href={`tel:${CONTACT_CONFIG.contacts.vishal.phone}`} 
+          href={`tel:${CONTACT_CONFIG.contacts.vishal.phone}`}
+          onClick={() =>
+            trackDirectContact('phone', {
+              location: 'Topbar',
+              value: CONTACT_CONFIG.contacts.vishal.phone,
+            })
+          }
           className="group flex items-center gap-1.5 text-gray-300 hover:text-[#FF6B00] transition-colors py-0.5 font-medium"
           title={`Call ${CONTACT_CONFIG.contacts.vishal.name} (${CONTACT_CONFIG.contacts.vishal.phoneDisplay})`}
         >
@@ -41,6 +56,12 @@ export function Topbar() {
               href={workshop.googleMapsDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackDirectContact('maps', {
+                  location: 'Topbar - Workshop',
+                  value: workshop.googleMapsDirectionsUrl,
+                })
+              }
               className="group inline-flex items-center gap-1.5 text-gray-300 hover:text-[#FF6B00] transition-colors py-0.5 px-1.5 rounded hover:bg-white/5 cursor-pointer font-semibold"
               title="Open MIDC Taloja Workshop on Google Maps (Directions & Location)"
             >
@@ -57,6 +78,12 @@ export function Topbar() {
               href={regdOffice.googleMapsDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackDirectContact('maps', {
+                  location: 'Topbar - Regd Office',
+                  value: regdOffice.googleMapsDirectionsUrl,
+                })
+              }
               className="group inline-flex items-center gap-1.5 text-gray-300 hover:text-[#FF6B00] transition-colors py-0.5 px-1.5 rounded hover:bg-white/5 cursor-pointer font-semibold"
               title="Open Dombivli East Registered Office on Google Maps (Directions & Location)"
             >

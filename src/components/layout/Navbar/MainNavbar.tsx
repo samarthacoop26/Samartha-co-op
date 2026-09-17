@@ -15,6 +15,7 @@ import {
   PRODUCT_CATEGORIES_DATA,
 } from "@/data/productsNavData";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackCtaClick } from "@/lib/analytics";
 
 export function MainNavbar() {
   const { openQuoteModal } = useQuoteModal();
@@ -135,7 +136,10 @@ export function MainNavbar() {
         <div className="flex items-center gap-4 md:gap-6">
           <button
             type="button"
-            onClick={() => openQuoteModal()}
+            onClick={() => {
+              trackCtaClick("GET A QUOTE", "Navbar Desktop");
+              openQuoteModal({ title: "Request a Custom Quote" });
+            }}
             className="hidden sm:inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white px-6 py-2.5 type-btn text-xs rounded-xl transition-all duration-300 ease-out transform hover:-translate-y-0.5 hover:shadow-[0_4px_20px_-4px_rgba(255,107,0,0.5)] group cursor-pointer"
           >
             <span>GET A QUOTE</span>
@@ -257,7 +261,8 @@ export function MainNavbar() {
               type="button"
               onClick={() => {
                 setMobileMenuOpen(false);
-                openQuoteModal();
+                trackCtaClick("GET A QUOTE", "Navbar Mobile");
+                openQuoteModal({ title: "Request a Custom Quote" });
               }}
               className="w-full flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white py-3.5 type-btn text-xs rounded-xl transition-colors cursor-pointer"
             >

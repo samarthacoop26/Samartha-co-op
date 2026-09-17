@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight, Layers } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { getCategoryImageUrl } from "@/data/productsData";
+import { trackCtaClick } from "@/lib/analytics";
 
 interface ProductCategoryHeroProps {
   categoryNumber: string;
@@ -73,12 +74,16 @@ export function ProductCategoryHero({
           <div className="mt-8 flex flex-wrap items-center gap-3.5">
             <button
               type="button"
-              onClick={() =>
+              onClick={() => {
+                trackCtaClick(
+                  `Request Category Pricing: ${categoryTitle}`,
+                  "ProductCategoryHero"
+                );
                 openQuoteModal({
                   title: `Quote Request: ${categoryTitle}`,
                   message: `I need technical sizing, specifications, and pricing for ${categoryTitle} products.`,
-                })
-              }
+                });
+              }}
               className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-6 py-3.5 rounded-xl shadow-md hover:shadow-orange-500/25 transition-all cursor-pointer group"
             >
               <span>Request Category Pricing</span>

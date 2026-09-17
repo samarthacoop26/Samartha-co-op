@@ -1,8 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
 import { X, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackModalForm } from "@/lib/analytics";
+import { sendInquiry } from "@/app/actions/sendInquiry";
 
 const PRODUCT_OPTIONS = [
   "Gratings, Walkways & Platforms",
@@ -41,8 +44,11 @@ export function QuoteModal() {
   const [formData, setFormData] = useState<FormValues>(initialFormValues);
   const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({});
   const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [serverError, setServerError] = useState<string | null>(null);
 
-  // Sync modalData when opening
+  const formStartedRef = useRef(false);
+
+  // Sync modalData and track open
   useEffect(() => {
     if (isOpen) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -52,7 +58,15 @@ export function QuoteModal() {
         message: modalData.message || prev.message,
       }));
       setFormState("idle");
+      setServerError(null);
       setErrors({});
+      formStartedRef.current = false;
+
+      // Track modal open event
+      trackModalForm("open", {
+        productName: modalData.productName || "General Inquiry",
+        triggerSource: modalData.title || "Website Quote Button",
+      });
     }
   }, [isOpen, modalData]);
 
@@ -72,18 +86,32 @@ export function QuoteModal() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
+        trackModalForm("close", {
+          productName: formData.product,
+          triggerSource: "Escape Key",
+        });
         closeQuoteModal();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, closeQuoteModal]);
+  }, [isOpen, closeQuoteModal, formData.product]);
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
+    // Track when user first starts filling the form
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      trackModalForm("start", {
+        productName: formData.product,
+        triggerSource: modalData.title,
+      });
+    }
+
     if (errors[name as keyof FormValues]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -121,14 +149,56 @@ export function QuoteModal() {
     if (!validateForm() || formState === "submitting") return;
 
     setFormState("submitting");
+    setServerError(null);
 
     try {
-      // Simulate submission delay
-      await new Promise((resolve) => setTimeout(resolve, 600));
-      setFormState("success");
+      const result = await sendInquiry({
+        source: "quote_modal",
+        fullName: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        productCategory: formData.product,
+        message: formData.message,
+      });
+
+      if (result.success) {
+        setFormState("success");
+
+        // Track successful submission and lead generation
+        trackModalForm("submit_success", {
+          productName: formData.product,
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          triggerSource: modalData.title,
+        });
+      } else {
+        setFormState("error");
+        setServerError(result.message);
+        if (result.errors) {
+          setErrors((prev) => ({ ...prev, ...result.errors }));
+        }
+        trackModalForm("submit_error", {
+          productName: formData.product,
+          errorMessage: result.message,
+        });
+      }
     } catch {
       setFormState("error");
+      setServerError("An unexpected error occurred. Please try again or reach out to us directly.");
+      trackModalForm("submit_error", {
+        productName: formData.product,
+        errorMessage: "Network or submission error",
+      });
     }
+  };
+
+  const handleModalClose = () => {
+    trackModalForm("close", {
+      productName: formData.product,
+      triggerSource: "Close Button / Backdrop",
+    });
+    closeQuoteModal();
   };
 
   const handleResetAndClose = () => {
@@ -145,7 +215,7 @@ export function QuoteModal() {
       role="dialog"
       aria-modal="true"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs overflow-y-auto animate-in fade-in duration-150"
-      onClick={closeQuoteModal}
+      onClick={handleModalClose}
     >
       <div
         onClick={(e) => e.stopPropagation()}
@@ -178,7 +248,7 @@ export function QuoteModal() {
             {/* Close Button */}
             <button
               type="button"
-              onClick={closeQuoteModal}
+              onClick={handleModalClose}
               className="p-1.5 bg-white/10 hover:bg-white/20 text-slate-200 hover:text-white rounded-lg transition-colors cursor-pointer shrink-0 mt-0.5"
               aria-label="Close"
             >
@@ -189,35 +259,58 @@ export function QuoteModal() {
 
         {/* ── Body ── */}
         <div className="p-6">
-          {formState === "success" ? (
-            <div className="py-6 text-center">
-              <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3.5">
-                <CheckCircle2 className="w-8 h-8" />
-              </div>
-              <h4 className="type-h3 text-lg text-gray-900">
-                Inquiry Sent Successfully!
-              </h4>
-              <p className="type-body text-sm text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
-                Thank you, <strong className="text-gray-900">{formData.fullName}</strong>. We have received your request and will get back to you with pricing and specifications soon.
-              </p>
-              <div className="mt-6">
-                <button
-                  type="button"
-                  onClick={handleResetAndClose}
-                  className="px-6 py-2.5 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn rounded-lg transition-colors cursor-pointer"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} noValidate className="space-y-4">
-              {formState === "error" && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700 flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
-                  <span>An error occurred. Please try again or contact us directly.</span>
+          <AnimatePresence mode="wait">
+            {formState === "success" ? (
+              <motion.div
+                key="success-view"
+                initial={{ opacity: 0, scale: 0.95, y: 8 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -8 }}
+                transition={{ duration: 0.25 }}
+                className="py-6 text-center"
+              >
+                <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3.5">
+                  <CheckCircle2 className="w-8 h-8" />
                 </div>
-              )}
+                <h4 className="type-h3 text-lg text-gray-900">
+                  Inquiry Sent Successfully!
+                </h4>
+                <p className="type-body text-sm text-gray-600 mt-2 max-w-sm mx-auto leading-relaxed">
+                  Thank you, <strong className="text-gray-900">{formData.fullName}</strong>. We have received your request and our engineering team will get back to you with pricing and technical specifications within 24 hours.
+                </p>
+                <div className="mt-6">
+                  <button
+                    type="button"
+                    onClick={handleResetAndClose}
+                    className="px-6 py-2.5 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn rounded-lg transition-colors cursor-pointer"
+                  >
+                    Close
+                  </button>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.form
+                key="rfq-form"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                onSubmit={handleSubmit}
+                noValidate
+                className="space-y-4"
+              >
+                {formState === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-3 bg-red-50 border border-red-200 rounded-lg text-xs text-red-700 flex items-start gap-2"
+                  >
+                    <AlertCircle className="w-4 h-4 shrink-0 text-red-600 mt-0.5" />
+                    <span>
+                      {serverError || "An error occurred while sending your inquiry. Please try again or contact us directly."}
+                    </span>
+                  </motion.div>
+                )}
 
               {/* Name */}
               <div>
@@ -372,8 +465,9 @@ export function QuoteModal() {
                   )}
                 </button>
               </div>
-            </form>
-          )}
+            </motion.form>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </div>

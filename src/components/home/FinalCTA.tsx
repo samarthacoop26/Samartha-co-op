@@ -2,6 +2,7 @@
 
 import { ArrowRight, Download } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackCtaClick, trackBrochureDownload } from "@/lib/analytics";
 
 export function FinalCTA() {
   const { openQuoteModal } = useQuoteModal();
@@ -38,7 +39,10 @@ export function FinalCTA() {
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0">
             <button
               type="button"
-              onClick={() => openQuoteModal({ title: "Request a Project Quote" })}
+              onClick={() => {
+                trackCtaClick("REQUEST A QUOTE", "FinalCTA");
+                openQuoteModal({ title: "Request a Project Quote" });
+              }}
               className="inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#e66000] text-white type-btn px-8 py-4 rounded-xl shadow-lg hover:shadow-orange-500/25 transition-all duration-200 group text-center cursor-pointer"
             >
               <span>REQUEST A QUOTE</span>
@@ -49,6 +53,7 @@ export function FinalCTA() {
               href="/samarth-brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackBrochureDownload("FinalCTA")}
               className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 type-btn px-7 py-4 rounded-xl backdrop-blur-md transition-all duration-200 group text-center cursor-pointer"
               title="Download & View Samarth Corporation Product Brochure (PDF)"
             >

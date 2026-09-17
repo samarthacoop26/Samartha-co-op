@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackProductQuoteClick } from "@/lib/analytics";
 
 export interface PoolModel {
   id: string;
@@ -224,6 +225,13 @@ export function PoolModelsGrid() {
   const { openQuoteModal } = useQuoteModal();
 
   const handleRequestQuote = (pool: PoolModel) => {
+    trackProductQuoteClick({
+      id: pool.id,
+      name: pool.name,
+      categoryName: "FRP Swimming Pools",
+      source: "pool_grid",
+    });
+
     openQuoteModal({
       productName: pool.name,
       title: `RFQ: ${pool.name}`,

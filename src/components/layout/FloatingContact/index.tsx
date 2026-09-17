@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { X, Send, Check, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
+import { trackDirectContact, trackCtaClick } from "@/lib/analytics";
 
 const WHATSAPP_PHONE = CONTACT_CONFIG.departments.sales.whatsapp;
 
@@ -110,6 +111,11 @@ export function FloatingContact() {
 
   const handleSend = (textToSend?: string) => {
     const text = (textToSend || customMessage || selectedInquiry).trim();
+    trackDirectContact("whatsapp", {
+      location: "Floating Widget Drawer",
+      value: WHATSAPP_PHONE,
+      inquiryTopic: text,
+    });
     const encoded = encodeURIComponent(text);
     window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`, "_blank");
     setIsDrawerOpen(false);
@@ -331,7 +337,11 @@ export function FloatingContact() {
 
             {/* Main Button — clean hover/tap, ambient glow only */}
             <motion.button
-              onClick={() => setIsDrawerOpen((prev) => !prev)}
+              onClick={() => {
+                const nextState = !isDrawerOpen;
+                trackCtaClick("Floating WhatsApp Button", "Floating Contact", nextState ? "Open" : "Close");
+                setIsDrawerOpen(nextState);
+              }}
               aria-label="Open WhatsApp Chat"
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.93 }}

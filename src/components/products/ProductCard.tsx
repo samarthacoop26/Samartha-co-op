@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, CheckCircle2, ShieldCheck, Factory } from "lucide-react";
 import { ProductItem } from "@/data/productsData";
 import { useQuoteModal } from "@/context/QuoteModalContext";
+import { trackProductQuoteClick, trackProductGallerySwitch } from "@/lib/analytics";
 
 interface ProductCardProps {
   product: ProductItem;
@@ -22,6 +23,13 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
   const [activeIdx, setActiveIdx] = React.useState(0);
 
   const handleEnquire = () => {
+    trackProductQuoteClick({
+      id: product.id,
+      name: product.name,
+      categoryName: product.categoryName,
+      source: "product_card",
+    });
+
     openQuoteModal({
       productName: product.name,
       title: `RFQ: ${product.name}`,
@@ -81,6 +89,7 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveIdx(idx);
+                      trackProductGallerySwitch(product.name, idx);
                     }}
                     aria-label={`Show image ${idx + 1}`}
                     className={`w-2 h-2 rounded-full transition-all cursor-pointer ${

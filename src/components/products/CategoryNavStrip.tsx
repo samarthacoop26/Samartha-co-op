@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { trackCtaClick } from "@/lib/analytics";
 
 interface CategoryNavStripProps {
   currentCategorySlug?: string;
@@ -115,6 +116,9 @@ export function CategoryNavStrip({ currentCategorySlug, className = "" }: Catego
       <Link
         key={item.id}
         href={item.href}
+        onClick={() =>
+          trackCtaClick(`Category Tab: ${item.name}`, "CategoryNavStrip", item.href)
+        }
         className={`relative inline-flex items-center justify-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap select-none group border ${
           isActive
             ? "bg-[#FF6B00] border-[#FF6B00] text-white shadow-md shadow-[#FF6B00]/30 ring-2 ring-[#FF6B00]/20 scale-[1.02]"
