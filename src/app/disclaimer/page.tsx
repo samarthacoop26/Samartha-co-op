@@ -5,10 +5,15 @@ import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import { SITE_URL } from "@/lib/seoData";
+
 export const metadata: Metadata = {
-  title: `Website & Product Disclaimer | ${CONTACT_CONFIG.companyName}`,
+  title: "Engineering & Product Disclaimer | Samarth Corporation",
   description:
-    `Official product, engineering, and website disclaimer for ${CONTACT_CONFIG.companyName} (${CONTACT_CONFIG.registeredName}).`,
+    "Official engineering, technical testing, load rating, and website disclaimer for composite product specifications published by Samarth Corporation.",
+  alternates: {
+    canonical: `${SITE_URL}/disclaimer`,
+  },
 };
 
 export default function DisclaimerPage() {

@@ -3,10 +3,15 @@ import type { Metadata } from "next";
 import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
+import { SITE_URL } from "@/lib/seoData";
+
 export const metadata: Metadata = {
-  title: `Terms & Conditions | ${CONTACT_CONFIG.companyName}`,
+  title: "Terms & Conditions | Commercial Supply | Samarth Corp",
   description:
-    `Terms and Conditions governing the use of ${CONTACT_CONFIG.companyName} website, quotations, BOQ submissions, and composite engineering product inquiries.`,
+    "Terms and conditions governing engineering quotation requests, BOQ specifications, and composite supply contracts with Samarth Corporation in India.",
+  alternates: {
+    canonical: `${SITE_URL}/terms-and-conditions`,
+  },
 };
 
 export default function TermsAndConditionsPage() {

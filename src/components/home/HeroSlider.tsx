@@ -172,7 +172,7 @@ export function HeroSlider() {
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <Award className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl type-h3">25+ Years</h3>
+              <p className="text-white font-bold text-lg md:text-xl type-h3">25+ Years</p>
               <p className="text-gray-400 text-sm mt-1 type-footer">of Excellence</p>
             </div>
             
@@ -181,7 +181,7 @@ export function HeroSlider() {
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <CheckCircle className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl type-h3">Govt. Approved</h3>
+              <p className="text-white font-bold text-lg md:text-xl type-h3">Govt. Approved</p>
               <p className="text-gray-400 text-sm mt-1 type-footer">Vendor Listed</p>
             </div>
             
@@ -190,7 +190,7 @@ export function HeroSlider() {
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <Users className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl type-h3">1000+ Clients</h3>
+              <p className="text-white font-bold text-lg md:text-xl type-h3">1000+ Clients</p>
               <p className="text-gray-400 text-sm mt-1 type-footer">Served</p>
             </div>
             
@@ -199,11 +199,18 @@ export function HeroSlider() {
               <div className="mb-2 bg-white/5 p-3 rounded-full group-hover:bg-[#FF6B00]/20 transition-colors">
                 <MapPin className="w-6 h-6 text-[#FF6B00]" />
               </div>
-              <h3 className="text-white font-bold text-lg md:text-xl type-h3">Pan-India</h3>
+              <p className="text-white font-bold text-lg md:text-xl type-h3">Pan-India</p>
               <p className="text-gray-400 text-sm mt-1 type-footer">Delivery Network</p>
             </div>
             
           </div>
+        </div>
+
+        {/* Explicit Pan-India Service Area Body Copy for Answer Engines & Local Search */}
+        <div className="border-t border-white/10 bg-[#121222] py-3.5 px-6 text-center">
+          <p className="text-xs sm:text-[13px] text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <strong className="text-white font-semibold">Pan-India Delivery &amp; Turnkey Supply:</strong> Direct factory dispatch of PP &amp; FRP chemical tanks, scrubbers, blowers, M.S. lining, and thermoplastic pipeline systems from our Dombivli registered office and MIDC Taloja works to chemical, pharmaceutical, defence, and municipal infrastructure projects nationwide.
+          </p>
         </div>
       </div>
     </section>

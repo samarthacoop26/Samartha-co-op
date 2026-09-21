@@ -111,7 +111,7 @@ function PoolProductCard({
             <Image
               key={img}
               src={img}
-              alt={`${pool.name} - View ${idx + 1}`}
+              alt={`${pool.name} — Monolithic Composite Pool (View ${idx + 1})`}
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
               className={`object-cover transition-all duration-700 ease-in-out group-hover/img:scale-105 ${
@@ -252,7 +252,7 @@ export function PoolModelsGrid() {
               <span>Precision Monolithic Shells</span>
             </div>
             <h2 className="type-h2 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A1628] tracking-tight">
-              FRP Swimming Pools
+              Prefabricated Monolithic FRP Swimming Pool Models &amp; Dimensions
             </h2>
             <p className="type-subheading text-gray-600 text-sm sm:text-base mt-2 max-w-3xl">
               Engineered for seamless inground, rooftop, and above-ground

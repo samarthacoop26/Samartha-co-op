@@ -14,6 +14,15 @@ import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { Info } from "lucide-react";
 import { CategoryViewTracker } from "@/components/products/CategoryViewTracker";
 
+import {
+  SITE_URL,
+  CATEGORY_SEO_MAP,
+  getProductCategorySchema,
+  getBreadcrumbSchema,
+} from "@/lib/seoData";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { RelatedCategories } from "@/components/products/RelatedCategories";
+
 interface CategoryPageProps {
   params: Promise<{
     slug: string;
@@ -46,13 +55,42 @@ export async function generateMetadata({
     };
   }
 
+  const categorySeo = CATEGORY_SEO_MAP[category.slug];
+  const title = categorySeo?.title || `${category.categoryTitle} Manufacturer India | Samarth Corp`;
+  const description =
+    categorySeo?.description ||
+    `${category.heroDescription || category.shortDescription} Manufactured to IS/BS/ASTM standards across India by Samarth Corporation.`;
+  const canonicalUrl = `${SITE_URL}/products/${category.slug}`;
+  const firstImage = category.products[0]?.images?.[0] || "/images/contact-hero.jpg";
+  const ogImageUrl = firstImage.startsWith("http") ? firstImage : `${SITE_URL}${firstImage}`;
+
   return {
-    title: `${category.categoryTitle} | FRP Products | ${CONTACT_CONFIG.companyName}`,
-    description: `${category.heroDescription} Verified manufacturing and direct supply across India by Samarth Corporation.`,
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
-      title: `${category.categoryTitle} | ${CONTACT_CONFIG.companyName}`,
-      description: category.shortDescription,
+      title,
+      description,
+      url: canonicalUrl,
       type: "website",
+      locale: "en_IN",
+      siteName: "Samarth Corporation",
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${category.categoryTitle} - Samarth Corporation`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImageUrl],
     },
   };
 }
@@ -69,8 +107,16 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     redirect(category.customHref);
   }
 
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Products Catalog", path: "/products" },
+    { name: category.categoryTitle, path: `/products/${category.slug}` },
+  ];
+
   return (
     <div className="w-full bg-white text-[#0A1628] font-sans min-h-screen">
+      <JsonLd id={`product-schema-${category.slug}`} data={getProductCategorySchema(category)} />
+      <JsonLd id={`breadcrumb-schema-${category.slug}`} data={getBreadcrumbSchema(breadcrumbs)} />
       {/* ═══ 0. GA4 CATEGORY VIEW TRACKER ═══ */}
       <CategoryViewTracker
         id={category.id}
@@ -159,6 +205,9 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
               </div>
             </div>
           </div>
+
+          {/* ═══ 3B. RELATED PRODUCT CATEGORIES (INTERNAL LINKING) ═══ */}
+          <RelatedCategories currentCategorySlug={category.slug} />
 
         </div>
       </main>

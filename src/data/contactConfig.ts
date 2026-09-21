@@ -81,7 +81,7 @@ export const CONTACT_CONFIG: ContactData = {
   pfRegNo: "THTHA2797602000",
   email: "samarthcorporation.mumbai@gmail.com",
   secondaryEmail: "samarthcorporation.india@gmail.com",
-  website: "samarthcorporation.co.in",
+  website: "https://www.samarthcorporation.co",
   contacts: {
     vishal: {
       name: "Vishal Gadade",

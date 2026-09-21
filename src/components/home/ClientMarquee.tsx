@@ -98,9 +98,9 @@ export function ClientMarquee() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-5 text-center">
         <div className="inline-flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
-          <p className="text-slate-900 uppercase tracking-widest text-xs sm:text-[13px] font-extrabold font-mono-accent">
+          <h2 className="text-slate-900 uppercase tracking-widest text-xs sm:text-[13px] font-extrabold font-mono-accent m-0">
             TRUSTED BY INDUSTRY LEADERS ACROSS CHEMICALS, PHARMACEUTICALS &amp; HEAVY INFRASTRUCTURE
-          </p>
+          </h2>
           <span className="w-2 h-2 rounded-full bg-[#FF6B00]" />
         </div>
       </div>
@@ -121,14 +121,15 @@ export function ClientMarquee() {
               title={client.name}
               className="group relative shrink-0 flex items-center justify-center p-3 sm:p-4 rounded-xl bg-white border border-gray-200/80 hover:border-[#FF6B00]/60 shadow-2xs hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
             >
-              {/* Increased Height and Width Container with Crisp Image Sizing */}
+              {/* Efficient Crisp Logo Image Sizing (Capped to max 192px/384px retina, avoiding 3840px bloat) */}
               <div className="relative h-12 sm:h-14 md:h-16 w-36 sm:w-44 md:w-48 flex items-center justify-center">
                 <Image
                   src={client.logoPath}
-                  alt={client.name}
-                  fill
-                  sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, 192px"
-                  className="object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                  alt={`${client.name} — Samarth Corporation client`}
+                  width={192}
+                  height={64}
+                  loading="lazy"
+                  className="h-10 sm:h-12 md:h-14 w-auto max-w-[140px] sm:max-w-[170px] object-contain filter grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                 />
               </div>
             </div>

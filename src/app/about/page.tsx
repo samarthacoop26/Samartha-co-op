@@ -6,23 +6,52 @@ import { MaterialsAndFullCycleSection } from "@/components/about/MaterialsAndFul
 import { IndustriesServed } from "@/components/home/IndustriesServed";
 import { MissionSection } from "@/components/about/MissionSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { CONTACT_CONFIG } from "@/data/contactConfig";
+import { SITE_URL, getBreadcrumbSchema } from "@/lib/seoData";
+import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: `About Us | ${CONTACT_CONFIG.companyName}`,
+  title: "About Samarth Corporation | 25+ Yrs FRP Manufacturer India",
   description:
-    "Learn about Samarth Corporation — India's trusted manufacturer of PP & FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution for defence, chemical, and industrial sectors.",
+    "With 25+ years of expertise, Samarth Corporation is a govt-approved FRP manufacturer in Dombivli & Taloja serving chemical, pharma, defence & railway sectors.",
+  alternates: {
+    canonical: `${SITE_URL}/about`,
+  },
   openGraph: {
-    title: `About Us | ${CONTACT_CONFIG.companyName}`,
+    title: "About Samarth Corporation | 25+ Yrs FRP Manufacturer India",
     description:
-      "Engineering high-performance PP & FRP solutions, industrial lining, and turnkey erection across India.",
+      "With 25+ years of expertise, Samarth Corporation is a govt-approved FRP manufacturer in Dombivli & Taloja serving chemical, pharma, defence & railway sectors.",
+    url: `${SITE_URL}/about`,
     type: "website",
+    locale: "en_IN",
+    siteName: "Samarth Corporation",
+    images: [
+      {
+        url: "/images/about/plant-facility.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Samarth Corporation - 25+ Years of FRP Manufacturing Excellence",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Samarth Corporation | 25+ Yrs FRP Manufacturer India",
+    description:
+      "With 25+ years of expertise, Samarth Corporation is a govt-approved FRP manufacturer in Dombivli & Taloja serving chemical, pharma, defence & railway sectors.",
+    images: ["/images/about/plant-facility.jpg"],
   },
 };
 
 export default function AboutPage() {
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+  ];
+
   return (
     <div className="w-full bg-white text-[#0A1628] font-sans min-h-screen">
+      <JsonLd id="about-breadcrumb-schema" data={getBreadcrumbSchema(breadcrumbs)} />
+
       {/* ═══ 1. HERO HEADER & BREADCRUMB ═══ */}
       <AboutHero />
 

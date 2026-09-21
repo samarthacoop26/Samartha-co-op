@@ -128,7 +128,7 @@ export function ProductCategories() {
                 <div className="relative w-full aspect-[16/11] overflow-hidden bg-gray-100">
                   <Image
                     src={product.image}
-                    alt={product.title}
+                    alt={`${product.title} — Industrial FRP Manufacturing by Samarth Corporation`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority={index < 3}
@@ -208,13 +208,60 @@ export function ProductCategories() {
           ))}
         </motion.div>
 
-        {/* View All 11 Categories CTA Strip */}
-        <div className="mt-12 text-center">
+        {/* Specialized Marine & Recreational Divisions Contextual Links */}
+        <div className="mt-10 pt-8 border-t border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link
+              href="/frp-boats"
+              className="group p-4 sm:p-5 rounded-xl border border-gray-200 hover:border-[#FF6B00] bg-slate-50/70 hover:bg-white transition-all flex items-center justify-between"
+            >
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+                  <span className="text-[11px] font-bold text-[#FF6B00] uppercase tracking-wider">
+                    Specialized Division • Marine Vessels
+                  </span>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0A1628] group-hover:text-[#FF6B00] transition-colors">
+                  FRP Commercial &amp; Flood Rescue Boats &rarr;
+                </h3>
+                <p className="text-xs text-gray-500 mt-0.5">
+                  Unsinkable composite hulls with closed-cell PU flotation for disaster response, passenger transport &amp; patrols.
+                </p>
+              </div>
+              <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-[#FF6B00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-4" />
+            </Link>
+
+            <Link
+              href="/frp-swimming-pool"
+              className="group p-4 sm:p-5 rounded-xl border border-gray-200 hover:border-[#FF6B00] bg-slate-50/70 hover:bg-white transition-all flex items-center justify-between"
+            >
+              <div>
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+                  <span className="text-[11px] font-bold text-[#FF6B00] uppercase tracking-wider">
+                    Specialized Division • Monolithic Pools
+                  </span>
+                </div>
+                <h3 className="text-sm sm:text-base font-bold text-[#0A1628] group-hover:text-[#FF6B00] transition-colors">
+                  FRP Monolithic Swimming Pools &amp; Plunge Pools &rarr;
+                </h3>
+                <p className="text-xs text-gray-500 mt-0.5">
+                  One-piece leak-proof composite pools with 15-year warranty for villas, resorts &amp; rooftop installations.
+                </p>
+              </div>
+              <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-[#FF6B00] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0 ml-4" />
+            </Link>
+          </div>
+        </div>
+
+        {/* View All 13 Categories CTA Strip */}
+        <div className="mt-10 text-center">
           <Link
             href="/products"
             className="inline-flex items-center gap-2.5 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn px-8 py-4 rounded-xl transition-all duration-300 shadow-md group"
           >
-            <span>Explore All 11 Product Categories &amp; 110+ Products</span>
+            <span>Explore All 13 Product Categories &amp; 110+ Products</span>
             <ArrowUpRight className="w-4 h-4 text-[#FF6B00] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

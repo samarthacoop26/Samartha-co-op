@@ -117,7 +117,7 @@ function BoatProductCard({
             <Image
               key={img}
               src={img}
-              alt={`${boat.name} - View ${idx + 1}`}
+              alt={`${boat.name} — Commercial & Rescue FRP Boat (View ${idx + 1})`}
               fill
               sizes="(max-width: 1024px) 100vw, 42vw"
               className={`object-cover transition-all duration-700 ease-in-out group-hover/img:scale-105 ${
@@ -258,7 +258,7 @@ export function BoatFleetCatalog() {
               <span>Heavy-Duty Composite Boats</span>
             </div>
             <h2 className="type-h2 text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0A1628] tracking-tight">
-              FRP Boats
+              Commercial, Patrol &amp; Flood Rescue FRP Boats Catalog
             </h2>
             <p className="type-subheading text-gray-600 text-sm sm:text-base mt-2 max-w-3xl">
               High-strength, unsinkable fiberglass boats built for rescue

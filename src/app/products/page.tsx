@@ -8,21 +8,51 @@ import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 
+import { SITE_URL, getBreadcrumbSchema } from "@/lib/seoData";
+import { JsonLd } from "@/components/seo/JsonLd";
+
 export const metadata: Metadata = {
-  title: `FRP Products Catalog | ${CONTACT_CONFIG.companyName}`,
+  title: "FRP Products Catalog India | Industrial FRP Manufacturer",
   description:
-    "Explore Samarth Corporation's complete range of FRP products across all 13 industrial & marine divisions — gratings, manhole covers, chemical storage tanks, doors, electrical enclosures, safety structures, defence gear, FRP boats, and monolithic swimming pools.",
+    "Explore 110+ industrial FRP products by Samarth Corporation: tanks, scrubbers, gratings, covers, doors, and turnkey piping systems manufactured across India.",
+  alternates: {
+    canonical: `${SITE_URL}/products`,
+  },
   openGraph: {
-    title: `FRP Products Catalog | ${CONTACT_CONFIG.companyName}`,
+    title: "FRP Products Catalog India | Industrial FRP Manufacturer",
     description:
-      "Direct factory supply of high-performance FRP products for government, defence, railway, municipal, and industrial projects across India.",
+      "Explore 110+ industrial FRP products by Samarth Corporation: tanks, scrubbers, gratings, covers, doors, and turnkey piping systems manufactured across India.",
+    url: `${SITE_URL}/products`,
     type: "website",
+    locale: "en_IN",
+    siteName: "Samarth Corporation",
+    images: [
+      {
+        url: "/images/contact-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Samarth Corporation FRP Products Catalog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FRP Products Catalog India | Industrial FRP Manufacturer",
+    description:
+      "Explore 110+ industrial FRP products by Samarth Corporation: tanks, scrubbers, gratings, covers, doors, and turnkey piping systems manufactured across India.",
+    images: ["/images/contact-hero.jpg"],
   },
 };
 
 export default function ProductsOverviewPage() {
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Products Catalog", path: "/products" },
+  ];
+
   return (
     <div className="w-full bg-white text-[#0A1628] font-sans min-h-screen">
+      <JsonLd id="products-breadcrumb" data={getBreadcrumbSchema(breadcrumbs)} />
       {/* ═══ 1. INDUSTRIAL PRODUCTS OVERVIEW HERO ═══ */}
       <section className="relative w-full bg-[#0A1628] overflow-hidden pt-36 pb-20 sm:pt-44 sm:pb-24 border-b border-gray-800">
         {/* Real Industrial Header Background Image */}

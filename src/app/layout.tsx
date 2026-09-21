@@ -25,9 +25,41 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+import { SITE_URL, getOrganizationSchema, getLocalBusinessSchemas } from "@/lib/seoData";
+import { JsonLd } from "@/components/seo/JsonLd";
+
 export const metadata: Metadata = {
-  title: "Samarth Corporation | FRP Engineering Solutions, Lining & Turnkey Projects",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Samarth Corporation | FRP Engineering Solutions, Lining & Turnkey Projects",
+    template: "%s",
+  },
   description: "Manufacturer & stockist of FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution across India.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: SITE_URL,
+    siteName: "Samarth Corporation",
+    title: "Samarth Corporation | FRP Engineering Solutions & Turnkey Projects",
+    description: "Manufacturer & stockist of FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution across India.",
+    images: [
+      {
+        url: "/images/about/plant-facility.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Samarth Corporation - Manufacturing Works & Plant Facility",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Samarth Corporation | FRP Engineering Solutions & Turnkey Projects",
+    description: "Manufacturer & stockist of FRP tanks, scrubbers, blowers, M.S. lining, thermoplastic pipelines, and turnkey project execution across India.",
+    images: ["/images/about/plant-facility.jpg"],
+  },
   manifest: "/site.webmanifest",
   icons: {
     icon: [
@@ -72,6 +104,8 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-[#0A1628] font-sans" suppressHydrationWarning>
+        <JsonLd id="organization-schema" data={getOrganizationSchema()} />
+        <JsonLd id="localbusiness-schemas" data={getLocalBusinessSchemas()} />
         <GoogleAnalytics />
         <AnalyticsTracker />
         <SmoothScroll />

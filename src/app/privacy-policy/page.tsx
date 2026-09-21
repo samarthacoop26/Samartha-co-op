@@ -4,10 +4,15 @@ import { LegalPageShell, LegalSection } from "@/components/legal/LegalPageShell"
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { CheckCircle2 } from "lucide-react";
 
+import { SITE_URL } from "@/lib/seoData";
+
 export const metadata: Metadata = {
-  title: `Privacy Policy | ${CONTACT_CONFIG.companyName}`,
+  title: "Privacy Policy | DPDP Act Compliance | Samarth Corp",
   description:
-    `Privacy Policy for ${CONTACT_CONFIG.companyName} (${CONTACT_CONFIG.registeredName}), detailing how we collect, store, and protect your data under Indian DPDP Act 2023.`,
+    "Privacy Policy for Samarth Corporation under the Indian DPDP Act 2023, governing inquiry data, engineering drawings, and quotation confidentiality.",
+  alternates: {
+    canonical: `${SITE_URL}/privacy-policy`,
+  },
 };
 
 export default function PrivacyPolicyPage() {

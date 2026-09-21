@@ -128,7 +128,7 @@ export function ProductSectionItem({
                 <Image
                   key={`main-${img}-${idx}`}
                   src={img}
-                  alt={`${product.name} - View ${idx + 1}`}
+                  alt={`${product.name} — Industrial FRP Fabrication by Samarth Corporation (View ${idx + 1})`}
                   fill
                   unoptimized
                   className={`transition-all duration-700 ease-in-out group-hover/img:scale-105 ${
@@ -218,7 +218,7 @@ export function ProductSectionItem({
                   >
                     <Image
                       src={img}
-                      alt={`Thumbnail ${idx + 1}`}
+                      alt={`${product.name} thumbnail ${idx + 1}`}
                       fill
                       unoptimized
                       className="object-cover"

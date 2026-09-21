@@ -59,9 +59,9 @@ export function IndustriesServed() {
         <div className="flex items-center justify-between gap-4 mb-3.5 pb-2 border-b border-gray-200/60">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] shrink-0" />
-            <span className="type-eyebrow text-gray-500">
+            <h2 className="type-eyebrow text-gray-500 m-0">
               Industries Served
-            </span>
+            </h2>
           </div>
           <span className="type-footer text-gray-400 hidden sm:inline-block">
             B2B &amp; Public Infrastructure Engineering Solutions

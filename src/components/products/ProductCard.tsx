@@ -70,7 +70,7 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
           <div className="relative w-full h-48 sm:h-52 rounded-xl overflow-hidden mb-4 bg-gray-50 border border-gray-100 group/img">
             <Image
               src={currentImg}
-              alt={product.name}
+              alt={`${product.name} — Samarth Corporation FRP Manufacturing`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className={`transition-all duration-500 ease-out group-hover:scale-105 ${

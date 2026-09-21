@@ -4,21 +4,51 @@ import { Download, FileText, ExternalLink, Eye } from "lucide-react";
 import { CONTACT_CONFIG } from "@/data/contactConfig";
 import { FinalCTA } from "@/components/home/FinalCTA";
 
+import { SITE_URL, getBreadcrumbSchema } from "@/lib/seoData";
+import { JsonLd } from "@/components/seo/JsonLd";
+
 export const metadata: Metadata = {
-  title: `Corporate Product Brochure (PDF) | ${CONTACT_CONFIG.companyName}`,
+  title: "Download FRP Product Brochure PDF | Samarth Corporation",
   description:
-    "Download or view the official Samarth Corporation technical brochure covering our full range of PP & FRP tanks, gratings, scrubbers, piping systems, and customized composite engineering products.",
+    "Download the official technical product brochure of Samarth Corporation covering PP & FRP tanks, scrubbers, gratings, covers, lining, and engineering scope.",
+  alternates: {
+    canonical: `${SITE_URL}/brochure`,
+  },
   openGraph: {
-    title: `Product Brochure & Catalog | ${CONTACT_CONFIG.companyName}`,
+    title: "Download FRP Product Brochure PDF | Samarth Corporation",
     description:
-      "Explore comprehensive technical specifications, corrosion-resistance matrices, and industrial fabrication scope in our official corporate brochure.",
+      "Download the official technical product brochure of Samarth Corporation covering PP & FRP tanks, scrubbers, gratings, covers, lining, and engineering scope.",
+    url: `${SITE_URL}/brochure`,
     type: "website",
+    locale: "en_IN",
+    siteName: "Samarth Corporation",
+    images: [
+      {
+        url: "/images/contact-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Samarth Corporation Technical Product Brochure",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Download FRP Product Brochure PDF | Samarth Corporation",
+    description:
+      "Download the official technical product brochure of Samarth Corporation covering PP & FRP tanks, scrubbers, gratings, covers, lining, and engineering scope.",
+    images: ["/images/contact-hero.jpg"],
   },
 };
 
 export default function BrochurePage() {
+  const breadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Corporate Brochure", path: "/brochure" },
+  ];
+
   return (
     <div className="w-full bg-[#0A1628] text-white font-sans min-h-screen">
+      <JsonLd id="brochure-breadcrumb-schema" data={getBreadcrumbSchema(breadcrumbs)} />
       {/* ═══ 1. HERO HEADER ═══ */}
       <section className="relative w-full bg-[#0A1628] overflow-hidden pt-36 pb-16 sm:pt-44 sm:pb-20 border-b border-slate-800">
         <div
