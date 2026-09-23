@@ -159,45 +159,67 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-sans">
-          <p className="text-center sm:text-left type-footer text-slate-400" suppressHydrationWarning>
-            © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
-          </p>
+        <div className="pt-8 flex flex-col gap-5 text-xs text-slate-500 font-sans">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-center sm:text-left type-footer text-slate-400" suppressHydrationWarning>
+              © {new Date().getFullYear()} {CONTACT_CONFIG.registeredName}. All rights reserved.
+            </p>
 
-          {/* Legal Quick Links */}
-          <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5 text-xs text-slate-400 font-medium font-sans">
-            <Link
-              href="/privacy-policy"
-              className="hover:text-white transition-colors"
+            {/* Legal Quick Links */}
+            <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5 text-xs text-slate-400 font-medium font-sans">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <span className="text-slate-700">•</span>
+              <Link
+                href="/terms-and-conditions"
+                className="hover:text-white transition-colors"
+              >
+                Terms &amp; Conditions
+              </Link>
+              <span className="text-slate-700">•</span>
+              <Link
+                href="/disclaimer"
+                className="hover:text-white transition-colors"
+              >
+                Disclaimer
+              </Link>
+            </div>
+
+            {/* Back to Top */}
+            <button
+              onClick={scrollToTop}
+              type="button"
+              className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 text-slate-400 hover:text-white transition-all cursor-pointer font-sans"
+              aria-label="Scroll to top of page"
             >
-              Privacy Policy
-            </Link>
-            <span className="text-slate-700">•</span>
-            <Link
-              href="/terms-and-conditions"
-              className="hover:text-white transition-colors"
-            >
-              Terms &amp; Conditions
-            </Link>
-            <span className="text-slate-700">•</span>
-            <Link
-              href="/disclaimer"
-              className="hover:text-white transition-colors"
-            >
-              Disclaimer
-            </Link>
+              <span className="text-[11px] font-semibold font-mono-accent uppercase tracking-wider">Top</span>
+              <ArrowUp className="w-3 h-3 text-[#FF6B00] group-hover:-translate-y-0.5 transition-transform" />
+            </button>
           </div>
 
-          {/* Back to Top */}
-          <button
-            onClick={scrollToTop}
-            type="button"
-            className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/60 text-slate-400 hover:text-white transition-all cursor-pointer font-sans"
-            aria-label="Scroll to top of page"
-          >
-            <span className="text-[11px] font-semibold font-mono-accent uppercase tracking-wider">Top</span>
-            <ArrowUp className="w-3 h-3 text-[#FF6B00] group-hover:-translate-y-0.5 transition-transform" />
-          </button>
+          {/* Portfolio Credit Badge */}
+          <div className="flex justify-center items-center pb-2">
+            <a
+              href="https://omkar-potphode-portfolio-phi.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Crafted with love by Omkar Potphode"
+              className="group inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#0D1C33]/70 hover:bg-[#13284A] border border-slate-700/70 hover:border-[#FF6B00]/60 text-slate-400 hover:text-slate-200 text-xs shadow-sm hover:shadow-[0_0_15px_rgba(255,107,0,0.18)] transition-all duration-300 ease-out transform hover:-translate-y-0.5"
+            >
+              <span>Crafted with</span>
+              <span className="text-red-500 inline-block group-hover:scale-125 transition-transform duration-200">
+                ❤️
+              </span>
+              <span>by</span>
+              <span className="font-semibold text-slate-200 group-hover:text-[#FF6B00] transition-colors">
+                Omkar Potphode
+              </span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
