@@ -8,7 +8,7 @@ export function FinalCTA() {
   const { openQuoteModal } = useQuoteModal();
 
   return (
-    <section className="relative w-full bg-[#111827] text-white py-16 md:py-20 overflow-hidden">
+    <section className="relative w-full bg-[#111827] text-white py-16 md:py-20 overflow-hidden print:hidden">
       {/* Industrial Background Image with Dark Overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"

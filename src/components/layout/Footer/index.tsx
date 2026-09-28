@@ -18,7 +18,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#060D17] text-white border-t border-slate-800/80 overflow-hidden font-sans">
+    <footer className="relative bg-[#060D17] text-white border-t border-slate-800/80 overflow-hidden font-sans print:hidden">
       {/* Subtle Ambient Top Glow */}
       <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-[#FF6B00]/40 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[120px] bg-[#FF6B00]/5 blur-[100px] pointer-events-none" />
@@ -58,6 +58,7 @@ export function Footer() {
                 { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
                 { label: "Products Catalog", href: "/products" },
+                { label: "Product List", href: "/frp-products-list" },
                 { label: "FRP Swimming Pools", href: "/frp-swimming-pool" },
                 { label: "FRP Boats", href: "/frp-boats" },
                 { label: "Corporate Brochure (PDF)", href: "/brochure" },
@@ -144,12 +145,14 @@ export function Footer() {
                     >
                       {CONTACT_CONFIG.email}
                     </a>
-                    <a
-                      href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
-                      className="text-slate-300 hover:text-[#FF6B00] font-medium transition-colors font-sans"
-                    >
-                      {CONTACT_CONFIG.secondaryEmail}
-                    </a>
+                    {CONTACT_CONFIG.secondaryEmail && CONTACT_CONFIG.secondaryEmail !== CONTACT_CONFIG.email && (
+                      <a
+                        href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
+                        className="text-slate-300 hover:text-[#FF6B00] font-medium transition-colors font-sans"
+                      >
+                        {CONTACT_CONFIG.secondaryEmail}
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

@@ -29,7 +29,7 @@ export interface ContactData {
   esicRegNo: string;
   pfRegNo: string;
   email: string;
-  secondaryEmail: string;
+  secondaryEmail?: string;
   website: string;
   contacts: {
     vishal: {
@@ -79,8 +79,7 @@ export const CONTACT_CONFIG: ContactData = {
   msmeRegNo: "UDYAM-MH-33-0265642",
   esicRegNo: "34000607500000606",
   pfRegNo: "THTHA2797602000",
-  email: "samarthcorporation.mumbai@gmail.com",
-  secondaryEmail: "samarthcorporation.india@gmail.com",
+  email: "samarthcorporation.india@gmail.com",
   website: "https://www.samarthcorporation.co",
   contacts: {
     vishal: {
@@ -117,7 +116,7 @@ export const CONTACT_CONFIG: ContactData = {
       phoneDisplay: "+91 98673 39763",
       whatsapp: "919867339763",
       whatsappDisplay: "+91 98673 39763",
-      email: "samarthcorporation.mumbai@gmail.com",
+      email: "samarthcorporation.india@gmail.com",
     },
     quotations: {
       title: "Formal Quotations & Project Inquiries",
@@ -143,7 +142,7 @@ export const CONTACT_CONFIG: ContactData = {
       googleMapsEmbedUrl: "https://maps.google.com/maps?q=19.220812,73.114956&hl=en&z=16&output=embed",
       googleMapsDirectionsUrl: "https://maps.app.goo.gl/XK9LGy8LQt4X9C5M7?g_st=aw",
       phone: "+91 98673 39763 / +91 99308 62729",
-      email: "samarthcorporation.mumbai@gmail.com",
+      email: "samarthcorporation.india@gmail.com",
       operatingHours: "Mon–Sat, 9:00 AM – 6:30 PM IST",
     },
     {

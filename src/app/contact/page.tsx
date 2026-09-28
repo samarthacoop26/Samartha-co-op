@@ -427,18 +427,20 @@ export default function ContactPage() {
                       })
                     }
                   />
-                  <ContactRow
-                    icon={<Mail size={16} className="text-[#FF6B00]" />}
-                    label="Inquiries & Quotations Email"
-                    value={CONTACT_CONFIG.secondaryEmail}
-                    href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
-                    onClick={() =>
-                      trackDirectContact("email", {
-                        location: "Contact Page Quotations Email",
-                        value: CONTACT_CONFIG.secondaryEmail,
-                      })
-                    }
-                  />
+                  {CONTACT_CONFIG.secondaryEmail && CONTACT_CONFIG.secondaryEmail !== sales.email && (
+                    <ContactRow
+                      icon={<Mail size={16} className="text-[#FF6B00]" />}
+                      label="Inquiries & Quotations Email"
+                      value={CONTACT_CONFIG.secondaryEmail}
+                      href={`mailto:${CONTACT_CONFIG.secondaryEmail}`}
+                      onClick={() =>
+                        trackDirectContact("email", {
+                          location: "Contact Page Quotations Email",
+                          value: CONTACT_CONFIG.secondaryEmail,
+                        })
+                      }
+                    />
+                  )}
                 </div>
               </div>
 

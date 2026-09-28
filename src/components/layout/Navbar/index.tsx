@@ -21,7 +21,7 @@ export function Navbar() {
 
   return (
     <header 
-      className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${
+      className={`w-full fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out print:hidden ${
         isScrolled ? 'p-0' : 'p-0 sm:p-4 lg:p-8'
       }`}
     >

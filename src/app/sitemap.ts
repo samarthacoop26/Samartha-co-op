@@ -33,6 +33,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
+    // Complete FRP Product List
+    {
+      url: `${BASE_URL}/frp-products-list`,
+      lastModified: currentDate,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+
     // 11 Industrial Product Categories
     ...categoryRoutes,
 

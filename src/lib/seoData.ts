@@ -171,7 +171,7 @@ export function getLocalBusinessSchemas() {
       logo: `${SITE_URL}/images/brand/logo.png`,
       image: `${SITE_URL}/images/about/plant-facility.jpg`,
       telephone: workshop.phone?.split("/")[0].trim() || CONTACT_CONFIG.contacts.vishal.phone,
-      email: workshop.email || CONTACT_CONFIG.secondaryEmail,
+      email: workshop.email || CONTACT_CONFIG.secondaryEmail || CONTACT_CONFIG.email,
       priceRange: "$$",
       parentOrganization: {
         "@id": `${SITE_URL}/#organization`,

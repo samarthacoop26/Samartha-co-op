@@ -77,7 +77,7 @@ export async function sendInquiry(
   const fromEmail =
     process.env.RESEND_FROM_EMAIL || "inquiries@samarthcorporation.co";
   const toEmail =
-    process.env.RESEND_TO_EMAIL || "samarthcorporation.mumbai@gmail.com";
+    process.env.RESEND_TO_EMAIL || "samarthcorporation.india@gmail.com";
 
   const isModal = payload.source === "quote_modal";
   const notificationSubject = isModal

@@ -280,6 +280,47 @@ html.lenis body {
   filter: blur(0px);
 }
 
+/* ═══════════════════════════════════════════════════════════════════
+   PRINT STYLESHEET (Clean white background, sharp typography, no UI chrome)
+   ═══════════════════════════════════════════════════════════════════ */
+@media print {
+  @page {
+    margin: 12mm 15mm;
+    size: auto;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt !important;
+  }
+
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  .print-hidden,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print-block,
+  .print\:block {
+    display: block !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+}
+
 
 
 

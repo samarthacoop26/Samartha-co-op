@@ -220,6 +220,15 @@ export function MainNavbar() {
                   <ArrowRight className="w-3.5 h-3.5 text-[#FF6B00]" />
                 </Link>
 
+                <Link
+                  href="/frp-products-list"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between p-2.5 bg-slate-800/90 border border-slate-700/80 text-white type-btn text-xs rounded-xl hover:border-[#FF6B00]/60 transition-colors"
+                >
+                  <span>Product List</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#FF6B00]" />
+                </Link>
+
                 {ALL_PRODUCT_CATEGORIES.map((cat) => (
                   <div key={cat.id} className="space-y-1.5">
                     <Link
