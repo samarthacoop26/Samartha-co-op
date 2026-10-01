@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { ArrowRight, CheckCircle2, ShieldCheck, Factory } from "lucide-react";
-import { ProductItem } from "@/data/productsData";
+import { ProductItem, isStudioProductImage } from "@/data/productsData";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { trackProductQuoteClick, trackProductGallerySwitch } from "@/lib/analytics";
 
@@ -38,36 +38,7 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
   };
 
   const currentImg = images[activeIdx] || product.image;
-  const isStudio =
-    currentImg?.toLowerCase().includes("hdpe_fitting") ||
-    currentImg?.toLowerCase().includes("pp_pipes3") ||
-    currentImg?.toLowerCase().includes("pvc_fitting") ||
-    currentImg?.toLowerCase().includes("pvc_pipes2") ||
-    currentImg?.toLowerCase().includes("pprc_pipes") ||
-    currentImg?.toLowerCase().includes("pph_pipes") ||
-    currentImg?.toLowerCase().includes("pvdf_pipes4") ||
-    currentImg?.toLowerCase().includes("enclos") ||
-    currentImg?.toLowerCase().includes("frp_pub") ||
-    currentImg?.toLowerCase().includes("frp_pump.jpg") ||
-    currentImg?.toLowerCase().includes("frp_cabi") ||
-    currentImg?.toLowerCase().includes("frp_equi3") ||
-    currentImg?.toLowerCase().includes("frp_equi4") ||
-    currentImg?.toLowerCase().includes("frp_equi5") ||
-    currentImg?.toLowerCase().includes("cable_duct") ||
-    currentImg?.toLowerCase().includes("elec") ||
-    currentImg?.toLowerCase().includes("frp_box") ||
-    currentImg?.toLowerCase().includes("junc") ||
-    currentImg?.toLowerCase().includes("frp_gun") ||
-    currentImg?.toLowerCase().includes("frp_shel2") ||
-    currentImg?.toLowerCase().includes("frp_prot.") ||
-    currentImg?.toLowerCase().includes("frp_prot2") ||
-    currentImg?.toLowerCase().includes("frp_prot3") ||
-    currentImg?.toLowerCase().includes("frp_helmet") ||
-    currentImg?.toLowerCase().includes("frp_uav.") ||
-    currentImg?.toLowerCase().includes("frp_drone") ||
-    currentImg?.toLowerCase().includes("frp_ca1") ||
-    currentImg?.toLowerCase().includes("frp_grenade") ||
-    currentImg?.toLowerCase().includes("frp_ammo");
+  const isStudio = isStudioProductImage(currentImg);
 
   return (
     <div className="group flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-[#FF6B00] shadow-xs hover:shadow-lg transition-all duration-300 p-5 sm:p-6 justify-between overflow-hidden">

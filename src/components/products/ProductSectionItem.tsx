@@ -15,6 +15,7 @@ import {
   ProductItem,
   getProductImageUrl,
   getProductSubheading,
+  isStudioProductImage,
 } from "@/data/productsData";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { trackProductQuoteClick, trackProductGallerySwitch } from "@/lib/analytics";
@@ -114,7 +115,7 @@ export function ProductSectionItem({
           {/* Soft gradient overlay for contrast with badges and controls */}
           <div
             className={`absolute inset-0 pointer-events-none z-[3] transition-colors duration-500 ${
-              images[activeIdx]?.toLowerCase().includes("hdpe_fitting") || images[activeIdx]?.toLowerCase().includes("pp_pipes3") || images[activeIdx]?.toLowerCase().includes("pvc_fitting") || images[activeIdx]?.toLowerCase().includes("pvc_pipes2") || images[activeIdx]?.toLowerCase().includes("pprc_pipes") || images[activeIdx]?.toLowerCase().includes("pph_pipes") || images[activeIdx]?.toLowerCase().includes("pvdf_pipes4") || images[activeIdx]?.toLowerCase().includes("cable_duct") || images[activeIdx]?.toLowerCase().includes("cable_cover1") || images[activeIdx]?.toLowerCase().includes("elec") || images[activeIdx]?.toLowerCase().includes("frp_box") || images[activeIdx]?.toLowerCase().includes("junc") || images[activeIdx]?.toLowerCase().includes("frp_light1") || images[activeIdx]?.toLowerCase().includes("frp_light2") || images[activeIdx]?.toLowerCase().includes("terminal") || images[activeIdx]?.toLowerCase().includes("battery") || images[activeIdx]?.toLowerCase().includes("frp_tanks.jpeg") || images[activeIdx]?.toLowerCase().includes("insul") || images[activeIdx]?.toLowerCase().includes("enclos") || images[activeIdx]?.toLowerCase().includes("frp_pub") || images[activeIdx]?.toLowerCase().includes("frp_pump.jpg") || images[activeIdx]?.toLowerCase().includes("frp_cabi") || images[activeIdx]?.toLowerCase().includes("frp_equi3") || images[activeIdx]?.toLowerCase().includes("frp_equi4") || images[activeIdx]?.toLowerCase().includes("frp_equi5") || images[activeIdx]?.toLowerCase().includes("frp_gun") || images[activeIdx]?.toLowerCase().includes("frp_shel2") || images[activeIdx]?.toLowerCase().includes("frp_prot.") || images[activeIdx]?.toLowerCase().includes("frp_prot2") || images[activeIdx]?.toLowerCase().includes("frp_prot3") || images[activeIdx]?.toLowerCase().includes("frp_helmet") || images[activeIdx]?.toLowerCase().includes("frp_uav.") || images[activeIdx]?.toLowerCase().includes("frp_drone") || images[activeIdx]?.toLowerCase().includes("frp_ca1") || images[activeIdx]?.toLowerCase().includes("frp_grenade") || images[activeIdx]?.toLowerCase().includes("frp_ammo")
+              isStudioProductImage(images[activeIdx])
                 ? "bg-gradient-to-t from-black/60 via-transparent to-black/40"
                 : "bg-gradient-to-t from-black/85 via-black/10 to-black/75"
             }`}
@@ -123,7 +124,7 @@ export function ProductSectionItem({
           {/* Main Focused Product Image - Adaptive Cover for Site Photos & Contain with Studio Background for Products */}
           <div className="absolute inset-0 z-[2] overflow-hidden">
             {images.map((img, idx) => {
-              const isStudioProduct = img.toLowerCase().includes("hdpe_fitting") || img.toLowerCase().includes("pp_pipes3") || img.toLowerCase().includes("pvc_fitting") || img.toLowerCase().includes("pvc_pipes2") || img.toLowerCase().includes("pprc_pipes") || img.toLowerCase().includes("pph_pipes") || img.toLowerCase().includes("pvdf_pipes4") || img.toLowerCase().includes("cable_duct") || img.toLowerCase().includes("cable_cover1") || img.toLowerCase().includes("elec") || img.toLowerCase().includes("frp_box") || img.toLowerCase().includes("junc") || img.toLowerCase().includes("frp_light1") || img.toLowerCase().includes("frp_light2") || img.toLowerCase().includes("terminal") || img.toLowerCase().includes("battery") || img.toLowerCase().includes("frp_tanks.jpeg") || img.toLowerCase().includes("insul") || img.toLowerCase().includes("enclos") || img.toLowerCase().includes("frp_pub") || img.toLowerCase().includes("frp_pump.jpg") || img.toLowerCase().includes("frp_cabi") || img.toLowerCase().includes("frp_equi3") || img.toLowerCase().includes("frp_equi4") || img.toLowerCase().includes("frp_equi5") || img.toLowerCase().includes("frp_gun") || img.toLowerCase().includes("frp_shel2") || img.toLowerCase().includes("frp_prot.") || img.toLowerCase().includes("frp_prot2") || img.toLowerCase().includes("frp_prot3") || img.toLowerCase().includes("frp_helmet") || img.toLowerCase().includes("frp_uav.") || img.toLowerCase().includes("frp_drone") || img.toLowerCase().includes("frp_ca1") || img.toLowerCase().includes("frp_grenade") || img.toLowerCase().includes("frp_ammo");
+              const isStudioProduct = isStudioProductImage(img);
               return (
                 <Image
                   key={`main-${img}-${idx}`}

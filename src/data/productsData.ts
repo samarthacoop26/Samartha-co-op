@@ -2858,6 +2858,50 @@ export function getProductImageUrl(product: ProductItem, categorySlug?: string):
   return getCategoryImageUrl(catSlug);
 }
 
+// Determines if an image is a studio shot with transparent/white background needing contain + padding
+export function isStudioProductImage(src?: string): boolean {
+  if (!src) return false;
+  const s = src.toLowerCase();
+  return (
+    s.includes("hdpe_fitting") ||
+    s.includes("pp_pipes3") ||
+    s.includes("pvc_fitting") ||
+    s.includes("pvc_pipes2") ||
+    s.includes("pprc_pipes") ||
+    s.includes("pph_pipes") ||
+    s.includes("pvdf_pipes4") ||
+    s.includes("cable_duct") ||
+    s.includes("cable_cover1") ||
+    s.includes("elec") ||
+    s.includes("frp_box") ||
+    s.includes("junc") ||
+    s.includes("frp_light1") ||
+    s.includes("frp_light2") ||
+    s.includes("terminal") ||
+    s.includes("battery") ||
+    s.includes("frp_tanks.jpeg") ||
+    s.includes("insul") ||
+    s.includes("enclos") ||
+    s.includes("frp_pub") ||
+    s.includes("frp_pump.jpg") ||
+    s.includes("frp_cabi") ||
+    s.includes("frp_equi3") ||
+    s.includes("frp_equi4") ||
+    s.includes("frp_equi5") ||
+    s.includes("frp_gun") ||
+    s.includes("frp_shel2") ||
+    s.includes("frp_prot.") ||
+    s.includes("frp_prot2") ||
+    s.includes("frp_prot3") ||
+    s.includes("frp_helmet") ||
+    s.includes("frp_uav.") ||
+    s.includes("frp_drone") ||
+    s.includes("frp_ca1") ||
+    s.includes("frp_grenade") ||
+    s.includes("frp_ammo")
+  );
+}
+
 // Subheading generator for rich technical subheaders
 export function getProductSubheading(product: ProductItem): string {
   if (product.subheading) return product.subheading;
