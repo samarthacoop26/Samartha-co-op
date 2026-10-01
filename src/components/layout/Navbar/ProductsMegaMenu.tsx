@@ -65,9 +65,16 @@ export function ProductsMegaMenu({
         },
         {
           title: "Tanks & Chemical Storage",
-          description: "Dual-laminate chemical tanks & high-pressure piping.",
+          description: "Dual-laminate chemical tanks & process vessels.",
           href: "/products/tanks-piping-chemical-storage",
           icon: <Boxes className="w-4 h-4 text-[#FF6B00]" />,
+        },
+        {
+          title: "Pipes & Fittings",
+          description: "HDPE, PP, PVC, PPRC, PPH & PVDF piping systems.",
+          href: "/products/pipes-and-fittings",
+          icon: <Workflow className="w-4 h-4 text-[#FF6B00]" />,
+          badge: { text: "New", variant: "green" },
         },
         {
           title: "Manhole & Trench Covers",

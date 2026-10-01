@@ -26,10 +26,19 @@ const productCategories: ProductCategory[] = [
     badge: "Turnkey Execution",
   },
   {
+    id: "pipes-and-fittings",
+    categoryNumber: "05",
+    title: "Pipes & Fittings",
+    subheading: "HDPE, PP, PVC, PPRC, PPH & PVDF chemical process piping systems, electrofusion & butt-weld fittings.",
+    image: "/images/products/pipes-and-fittings-hero.jpg",
+    link: "/products/pipes-and-fittings",
+    badge: "Pressure & Chemical",
+  },
+  {
     id: "tanks-piping-chemical-storage",
     categoryNumber: "04",
-    title: "Tanks & Chemical Piping",
-    subheading: "Chemical-resistant storage tanks and pipeline systems for process plants, power stations and industrial facilities.",
+    title: "Tanks & Chemical Storage",
+    subheading: "Chemical-resistant dual-laminate storage tanks, reaction vessels and process equipment for industrial plants.",
     image: "/images/about/pp-frp-tanks.jpg",
     link: "/products/tanks-piping-chemical-storage",
     badge: "Dual Laminate",
@@ -54,21 +63,12 @@ const productCategories: ProductCategory[] = [
   },
   {
     id: "doors-windows-panels",
-    categoryNumber: "05",
+    categoryNumber: "06",
     title: "Doors, Windows & Enclosures",
     subheading: "Weatherproof doors, windows and electrical enclosures engineered for demanding industrial and public infrastructure.",
     image: "/images/about/tray-custom-fabrication.jpg",
     link: "/products/doors-windows-panels",
     badge: "IP65 Weatherproof",
-  },
-  {
-    id: "defence-equipment-protective-gear",
-    categoryNumber: "11",
-    title: "Defence & Railway Components",
-    subheading: "Precision-engineered FRP components built to specification for defence, railway and metro applications.",
-    image: "/images/about/defence-railway.jpg",
-    link: "/products/defence-equipment-protective-gear",
-    badge: "Defence Grade",
   },
 ];
 
@@ -255,13 +255,13 @@ export function ProductCategories() {
           </div>
         </div>
 
-        {/* View All 13 Categories CTA Strip */}
+        {/* View All 14 Categories CTA Strip */}
         <div className="mt-10 text-center">
           <Link
             href="/products"
             className="inline-flex items-center gap-2.5 bg-[#0A1628] hover:bg-[#FF6B00] text-white type-btn px-8 py-4 rounded-xl transition-all duration-300 shadow-md group"
           >
-            <span>Explore All 13 Product Categories &amp; 110+ Products</span>
+            <span>Explore All 14 Product Categories &amp; 120+ Products</span>
             <ArrowUpRight className="w-4 h-4 text-[#FF6B00] group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
         </div>

@@ -39,6 +39,13 @@ export function ProductCard({ product, categoryNumber }: ProductCardProps) {
 
   const currentImg = images[activeIdx] || product.image;
   const isStudio =
+    currentImg?.toLowerCase().includes("hdpe_fitting") ||
+    currentImg?.toLowerCase().includes("pp_pipes3") ||
+    currentImg?.toLowerCase().includes("pvc_fitting") ||
+    currentImg?.toLowerCase().includes("pvc_pipes2") ||
+    currentImg?.toLowerCase().includes("pprc_pipes") ||
+    currentImg?.toLowerCase().includes("pph_pipes") ||
+    currentImg?.toLowerCase().includes("pvdf_pipes4") ||
     currentImg?.toLowerCase().includes("enclos") ||
     currentImg?.toLowerCase().includes("frp_pub") ||
     currentImg?.toLowerCase().includes("frp_pump.jpg") ||

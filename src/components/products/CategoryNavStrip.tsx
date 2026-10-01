@@ -38,8 +38,13 @@ const ALL_NAV_CATEGORIES: NavItem[] = [
   },
   {
     id: "tanks-piping-chemical-storage",
-    name: "Tanks & Chemical Piping",
+    name: "Tanks & Chemical Storage",
     href: "/products/tanks-piping-chemical-storage",
+  },
+  {
+    id: "pipes-and-fittings",
+    name: "Pipes & Fittings",
+    href: "/products/pipes-and-fittings",
   },
   {
     id: "doors-windows-panels",
@@ -96,6 +101,15 @@ export function CategoryNavStrip({ currentCategorySlug, className = "" }: Catego
     if (item.id === "all") {
       isActive = isAllActive;
     } else if (item.id === currentCategorySlug) {
+      isActive = true;
+    } else if (
+      item.id === "pipes-and-fittings" &&
+      (currentCategorySlug === "pipes-and-fittings" ||
+        currentCategorySlug === "pipes-fittings" ||
+        currentCategorySlug === "pipe-and-fittings" ||
+        currentCategorySlug === "pipe-fittings" ||
+        currentCategorySlug === "hdpe-pp-pvc-pipes")
+    ) {
       isActive = true;
     } else if (
       item.id === "frp-boats" &&

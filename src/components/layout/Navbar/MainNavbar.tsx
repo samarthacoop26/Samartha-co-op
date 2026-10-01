@@ -216,7 +216,7 @@ export function MainNavbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-between p-2.5 bg-[#FF6B00]/15 border border-[#FF6B00]/40 text-white type-btn text-xs rounded-xl transition-colors"
                 >
-                  <span>Explore All 13 Categories</span>
+                  <span>Explore All 14 Categories</span>
                   <ArrowRight className="w-3.5 h-3.5 text-[#FF6B00]" />
                 </Link>
 

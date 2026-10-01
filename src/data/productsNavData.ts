@@ -105,8 +105,25 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
     href: "/products/tanks-piping-chemical-storage",
   },
   {
-    id: "doors-windows-panels",
+    id: "pipes-and-fittings",
     categoryNumber: "05",
+    categoryTitle: "Pipes & Fittings",
+    shortDescription: "Industrial HDPE, PP, PVC, PPRC, PPH, PVDF and dual-laminate piping systems & fittings.",
+    iconName: "Workflow",
+    statusBadge: "Pressure & Chemical",
+    items: [
+      "HDPE Pipe & Fittings",
+      "PP Pipe & Fittings",
+      "PVC Pipe & Fittings",
+      "PPRC Pipe & Fittings",
+      "PPH Pipe & Fittings",
+      "PVDF Pipe & Fittings",
+    ],
+    href: "/products/pipes-and-fittings",
+  },
+  {
+    id: "doors-windows-panels",
+    categoryNumber: "06",
     categoryTitle: "Doors, Windows & Panels",
     shortDescription: "Fire-retardant, moisture-proof composite architectural doors and transport body panels.",
     iconName: "DoorOpen",
@@ -129,7 +146,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "electrical-enclosures-control-boxes",
-    categoryNumber: "06",
+    categoryNumber: "07",
     categoryTitle: "Electrical Enclosures & Control Boxes",
     shortDescription: "Dielectric, non-conductive weather-proof kiosks and junction enclosures.",
     iconName: "Cpu",
@@ -152,7 +169,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "handrails-ladders-safety",
-    categoryNumber: "07",
+    categoryNumber: "08",
     categoryTitle: "Handrails, Ladders & Safety Structures",
     shortDescription: "OSHA-compliant safety guard rails, cage ladders and non-conductive fencing.",
     iconName: "Shield",
@@ -169,7 +186,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "cable-management-systems",
-    categoryNumber: "08",
+    categoryNumber: "09",
     categoryTitle: "Cable Management Systems",
     shortDescription: "Corrosion-proof FRP perforated and ladder type cable trays and routing supports.",
     iconName: "Workflow",
@@ -183,7 +200,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "civic-furniture-public-infra",
-    categoryNumber: "09",
+    categoryNumber: "10",
     categoryTitle: "Civic Furniture & Public Infrastructure",
     shortDescription: "Bespoke composite urban structures, cabins, modular toilets and canopies.",
     iconName: "Building",
@@ -210,7 +227,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "signage",
-    categoryNumber: "10",
+    categoryNumber: "11",
     categoryTitle: "Signage",
     shortDescription: "UV-resistant and weatherproof industrial and highway composite sign boards.",
     iconName: "Signpost",
@@ -225,7 +242,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "defence-equipment-protective-gear",
-    categoryNumber: "11",
+    categoryNumber: "12",
     categoryTitle: "Defence Equipment & Protective Gear",
     shortDescription: "Military-spec containers, ammunition cases, radomes and lightweight UAV components.",
     iconName: "ShieldAlert",
@@ -251,7 +268,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "frp-boats-marine-craft",
-    categoryNumber: "12",
+    categoryNumber: "13",
     categoryTitle: "FRP Boats",
     shortDescription: "Unsinkable composite flood rescue boats, coastal patrol craft, tourist ferries & sports motorboats.",
     iconName: "Anchor",
@@ -268,7 +285,7 @@ export const ALL_PRODUCT_CATEGORIES: ProductCategory[] = [
   },
   {
     id: "frp-swimming-pools",
-    categoryNumber: "13",
+    categoryNumber: "14",
     categoryTitle: "FRP Swimming Pools & Spas",
     shortDescription: "One-piece monolithic fiberglass swimming pools, rooftop plunge pools & hydrotherapy whirlpool spas.",
     iconName: "Waves",
@@ -299,7 +316,7 @@ export const INDUSTRIAL_PRODUCT_COLUMNS = ALL_PRODUCT_CATEGORIES.slice(0, 3).map
 }));
 
 export const QUICK_RESOURCE_LINKS = [
-  { id: "all-products", title: "View All 13 Categories", href: "/products" },
+  { id: "all-products", title: "View All 14 Categories", href: "/products" },
   { id: "frp-boats", title: "FRP Boats & Patrol Vessels", href: "/frp-boats" },
   { id: "frp-pools", title: "Prefab FRP Swimming Pools", href: "/frp-swimming-pool" },
   { id: "cad-rfq", title: "Request Custom CAD Fabrication", href: "/contact" },

@@ -298,9 +298,14 @@ export const CATEGORY_SEO_MAP: Record<
       "High-strength molded & pultruded FRP gratings, industrial walkways, platforms and stair treads manufactured in India by Samarth Corporation for chemical plants.",
   },
   "tanks-piping-chemical-storage": {
-    title: "FRP Chemical Tank & Piping Manufacturer India | PP-FRP",
+    title: "FRP Chemical Tank & Vessel Manufacturer India | PP-FRP",
     description:
-      "Heavy-duty PP/FRP dual-laminate chemical storage tanks, acid reaction vessels, and thermoplastic pipeline systems manufactured for chemical & industrial plants.",
+      "Heavy-duty PP/FRP dual-laminate chemical storage tanks, acid reaction vessels, and process vessels manufactured in India for chemical & industrial plants.",
+  },
+  "pipes-and-fittings": {
+    title: "HDPE, PP, PVC, PPRC, PPH, PVDF Pipe & Fittings Manufacturer India",
+    description:
+      "Industrial HDPE, PP, PVC, PPRC, PPH, PVDF and dual-laminate pipe and fitting manufacturer in India. Certified pressure piping for chemical plants & utilities.",
   },
   "doors-windows-panels": {
     title: "FRP Doors & Window Manufacturer India | Heavy Duty Panels",

@@ -10,9 +10,14 @@ interface RelatedCategoriesProps {
 
 const RELATED_CATEGORIES_MAP: Record<string, string[]> = {
   "industrial-projects": [
+    "pipes-and-fittings",
     "tanks-piping-chemical-storage",
     "gratings-walkways-platforms",
-    "manhole-drain-cable-covers",
+  ],
+  "pipes-and-fittings": [
+    "industrial-projects",
+    "tanks-piping-chemical-storage",
+    "gratings-walkways-platforms",
   ],
   "manhole-drain-cable-covers": [
     "gratings-walkways-platforms",
@@ -20,14 +25,14 @@ const RELATED_CATEGORIES_MAP: Record<string, string[]> = {
     "cable-management-systems",
   ],
   "gratings-walkways-platforms": [
+    "pipes-and-fittings",
     "manhole-drain-cable-covers",
     "handrails-ladders-safety",
-    "industrial-projects",
   ],
   "tanks-piping-chemical-storage": [
+    "pipes-and-fittings",
     "industrial-projects",
     "gratings-walkways-platforms",
-    "cable-management-systems",
   ],
   "doors-windows-panels": [
     "civic-furniture-public-infra",
@@ -116,7 +121,7 @@ export function RelatedCategories({ currentCategorySlug }: RelatedCategoriesProp
           href="/products"
           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0A1628] hover:text-[#FF6B00] transition-colors shrink-0 group"
         >
-          <span>All 13 Divisions</span>
+          <span>All 14 Divisions</span>
           <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>

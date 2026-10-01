@@ -6,22 +6,21 @@ import { ProductsCatalogClient } from "@/components/products/ProductsCatalogClie
 import { CategoryNavStrip } from "@/components/products/CategoryNavStrip";
 import { CertificationsSection } from "@/components/home/CertificationsSection";
 import { FinalCTA } from "@/components/home/FinalCTA";
-import { CONTACT_CONFIG } from "@/data/contactConfig";
 
 import { SITE_URL, getBreadcrumbSchema } from "@/lib/seoData";
 import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FRP Products Catalog India | Industrial FRP Manufacturer",
+  title: "Industrial & FRP Products Catalog India | Samarth Corporation",
   description:
-    "Explore 110+ industrial FRP products by Samarth Corporation: tanks, scrubbers, gratings, covers, doors, and turnkey piping systems manufactured across India.",
+    "Explore 120+ industrial products across 14 divisions by Samarth Corporation: HDPE, PP, PVC, PPRC, PPH, PVDF pipes & fittings, tanks, scrubbers, gratings, and turnkey systems.",
   alternates: {
     canonical: `${SITE_URL}/products`,
   },
   openGraph: {
-    title: "FRP Products Catalog India | Industrial FRP Manufacturer",
+    title: "Industrial & FRP Products Catalog India | Samarth Corporation",
     description:
-      "Explore 110+ industrial FRP products by Samarth Corporation: tanks, scrubbers, gratings, covers, doors, and turnkey piping systems manufactured across India.",
+      "Explore 120+ industrial products across 14 divisions by Samarth Corporation: HDPE, PP, PVC, PPRC, PPH, PVDF pipes & fittings, tanks, scrubbers, gratings, and turnkey systems.",
     url: `${SITE_URL}/products`,
     type: "website",
     locale: "en_IN",
@@ -37,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FRP Products Catalog India | Industrial FRP Manufacturer",
+    title: "Industrial & FRP Products Catalog India | Samarth Corporation",
     description:
-      "Explore 110+ industrial FRP products by Samarth Corporation: tanks, scrubbers, gratings, covers, doors, and turnkey piping systems manufactured across India.",
+      "Explore 120+ industrial products across 14 divisions by Samarth Corporation: HDPE, PP, PVC, PPRC, PPH, PVDF pipes & fittings, tanks, scrubbers, gratings, and turnkey systems.",
     images: ["/images/contact-hero.jpg"],
   },
 };

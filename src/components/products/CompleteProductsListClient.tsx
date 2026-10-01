@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useMemo,
+  useEffect,
+  useRef,
+  useSyncExternalStore,
+} from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -11,6 +17,7 @@ import {
   Check,
   ArrowRight,
   PackageSearch,
+  ChevronDown,
 } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 import { trackCtaClick, trackProductQuoteClick } from "@/lib/analytics";
@@ -50,21 +57,16 @@ export function CompleteProductsListClient({
     categories[0]?.slug || ""
   );
   const [copied, setCopied] = useState(false);
-  const [canShare, setCanShare] = useState(false);
-  const [pageUrl, setPageUrl] = useState("");
+
+  // Subscribe to Web Share API support safely without cascading renders
+  const canShare = useSyncExternalStore(
+    () => () => {},
+    () => typeof navigator !== "undefined" && typeof navigator.share === "function",
+    () => false
+  );
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
-
-  // Check Web Share API and capture URL on mount
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setPageUrl(window.location.href);
-      if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
-        setCanShare(true);
-      }
-    }
-  }, []);
 
   // Filter categories and products based on live search
   const { filteredCategories, matchingProductsCount } = useMemo(() => {
@@ -132,17 +134,22 @@ export function CompleteProductsListClient({
 
   // Handle Share
   const handleShare = async () => {
+    const currentUrl =
+      typeof window !== "undefined"
+        ? window.location.href
+        : "https://www.samarthcorporation.co/frp-products-list";
+
     const shareData = {
       title: "Complete FRP Product List — Samarth Corporation",
       text: `Every product Samarth Corporation manufactures: ${totalProducts} products across ${totalCategories} divisions.`,
-      url: pageUrl || "https://www.samarthcorporation.co/frp-products-list",
+      url: currentUrl,
     };
 
-    if (navigator.share) {
+    if (typeof navigator !== "undefined" && navigator.share) {
       try {
         await navigator.share(shareData);
         trackCtaClick("Native Share", "ProductList");
-      } catch (err) {
+      } catch {
         // User cancelled or share failed silently
       }
     }
@@ -150,7 +157,10 @@ export function CompleteProductsListClient({
 
   // Handle Copy Link
   const handleCopyLink = async () => {
-    const url = pageUrl || "https://www.samarthcorporation.co/frp-products-list";
+    const url =
+      typeof window !== "undefined"
+        ? window.location.href
+        : "https://www.samarthcorporation.co/frp-products-list";
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(url);
@@ -171,8 +181,11 @@ export function CompleteProductsListClient({
   };
 
   // Smooth scroll to category
-  const handleJumpToCategory = (e: React.MouseEvent<HTMLAnchorElement>, slug: string) => {
-    e.preventDefault();
+  const handleJumpToCategory = (
+    e: React.MouseEvent<HTMLAnchorElement> | null,
+    slug: string
+  ) => {
+    if (e) e.preventDefault();
     const el = document.getElementById(slug);
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -319,8 +332,28 @@ export function CompleteProductsListClient({
               </div>
             </div>
 
+            {/* Category Dropdown Selector */}
+            <div className="relative min-w-[200px] sm:min-w-[240px]">
+              <select
+                value={activeCategorySlug}
+                onChange={(e) => handleJumpToCategory(null, e.target.value)}
+                className="w-full appearance-none pl-3.5 pr-8 py-2 rounded-xl bg-slate-900/90 border border-slate-700 text-white text-xs sm:text-sm font-medium focus:outline-none focus:border-[#FF6B00] focus:ring-1 focus:ring-[#FF6B00] transition-colors cursor-pointer"
+                aria-label="Jump to Product Category"
+              >
+                <option value="" disabled>
+                  Jump to Category...
+                </option>
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.slug} className="bg-slate-900 text-white">
+                    {cat.categoryNumber}. {cat.shortTitle || cat.categoryTitle} ({cat.products.length})
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+
             {/* Live Count Indicator */}
-            <div className="flex items-center gap-2 self-start sm:self-center">
+            <div className="flex items-center gap-2 self-start sm:self-center shrink-0">
               <span className="type-footer text-xs font-mono-accent text-slate-300 bg-slate-800/80 px-3 py-1.5 rounded-lg border border-slate-700/70">
                 Showing{" "}
                 <span className="font-bold text-[#FF6B00]">

@@ -8,9 +8,11 @@ import { trackModalForm } from "@/lib/analytics";
 import { sendInquiry } from "@/app/actions/sendInquiry";
 
 const PRODUCT_OPTIONS = [
+  "Pipes & Fittings (HDPE, PP, PVC, PPRC, PPH, PVDF)",
+  "Industrial Projects & Turnkey Chemical Systems",
+  "Tanks & Chemical Storage",
   "Gratings, Walkways & Platforms",
   "Manhole, Drain & Cable Trench Covers",
-  "Tanks, Piping & Chemical Storage",
   "Doors, Windows & Architectural Panels",
   "Electrical Enclosures & Control Boxes",
   "Handrails, Ladders & Safety Structures",
@@ -18,8 +20,8 @@ const PRODUCT_OPTIONS = [
   "Civic Furniture & Public Infrastructure",
   "Signage & Display Boards",
   "Defence Equipment & Protective Gear",
-  "PP/FRP Blowers, Wet Scrubbers & Ducting",
-  "M.S. FRP Lining & Surface Coating",
+  "FRP Boats & Marine Craft",
+  "FRP Swimming Pools & Spas",
   "Custom Drawing / Fabrication Inquiry",
 ];
 
